@@ -62,6 +62,7 @@ Feuille de route et découpage par étapes (avec tâches parallélisables)
   - Designer : définir mécaniques principales (mana, coût, deck size, rares)
   - Dev A : écrire `CardData` Resource et loader simple (.tres)
   - Dev B : prototype TurnManager minimal (StartTurn/PlayerTurn/EnemyTurn)
+  - Dev C : Menu principal
   - Artist : fournir placeholders pour 6 cartes et 2 ennemis
   - QA / Playtest : sessions rapides pour vérifier la boucle de base
 
