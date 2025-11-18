@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://cekc18dbmnves"]
+
+[ext_resource type="Script" uid="uid://di081sdjvursu" path="res://slay_the_wc/Scenes/Menus/Main_menu/main_menu.gd" id="1_6fvm6"]
+[ext_resource type="Texture2D" uid="uid://wdb7prvrrf7t" path="res://slay_the_wc/Assets/Art/logoWinterCup.png" id="1_pye2b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rkit"]
+bg_color = Color(0.14901961, 0.627451, 0.8039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pye2b"]
+bg_color = Color(0.14901961, 0.627451, 0.8039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fvm6"]
+bg_color = Color(0.14901961, 0.627451, 0.8039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7as4m"]
+bg_color = Color(0.14901961, 0.627451, 0.8039216, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6fvm6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -382.0
+offset_right = 160.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rkit")
+text = "Continuer la partie"
+
+[node name="NewGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_pye2b")
+text = "Nouvelle partie"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_6fvm6")
+text = "Paramètres"
+
+[node name="ExitGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_7as4m")
+text = "Quitter la partie"
+
+[node name="TitleGame" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -244.0
+offset_top = 112.0
+offset_right = 331.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "Slay the Winter Cup"
+
+[node name="LogoWinterCup" type="Sprite2D" parent="."]
+position = Vector2(178, 273)
+scale = Vector2(0.5099668, 0.51916933)
+texture = ExtResource("1_pye2b")
+
+[node name="LogoWinterCup2" type="Sprite2D" parent="."]
+position = Vector2(965, 270)
+scale = Vector2(0.51, 0.496)
+texture = ExtResource("1_pye2b")
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitGame" to="." method="_on_exit_game_pressed"]
