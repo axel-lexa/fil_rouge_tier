@@ -26,17 +26,14 @@ script = ExtResource("1_6fvm6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -160.0
-offset_top = -382.0
+offset_top = 262.0
 offset_right = 160.0
-offset_bottom = -122.0
+offset_bottom = 522.0
 grow_horizontal = 2
-grow_vertical = 0
 theme_override_constants/separation = 20
 
 [node name="Continue" type="Button" parent="VBoxContainer"]
@@ -68,10 +65,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -244.0
-offset_top = 112.0
-offset_right = 331.0
-offset_bottom = 188.0
+offset_left = -241.0
+offset_top = 94.0
+offset_right = 241.0
+offset_bottom = 172.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 50
 text = "Slay the Winter Cup"
@@ -85,6 +82,21 @@ texture = ExtResource("1_pye2b")
 position = Vector2(965, 270)
 scale = Vector2(0.51, 0.496)
 texture = ExtResource("1_pye2b")
+
+[node name="Copyright" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -486.5
+offset_top = -32.0
+offset_right = 486.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.14901961, 0.627451, 0.8039216, 1)
+text = "© Winter Cup 2025 - 5d6, Les 12 pandas, Les Bibi, Les UwU, Les Pentamonstres, Les Aix-Asperants, La Confrérie du Beurre Salé"
 
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
