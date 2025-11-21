@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyegunm42rthh"]
+
+[ext_resource type="Texture2D" uid="uid://4j2t4rik3pah" path="res://assets/heheboi.png" id="1_kikvd"]
+[ext_resource type="Script" uid="uid://c26xr2quu5u2k" path="res://scripts/card.gd" id="1_q5obu"]
+[ext_resource type="Texture2D" uid="uid://brtcjvc70f27" path="res://assets/cardlayout.png" id="1_rjlel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjlel"]
+size = Vector2(873, 1364)
+
+[node name="card" type="Node2D"]
+script = ExtResource("1_q5obu")
+
+[node name="CardBody" type="Sprite2D" parent="."]
+scale = Vector2(0.1508918, 0.14856406)
+texture = ExtResource("1_rjlel")
+
+[node name="CardImage" type="Sprite2D" parent="CardBody"]
+position = Vector2(-3.7499237, -55.50003)
+scale = Vector2(0.76855665, 0.88166314)
+texture = ExtResource("1_kikvd")
+
+[node name="Label" type="Label" parent="CardBody"]
+anchors_preset = -1
+anchor_left = 0.23400001
+anchor_top = 0.082
+anchor_right = 0.87000006
+anchor_bottom = 0.116000004
+offset_left = -431.346
+offset_top = -731.356
+offset_right = -439.03003
+offset_bottom = -643.528
+theme_override_font_sizes/font_size = 98
+text = "hehe boi"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="CardBody"]
+position = Vector2(-862, -899)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardBody/Area2D"]
+position = Vector2(855.37305, 899.0005)
+shape = SubResource("RectangleShape2D_rjlel")
+
+[connection signal="mouse_entered" from="CardBody/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CardBody/Area2D" to="." method="_on_area_2d_mouse_exited"]

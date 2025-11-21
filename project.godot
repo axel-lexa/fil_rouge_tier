@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="fil_rouge_tier"
+run/main_scene="uid://8lkb4cdnkuor"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/vsync/vsync_mode=0
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
-
-[rendering]
-
-renderer/rendering_method="mobile"
