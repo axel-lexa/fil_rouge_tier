@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://1k2k2fb7j37s"]
+
+[node name="CardZoom" type="CanvasLayer"]
+
+[node name="HDCardImage" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2

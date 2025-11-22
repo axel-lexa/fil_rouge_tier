@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://c4ypjybsqdqj3"]
+
+[ext_resource type="Script" uid="uid://cuwiwbics1vdq" path="res://slay_the_wc/Cards/Base/CardData.gd" id="1_ndf5h"]
+
+[resource]
+script = ExtResource("1_ndf5h")
+source = "commun"
+name = "Défense"
+cost = 1
+type = "Compétence"
+text = "Gagnez 5 blocages"
+defense = 5
+metadata/_custom_type_script = "uid://cuwiwbics1vdq"

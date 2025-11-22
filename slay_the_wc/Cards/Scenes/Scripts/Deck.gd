@@ -3,7 +3,7 @@ extends Node2D
 const CARD_SCENE_PATH = "res://slay_the_wc/Cards/Scenes/Card.tscn"
 const CARD_DRAW_SPEED = 0.2
 
-var player_deck = ["Card1", "Card2", "Card3"]
+var player_deck = [load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), load("res://slay_the_wc/Cards/Data/Commun/Baston.tres")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +25,7 @@ func draw_card():
 	$RichTextLabel.text = str(player_deck.size())
 	var card_scene = preload(CARD_SCENE_PATH)
 	var new_card = card_scene.instantiate()
+	new_card.data = card_draw
 	$"../CardManager".add_child(new_card)
 	new_card.name = "Card"
 	$"../PlayerHand".add_card_to_hand(new_card, CARD_DRAW_SPEED)

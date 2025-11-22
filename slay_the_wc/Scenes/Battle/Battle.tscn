@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=10 format=3 uid="uid://0lx4u2cbsbx5"]
 
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
 [ext_resource type="Script" uid="uid://csiakp18y6451" path="res://slay_the_wc/Scenes/Battle/PlayerHand.gd" id="3_63f3c"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://7eamvbgaynbw" path="res://slay_the_wc/Cards/Scenes/Scripts/Deck.gd" id="4_8d46i"]
 [ext_resource type="Texture2D" uid="uid://dmwfve5pxufi7" path="res://slay_the_wc/Assets/Art/card_slot_deck.png" id="4_63f3c"]
 [ext_resource type="Script" uid="uid://ceyqelgn0rsu6" path="res://slay_the_wc/Scenes/Battle/InputManager.gd" id="6_8ajvn"]
+[ext_resource type="PackedScene" uid="uid://1k2k2fb7j37s" path="res://slay_the_wc/Cards/Scenes/CardZoom.tscn" id="7_n0u8k"]
+[ext_resource type="Script" uid="uid://dv0liaebeo6ga" path="res://slay_the_wc/Cards/Scenes/CardZoom.gd" id="8_m54iq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uxmdl"]
 size = Vector2(111, 181)
@@ -50,3 +52,6 @@ text = "0"
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("6_8ajvn")
+
+[node name="CardZoom" parent="." instance=ExtResource("7_n0u8k")]
+script = ExtResource("8_m54iq")
