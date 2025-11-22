@@ -15,6 +15,12 @@ run/main_scene="uid://cekc18dbmnves"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1400
+window/size/viewport_height=843
+window/vsync/vsync_mode=0
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

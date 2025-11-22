@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://0lx4u2cbsbx5"]
+
+[ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
+[ext_resource type="Script" uid="uid://csiakp18y6451" path="res://slay_the_wc/Scenes/Battle/PlayerHand.gd" id="3_63f3c"]
+[ext_resource type="PackedScene" uid="uid://c0232xdiagpb0" path="res://slay_the_wc/Cards/Scenes/CardSlot.tscn" id="3_uxmdl"]
+[ext_resource type="Script" uid="uid://7eamvbgaynbw" path="res://slay_the_wc/Cards/Scenes/Scripts/Deck.gd" id="4_8d46i"]
+[ext_resource type="Texture2D" uid="uid://dmwfve5pxufi7" path="res://slay_the_wc/Assets/Art/card_slot_deck.png" id="4_63f3c"]
+[ext_resource type="Script" uid="uid://ceyqelgn0rsu6" path="res://slay_the_wc/Scenes/Battle/InputManager.gd" id="6_8ajvn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxmdl"]
+size = Vector2(111, 181)
+
+[node name="Battle" type="Node2D"]
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("1_skn0e")
+
+[node name="CardSlot" parent="." instance=ExtResource("3_uxmdl")]
+position = Vector2(192, 235)
+
+[node name="PlayerHand" type="Node2D" parent="."]
+script = ExtResource("3_63f3c")
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(150, 740)
+script = ExtResource("4_8d46i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck"]
+z_index = -2
+position = Vector2(1.5258789e-05, 0)
+scale = Vector2(0.12917154, 0.13365248)
+texture = ExtResource("4_63f3c")
+
+[node name="Area2D" type="Area2D" parent="Deck"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_uxmdl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Deck"]
+z_index = -2
+offset_left = -10.0
+offset_top = -24.0
+offset_right = 30.0
+offset_bottom = 16.0
+scale = Vector2(2, 2)
+text = "0"
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("6_8ajvn")

@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 # Called when user click on button "Continuer la partie"
 func _on_continue_pressed() -> void:
 	print("Continuer la partie")
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
 
 # Called when user click on button "Nouvelle partie"
 func _on_new_game_pressed() -> void:
