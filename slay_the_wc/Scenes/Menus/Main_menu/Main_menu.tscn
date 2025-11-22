@@ -74,12 +74,12 @@ theme_override_font_sizes/normal_font_size = 50
 text = "Slay the Winter Cup"
 
 [node name="LogoWinterCup" type="Sprite2D" parent="."]
-position = Vector2(178, 273)
+position = Vector2(216.99998, 273.00003)
 scale = Vector2(0.5099668, 0.51916933)
 texture = ExtResource("1_pye2b")
 
 [node name="LogoWinterCup2" type="Sprite2D" parent="."]
-position = Vector2(965, 270)
+position = Vector2(1109, 270)
 scale = Vector2(0.51, 0.496)
 texture = ExtResource("1_pye2b")
 

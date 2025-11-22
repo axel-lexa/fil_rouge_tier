@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=11 format=3 uid="uid://0lx4u2cbsbx5"]
 
+[ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
 [ext_resource type="Script" uid="uid://csiakp18y6451" path="res://slay_the_wc/Scenes/Battle/PlayerHand.gd" id="3_63f3c"]
 [ext_resource type="PackedScene" uid="uid://c0232xdiagpb0" path="res://slay_the_wc/Cards/Scenes/CardSlot.tscn" id="3_uxmdl"]
@@ -13,6 +14,7 @@
 size = Vector2(111, 181)
 
 [node name="Battle" type="Node2D"]
+script = ExtResource("1_m54iq")
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("1_skn0e")

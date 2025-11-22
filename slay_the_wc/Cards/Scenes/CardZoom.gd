@@ -18,7 +18,6 @@ func show_card(data: CardData):
 
 	# Taille originale de la texture
 	var tex_size = data.illustration_hd.get_size()
-	print("size=", tex_size.x)
 	var aspect = tex_size.x / tex_size.y
 	
 	# Calcul du scale proportionnel pour ne pas dépasser les limites
