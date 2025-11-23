@@ -7,7 +7,26 @@ const MAX_ENERGY = 3
 
 var player_turn
 var player_hand_reference
+var end_game
+var intention: Dictionary
+
 func _ready():
+	
+	$CardManager.visible = false
+	$PlayerHand.visible = false
+	$Bin.visible = false
+	$Deck.visible = false
+	$BattleField/NamePlayer.visible = false
+	$BattleField/HealthPlayer.visible = false
+	$BattleField/DefensePlayer.visible = false
+	$BattleField/EnergyPlayer.visible = false
+	$BattleField/NameEnnemy.visible = false
+	$BattleField/HealthEnnemy.visible = false
+	$BattleField/DefenseEnnemy.visible = false
+	$BattleField/CardSlot.visible = false
+	$Button.visible = false
+	$PlayerImage.visible = false
+	$EnnemieImage.visible = false
 	$PlayerHand.connect("hand_size_changed", _on_hand_size_changed)
 	
 	player_hand_reference = $"../PlayerHand"
@@ -27,6 +46,7 @@ func _ready():
 		$Deck.draw_card()
 		
 	player_turn = true
+	end_game = false
 	
 func _on_hand_size_changed(size):
 	if size >= $PlayerHand.MAX_HAND_SIZE:
@@ -36,11 +56,34 @@ func _on_hand_size_changed(size):
 		
 func battle(card: Card2, card_slot):
 	print("Battle")
-	if not player_turn:
+	if not player_turn or end_game:
 		return
 	#if player.energy == 0  or player.energy < card.data.cost:
 		#print("Pas assez d'energie")
 		#return;
+		
+	#if ennemy.pattern[0].type == "Attaque":
+		#player.health = player.health-ennemy.pattern[0].attaque
+		#$BattleField/HealthPlayer.text = "Vie : " + str(player.health)
+	#
+	#if player.health <= 0:
+		#$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
+		#$EndBattle.visible = true
+		#$BattleField/HealthPlayer.text = "Vie : 0"
+		#$Deck.set_deck_enabled(false)
+		#end_game = true
+		#return
+	#player_turn = true
+	#player.energy = MAX_ENERGY
+	#$BattleField/EnergyPlayer.text = "Energie : " + str(player.energy)
+	intention = ennemy.pattern[0]
+	print(intention)
+	if intention.type == "Attaque":
+		
+		$IntentionEnnemie.texture = load("res://slay_the_wc/Assets/Art/attack.png")
+		print($IntentionEnnemie.texture)
+		
+		
 	if card.data.type == "Defense":
 		player.energy = player.energy-card.data.cost
 		player.defense = player.defense+card.data.defense
@@ -55,8 +98,14 @@ func battle(card: Card2, card_slot):
 			$ResultBattle.text = "Vous avez gagné, GG :)"
 			$EndBattle.visible = true
 			$BattleField/HealthEnnemy.text = "Vie : 0"
+			$Button.visible = false
+			card_slot.card_in_slot = true
+			$Deck.set_deck_enabled(false)
 		$BattleField/HealthEnnemy.text = "Vie : " + str(ennemy.health)
 		$BattleField/EnergyPlayer.text = "Energie : " + str(player.energy)
+		
+		
+		
 	move_card_to_bin(card)
 	
 	#$PlayerHand.remove_card_from_hand(card)
@@ -66,6 +115,10 @@ func battle(card: Card2, card_slot):
 	#card_slot.card_in_slot = false
 	
 func move_card_to_bin(card: Card2):
+	
+	if end_game:
+		return
+	
 	# 1️⃣ Retirer de la main
 	$PlayerHand.remove_card_from_hand(card)
 
@@ -91,6 +144,9 @@ func _on_button_pressed() -> void:
 		$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
 		$EndBattle.visible = true
 		$BattleField/HealthPlayer.text = "Vie : 0"
+		$Deck.set_deck_enabled(false)
+		end_game = true
+		return
 	player_turn = true
 	player.energy = MAX_ENERGY
 	$BattleField/EnergyPlayer.text = "Energie : " + str(player.energy)
@@ -99,3 +155,20 @@ func _on_button_pressed() -> void:
 
 func _on_end_battle_pressed() -> void:
 	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/Main_menu/Main_menu.tscn")
+
+
+func _on_video_stream_player_finished() -> void:
+	$CardManager.visible = true
+	$PlayerHand.visible = true
+	$Bin.visible = true
+	$Deck.visible = true
+	$BattleField/NamePlayer.visible = true
+	$BattleField/DefensePlayer.visible = true
+	$BattleField/EnergyPlayer.visible = true
+	$BattleField/NameEnnemy.visible = true
+	$BattleField/HealthEnnemy.visible = true
+	$BattleField/DefenseEnnemy.visible = true
+	$BattleField/CardSlot.visible = true
+	$Button.visible = true
+	$PlayerImage.visible = true
+	$EnnemieImage.visible = true

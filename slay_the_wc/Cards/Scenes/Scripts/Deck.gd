@@ -46,7 +46,6 @@ func draw_card():
 	new_card.name = "Card"
 	
 	var hand = $"../PlayerHand"
-	print("taille main=", hand.player_hand.size())
 	if hand.player_hand.size() < hand.MAX_HAND_SIZE:
 		hand.add_card_to_hand(new_card, CARD_DRAW_SPEED)
 	else:

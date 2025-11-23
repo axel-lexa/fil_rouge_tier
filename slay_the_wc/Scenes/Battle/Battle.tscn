@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=14 format=3 uid="uid://0lx4u2cbsbx5"]
 
 [ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://dv0liaebeo6ga" path="res://slay_the_wc/Cards/Scenes/CardZoom.gd" id="8_m54iq"]
 [ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Art/Telo.png" id="10_g1550"]
 [ext_resource type="Texture2D" uid="uid://cs1qe6awkyhlw" path="res://slay_the_wc/Assets/Art/patate_ennemie.png" id="11_4wtip"]
+[ext_resource type="Texture2D" uid="uid://bghcekvflyd27" path="res://slay_the_wc/Assets/Art/background_1.png" id="12_1usg4"]
+[ext_resource type="VideoStream" uid="uid://b4arpe4l2rkr3" path="res://slay_the_wc/Assets/Art/background_forest_final.ogv" id="13_37y5e"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_m54iq")
@@ -74,15 +76,15 @@ theme_override_font_sizes/normal_font_size = 30
 scroll_active = false
 
 [node name="HealthEnnemy" type="RichTextLabel" parent="BattleField"]
-offset_left = 1041.0
+offset_left = 940.0
 offset_top = 568.0
-offset_right = 1144.0
+offset_right = 1043.0
 offset_bottom = 597.0
 
 [node name="DefenseEnnemy" type="RichTextLabel" parent="BattleField"]
-offset_left = 1169.0
+offset_left = 1096.0
 offset_top = 568.0
-offset_right = 1268.0
+offset_right = 1195.0
 offset_bottom = 606.0
 
 [node name="CardSlot" parent="BattleField" instance=ExtResource("3_uxmdl")]
@@ -96,13 +98,14 @@ offset_bottom = 517.0
 text = "Fin du tour"
 
 [node name="ResultBattle" type="RichTextLabel" parent="."]
-offset_left = 438.0
+offset_left = 454.0
 offset_top = 21.0
-offset_right = 1047.0
+offset_right = 1063.0
 offset_bottom = 117.0
 theme_override_font_sizes/normal_font_size = 40
 
 [node name="EndBattle" type="Button" parent="."]
+visible = false
 offset_left = 608.0
 offset_top = 160.0
 offset_right = 810.0
@@ -110,14 +113,36 @@ offset_bottom = 191.0
 text = "Retour à l'ecran principal"
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
-position = Vector2(280, 322)
-scale = Vector2(0.3, 0.3)
+position = Vector2(291, 476.00003)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_g1550")
 
 [node name="EnnemieImage" type="Sprite2D" parent="."]
-position = Vector2(1128, 311)
-scale = Vector2(0.6, 0.6)
+position = Vector2(1139.0001, 489.00003)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("11_4wtip")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+visible = false
+z_index = -7
+position = Vector2(699, 424.00003)
+scale = Vector2(1.1986301, 1.0714287)
+texture = ExtResource("12_1usg4")
+
+[node name="IntentionEnnemie" type="Sprite2D" parent="."]
+z_index = 9
+position = Vector2(1081, 163)
+scale = Vector2(0.3, 0.327)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+z_index = -12
+offset_right = 1408.0
+offset_bottom = 841.0
+scale = Vector2(2.1, 1.85)
+stream = ExtResource("13_37y5e")
+volume_db = -80.0
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="EndBattle" to="." method="_on_end_battle_pressed"]
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
