@@ -93,6 +93,7 @@ func _on_button_pressed() -> void:
 		$BattleField/HealthPlayer.text = "Vie : 0"
 	player_turn = true
 	player.energy = MAX_ENERGY
+	$BattleField/EnergyPlayer.text = "Energie : " + str(player.energy)
 	
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=12 format=3 uid="uid://0lx4u2cbsbx5"]
 
 [ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://ceyqelgn0rsu6" path="res://slay_the_wc/Scenes/Battle/InputManager.gd" id="6_8ajvn"]
 [ext_resource type="PackedScene" uid="uid://1k2k2fb7j37s" path="res://slay_the_wc/Cards/Scenes/CardZoom.tscn" id="7_n0u8k"]
 [ext_resource type="Script" uid="uid://dv0liaebeo6ga" path="res://slay_the_wc/Cards/Scenes/CardZoom.gd" id="8_m54iq"]
+[ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Art/Telo.png" id="10_g1550"]
+[ext_resource type="Texture2D" uid="uid://cs1qe6awkyhlw" path="res://slay_the_wc/Assets/Art/patate_ennemie.png" id="11_4wtip"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_m54iq")
@@ -22,12 +24,12 @@ script = ExtResource("3_63f3c")
 [node name="Bin" parent="." instance=ExtResource("4_m54iq")]
 light_mask = 16
 visibility_layer = 16
-position = Vector2(1310, 665)
+position = Vector2(1323, 715)
 
 [node name="Deck" parent="." instance=ExtResource("4_n0u8k")]
 light_mask = 16
 visibility_layer = 16
-position = Vector2(67, 665)
+position = Vector2(67, 715)
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("6_8ajvn")
@@ -38,71 +40,84 @@ script = ExtResource("8_m54iq")
 [node name="BattleField" type="Node" parent="."]
 
 [node name="NamePlayer" type="RichTextLabel" parent="BattleField"]
-offset_left = 92.0
-offset_top = 132.0
-offset_right = 333.0
-offset_bottom = 172.0
+offset_left = 251.0
+offset_top = 118.0
+offset_right = 530.0
+offset_bottom = 158.0
+theme_override_font_sizes/normal_font_size = 30
+scroll_active = false
 
 [node name="HealthPlayer" type="RichTextLabel" parent="BattleField"]
-offset_left = 102.0
-offset_top = 180.0
-offset_right = 327.0
-offset_bottom = 203.0
+offset_left = 218.0
+offset_top = 568.0
+offset_right = 295.0
+offset_bottom = 591.0
 
 [node name="DefensePlayer" type="RichTextLabel" parent="BattleField"]
-offset_left = 110.0
-offset_top = 214.0
-offset_right = 420.0
-offset_bottom = 251.0
+offset_left = 339.0
+offset_top = 568.0
+offset_right = 454.0
+offset_bottom = 592.0
 
 [node name="EnergyPlayer" type="RichTextLabel" parent="BattleField"]
-offset_left = 121.0
-offset_top = 289.0
-offset_right = 330.0
-offset_bottom = 318.0
+offset_left = 493.0
+offset_top = 568.0
+offset_right = 587.0
+offset_bottom = 597.0
 
 [node name="NameEnnemy" type="RichTextLabel" parent="BattleField"]
 offset_left = 1053.0
-offset_top = 134.0
+offset_top = 118.0
 offset_right = 1331.0
-offset_bottom = 168.0
+offset_bottom = 183.0
+theme_override_font_sizes/normal_font_size = 30
+scroll_active = false
 
 [node name="HealthEnnemy" type="RichTextLabel" parent="BattleField"]
-offset_left = 1092.0
-offset_top = 209.0
-offset_right = 1306.0
-offset_bottom = 238.0
+offset_left = 1041.0
+offset_top = 568.0
+offset_right = 1144.0
+offset_bottom = 597.0
 
 [node name="DefenseEnnemy" type="RichTextLabel" parent="BattleField"]
-offset_left = 1106.0
-offset_top = 246.0
-offset_right = 1337.0
-offset_bottom = 290.0
+offset_left = 1169.0
+offset_top = 568.0
+offset_right = 1268.0
+offset_bottom = 606.0
 
 [node name="CardSlot" parent="BattleField" instance=ExtResource("3_uxmdl")]
-position = Vector2(670, 430)
+position = Vector2(701, 327)
 
 [node name="Button" type="Button" parent="."]
-offset_left = 113.0
-offset_top = 517.0
-offset_right = 206.0
-offset_bottom = 548.0
+offset_left = 655.0
+offset_top = 486.0
+offset_right = 748.0
+offset_bottom = 517.0
 text = "Fin du tour"
 
 [node name="ResultBattle" type="RichTextLabel" parent="."]
-offset_left = 391.0
-offset_top = 135.0
-offset_right = 1000.0
-offset_bottom = 231.0
+offset_left = 438.0
+offset_top = 21.0
+offset_right = 1047.0
+offset_bottom = 117.0
 theme_override_font_sizes/normal_font_size = 40
 
 [node name="EndBattle" type="Button" parent="."]
-visible = false
-offset_left = 573.0
-offset_top = 269.0
-offset_right = 775.0
-offset_bottom = 300.0
+offset_left = 608.0
+offset_top = 160.0
+offset_right = 810.0
+offset_bottom = 191.0
 text = "Retour à l'ecran principal"
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+position = Vector2(280, 322)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_g1550")
+
+[node name="EnnemieImage" type="Sprite2D" parent="."]
+position = Vector2(1128, 311)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_4wtip")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="EndBattle" to="." method="_on_end_battle_pressed"]
