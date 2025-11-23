@@ -11,6 +11,14 @@ load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"),
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
+load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
+load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
+load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
+load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
+load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres")]
 
 # Called when the node enters the scene tree for the first time.
@@ -34,7 +42,7 @@ func draw_card():
 	var card_scene = preload(CARD_SCENE_PATH)
 	var new_card = card_scene.instantiate()
 	new_card.data = card_draw
-	$"../CardManager".add_child(new_card)
+	$"../PlayerHand".add_child(new_card)
 	new_card.name = "Card"
 	
 	var hand = $"../PlayerHand"

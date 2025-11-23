@@ -1,15 +1,16 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://dft0npjf5dwe8"]
 
 [ext_resource type="Script" uid="uid://cuwiwbics1vdq" path="res://slay_the_wc/Cards/Base/CardData.gd" id="1_37jpj"]
-[ext_resource type="Texture2D" uid="uid://bgw0v6u7pufsi" path="res://slay_the_wc/Assets/Art/template_hd.jpg" id="1_vxoow"]
+[ext_resource type="Texture2D" uid="uid://dpmmx4xv2gmys" path="res://slay_the_wc/Assets/Art/template_panda_vide.jpg" id="1_vxoow"]
 
 [resource]
 script = ExtResource("1_37jpj")
 source = "commun"
-name = "Baston ! Ceci est un test pour scroll"
+name = "Baston !"
 cost = 1
 type = "Attaque"
-text = "Infligez 6 dégâts"
+artwork = ExtResource("1_vxoow")
+text = "Inflige 3 dégâts à une cible aléatoire pour chaque panda parti à l'attaque ce combat"
 attack = 6
 illustration_hd = ExtResource("1_vxoow")
 metadata/_custom_type_script = "uid://cuwiwbics1vdq"

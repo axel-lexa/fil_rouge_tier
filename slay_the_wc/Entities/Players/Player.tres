@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=2 format=3 uid="uid://b7nfllbrogt2t"]
+
+[ext_resource type="Script" uid="uid://c541r5p6gwvel" path="res://slay_the_wc/Entities/Entity.gd" id="1_w4rw8"]
+
+[resource]
+script = ExtResource("1_w4rw8")
+name = "CercusMC"
+health = 100
+defense = 20
+energy = 3
+metadata/_custom_type_script = "uid://c541r5p6gwvel"

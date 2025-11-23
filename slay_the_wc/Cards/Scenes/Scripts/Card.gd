@@ -1,4 +1,9 @@
 extends Node2D
+class_name Card2
+
+const BASE_SCALE = Vector2(1.7, 1.7)
+const HOVER_SCALE = Vector2(1.75, 1.75)
+
 
 signal hovered
 signal hovered_off
@@ -12,10 +17,11 @@ var is_hovering = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_parent().connect_card_signals(self)
+	get_tree().root.get_node("Battle/CardManager").connect_card_signals(self)
 	$NameLabel.text = data.name
 	$CostLabel.text = str(data.cost)
 	$TextLabel.text = data.text
+	$CardImage.texture = data.artwork
 	$TextureRect.texture = data.illustration_hd
 	$Area2D.mouse_entered.connect(_on_mouse_entered)
 	$Area2D.mouse_exited.connect(_on_mouse_exited)
