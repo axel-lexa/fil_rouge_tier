@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg37g3foc8ei1"
-path="res://.godot/imported/arrow-145763_640.png-7dbf072b61eb4329ca1729665143b816.ctex"
+uid="uid://d28urwm7s16i1"
+path="res://.godot/imported/shield_icon.png-6f6c4f3296ed245b41d7385759d0ac8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slay_the_wc/Assets/Art/arrow-145763_640.png"
-dest_files=["res://.godot/imported/arrow-145763_640.png-7dbf072b61eb4329ca1729665143b816.ctex"]
+source_file="res://slay_the_wc/Assets/Art/shield_icon.png"
+dest_files=["res://.godot/imported/shield_icon.png-6f6c4f3296ed245b41d7385759d0ac8c.ctex"]
 
 [params]
 

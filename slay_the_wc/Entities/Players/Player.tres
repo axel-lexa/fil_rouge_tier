@@ -5,7 +5,6 @@
 [resource]
 script = ExtResource("1_w4rw8")
 name = "CercusMC"
-health = 100
-defense = 20
+health = 43
 energy = 3
 metadata/_custom_type_script = "uid://c541r5p6gwvel"

@@ -10,6 +10,21 @@ pattern = Array[Dictionary]([{
 "attaque": 9,
 "defense": 0,
 "name": "Boink",
-"type": "Attaque"
+"type": "ATK"
+}, {
+"attaque": 0,
+"defense": 5,
+"name": "Shield",
+"type": "DEF"
+}, {
+"attaque": 0,
+"defense": 0,
+"name": "Buff !",
+"type": "BUFF"
+}, {
+"attaque": 0,
+"defense": 0,
+"name": "Debuff !",
+"type": "DEBUFF"
 }])
 metadata/_custom_type_script = "uid://c541r5p6gwvel"
