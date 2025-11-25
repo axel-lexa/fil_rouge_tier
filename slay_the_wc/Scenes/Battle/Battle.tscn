@@ -44,7 +44,7 @@ position = Vector2(1323, 715)
 [node name="Deck" parent="." instance=ExtResource("4_n0u8k")]
 light_mask = 16
 visibility_layer = 16
-position = Vector2(67, 715)
+position = Vector2(88, 715)
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("6_8ajvn")
