@@ -5,8 +5,8 @@ const CARD_DRAW_SPEED = 0.2
 
 var player_deck = [load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
+load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 

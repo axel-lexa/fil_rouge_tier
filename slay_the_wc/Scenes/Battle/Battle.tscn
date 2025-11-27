@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=20 format=3 uid="uid://0lx4u2cbsbx5"]
 
 [ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
@@ -16,6 +16,7 @@
 [ext_resource type="VideoStream" uid="uid://b4arpe4l2rkr3" path="res://slay_the_wc/Assets/Art/background_forest_final.ogv" id="13_37y5e"]
 [ext_resource type="Script" uid="uid://chyutcygqtl2n" path="res://slay_the_wc/Cards/Scenes/CardSlot2.gd" id="13_aqkqu"]
 [ext_resource type="PackedScene" uid="uid://de6ese77i7bfp" path="res://slay_the_wc/Cards/Scenes/CardSlot2.tscn" id="13_j145f"]
+[ext_resource type="PackedScene" uid="uid://b5cmrb6fsfldg" path="res://slay_the_wc/Cards/Scenes/CardSlot3.tscn" id="15_6qa6l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqkqu"]
 bg_color = Color(0.87058824, 0, 0.18039216, 1)
@@ -174,6 +175,9 @@ scale = Vector2(1.2, 1.2)
 [node name="CardSlot2" parent="BattleField" instance=ExtResource("13_j145f")]
 position = Vector2(1046, 559)
 script = ExtResource("13_aqkqu")
+
+[node name="CardSlot3" parent="BattleField" instance=ExtResource("15_6qa6l")]
+position = Vector2(294, 497)
 
 [node name="Button" type="Button" parent="."]
 z_index = 10

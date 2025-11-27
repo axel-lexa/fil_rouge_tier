@@ -109,19 +109,21 @@ func _on_hand_size_changed(size):
 		$Deck.set_deck_enabled(true)
 	
 # Quand le joueur attaque	
-func battle(card: Card2, ennemie_number: String):
+func battle(card: Card2, ennemie_number: String, player_slot: bool):
 	print("Battle="+ennemie_number)
 	if not player_turn or end_game:
 		return
-
-	if card.data.type == "Defense":
-		player.energy = player.energy-card.data.cost
-		player.defense = player.defense+card.data.defense
-		$BattleField/Characters/Player/DefensePlayer.text = str(player.defense)
-		$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)
-		
-	elif card.data.type == "Attaque":
-		pass
+	print(player_slot)
+	if player_slot:
+		if card.data.type == "Defense":
+			player.energy = player.energy-card.data.cost
+			player.defense = player.defense+card.data.defense
+			$BattleField/Characters/Player/DefensePlayer.text = str(player.defense)
+			$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)
+			
+	else:
+		if card.data.type == "Attaque":
+			pass
 	
 	move_card_to_bin(card)
 	
@@ -166,11 +168,11 @@ func _on_button_pressed() -> void:
 		if intention_ennemie[en] == "ATK":
 			if player.defense >= ennemy[en].pattern[0].attaque:
 				player.defense = player.defense - ennemy[en].pattern[0].attaque
-				$BattleField/Characters/Player/DefensePlayer.text = player.defense
+				$BattleField/Characters/Player/DefensePlayer.text = str(player.defense)
 			else:
 				var nb_degats = ennemy[en].pattern[0].attaque - player.defense
 				player.defense = 0
-				$BattleField/Characters/Player/DefensePlayer.text = player.defense
+				$BattleField/Characters/Player/DefensePlayer.text = str(player.defense)
 				player.health = player.health - nb_degats
 				update_health_ui($BattleField/Characters/Player/HealthBarPlayer, player, $BattleField/Characters/Player/HealthPlayer)
 	
