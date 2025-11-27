@@ -1,12 +1,12 @@
 extends Node2D
 
 #const CARD_WIDTH = 120
-const HAND_Y_POSITION = 720
+const HAND_Y_POSITION = 750
 const DEFAULT_CARD_MOVE_SPEED = 0.1
 const RADIUS = 500.0
 const MAX_ANGLE = 45.0
 const MAX_HAND_SIZE = 10
-const SPACING_BETWEEN_CARD = 200.0
+const SPACING_BETWEEN_CARD = 150.0
 signal hand_size_changed(size)
 
 
@@ -30,7 +30,7 @@ func add_card_to_hand(card, speed):
 	else:
 		animate_card_to_position(card, card.starting_position, speed, null)
 	if card is Card2:
-		card.scale = card.BASE_SCALE
+		card.scale = Vector2(1.2, 1.2)
 	update_hand_position(speed)
 	
 func update_hand_position(speed):
@@ -45,6 +45,7 @@ func update_hand_position(speed):
 		var pos = Vector2(x, HAND_Y_POSITION)
 		var card = player_hand[i]
 		if card is Card2:
+			card.scale = Vector2(1.2, 1.2)
 			card.starting_position = pos
 		animate_card_to_position(card, pos, speed, 0)
 

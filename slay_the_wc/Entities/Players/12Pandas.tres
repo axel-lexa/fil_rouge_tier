@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Entity" load_steps=2 format=3 uid="uid://d3d6446twbqid"]
+
+[ext_resource type="Script" uid="uid://c541r5p6gwvel" path="res://slay_the_wc/Entities/Entity.gd" id="1_q2wsx"]
+
+[resource]
+script = ExtResource("1_q2wsx")
+name = "12 Pandas"
+metadata/_custom_type_script = "uid://c541r5p6gwvel"

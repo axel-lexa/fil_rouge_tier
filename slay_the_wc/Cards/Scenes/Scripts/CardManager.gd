@@ -1,7 +1,8 @@
 extends Node2D
 
 const COLLISION_MASK_CARD = 1
-const COLLISION_MASK_CARD_SLOT = 2
+const COLLISION_MASK_CARD_SLOT_ENNEMY_1 = 2
+const COLLISION_MASK_CARD_SLOT_ENNEMY_2 = 4
 const DEFAULT_CARD_MOVE_SPEED = 0.1
 
 var screen_size
@@ -33,16 +34,24 @@ func finish_drag():
 	if not card_being_dragged:
 		return
 	card_being_dragged.scale = Vector2(1.05, 1.05)
-	var card_slot_found = raycast_check_for_card_slot()
+	var card_slot_found_ennemie1 = raycast_check_for_card_slot1()
+	var card_slot_found_ennemie2 = raycast_check_for_card_slot2()
 	var battle = $".."
 	
-	if battle.player_turn and (battle.player.energy == 0 or battle.player.energy >= card_being_dragged.data.cost) and card_slot_found and not card_slot_found.card_in_slot:
+	if battle.player_turn and (battle.player.energy == 0 or battle.player.energy >= card_being_dragged.data.cost) and ((card_slot_found_ennemie1 and not card_slot_found_ennemie1.card_in_slot) or (card_slot_found_ennemie2 and not card_slot_found_ennemie2.card_in_slot)):
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
-		card_being_dragged.position = card_slot_found.position
+		var ennemy_number = ""
+		if card_slot_found_ennemie1:
+			card_being_dragged.position = card_slot_found_ennemie1.position
+			ennemy_number = "ennemie1"
+		elif card_slot_found_ennemie2:
+			card_being_dragged.position = card_slot_found_ennemie2.position
+			ennemy_number = "ennemie2"
+			pass
 		card_being_dragged.rotation = 0
 		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
 		#card_slot_found.card_in_slot = true
-		battle.battle(card_being_dragged, card_slot_found)
+		battle.battle(card_being_dragged, ennemy_number)
 	else:
 		player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
 
@@ -103,12 +112,24 @@ func raycast_check_for_card():
 		#return result[0].collider.get_parent()
 	return null
 	
-func raycast_check_for_card_slot():
+func raycast_check_for_card_slot1():
 	var space_state = get_world_2d().direct_space_state
 	var parameters = PhysicsPointQueryParameters2D.new()
 	parameters.position = get_global_mouse_position()
 	parameters.collide_with_areas = true
-	parameters.collision_mask = COLLISION_MASK_CARD_SLOT
+	parameters.collision_mask = COLLISION_MASK_CARD_SLOT_ENNEMY_1
+	var result = space_state.intersect_point(parameters)
+	if result.size() > 0:
+		return result[0].collider.get_parent()
+	return null
+
+
+func raycast_check_for_card_slot2():
+	var space_state = get_world_2d().direct_space_state
+	var parameters = PhysicsPointQueryParameters2D.new()
+	parameters.position = get_global_mouse_position()
+	parameters.collide_with_areas = true
+	parameters.collision_mask = COLLISION_MASK_CARD_SLOT_ENNEMY_2
 	var result = space_state.intersect_point(parameters)
 	if result.size() > 0:
 		return result[0].collider.get_parent()

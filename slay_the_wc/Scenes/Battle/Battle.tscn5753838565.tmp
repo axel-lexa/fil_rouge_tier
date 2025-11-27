@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=17 format=3 uid="uid://0lx4u2cbsbx5"]
 
 [ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
@@ -14,8 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://d28urwm7s16i1" path="res://slay_the_wc/Assets/Art/shield_icon.png" id="10_qfjho"]
 [ext_resource type="Texture2D" uid="uid://bghcekvflyd27" path="res://slay_the_wc/Assets/Art/background_1.png" id="12_1usg4"]
 [ext_resource type="VideoStream" uid="uid://b4arpe4l2rkr3" path="res://slay_the_wc/Assets/Art/background_forest_final.ogv" id="13_37y5e"]
-[ext_resource type="Script" uid="uid://chyutcygqtl2n" path="res://slay_the_wc/Cards/Scenes/CardSlot2.gd" id="13_aqkqu"]
-[ext_resource type="PackedScene" uid="uid://de6ese77i7bfp" path="res://slay_the_wc/Cards/Scenes/CardSlot2.tscn" id="13_j145f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqkqu"]
 bg_color = Color(0.87058824, 0, 0.18039216, 1)
@@ -57,47 +55,44 @@ script = ExtResource("8_m54iq")
 [node name="Ennemie1" type="Node2D" parent="BattleField/Characters"]
 
 [node name="EnnemieImage" type="Sprite2D" parent="BattleField/Characters/Ennemie1"]
-position = Vector2(1275, 511)
+position = Vector2(1279, 546)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("10_aqkqu")
 
 [node name="DefenseEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie1"]
 z_index = 31
-offset_left = 1334.0
-offset_top = 366.0
-offset_right = 1359.0
-offset_bottom = 390.0
+offset_left = 982.0
+offset_top = 322.0
+offset_right = 1007.0
+offset_bottom = 346.0
 
 [node name="NameEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie1"]
-offset_left = 1214.0
-offset_top = 340.0
-offset_right = 1363.0
-offset_bottom = 363.0
-theme_override_font_sizes/normal_font_size = 17
-text = "La patate"
+offset_left = 1048.0
+offset_top = 213.0
+offset_right = 1326.0
+offset_bottom = 253.0
+theme_override_font_sizes/normal_font_size = 30
 scroll_active = false
 
 [node name="HealthEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie1"]
 z_index = 31
-offset_left = 1240.0
-offset_top = 369.0
-offset_right = 1330.0
-offset_bottom = 388.0
+offset_left = 1092.0
+offset_top = 322.0
+offset_right = 1195.0
+offset_bottom = 351.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 13
-text = "12.0/12"
 
 [node name="IntentionEnnemie" type="Sprite2D" parent="BattleField/Characters/Ennemie1"]
 z_index = 9
-position = Vector2(1265, 410.00003)
-scale = Vector2(0.5, 0.545)
+position = Vector2(1126, 282)
+scale = Vector2(0.9, 0.981)
 
 [node name="HealthBarEnnemie" type="ProgressBar" parent="BattleField/Characters/Ennemie1"]
 z_index = 20
-offset_left = 1198.0
-offset_top = 368.0
-offset_right = 1324.0
-offset_bottom = 389.0
+offset_left = 1010.0
+offset_top = 322.0
+offset_right = 1247.0
+offset_bottom = 349.0
 theme_override_styles/background = SubResource("StyleBoxFlat_aqkqu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_j145f")
 value = 100.0
@@ -106,54 +101,51 @@ show_percentage = false
 
 [node name="DefenseIcon" type="Sprite2D" parent="BattleField/Characters/Ennemie1"]
 z_index = 30
-position = Vector2(1343.0001, 378.99997)
-scale = Vector2(0.44035003, 0.47187483)
+position = Vector2(990, 338)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("10_qfjho")
 
 [node name="Ennemie2" type="Node2D" parent="BattleField/Characters"]
 
 [node name="EnnemieImage" type="Sprite2D" parent="BattleField/Characters/Ennemie2"]
-position = Vector2(1039, 553)
+position = Vector2(1037, 555)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("10_aqkqu")
 
 [node name="DefenseEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie2"]
 z_index = 31
-offset_left = 1103.0
-offset_top = 401.0
-offset_right = 1128.0
-offset_bottom = 425.0
+offset_left = 982.0
+offset_top = 322.0
+offset_right = 1007.0
+offset_bottom = 346.0
 
 [node name="NameEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie2"]
-offset_left = 993.0
-offset_top = 376.0
-offset_right = 1148.0
-offset_bottom = 406.0
-theme_override_font_sizes/normal_font_size = 17
-text = "La patate"
+offset_left = 1048.0
+offset_top = 213.0
+offset_right = 1326.0
+offset_bottom = 253.0
+theme_override_font_sizes/normal_font_size = 30
 scroll_active = false
 
 [node name="HealthEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie2"]
 z_index = 31
-offset_left = 1000.0
-offset_top = 407.0
-offset_right = 1103.0
-offset_bottom = 429.0
+offset_left = 1092.0
+offset_top = 322.0
+offset_right = 1195.0
+offset_bottom = 351.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 13
-text = "12.0/12.0"
 
 [node name="IntentionEnnemie" type="Sprite2D" parent="BattleField/Characters/Ennemie2"]
 z_index = 9
-position = Vector2(1029, 450)
-scale = Vector2(0.5, 0.545)
+position = Vector2(1126, 282)
+scale = Vector2(0.9, 0.981)
 
 [node name="HealthBarEnnemie" type="ProgressBar" parent="BattleField/Characters/Ennemie2"]
 z_index = 20
-offset_left = 970.0
-offset_top = 404.0
-offset_right = 1096.0
-offset_bottom = 425.0
+offset_left = 1036.0
+offset_top = 171.0
+offset_right = 1273.0
+offset_bottom = 198.0
 theme_override_styles/background = SubResource("StyleBoxFlat_aqkqu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_j145f")
 value = 100.0
@@ -162,18 +154,12 @@ show_percentage = false
 
 [node name="DefenseIcon" type="Sprite2D" parent="BattleField/Characters/Ennemie2"]
 z_index = 30
-position = Vector2(1110.475, 415.20004)
-scale = Vector2(0.47456047, 0.46250033)
+position = Vector2(990, 338)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("10_qfjho")
 
 [node name="CardSlot" parent="BattleField" instance=ExtResource("3_uxmdl")]
-light_mask = 2
-position = Vector2(1281, 513)
-scale = Vector2(1.2, 1.2)
-
-[node name="CardSlot2" parent="BattleField" instance=ExtResource("13_j145f")]
-position = Vector2(1046, 559)
-script = ExtResource("13_aqkqu")
+position = Vector2(701, 327)
 
 [node name="Button" type="Button" parent="."]
 z_index = 10

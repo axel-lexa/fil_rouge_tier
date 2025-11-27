@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://curnw3om8k3nf"]
+
+[ext_resource type="Texture2D" uid="uid://d28urwm7s16i1" path="res://slay_the_wc/Assets/Art/shield_icon.png" id="1_b7jqu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqkqu"]
+bg_color = Color(0.87058824, 0, 0.18039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j145f"]
+bg_color = Color(0.6784314, 0.9882353, 0.5058824, 1)
+
+[node name="Ennemie1" type="Node2D"]
+
+[node name="EnnemieImage" type="Sprite2D" parent="."]
+position = Vector2(1139.0001, 489.00003)
+scale = Vector2(0.4, 0.4)
+
+[node name="DefenseEnnemy" type="RichTextLabel" parent="."]
+z_index = 31
+offset_left = 982.0
+offset_top = 322.0
+offset_right = 1007.0
+offset_bottom = 346.0
+
+[node name="NameEnnemy" type="RichTextLabel" parent="."]
+offset_left = 1048.0
+offset_top = 213.0
+offset_right = 1326.0
+offset_bottom = 253.0
+theme_override_font_sizes/normal_font_size = 30
+scroll_active = false
+
+[node name="HealthEnnemy" type="RichTextLabel" parent="."]
+z_index = 31
+offset_left = 1092.0
+offset_top = 322.0
+offset_right = 1195.0
+offset_bottom = 351.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="IntentionEnnemie" type="Sprite2D" parent="."]
+z_index = 9
+position = Vector2(1126, 282)
+scale = Vector2(0.9, 0.981)
+
+[node name="HealthBarEnnemie" type="ProgressBar" parent="."]
+z_index = 20
+offset_left = 1010.0
+offset_top = 322.0
+offset_right = 1247.0
+offset_bottom = 349.0
+theme_override_styles/background = SubResource("StyleBoxFlat_aqkqu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_j145f")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="DefenseIcon" type="Sprite2D" parent="."]
+z_index = 30
+position = Vector2(990, 338)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_b7jqu")

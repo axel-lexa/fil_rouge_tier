@@ -1,15 +1,15 @@
 extends Node2D
 
 var player
-var ennemy
+var ennemy: Dictionary[String, Entity] = {}
 const MAX_HAND_SIZE = 10
 const MAX_ENERGY = 3
 
 var player_turn
 var player_hand_reference
 var end_game
-var intention: Dictionary
-var intention_ennemie
+var intention_ennemie: Dictionary[String, String] = {}
+var texture_intention: Dictionary[String, Sprite2D] = {}
 
 func display_infos_player(boolean: bool):
 	$BattleField/Characters/Player/NamePlayer.visible = boolean
@@ -20,7 +20,7 @@ func display_infos_player(boolean: bool):
 	$BattleField/Characters/Player/PlayerImage.visible = boolean
 	$BattleField/Characters/Player/DefenseIcon.visible = boolean
 
-func display_infos_ennemie(boolean: bool):
+func display_infos_ennemie1(boolean: bool):
 	$BattleField/Characters/Ennemie1/NameEnnemy.visible = boolean
 	$BattleField/Characters/Ennemie1/HealthEnnemy.visible = boolean
 	$BattleField/Characters/Ennemie1/DefenseEnnemy.visible = boolean
@@ -29,6 +29,16 @@ func display_infos_ennemie(boolean: bool):
 	$BattleField/Characters/Ennemie1/DefenseIcon.visible = boolean
 	$BattleField/Characters/Ennemie1/HealthBarEnnemie.visible = boolean
 	$BattleField/Characters/Ennemie1/IntentionEnnemie.visible = boolean
+
+func display_infos_ennemie2(boolean: bool):
+	$BattleField/Characters/Ennemie2/NameEnnemy.visible = boolean
+	$BattleField/Characters/Ennemie2/HealthEnnemy.visible = boolean
+	$BattleField/Characters/Ennemie2/DefenseEnnemy.visible = boolean
+	$BattleField/Characters/Ennemie2/EnnemieImage.visible = boolean
+	$BattleField/Characters/Ennemie2/DefenseIcon.visible = boolean
+	$BattleField/Characters/Ennemie2/DefenseIcon.visible = boolean
+	$BattleField/Characters/Ennemie2/HealthBarEnnemie.visible = boolean
+	$BattleField/Characters/Ennemie2/IntentionEnnemie.visible = boolean
 	
 	
 func _ready():
@@ -39,7 +49,8 @@ func _ready():
 	$Deck.visible = false
 	
 	display_infos_player(false)
-	display_infos_ennemie(false)
+	display_infos_ennemie1(false)
+	display_infos_ennemie2(false)
 	
 	$BattleField/CardSlot.visible = false
 	$Button.visible = false
@@ -50,11 +61,17 @@ func _ready():
 	player = load("res://slay_the_wc/Entities/Players/Player.tres")
 	reset_health_bar($BattleField/Characters/Player/HealthBarPlayer, player, $BattleField/Characters/Player/HealthPlayer)
 	
-	ennemy = load("res://slay_the_wc/Entities/Ennemies/Patate.tres")
-	reset_health_bar($BattleField/Characters/Ennemie1/HealthBarEnnemie, ennemy, $BattleField/Characters/Ennemie1/HealthEnnemy)
+	ennemy["ennemie1"] = load("res://slay_the_wc/Entities/Ennemies/Patate.tres")
+	reset_health_bar($BattleField/Characters/Ennemie1/HealthBarEnnemie, ennemy["ennemie1"], $BattleField/Characters/Ennemie1/HealthEnnemy)
 	
+	ennemy["ennemie2"] = load("res://slay_the_wc/Entities/Ennemies/Patate.tres")
+	reset_health_bar($BattleField/Characters/Ennemie2/HealthBarEnnemie, ennemy["ennemie2"], $BattleField/Characters/Ennemie2/HealthEnnemy)
 	init_infos_player(player)
-	init_infos_ennemie(ennemy)
+	if ennemy.has("ennemie1"):
+		init_infos_ennemie1(ennemy["ennemie1"])
+	if ennemy.has("ennemie2"):
+		init_infos_ennemie2(ennemy["ennemie2"])
+		
 	$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)
 	
 	for i in range(0, 5):
@@ -62,58 +79,50 @@ func _ready():
 		
 	player_turn = true
 	end_game = false
-	intention_ennemie = compute_intention_ennemie()
-	
+	if ennemy.has("ennemie1"):
+		texture_intention["ennemie1"] = $BattleField/Characters/Ennemie1/IntentionEnnemie
+		intention_ennemie["ennemie1"] = compute_intention_ennemie(ennemy["ennemie1"], texture_intention["ennemie1"])
+	if ennemy.has("ennemie2"):
+		texture_intention["ennemie2"] = $BattleField/Characters/Ennemie2/IntentionEnnemie
+		intention_ennemie["ennemie2"] = compute_intention_ennemie(ennemy["ennemie2"], texture_intention["ennemie2"])
+		
 	
 func init_infos_player(p: Entity):
 	$BattleField/Characters/Player/NamePlayer.text = p.name
 	$BattleField/Characters/Player/DefensePlayer.text = str(p.defense)
+	$BattleField/Characters/Player/PlayerImage.texture = p.image
 	
-func init_infos_ennemie(ennemie: Entity):
+func init_infos_ennemie1(ennemie: Entity):
 	$BattleField/Characters/Ennemie1/NameEnnemy.text = ennemie.name
 	$BattleField/Characters/Ennemie1/DefenseEnnemy.text = str(ennemie.defense)
+	$BattleField/Characters/Ennemie1/EnnemieImage.texture = ennemie.image
+	
+func init_infos_ennemie2(ennemie: Entity):
+	$BattleField/Characters/Ennemie2/NameEnnemy.text = ennemie.name
+	$BattleField/Characters/Ennemie2/DefenseEnnemy.text = str(ennemie.defense)
+	$BattleField/Characters/Ennemie2/EnnemieImage.texture = ennemie.image
 
 func _on_hand_size_changed(size):
 	if size >= $PlayerHand.MAX_HAND_SIZE:
 		$Deck.set_deck_enabled(false)
 	else:
 		$Deck.set_deck_enabled(true)
-		
-func battle(card: Card2, card_slot):
-	print("Battle")
+	
+# Quand le joueur attaque	
+func battle(card: Card2, ennemie_number: String):
+	print("Battle="+ennemie_number)
 	if not player_turn or end_game:
 		return
-		
-	intention = ennemy.pattern[0]
-	print(intention)
-	if intention.type == "Attaque":
-		
-		$BattleField/Characters/Ennemie1/IntentionEnnemie.texture = load("res://slay_the_wc/Assets/Art/attack.png")
-		print($BattleField/Characters/Ennemie1/IntentionEnnemie.texture)
-		
-		
+
 	if card.data.type == "Defense":
 		player.energy = player.energy-card.data.cost
 		player.defense = player.defense+card.data.defense
-		$BattleField/Characters/Player/DefensePlayer.text = "Defense : " + str(player.defense)
+		$BattleField/Characters/Player/DefensePlayer.text = str(player.defense)
 		$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)
 		
 	elif card.data.type == "Attaque":
-		player.energy = player.energy-card.data.cost
-		ennemy.health = ennemy.health-card.data.attack
-		update_health_ui($BattleField/Characters/Ennemie1/HealthBarEnnemie, ennemy, $BattleField/Characters/Ennemie1/HealthEnnemy)
-		if ennemy.health <= 0:
-			$ResultBattle.text = "Vous avez gagné, GG :)"
-			$EndBattle.visible = true
-			$BattleField/Characters/Ennemie1/HealthEnnemy.text = "Vie : 0"
-			$Button.visible = false
-			card_slot.card_in_slot = true
-			$Deck.set_deck_enabled(false)
-		$BattleField/Characters/Ennemie1/HealthEnnemy.text = "Vie : " + str(ennemy.health)
-		$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)
-		
-		
-		
+		pass
+	
 	move_card_to_bin(card)
 	
 func move_card_to_bin(card: Card2):
@@ -134,56 +143,57 @@ func move_card_to_bin(card: Card2):
 	tween.tween_property(card, "position", $Bin.position, 0.2)
 	tween.parallel().tween_property(card, "scale", Vector2(1.1,1.1), 0.2)
 
-func compute_intention_ennemie() -> String:
+func compute_intention_ennemie(entity: Entity, sprite_intention) -> String:
 	var random = randi_range(0, 99)
 	if random < 25:
-		$BattleField/Characters/Ennemie1/IntentionEnnemie.texture = load("res://slay_the_wc/Assets/Art/attack_icon.png")
-		return ennemy.pattern[0].type
+		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/attack_icon.png")
+		return entity.pattern[0].type
 	elif random < 50:
-		$BattleField/Characters/Ennemie1/IntentionEnnemie.texture = load("res://slay_the_wc/Assets/Art/shield_icon.png")
-		return ennemy.pattern[1].type
+		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/shield_icon.png")
+		return entity.pattern[1].type
 	elif random < 75:
-		$BattleField/Characters/Ennemie1/IntentionEnnemie.texture = load("res://slay_the_wc/Assets/Art/up-arrow_icon.png")
-		return ennemy.pattern[2].type
+		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/up-arrow_icon.png")
+		return entity.pattern[2].type
 	else:
-		$BattleField/Characters/Ennemie1/IntentionEnnemie.texture = load("res://slay_the_wc/Assets/Art/down-arrow_icon.png")
-		return ennemy.pattern[3].type
+		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/down-arrow_icon.png")
+		return entity.pattern[3].type
 
 # C'est au tour de l'ennemie
 func _on_button_pressed() -> void:
 	player_turn = false
 	
-	if intention_ennemie == "ATK":
-		if player.defense >= ennemy.pattern[0].attaque:
-			player.defense = player.defense - ennemy.pattern[0].attaque
-			$BattleField/Characters/Player/DefensePlayer.text = player.defense
+	for en in ennemy:
+		if intention_ennemie[en] == "ATK":
+			if player.defense >= ennemy[en].pattern[0].attaque:
+				player.defense = player.defense - ennemy[en].pattern[0].attaque
+				$BattleField/Characters/Player/DefensePlayer.text = player.defense
+			else:
+				var nb_degats = ennemy[en].pattern[0].attaque - player.defense
+				player.defense = 0
+				$BattleField/Characters/Player/DefensePlayer.text = player.defense
+				player.health = player.health - nb_degats
+				update_health_ui($BattleField/Characters/Player/HealthBarPlayer, player, $BattleField/Characters/Player/HealthPlayer)
+	
+		elif intention_ennemie[en] == "DEF":
+			pass
+		elif intention_ennemie[en] == "BUFF":
+			pass
 		else:
-			var nb_degats = ennemy.pattern[0].attaque - player.defense
+			pass	
+		if player.health <= 0:
+			$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
+			$EndBattle.visible = true
+			$BattleField/Characters/Player/HealthPlayer.text = "0/0"
+			$Deck.set_deck_enabled(false)
+			end_game = true
+			return
+		else:
+			intention_ennemie[en] = compute_intention_ennemie(ennemy[en], texture_intention[en])
+			player_turn = true
+			player.energy = MAX_ENERGY
+			$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)
+			$BattleField/Characters/Player/DefensePlayer.text = "0"
 			player.defense = 0
-			$BattleField/Characters/Player/DefensePlayer.text = player.defense
-			player.health = player.health - nb_degats
-			update_health_ui($BattleField/Characters/Player/HealthBarPlayer, player, $BattleField/Characters/Player/HealthPlayer)
-	elif intention_ennemie == "DEF":
-		$BattleField/Characters/Ennemie1/IntentionEnnemie.texture = load("res://slay_the_wc/Assets/Art/shield_icon.png")
-	elif intention_ennemie == "BUFF":
-		$BattleField/Characters/Ennemie1/IntentionEnnemie.texture = load("res://slay_the_wc/Assets/Art/up-arrow_icon.png")
-	else:
-		$BattleField/Characters/Ennemie1/IntentionEnnemie.texture = load("res://slay_the_wc/Assets/Art/down-arrow_icon.png")
-		
-	if player.health <= 0:
-		$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
-		$EndBattle.visible = true
-		$BattleField/Characters/Player/HealthPlayer.text = "Vie : 0"
-		$Deck.set_deck_enabled(false)
-		end_game = true
-		return
-	player_turn = true
-	player.energy = MAX_ENERGY
-	# Compute the next move of ennemy
-	intention_ennemie = compute_intention_ennemie()
-	$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)
-	$BattleField/Characters/Player/DefensePlayer.text = "0"
-	player.defense = 0
 
 
 func _on_end_battle_pressed() -> void:
@@ -196,7 +206,8 @@ func _on_video_stream_player_finished() -> void:
 	$Bin.visible = true
 	$Deck.visible = true
 	display_infos_player(true)
-	display_infos_ennemie(true)
+	display_infos_ennemie1(true)
+	display_infos_ennemie2(true)
 	$Button.visible = true
 
 func reset_health_bar(bar: ProgressBar, entity: Entity, textLabel: RichTextLabel):

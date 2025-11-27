@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://0lx4u2cbsbx5"]
+
+[ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
+[ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
+[ext_resource type="Script" uid="uid://csiakp18y6451" path="res://slay_the_wc/Scenes/Battle/PlayerHand.gd" id="3_63f3c"]
+[ext_resource type="PackedScene" uid="uid://c0232xdiagpb0" path="res://slay_the_wc/Cards/Scenes/CardSlot.tscn" id="3_uxmdl"]
+[ext_resource type="PackedScene" uid="uid://c5tv2mkvw873b" path="res://slay_the_wc/Cards/Scenes/Bin.tscn" id="4_m54iq"]
+[ext_resource type="PackedScene" uid="uid://bchpkogownigj" path="res://slay_the_wc/Cards/Scenes/Deck.tscn" id="4_n0u8k"]
+[ext_resource type="Script" uid="uid://ceyqelgn0rsu6" path="res://slay_the_wc/Scenes/Battle/InputManager.gd" id="6_8ajvn"]
+[ext_resource type="PackedScene" uid="uid://1k2k2fb7j37s" path="res://slay_the_wc/Cards/Scenes/CardZoom.tscn" id="7_n0u8k"]
+[ext_resource type="Script" uid="uid://dv0liaebeo6ga" path="res://slay_the_wc/Cards/Scenes/CardZoom.gd" id="8_m54iq"]
+[ext_resource type="PackedScene" uid="uid://gtc861k7evva" path="res://slay_the_wc/Scenes/Battle/Player.tscn" id="9_37y5e"]
+[ext_resource type="PackedScene" uid="uid://curnw3om8k3nf" path="res://slay_the_wc/Scenes/Battle/Ennemie.tscn" id="10_qfjho"]
+[ext_resource type="Texture2D" uid="uid://bghcekvflyd27" path="res://slay_the_wc/Assets/Art/background_1.png" id="12_1usg4"]
+[ext_resource type="VideoStream" uid="uid://b4arpe4l2rkr3" path="res://slay_the_wc/Assets/Art/background_forest_final.ogv" id="13_37y5e"]
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_m54iq")
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("1_skn0e")
+
+[node name="PlayerHand" type="Node2D" parent="."]
+script = ExtResource("3_63f3c")
+
+[node name="Bin" parent="." instance=ExtResource("4_m54iq")]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(1323, 715)
+
+[node name="Deck" parent="." instance=ExtResource("4_n0u8k")]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(88, 715)
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("6_8ajvn")
+
+[node name="CardZoom" parent="." instance=ExtResource("7_n0u8k")]
+script = ExtResource("8_m54iq")
+
+[node name="BattleField" type="Node" parent="."]
+
+[node name="Characters" type="Node2D" parent="BattleField"]
+
+[node name="Player" parent="BattleField/Characters" instance=ExtResource("9_37y5e")]
+
+[node name="Ennemie1" parent="BattleField/Characters" instance=ExtResource("10_qfjho")]
+
+[node name="Ennemie2" parent="BattleField/Characters" instance=ExtResource("10_qfjho")]
+
+[node name="CardSlot" parent="BattleField" instance=ExtResource("3_uxmdl")]
+position = Vector2(701, 327)
+
+[node name="Button" type="Button" parent="."]
+z_index = 10
+offset_left = 655.0
+offset_top = 486.0
+offset_right = 748.0
+offset_bottom = 517.0
+text = "Fin du tour"
+
+[node name="ResultBattle" type="RichTextLabel" parent="."]
+offset_left = 454.0
+offset_top = 21.0
+offset_right = 1063.0
+offset_bottom = 200.0
+theme_override_font_sizes/normal_font_size = 40
+
+[node name="EndBattle" type="Button" parent="."]
+visible = false
+z_index = 10
+offset_left = 608.0
+offset_top = 160.0
+offset_right = 810.0
+offset_bottom = 191.0
+text = "Retour à l'ecran principal"
+
+[node name="BackGround" type="Sprite2D" parent="."]
+visible = false
+z_index = -7
+position = Vector2(699, 424.00003)
+scale = Vector2(1.1986301, 1.0714287)
+texture = ExtResource("12_1usg4")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+visible = false
+z_index = -12
+offset_right = 1408.0
+offset_bottom = 841.0
+scale = Vector2(2.1, 1.85)
+mouse_filter = 2
+stream = ExtResource("13_37y5e")
+volume_db = -80.0
+speed_scale = 2.91
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EndBattle" to="." method="_on_end_battle_pressed"]
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

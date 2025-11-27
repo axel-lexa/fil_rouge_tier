@@ -1,8 +1,8 @@
 extends Node2D
 class_name Card2
 
-const BASE_SCALE = Vector2(1.7, 1.7)
-const HOVER_SCALE = Vector2(1.75, 1.75)
+const BASE_SCALE = Vector2(1.2, 1.2)
+const HOVER_SCALE = Vector2(1.3, 1.3)
 
 
 signal hovered

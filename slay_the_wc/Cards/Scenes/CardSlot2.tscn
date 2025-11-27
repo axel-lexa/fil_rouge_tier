@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://de6ese77i7bfp"]
+
+[ext_resource type="Texture2D" uid="uid://bfbkp3msta04c" path="res://slay_the_wc/Assets/Art/card_slot.png" id="1_2bnwp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfjho"]
+size = Vector2(151, 177)
+
+[node name="CardSlot2" type="Node2D"]
+
+[node name="CardSlotImage" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.17146145, 0.13033874)
+texture = ExtResource("1_2bnwp")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qfjho")

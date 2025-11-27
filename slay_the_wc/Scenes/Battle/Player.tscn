@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://gtc861k7evva"]
+
+[ext_resource type="Texture2D" uid="uid://d28urwm7s16i1" path="res://slay_the_wc/Assets/Art/shield_icon.png" id="1_1duer"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37y5e"]
+bg_color = Color(0.87058824, 0, 0.18039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfjho"]
+bg_color = Color(0.6784314, 0.9882353, 0.5058824, 1)
+
+[node name="Player" type="Node2D"]
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+position = Vector2(291, 476.00003)
+scale = Vector2(0.2, 0.2)
+
+[node name="HealthBarPlayer" type="ProgressBar" parent="."]
+top_level = true
+z_index = 20
+offset_left = 170.0
+offset_top = 322.0
+offset_right = 407.0
+offset_bottom = 349.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_37y5e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qfjho")
+value = 100.0
+show_percentage = false
+
+[node name="EnergyPlayer" type="RichTextLabel" parent="."]
+offset_left = 243.0
+offset_top = 283.0
+offset_right = 337.0
+offset_bottom = 312.0
+
+[node name="DefensePlayer" type="RichTextLabel" parent="."]
+z_index = 31
+offset_left = 418.0
+offset_top = 323.0
+offset_right = 448.0
+offset_bottom = 347.0
+
+[node name="HealthPlayer" type="RichTextLabel" parent="."]
+z_index = 30
+offset_left = 260.0
+offset_top = 324.0
+offset_right = 337.0
+offset_bottom = 347.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="NamePlayer" type="RichTextLabel" parent="."]
+offset_left = 227.0
+offset_top = 213.0
+offset_right = 506.0
+offset_bottom = 253.0
+theme_override_font_sizes/normal_font_size = 30
+scroll_active = false
+
+[node name="DefenseIcon" type="Sprite2D" parent="."]
+z_index = 30
+position = Vector2(428, 338)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_1duer")

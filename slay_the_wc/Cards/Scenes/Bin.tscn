@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://be1lg4psrwe7j" path="res://slay_the_wc/Assets/Art/bin_slot.png" id="2_gknb3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0u8k"]
-size = Vector2(112, 174)
+size = Vector2(80, 128)
 
 [node name="Bin" type="Node2D"]
 script = ExtResource("1_gknb3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-7.1525574e-07, 3.8146973e-06)
-scale = Vector2(0.15068492, 0.1697561)
+position = Vector2(-9.536743e-07, 0)
+scale = Vector2(0.10958903, 0.12487805)
 texture = ExtResource("2_gknb3")
 
 [node name="Area2D" type="Area2D" parent="."]
