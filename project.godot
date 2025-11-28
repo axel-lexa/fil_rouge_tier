@@ -15,6 +15,10 @@ run/main_scene="uid://cekc18dbmnves"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://slay_the_wc/Scenes/Battle/GameState.gd"
+
 [display]
 
 window/size/viewport_width=1400

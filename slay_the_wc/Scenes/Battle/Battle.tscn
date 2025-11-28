@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=19 format=3 uid="uid://0lx4u2cbsbx5"]
 
 [ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://1k2k2fb7j37s" path="res://slay_the_wc/Cards/Scenes/CardZoom.tscn" id="7_n0u8k"]
 [ext_resource type="Script" uid="uid://dv0liaebeo6ga" path="res://slay_the_wc/Cards/Scenes/CardZoom.gd" id="8_m54iq"]
 [ext_resource type="PackedScene" uid="uid://gtc861k7evva" path="res://slay_the_wc/Scenes/Battle/Player.tscn" id="9_37y5e"]
-[ext_resource type="Texture2D" uid="uid://cs1qe6awkyhlw" path="res://slay_the_wc/Assets/Art/patate_ennemie.png" id="10_aqkqu"]
 [ext_resource type="Texture2D" uid="uid://d28urwm7s16i1" path="res://slay_the_wc/Assets/Art/shield_icon.png" id="10_qfjho"]
 [ext_resource type="Texture2D" uid="uid://bghcekvflyd27" path="res://slay_the_wc/Assets/Art/background_1.png" id="12_1usg4"]
 [ext_resource type="VideoStream" uid="uid://b4arpe4l2rkr3" path="res://slay_the_wc/Assets/Art/background_forest_final.ogv" id="13_37y5e"]
@@ -60,7 +59,6 @@ script = ExtResource("8_m54iq")
 [node name="EnnemieImage" type="Sprite2D" parent="BattleField/Characters/Ennemie1"]
 position = Vector2(1275, 511)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("10_aqkqu")
 
 [node name="DefenseEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie1"]
 z_index = 31
@@ -116,7 +114,6 @@ texture = ExtResource("10_qfjho")
 [node name="EnnemieImage" type="Sprite2D" parent="BattleField/Characters/Ennemie2"]
 position = Vector2(1039, 553)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("10_aqkqu")
 
 [node name="DefenseEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie2"]
 z_index = 31

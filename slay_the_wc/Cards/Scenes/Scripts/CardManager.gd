@@ -11,6 +11,7 @@ var card_being_dragged
 var is_hovering_on_card
 var player_hand_reference
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -38,7 +39,6 @@ func finish_drag():
 	var card_slot_found_ennemie1 = raycast_check_for_card_slot1()
 	var card_slot_found_ennemie2 = raycast_check_for_card_slot2()
 	var card_slot_found_player = raycast_check_for_card_slot3()
-	print(card_slot_found_ennemie1, card_slot_found_ennemie2, card_slot_found_player)
 	var battle = $".."
 	
 	if battle.player_turn and (battle.player.energy > 0 and battle.player.energy >= card_being_dragged.data.cost) and ((card_slot_found_ennemie1 and not card_slot_found_ennemie1.card_in_slot) or (card_slot_found_ennemie2 and not card_slot_found_ennemie2.card_in_slot) or (card_slot_found_player and not card_slot_found_player.card_in_slot)):
@@ -56,8 +56,21 @@ func finish_drag():
 			player_slot = true
 			
 		card_being_dragged.rotation = 0
-		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
+		
+		if card_slot_found_ennemie1 and !battle.ennemy.has("ennemie1"):
+			player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
+			card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = false
+			card_being_dragged = null
+			
+			return
+		if card_slot_found_ennemie2 and !battle.ennemy.has("ennemie2"):
+			player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
+			card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = false
+			card_being_dragged = null
+			
+			return
 		#card_slot_found.card_in_slot = true
+		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
 		battle.battle(card_being_dragged, ennemy_number, player_slot)
 	else:
 		player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
