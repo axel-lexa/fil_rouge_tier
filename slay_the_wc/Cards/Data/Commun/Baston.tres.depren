@@ -5,10 +5,12 @@
 
 [resource]
 script = ExtResource("1_37jpj")
-id = "baston"
-card_name = "Baston !"
-mana_cost = 1
-description = "Inflige 6 dégâts"
-target_type = "enemy"
-icon = ExtResource("1_vxoow")
-metadata/_custom_type_script = "uid://cdedm7rlawgj6"
+source = "commun"
+name = "Baston !"
+cost = 1
+type = "Attaque"
+artwork = ExtResource("1_vxoow")
+text = "Inflige 3 dégâts à une cible aléatoire pour chaque panda parti à l'attaque ce combat"
+attack = 6
+illustration_hd = ExtResource("1_vxoow")
+metadata/_custom_type_script = "uid://cuwiwbics1vdq"

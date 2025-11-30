@@ -17,4 +17,3 @@ class_name CardData
 func _init():
 	if id.is_empty():
 		id = card_name.to_lower().replace(" ", "_")
-

@@ -136,12 +136,18 @@ func battle(card: Card2, ennemie_number: String, player_slot: bool):
 			$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)
 			move_card_to_bin(card)
 	else:
-		if card.data.type == "Attaque":
+		if card.data.card_type == "attack":
+			print("ATTAQUE !!!!!!!")
+			ennemy[ennemie_number].health = 0
+			if ennemy[ennemie_number].health == 0:
+				get_tree().change_scene_to_file("res://Scenes/Menus/CardRewardScreen.tscn")
+				
+			update_health_ui($BattleField/Characters/Ennemie1/HealthBarEnnemie, ennemy[ennemie_number], $BattleField/Characters/Ennemie1/HealthEnnemy)
 			pass
-		elif card.data.type == "Defense":
+		elif card.data.card_type == "Defense":
 			$PlayerHand.add_card_to_hand(card, $PlayerHand.DEFAULT_CARD_MOVE_SPEED)
 			card.get_node("Area2D/CollisionShape2D").disabled = false
-		#move_card_to_bin(card)
+		move_card_to_bin(card)
 	
 	
 	

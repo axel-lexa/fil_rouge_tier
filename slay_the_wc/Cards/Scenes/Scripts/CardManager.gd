@@ -7,7 +7,7 @@ const COLLISION_MASK_CARD_SLOT_PLAYER = 8
 const DEFAULT_CARD_MOVE_SPEED = 0.1
 
 var screen_size
-var card_being_dragged
+var card_being_dragged: Card2
 var is_hovering_on_card
 var player_hand_reference
 
@@ -41,7 +41,7 @@ func finish_drag():
 	var card_slot_found_player = raycast_check_for_card_slot3()
 	var battle = $".."
 	
-	if battle.player_turn and (battle.player.energy > 0 and battle.player.energy >= card_being_dragged.data.cost) and ((card_slot_found_ennemie1 and not card_slot_found_ennemie1.card_in_slot) or (card_slot_found_ennemie2 and not card_slot_found_ennemie2.card_in_slot) or (card_slot_found_player and not card_slot_found_player.card_in_slot)):
+	if battle.player_turn and (battle.player.energy > 0 and battle.player.energy >= card_being_dragged.data.mana_cost) and ((card_slot_found_ennemie1 and not card_slot_found_ennemie1.card_in_slot) or (card_slot_found_ennemie2 and not card_slot_found_ennemie2.card_in_slot) or (card_slot_found_player and not card_slot_found_player.card_in_slot)):
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
 		var ennemy_number = ""
 		var player_slot = false

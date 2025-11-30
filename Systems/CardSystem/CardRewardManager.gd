@@ -1,5 +1,5 @@
 extends Node
-class_name CardRewardManager
+#class_name CardRewardManager
 
 # Gère la génération de récompenses de cartes en fin de partie
 # Sélectionne 3 cartes aléatoires parmi les cartes disponibles
@@ -81,4 +81,3 @@ func _on_battle_won():
 	var reward_cards = generate_card_reward()
 	if reward_cards.size() == 3:
 		Events.card_reward_offered.emit(reward_cards)
-

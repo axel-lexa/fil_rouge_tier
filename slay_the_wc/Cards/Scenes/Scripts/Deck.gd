@@ -4,21 +4,13 @@ const CARD_SCENE_PATH = "res://slay_the_wc/Cards/Scenes/Card.tscn"
 const CARD_DRAW_SPEED = 0.2
 
 var player_deck = [load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
-load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
-load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
-load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
-load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
-load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
-load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres")]
 
 # Called when the node enters the scene tree for the first time.
@@ -43,7 +35,7 @@ func draw_card():
 	var new_card = card_scene.instantiate()
 	new_card.data = card_draw
 	$"../PlayerHand".add_child(new_card)
-	new_card.name = "Card"
+	#new_card. = "Card"
 	
 	var hand = $"../PlayerHand"
 	if hand.player_hand.size() < hand.MAX_HAND_SIZE:

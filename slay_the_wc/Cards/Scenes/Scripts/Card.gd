@@ -18,11 +18,11 @@ var is_hovering = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().root.get_node("Battle/CardManager").connect_card_signals(self)
-	$NameLabel.text = data.name
-	$CostLabel.text = str(data.cost)
-	$TextLabel.text = data.text
-	$CardImage.texture = data.artwork
-	$TextureRect.texture = data.illustration_hd
+	$NameLabel.text = data.card_name
+	$CostLabel.text = str(data.mana_cost)
+	$TextLabel.text = data.description
+	$CardImage.texture = data.icon
+	$TextureRect.texture = data.icon
 	$Area2D.mouse_entered.connect(_on_mouse_entered)
 	$Area2D.mouse_exited.connect(_on_mouse_exited)
 	$HoverTimer.timeout.connect(_on_hover_timeout)

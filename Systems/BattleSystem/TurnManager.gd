@@ -78,4 +78,3 @@ func lose_battle():
 # Fonction utilitaire pour tester (à appeler depuis l'extérieur)
 func test_win_battle():
 	win_battle()
-

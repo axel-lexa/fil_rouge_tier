@@ -54,4 +54,3 @@ Dans l'éditeur Godot :
 - target_type: "all_enemies"
 - rarity: "rare"
 - card_type: "attack"
-

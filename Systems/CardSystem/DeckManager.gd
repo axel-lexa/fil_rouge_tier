@@ -1,5 +1,6 @@
 extends Node
-class_name DeckManager
+#class_name DeckManager
+
 
 # Gère le deck du joueur (cartes disponibles, main, défausse, etc.)
 
@@ -70,4 +71,3 @@ func exhaust_card(card_data: CardData):
 # Appelé quand une carte est sélectionnée comme récompense
 func _on_card_selected(card_data: CardData):
 	add_card_to_deck(card_data)
-

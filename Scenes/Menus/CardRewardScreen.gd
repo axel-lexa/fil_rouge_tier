@@ -27,7 +27,7 @@ func _on_card_reward_offered(cards: Array):
 
 func show_reward_screen():
 	visible = true
-	_process_mode = Node.PROCESS_MODE_INHERIT
+	#_process_mode = Node.PROCESS_MODE_INHERIT
 	
 	# Nettoyer les cartes précédentes
 	_clear_cards()
@@ -111,4 +111,3 @@ func _on_card_selected(index: int):
 	# Masquer l'écran
 	visible = false
 	_clear_cards()
-
