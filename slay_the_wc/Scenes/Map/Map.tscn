@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://b43gm6k5ytdp2"]
 
-[ext_resource type="Texture2D" uid="uid://b0d0rnbtnr4wn" path="res://slay_the_wc/Assets/Art/map_test.jpg" id="1_j71dy"]
 [ext_resource type="Script" uid="uid://bloufm6f2cfp0" path="res://slay_the_wc/Scenes/Map/Map.gd" id="1_svm44"]
 [ext_resource type="Texture2D" uid="uid://c8rd5vmhhncme" path="res://slay_the_wc/Assets/Art/icon_battle_map.png" id="2_q6eef"]
 [ext_resource type="Texture2D" uid="uid://bi265as0umern" path="res://slay_the_wc/Assets/Art/boss_fianl_icon.png" id="3_sppq5"]
 [ext_resource type="Texture2D" uid="uid://d1gc0714x4vke" path="res://slay_the_wc/Assets/Art/line_between_step.png" id="4_svm44"]
+[ext_resource type="Texture2D" uid="uid://dq1w4ptv6t4ly" path="res://slay_the_wc/Assets/Art/map_global.png" id="6_b5qyj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q6eef"]
 
@@ -24,13 +24,13 @@ script = ExtResource("1_svm44")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(700, 421.49997)
 scale = Vector2(1.1969178, 1.070153)
-texture = ExtResource("1_j71dy")
+texture = ExtResource("6_b5qyj")
 
 [node name="Battle1" type="Button" parent="."]
-offset_left = 509.0
-offset_top = 652.0
-offset_right = 546.0
-offset_bottom = 694.0
+offset_left = 996.0
+offset_top = 759.0
+offset_right = 1033.0
+offset_bottom = 801.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q6eef")
@@ -42,10 +42,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("2_q6eef")
 
 [node name="Battle2" type="Button" parent="."]
-offset_left = 172.0
-offset_top = 469.0
-offset_right = 209.0
-offset_bottom = 511.0
+offset_left = 660.0
+offset_top = 559.0
+offset_right = 697.0
+offset_bottom = 601.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q6eef")
@@ -57,10 +57,11 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("2_q6eef")
 
 [node name="BattleFinal" type="Button" parent="."]
-offset_left = 709.0
-offset_top = 305.0
-offset_right = 1273.0
-offset_bottom = 864.0
+z_index = -1
+offset_left = 644.0
+offset_top = 74.0
+offset_right = 1208.0
+offset_bottom = 633.0
 scale = Vector2(0.2, 0.2)
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q6eef")
@@ -72,10 +73,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("3_sppq5")
 
 [node name="Battle3" type="Button" parent="."]
-offset_left = 371.0
-offset_top = 250.0
-offset_right = 408.0
-offset_bottom = 292.0
+offset_left = 381.0
+offset_top = 432.0
+offset_right = 418.0
+offset_bottom = 474.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q6eef")
@@ -87,10 +88,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("2_q6eef")
 
 [node name="Battle4" type="Button" parent="."]
-offset_left = 1083.0
-offset_top = 308.0
-offset_right = 1120.0
-offset_bottom = 350.0
+offset_left = 837.0
+offset_top = 363.0
+offset_right = 874.0
+offset_bottom = 405.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q6eef")
@@ -102,10 +103,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("2_q6eef")
 
 [node name="Battle5" type="Button" parent="."]
-offset_left = 956.0
-offset_top = 623.0
-offset_right = 993.0
-offset_bottom = 665.0
+offset_left = 637.0
+offset_top = 254.0
+offset_right = 674.0
+offset_bottom = 296.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q6eef")
@@ -118,35 +119,44 @@ icon = ExtResource("2_q6eef")
 
 [node name="Line1To2" type="Line2D" parent="."]
 texture_repeat = 2
-width = 6.0
+position = Vector2(367.8552, 246.67706)
+scale = Vector2(0.80379546, 0.56963074)
+points = PackedVector2Array(412, 620, 820.04047, 981.90436)
+width = 5.0
 default_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_svm44")
 texture_mode = 1
 
 [node name="Line2To3" type="Line2D" parent="."]
 texture_repeat = 2
-width = 6.0
+position = Vector2(252.62354, 230.24036)
+scale = Vector2(1.092251, 0.6057693)
+points = PackedVector2Array(410, 611, 151, 415)
+width = 5.0
 default_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_svm44")
 texture_mode = 1
 
 [node name="Line3To4" type="Line2D" parent="."]
 texture_repeat = 2
-width = 6.0
+points = PackedVector2Array(409, 474, 869, 403)
+width = 5.0
 default_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_svm44")
 texture_mode = 1
 
 [node name="Line4To5" type="Line2D" parent="."]
 texture_repeat = 2
-width = 6.0
+points = PackedVector2Array(866, 405, 661, 296)
+width = 5.0
 default_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_svm44")
 texture_mode = 1
 
 [node name="Line5ToFinal" type="Line2D" parent="."]
 texture_repeat = 2
-width = 6.0
+points = PackedVector2Array(669, 298, 703, 140)
+width = 5.0
 default_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_svm44")
 texture_mode = 1

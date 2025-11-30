@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="BattleDescription" load_steps=4 format=3 uid="uid://643ymr7t4qfw"]
+[gd_resource type="Resource" script_class="BattleDescription" load_steps=5 format=3 uid="uid://643ymr7t4qfw"]
 
 [ext_resource type="Script" uid="uid://c541r5p6gwvel" path="res://slay_the_wc/Entities/Entity.gd" id="1_5fqq7"]
+[ext_resource type="VideoStream" uid="uid://begsuoqsgodcq" path="res://slay_the_wc/Assets/Art/Biome-foret-Animé.ogv" id="1_qcpx7"]
 [ext_resource type="Resource" uid="uid://c3y8qv4dcspai" path="res://slay_the_wc/Entities/Ennemies/Patate.tres" id="2_qcpx7"]
 [ext_resource type="Script" uid="uid://dgu1edrbcg2ev" path="res://slay_the_wc/Scenes/Battle/StepBattle/BattleDescription.gd" id="2_x2rc2"]
 
@@ -8,4 +9,5 @@
 script = ExtResource("2_x2rc2")
 nom = "Bataille 1"
 entities = Array[ExtResource("1_5fqq7")]([ExtResource("2_qcpx7")])
+background = ExtResource("1_qcpx7")
 metadata/_custom_type_script = "uid://dgu1edrbcg2ev"

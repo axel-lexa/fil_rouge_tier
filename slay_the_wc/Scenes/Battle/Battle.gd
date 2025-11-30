@@ -48,6 +48,13 @@ func _ready():
 	
 	battle_desc = GameState.current_battle_description
 	
+	$VideoStreamPlayer.stream = battle_desc.background
+	$VideoStreamPlayer.volume_db = -80.0
+	$VideoStreamPlayer.speed_scale = 2.91
+	$VideoStreamPlayer.autoplay = true
+	$VideoStreamPlayer.play()
+	
+	
 	$CardManager.visible = false
 	$PlayerHand.visible = false
 	$Bin.visible = false
