@@ -4,7 +4,7 @@ extends Node
 # Gère la génération de récompenses de cartes en fin de partie
 # Sélectionne 3 cartes aléatoires parmi les cartes disponibles
 
-@export var all_cards: Array[CardData] = []  # Toutes les cartes du jeu
+@export var all_cards: Array[CardData] = [load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), load("res://slay_the_wc/Cards/Data/Commun/Baston.tres")]  # Toutes les cartes du jeu
 @export var unlocked_cards: Array[CardData] = []  # Cartes débloquées par le joueur
 
 # Probabilités de rareté (doit totaliser 100)
@@ -15,11 +15,13 @@ extends Node
 func _ready():
 	# S'abonner aux événements
 	Events.battle_won.connect(_on_battle_won)
-	
+	#print(unlocked_cards)
 	# Initialiser avec toutes les cartes débloquées par défaut
 	# (peut être modifié pour avoir un système de déblocage progressif)
 	if unlocked_cards.is_empty():
 		unlocked_cards = all_cards.duplicate()
+		
+	#print(unlocked_cards)
 
 # Génère 3 cartes aléatoires pour la récompense
 func generate_card_reward() -> Array[CardData]:
@@ -78,6 +80,7 @@ func unlock_card(card_data: CardData):
 
 func _on_battle_won():
 	# Générer et offrir les récompenses
+	print("gfdjkgnfdlkgjmfgnmlhkstùgdklmgndfgkùlhsf")
 	var reward_cards = generate_card_reward()
 	if reward_cards.size() == 3:
 		Events.card_reward_offered.emit(reward_cards)

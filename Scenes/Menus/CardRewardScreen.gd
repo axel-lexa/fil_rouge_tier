@@ -18,10 +18,12 @@ func _ready():
 	Events.card_reward_offered.connect(_on_card_reward_offered)
 	
 	# Masquer par défaut
-	visible = false
+	visible = true
 
 # Affiche les 3 cartes de récompense
 func _on_card_reward_offered(cards: Array):
+	for c in cards:
+		print("Carte:", c.card_name, " - ", c.description)
 	reward_cards = cards
 	show_reward_screen()
 

@@ -18,4 +18,3 @@ signal deck_updated
 signal run_started
 signal run_ended
 signal floor_completed
-

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://caar8ogeia8u5"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/CardRewardScreen.gd" id="1_0"]
+[ext_resource type="Script" uid="uid://cdimf4t0si5xx" path="res://Scenes/Menus/CardRewardScreen.gd" id="1_0"]
 
 [node name="CardRewardScreen" type="Control"]
 layout_mode = 3
@@ -47,4 +47,3 @@ horizontal_alignment = 1
 [node name="CardContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 alignment = 1
-
