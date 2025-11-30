@@ -11,6 +11,8 @@ var end_game
 var intention_ennemie: Dictionary[String, String] = {}
 var texture_intention: Dictionary[String, Sprite2D] = {}
 
+var battle_desc: BattleDescription
+
 func display_infos_player(boolean: bool):
 	$BattleField/Characters/Player/NamePlayer.visible = boolean
 	$BattleField/Characters/Player/HealthPlayer.visible = boolean
@@ -29,6 +31,7 @@ func display_infos_ennemie1(boolean: bool):
 	$BattleField/Characters/Ennemie1/DefenseIcon.visible = boolean
 	$BattleField/Characters/Ennemie1/HealthBarEnnemie.visible = boolean
 	$BattleField/Characters/Ennemie1/IntentionEnnemie.visible = boolean
+	$BattleField/CardSlot.visible = boolean
 
 func display_infos_ennemie2(boolean: bool):
 	$BattleField/Characters/Ennemie2/NameEnnemy.visible = boolean
@@ -42,6 +45,15 @@ func display_infos_ennemie2(boolean: bool):
 	
 	
 func _ready():
+	
+	battle_desc = GameState.current_battle_description
+	
+	$VideoStreamPlayer.stream = battle_desc.background
+	$VideoStreamPlayer.volume_db = -80.0
+	$VideoStreamPlayer.speed_scale = 2.91
+	$VideoStreamPlayer.autoplay = true
+	$VideoStreamPlayer.play()
+	
 	
 	$CardManager.visible = false
 	$PlayerHand.visible = false
@@ -61,15 +73,17 @@ func _ready():
 	player = load("res://slay_the_wc/Entities/Players/Player.tres")
 	reset_health_bar($BattleField/Characters/Player/HealthBarPlayer, player, $BattleField/Characters/Player/HealthPlayer)
 	
-	ennemy["ennemie1"] = load("res://slay_the_wc/Entities/Ennemies/Patate.tres")
-	reset_health_bar($BattleField/Characters/Ennemie1/HealthBarEnnemie, ennemy["ennemie1"], $BattleField/Characters/Ennemie1/HealthEnnemy)
-	
-	ennemy["ennemie2"] = load("res://slay_the_wc/Entities/Ennemies/Patate.tres")
-	reset_health_bar($BattleField/Characters/Ennemie2/HealthBarEnnemie, ennemy["ennemie2"], $BattleField/Characters/Ennemie2/HealthEnnemy)
+	var index = 1
+	for ennemy_data in battle_desc.entities:
+		var nameTmp = "ennemie"+str(index)
+		ennemy[nameTmp] = ennemy_data
+		index = index+1
 	init_infos_player(player)
 	if ennemy.has("ennemie1"):
+		reset_health_bar($BattleField/Characters/Ennemie1/HealthBarEnnemie, ennemy["ennemie1"], $BattleField/Characters/Ennemie1/HealthEnnemy)
 		init_infos_ennemie1(ennemy["ennemie1"])
 	if ennemy.has("ennemie2"):
+		reset_health_bar($BattleField/Characters/Ennemie2/HealthBarEnnemie, ennemy["ennemie2"], $BattleField/Characters/Ennemie2/HealthEnnemy)
 		init_infos_ennemie2(ennemy["ennemie2"])
 		
 	$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)
@@ -120,12 +134,16 @@ func battle(card: Card2, ennemie_number: String, player_slot: bool):
 			player.defense = player.defense+card.data.defense
 			$BattleField/Characters/Player/DefensePlayer.text = str(player.defense)
 			$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)
-			
+			move_card_to_bin(card)
 	else:
 		if card.data.type == "Attaque":
 			pass
+		elif card.data.type == "Defense":
+			$PlayerHand.add_card_to_hand(card, $PlayerHand.DEFAULT_CARD_MOVE_SPEED)
+			card.get_node("Area2D/CollisionShape2D").disabled = false
+		#move_card_to_bin(card)
 	
-	move_card_to_bin(card)
+	
 	
 func move_card_to_bin(card: Card2):
 	
@@ -199,7 +217,7 @@ func _on_button_pressed() -> void:
 
 
 func _on_end_battle_pressed() -> void:
-	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/Main_menu/Main_menu.tscn")
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
 
 
 func _on_video_stream_player_finished() -> void:
@@ -208,8 +226,11 @@ func _on_video_stream_player_finished() -> void:
 	$Bin.visible = true
 	$Deck.visible = true
 	display_infos_player(true)
-	display_infos_ennemie1(true)
-	display_infos_ennemie2(true)
+	
+	if ennemy.has("ennemie1"):
+		display_infos_ennemie1(true)
+	if ennemy.has("ennemie2"):
+		display_infos_ennemie2(true)
 	$Button.visible = true
 
 func reset_health_bar(bar: ProgressBar, entity: Entity, textLabel: RichTextLabel):
