@@ -22,3 +22,11 @@ version_control/autoload_on_startup=true
 [rendering]
 
 renderer/rendering_method="mobile"
+
+[autoload]
+
+Events="*res://_Autoloads/Events.gd"
+RunManager="*res://_Autoloads/RunManager.gd"
+GameManager="*res://_Autoloads/GameManager.gd"
+CardRewardManager="*res://Systems/CardSystem/CardRewardManager.gd"
+DeckManager="*res://Systems/CardSystem/DeckManager.gd"
