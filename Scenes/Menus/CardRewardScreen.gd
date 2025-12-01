@@ -3,9 +3,9 @@ class_name CardRewardScreen
 
 # Scène UI pour afficher 3 cartes et permettre la sélection
 
-@onready var card_container: HBoxContainer = $VBoxContainer/CardContainer
-@onready var title_label: Label = $VBoxContainer/TitleLabel
-@onready var instruction_label: Label = $VBoxContainer/InstructionLabel
+@onready var card_container: HBoxContainer = $"."/VBoxContainer/CardContainer
+@onready var title_label: Label = $"."/VBoxContainer/TitleLabel
+@onready var instruction_label: Label = $"."/VBoxContainer/InstructionLabel
 
 var reward_cards: Array[CardData] = []
 var card_ui_scenes: Array[Control] = []
@@ -14,14 +14,18 @@ var card_ui_scenes: Array[Control] = []
 var card_ui_scene: PackedScene = null
 
 func _ready():
-	# S'abonner aux événements
 	Events.card_reward_offered.connect(_on_card_reward_offered)
-	
+	print("Parent type =", get_parent())
+	#var ok = Events.card_reward_offered.connect(_on_card_reward_offered)
+	#print("Connexion =", ok)
+	# S'abonner aux événements
+	#Events.card_reward_offered.connect(_on_card_reward_offered)
 	# Masquer par défaut
 	visible = true
 
 # Affiche les 3 cartes de récompense
 func _on_card_reward_offered(cards: Array):
+	print("cards=", cards)
 	for c in cards:
 		print("Carte:", c.card_name, " - ", c.description)
 	reward_cards = cards
@@ -30,14 +34,17 @@ func _on_card_reward_offered(cards: Array):
 func show_reward_screen():
 	visible = true
 	#_process_mode = Node.PROCESS_MODE_INHERIT
-	
 	# Nettoyer les cartes précédentes
 	_clear_cards()
 	
 	# Créer les UI de cartes
+	print("rewards_card=",reward_cards)
+	print("CardRewardScreen visible =", visible)
 	for i in range(reward_cards.size()):
 		var card_data = reward_cards[i]
+		
 		var card_ui = _create_card_ui(card_data, i)
+		print("card_ui", card_ui)
 		if card_ui:
 			card_container.add_child(card_ui)
 			card_ui_scenes.append(card_ui)

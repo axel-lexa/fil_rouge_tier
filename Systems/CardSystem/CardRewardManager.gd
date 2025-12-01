@@ -80,7 +80,13 @@ func unlock_card(card_data: CardData):
 
 func _on_battle_won():
 	# Générer et offrir les récompenses
-	print("gfdjkgnfdlkgjmfgnmlhkstùgdklmgndfgkùlhsf")
 	var reward_cards = generate_card_reward()
+	call_deferred("_emit_reward", reward_cards)
+	#if reward_cards.size() == 3:
+		#Events.debug_emit()
+		#Events.card_reward_offered.emit(reward_cards)
+
+func _emit_reward(reward_cards):
 	if reward_cards.size() == 3:
+		Events.debug_emit()
 		Events.card_reward_offered.emit(reward_cards)

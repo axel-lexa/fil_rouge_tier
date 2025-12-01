@@ -1,5 +1,8 @@
 extends Node
 
+func debug_emit():
+	print("card_reward_offered has", card_reward_offered.get_connections().size(), "connections")
+
 # SignalBus pour découplage total entre systèmes
 # Événements de combat
 signal battle_started
