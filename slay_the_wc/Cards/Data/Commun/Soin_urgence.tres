@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://d1lk70arp16t0"]
+
+[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_uo3o3"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_doo86"]
+
+[resource]
+script = ExtResource("2_doo86")
+id = "soin_urgence"
+card_name = "Soins d'urgence"
+mana_cost = 2
+description = "Récupère 4 PV"
+target_type = "self"
+card_type = "skill"
+background = ExtResource("1_uo3o3")
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

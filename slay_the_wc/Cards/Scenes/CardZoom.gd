@@ -6,18 +6,20 @@ func _ready():
 	visible = false
 
 func show_card(data: CardData):
-	if !data.illustration_hd:
+	if !data.background:
 		return
 	visible = true
-	$HDCardImage.texture = data.illustration_hd  # toute la carte déjà “prête”
+	$HDCardImage.texture = data.background
+	$Description.text = data.description
+	$Name.text = data.card_name
 	var screen_size = get_viewport().get_visible_rect().size
 
 	# Limites max pour la carte HD
-	var max_width = screen_size.x * 0.2
-	var max_height = screen_size.y * 0.4
+	var max_width = screen_size.x * 0.4
+	var max_height = screen_size.y * 0.6
 
 	# Taille originale de la texture
-	var tex_size = data.illustration_hd.get_size()
+	var tex_size = data.background.get_size()
 	var aspect = tex_size.x / tex_size.y
 	
 	# Calcul du scale proportionnel pour ne pas dépasser les limites

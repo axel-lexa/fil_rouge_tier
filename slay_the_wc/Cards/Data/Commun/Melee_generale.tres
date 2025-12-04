@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://dvrsmea8ug1fq"]
+
+[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_ggtjd"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_215rj"]
+
+[resource]
+script = ExtResource("2_215rj")
+id = "melee_generale"
+card_name = "Mélée générale"
+mana_cost = 3
+description = "Inflige 12 dégâts à tout les ennemies"
+target_type = "all-enemies"
+background = ExtResource("1_ggtjd")
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

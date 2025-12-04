@@ -10,6 +10,7 @@ class_name CardData
 @export var rarity: String = "common"  # "common", "uncommon", "rare"
 @export var card_type: String = "attack"  # "attack", "skill", "power"
 @export var icon: Texture2D = null
+@export var background: Texture2D = null
 
 # Liste des effets (sera remplie avec des resources Effect)
 @export var effects: Array[Resource] = []

@@ -21,8 +21,8 @@ func _ready() -> void:
 	$NameLabel.text = data.card_name
 	$CostLabel.text = str(data.mana_cost)
 	$TextLabel.text = data.description
-	$CardImage.texture = data.icon
-	$TextureRect.texture = data.icon
+	$CardImage.texture = data.background
+	$TextureRect.texture = data.background
 	$Area2D.mouse_entered.connect(_on_mouse_entered)
 	$Area2D.mouse_exited.connect(_on_mouse_exited)
 	$HoverTimer.timeout.connect(_on_hover_timeout)

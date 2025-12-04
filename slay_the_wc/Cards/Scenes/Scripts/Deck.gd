@@ -4,20 +4,20 @@ const CARD_SCENE_PATH = "res://slay_the_wc/Cards/Scenes/Card.tscn"
 const CARD_DRAW_SPEED = 0.2
 
 var player_deck = [load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
+load("res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Douleur_preparee.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Defense_offensive.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Esquive_rapide.tres"), 
+load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
+load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"),
-load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Baston.tres")]
 
 # Called when the node enters the scene tree for the first time.

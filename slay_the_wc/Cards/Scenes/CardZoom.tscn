@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://1k2k2fb7j37s"]
+[gd_scene load_steps=3 format=3 uid="uid://1k2k2fb7j37s"]
+
+[sub_resource type="SystemFont" id="SystemFont_pm1on"]
+font_names = PackedStringArray("Segoe Print")
+
+[sub_resource type="SystemFont" id="SystemFont_ag4bc"]
+font_names = PackedStringArray("Segoe Print")
 
 [node name="CardZoom" type="CanvasLayer"]
 
@@ -6,3 +12,21 @@
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+
+[node name="Description" type="RichTextLabel" parent="."]
+z_index = 2
+offset_left = 31.0
+offset_top = 338.0
+offset_right = 304.0
+offset_bottom = 531.0
+theme_override_fonts/normal_font = SubResource("SystemFont_pm1on")
+theme_override_font_sizes/normal_font_size = 16
+scroll_active = false
+
+[node name="Name" type="RichTextLabel" parent="."]
+offset_left = 48.0
+offset_top = 301.0
+offset_right = 278.0
+offset_bottom = 331.0
+theme_override_fonts/normal_font = SubResource("SystemFont_ag4bc")
+scroll_active = false
