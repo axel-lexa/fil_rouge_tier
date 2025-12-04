@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("2_5oc53")
-id = "attaque_rapide"
-card_name = "Attaque rapide"
-description = "Inflige 3 dégats. Pioche une carte"
+id = "douleur_preparee"
+card_name = "Douleur préparées"
+mana_cost = 2
+description = "Inflige autant de dégâts que de cartes dans votre deck"
 target_type = "enemy"
 card_type = "skill"
 background = ExtResource("1_0jbxr")

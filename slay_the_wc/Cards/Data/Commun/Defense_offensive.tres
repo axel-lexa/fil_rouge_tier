@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("2_gskqb")
-id = "douleurs_preparees"
-card_name = "Douleurs préparées"
-mana_cost = 2
-description = "Inflige autant de dégâts que de cartes dans votre deck"
+id = "defense_offensive"
+card_name = "Défense offensive"
+mana_cost = 1
+description = "Inflige autant de dégâts que votre nombre de blocages"
 target_type = "enemy"
 background = ExtResource("1_u70er")
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

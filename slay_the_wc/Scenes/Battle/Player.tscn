@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://gtc861k7evva"]
+[gd_scene load_steps=5 format=3 uid="uid://gtc861k7evva"]
 
 [ext_resource type="Texture2D" uid="uid://d28urwm7s16i1" path="res://slay_the_wc/Assets/Art/shield_icon.png" id="1_1duer"]
+[ext_resource type="Texture2D" uid="uid://wdb7prvrrf7t" path="res://slay_the_wc/Assets/Art/logoWinterCup.png" id="2_kxs3e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37y5e"]
 bg_color = Color(0.87058824, 0, 0.18039216, 1)
@@ -29,10 +30,11 @@ value = 100.0
 show_percentage = false
 
 [node name="EnergyPlayer" type="RichTextLabel" parent="."]
-offset_left = 243.0
+offset_left = 177.0
 offset_top = 360.0
-offset_right = 337.0
+offset_right = 271.0
 offset_bottom = 389.0
+text = "Energie : "
 
 [node name="DefensePlayer" type="RichTextLabel" parent="."]
 z_index = 31
@@ -62,3 +64,18 @@ z_index = 30
 position = Vector2(428, 410)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_1duer")
+
+[node name="FloconMana1" type="Sprite2D" parent="."]
+position = Vector2(274, 373)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_kxs3e")
+
+[node name="FloconMana2" type="Sprite2D" parent="."]
+position = Vector2(309, 373)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_kxs3e")
+
+[node name="FloconMana3" type="Sprite2D" parent="."]
+position = Vector2(343, 373)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_kxs3e")
