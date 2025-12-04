@@ -7,3 +7,7 @@ var player_bin = []
 
 func _ready() -> void:
 	$RichTextLabel.text = str(player_bin.size())
+	
+#Ajout CKC
+func add_to_bin(card:Card2) : 
+	player_bin.append(card)

@@ -10,7 +10,6 @@ var player_hand_reference
 var end_game
 var intention_ennemie: Dictionary[String, String] = {}
 var texture_intention: Dictionary[String, Sprite2D] = {}
-
 var battle_desc: BattleDescription
 
 func display_infos_player(boolean: bool):
@@ -45,7 +44,6 @@ func display_infos_ennemie2(boolean: bool):
 	
 	
 func _ready():
-	
 	battle_desc = GameState.current_battle_description
 	
 	$VideoStreamPlayer.stream = battle_desc.background
@@ -68,7 +66,7 @@ func _ready():
 	$Button.visible = false
 	$PlayerHand.connect("hand_size_changed", _on_hand_size_changed)
 	
-	player_hand_reference = $"../PlayerHand"
+	player_hand_reference = $PlayerHand
 	
 	player = load("res://slay_the_wc/Entities/Players/Player.tres")
 	reset_health_bar($BattleField/Characters/Player/HealthBarPlayer, player, $BattleField/Characters/Player/HealthPlayer)
@@ -124,6 +122,9 @@ func _on_hand_size_changed(size):
 	
 # Quand le joueur attaque	
 func battle(card: Card2, ennemie_number: String, player_slot: bool):
+	#Début du tour joueur ?
+
+			
 	print("Battle="+ennemie_number)
 	if not player_turn or end_game:
 		return
@@ -162,7 +163,9 @@ func move_card_to_bin(card: Card2):
 	
 	# 1️⃣ Retirer de la main
 	$PlayerHand.remove_card_from_hand(card)
-
+	#Ajout CKC
+	$Bin.add_to_bin(card)
+	#fin ajout CKC
 	# 2️⃣ Désactiver le hover pour que le CardManager ne la touche plus
 	var card_manager = get_tree().root.get_node("Battle/CardManager")
 	card.disconnect("hovered", card_manager.on_hovered_over_card)
@@ -188,10 +191,16 @@ func compute_intention_ennemie(entity: Entity, sprite_intention) -> String:
 		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/down-arrow_icon.png")
 		return entity.pattern[3].type
 
-# C'est au tour de l'ennemie
+# Boutton fin de tour appuyé
 func _on_button_pressed() -> void:
 	player_turn = false
 	
+	#Ajout CKC - On doit vider la main
+	for card in $PlayerHand.player_hand:
+		move_card_to_bin(card)
+		# Ca ne vide pas la main entièrement je comprends pas pourquoi des cartes ne sont pas attachées à la main j'imagine
+	#Fin ajout CKC
+	# début du tour des ennemis
 	for en in ennemy:
 		if intention_ennemie[en] == "ATK":
 			if player.defense >= ennemy[en].pattern[0].attaque:
@@ -210,7 +219,9 @@ func _on_button_pressed() -> void:
 			pass
 		else:
 			pass	
-		if player.health <= 0:
+			
+	
+		if player.health == 0:
 			$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
 			$EndBattle.visible = true
 			$BattleField/Characters/Player/HealthPlayer.text = "0/0"
@@ -219,6 +230,10 @@ func _on_button_pressed() -> void:
 			return
 		else:
 			intention_ennemie[en] = compute_intention_ennemie(ennemy[en], texture_intention[en])
+			#Ajout CKC - Début tour joueur
+			for i in range(0,5):
+				$Deck.draw_card()
+			#Fin ajout CKC
 			player_turn = true
 			player.energy = MAX_ENERGY
 			$BattleField/Characters/Player/EnergyPlayer.text = "Energie : " + str(player.energy)

@@ -9,7 +9,6 @@ const MAX_HAND_SIZE = 10
 const SPACING_BETWEEN_CARD = 150.0
 signal hand_size_changed(size)
 
-
 var player_hand = []
 var center_screen_x
 
