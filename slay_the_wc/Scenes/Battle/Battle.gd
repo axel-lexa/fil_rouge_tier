@@ -13,6 +13,9 @@ var texture_intention: Dictionary[String, Sprite2D] = {}
 var battle_desc: BattleDescription
 var increase_damage = 0
 
+var nb_pandas = 0
+var nb_pandas_left_battle = 0
+
 func display_infos_player(boolean: bool):
 	$BattleField/Characters/Player/NamePlayer.visible = boolean
 	$BattleField/Characters/Player/HealthPlayer.visible = boolean
@@ -193,7 +196,7 @@ func process_card_player_to_enemy(card: Card2, ennemie_number: String):
 		process_card_commun_enemy(card, ennemie_number)
 			
 	if card.data.card_team_owner == "12Pandas":
-		process_card_12pandas_enemy(card)
+		process_card_12pandas_enemy(card, ennemie_number)
 		
 	if card.data.card_team_owner == "bibi":
 		process_card_bibi_enemy(card)
@@ -274,7 +277,7 @@ func process_card_commun_enemy(card: Card2, ennemie_number: String):
 		for en in ennemy:
 			process_damage_entity("ennemie" + ennemy_number_index, 12)
 		
-	pass
+	play_hit_flash()
 
 func process_card_commun_himself(card: Card2):
 	if card.data.id == "defense":
@@ -300,6 +303,13 @@ func process_card_commun_himself(card: Card2):
 		pass
 	
 func process_card_12pandas_himself(card: Card2):
+	
+	if card.data.id == "corne_appel":
+		nb_pandas = nb_pandas + 3
+		pass
+	elif card.data.id == "bamboust":
+		nb_pandas = nb_pandas * 2
+		pass
 	pass
 	
 func process_card_bibi_himself(card: Card2):
@@ -316,8 +326,26 @@ func process_card_penta_monstre_himself(card: Card2):
 func process_card_uwu_himself(card: Card2):
 	pass		
 	
-func process_card_12pandas_enemy(card: Card2):
-	pass
+func process_card_12pandas_enemy(card: Card2, ennemy_number: String):
+	
+	if card.data.id == "coup_bambou":
+		process_damage_entity(ennemy_number, 7)
+		nb_pandas = nb_pandas + 3
+		
+	elif card.data.id == "revanche":
+		for i in range(0, nb_pandas_left_battle):
+			var nb_random = randi()%100 + 1
+			if nb_random < 50:
+				process_damage_entity("ennemie1", 3)
+			else:
+				process_damage_entity("ennemie2", 3)
+		
+	elif card.data.id == "roulade":
+		nb_pandas_left_battle = nb_pandas_left_battle + 3
+		
+	elif card.data.id == "tir_barrage":
+		for nb in range(0, nb_pandas):
+			process_damage_entity(ennemy_number, 1)
 	
 func process_card_bibi_enemy(card: Card2):
 	pass	
@@ -458,4 +486,35 @@ func compute_energy():
 		$BattleField/Characters/Player/FloconMana1.visible = true
 		$BattleField/Characters/Player/FloconMana2.visible = false
 		$BattleField/Characters/Player/FloconMana3.visible = false
+	if player.energy == 0:
+		$BattleField/Characters/Player/FloconMana1.visible = true
+		$BattleField/Characters/Player/FloconMana2.visible = true
+		$BattleField/Characters/Player/FloconMana3.visible = true
 		
+
+func play_hit_flash():
+	var sprite = $BattleField/Characters/Ennemie1/EnnemieImage  # ou le node qui affiche ton ennemi
+	print("sprite=", sprite)
+	if sprite == null:
+		return
+
+	var original_modulate = sprite.modulate
+	var original_pos = sprite.position
+	var original_scale = sprite.scale
+
+	var tween = create_tween()
+
+	# Flash rouge
+	tween.tween_property(sprite, "modulate", Color(1, 0.2, 0.2), 0.05)
+
+	# Shake léger
+	for i in range(3):
+		tween.tween_property(sprite, "position", original_pos + Vector2(randf()*4-2, randf()*4-2), 0.03)
+
+	# Pop
+	tween.tween_property(sprite, "scale", sprite.scale * 1.1, 0.05)
+	tween.tween_property(sprite, "scale", original_scale, 0.08)
+
+	# Retour normal
+	tween.tween_property(sprite, "modulate", original_modulate, 0.1)
+	tween.tween_property(sprite, "position", original_pos, 0.05)
