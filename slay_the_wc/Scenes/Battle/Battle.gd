@@ -16,6 +16,8 @@ var increase_damage = 0
 var nb_pandas = 0
 var nb_pandas_left_battle = 0
 
+var card_played: Array[Card2]
+
 func display_infos_player(boolean: bool):
 	$BattleField/Characters/Player/NamePlayer.visible = boolean
 	$BattleField/Characters/Player/HealthPlayer.visible = boolean
@@ -173,6 +175,7 @@ func process_card(card: Card2, player_slot: bool, ennemie_number: String):
 		card.get_node("Area2D/CollisionShape2D").disabled = false
 		return
 	player.energy = player.energy-card.data.mana_cost
+	card_played.append(card)
 	compute_energy()
 	if player_slot and card.data.target_type == "self":
 		# Si la carte est pour le joueur
@@ -399,7 +402,7 @@ func compute_intention_ennemie(entity: Entity, sprite_intention) -> String:
 # Boutton fin de tour appuyé
 func _on_button_pressed() -> void:
 	player_turn = false
-	
+	card_played = []
 	#Ajout CKC - On doit vider la main
 	var tmpList = player_hand_reference.player_hand.duplicate()
 	for card in tmpList:
