@@ -18,13 +18,17 @@ func _ready() -> void:
 
 	if mcards:
 		for data in mcards.default_cards:
-			var card_to_add = card_scene.instantiate()
-			card_to_add.data = data
+			var card_to_add = instantiateUiCard(data)
 			$MarginContainer/VBoxContainer/FoldableContainer/HFlowContainer.add_child(card_to_add)
 		for data in mcards.unlockable_cards:
-			var card_to_add = card_scene.instantiate()
-			card_to_add.data = data
+			var card_to_add = instantiateUiCard(data)
 			$MarginContainer/VBoxContainer/FoldableContainer2/HFlowContainer.add_child(card_to_add)
+
+func instantiateUiCard(data: CardData) -> UiCard:
+	var ui_card = card_scene.instantiate()
+	ui_card.data = data
+	ui_card.custom_minimum_size = Vector2(150, 200)
+	return ui_card
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

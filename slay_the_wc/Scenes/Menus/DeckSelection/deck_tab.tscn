@@ -1,9 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://diahsebjgskd0"]
+[gd_scene load_steps=11 format=3 uid="uid://diahsebjgskd0"]
 
 [ext_resource type="Script" uid="uid://1j4ah3nujn02" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck_tab.gd" id="1_y0hjh"]
 [ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Art/Telo.png" id="2_rkyqu"]
-[ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="4_h21b7"]
-[ext_resource type="PackedScene" uid="uid://dqtac4737yusy" path="res://slay_the_wc/Cards/UICard/UICard.tscn" id="4_rkyqu"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="3_wrj8h"]
+[ext_resource type="Texture2D" uid="uid://ds5n2uh7ehomy" path="res://slay_the_wc/Assets/Art/cardlayout.png" id="4_13knv"]
+[ext_resource type="Texture2D" uid="uid://kh0wfnufxaby" path="res://icon.svg" id="5_bodci"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Cards/UICard/MascotCard.gd" id="6_su6x4"]
+[ext_resource type="Texture2D" uid="uid://bgw0v6u7pufsi" path="res://slay_the_wc/Assets/Art/template_hd.jpg" id="7_taqru"]
+
+[sub_resource type="Resource" id="Resource_0w8y1"]
+script = ExtResource("3_wrj8h")
+card_name = "Card Name"
+mana_cost = 42
+description = "Description of the card"
+icon = ExtResource("5_bodci")
+background = ExtResource("4_13knv")
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"
+
+[sub_resource type="Resource" id="Resource_m20f7"]
+script = ExtResource("3_wrj8h")
+card_name = "Unlockable Card"
+description = "Card that you can unlock later"
+icon = ExtResource("5_bodci")
+background = ExtResource("7_taqru")
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"
+
+[sub_resource type="Resource" id="Resource_u4mmr"]
+script = ExtResource("6_su6x4")
+default_cards = Array[ExtResource("3_wrj8h")]([SubResource("Resource_0w8y1")])
+unlockable_cards = Array[ExtResource("3_wrj8h")]([SubResource("Resource_m20f7")])
+metadata/_custom_type_script = "uid://d1cm5xud4uywf"
 
 [node name="ScrollContainer" type="ScrollContainer"]
 offset_right = 1400.0
@@ -12,6 +38,7 @@ horizontal_scroll_mode = 0
 script = ExtResource("1_y0hjh")
 mascotte = ExtResource("2_rkyqu")
 description = "La description ICI"
+mcards = SubResource("Resource_u4mmr")
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -84,11 +111,6 @@ title = "Deck de départ:"
 
 [node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/FoldableContainer"]
 layout_mode = 2
-
-[node name="CardBg" parent="MarginContainer/VBoxContainer/FoldableContainer/HFlowContainer" instance=ExtResource("4_rkyqu")]
-custom_minimum_size = Vector2(150, 200)
-layout_mode = 2
-data = ExtResource("4_h21b7")
 
 [node name="FoldableContainer2" type="FoldableContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

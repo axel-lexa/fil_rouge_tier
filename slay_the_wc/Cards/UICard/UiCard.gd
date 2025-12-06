@@ -17,11 +17,14 @@ func _ready() -> void:
 	illustration = $CardBg/VBoxContainer/HBoxContainer/VBoxContainer/IllustrationControl/CardIllustration
 	cardBg = $CardBg
 	if data:
-		nameLabel.text = data.card_name
-		costLabel.text = str(data.mana_cost)
-		descriptionLabel.text = data.description
-		illustration.texture = data.icon
-		cardBg.texture = data.background
+		loadCardData(data)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	resizeLabel(costLabel, 45)
+	resizeLabel(nameLabel, 35)
+	resizeLabel(descriptionLabel, 30)
+	# reposition cost pivot to the bottom
+	costLabel.pivot_offset = Vector2(0, costLabel.size.y)
 
 func resizeLabel(label: Label, base_font_size: int) -> void:
 	# scale label fonts
@@ -30,14 +33,14 @@ func resizeLabel(label: Label, base_font_size: int) -> void:
 		"font_size",
 		int(base_font_size*new_scale)
 	)
+
+func loadCardData(new_data: CardData):
+	nameLabel.text = new_data.card_name
+	costLabel.text = str(new_data.mana_cost)
+	descriptionLabel.text = new_data.description
+	illustration.texture = new_data.icon
+	cardBg.texture = new_data.background
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	resizeLabel(costLabel, 42)
-	resizeLabel(nameLabel, 28)
-	resizeLabel(descriptionLabel, 21)
-	# reposition cost pivot to the bottom
-	costLabel.pivot_offset = Vector2(0, costLabel.size.y)
 
 func _on_timer_timeout() -> void:
 	#self.size += Vector2(10, 10)
