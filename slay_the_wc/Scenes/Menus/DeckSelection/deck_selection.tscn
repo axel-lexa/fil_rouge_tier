@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://4x521qri8ul1"]
+
+[ext_resource type="Script" uid="uid://bu54w76h513xk" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck_selection.gd" id="1_wccow"]
+[ext_resource type="PackedScene" uid="uid://diahsebjgskd0" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck_tab.tscn" id="2_emwxf"]
+[ext_resource type="Texture2D" uid="uid://c1o6sxw8x2yww" path="res://slay_the_wc/Assets/Art/heheboi.png" id="3_o21fc"]
+[ext_resource type="Texture2D" uid="uid://cs1qe6awkyhlw" path="res://slay_the_wc/Assets/Art/patate_ennemie.png" id="4_mdw6b"]
+[ext_resource type="Resource" uid="uid://c15yittic1eu7" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck.tres" id="4_o21fc"]
+
+[node name="DeckSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wccow")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VFlowContainer" type="VFlowContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer/VFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+text = "Deck 1"
+
+[node name="Button2" type="Button" parent="HBoxContainer/VFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+text = "Deck 2"
+
+[node name="Button3" type="Button" parent="HBoxContainer/VFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+text = "Deck 3"
+
+[node name="Button4" type="Button" parent="HBoxContainer/VFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+text = "Deck 4"
+
+[node name="Button5" type="Button" parent="HBoxContainer/VFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+text = "Deck 5"
+
+[node name="Button6" type="Button" parent="HBoxContainer/VFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+text = "Deck 6"
+
+[node name="Button7" type="Button" parent="HBoxContainer/VFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+toggle_mode = true
+text = "Deck 7"
+
+[node name="TabContainer" type="TabContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 0
+tabs_visible = false
+
+[node name="ScrollContainer" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+layout_mode = 2
+description = "Les personnages changent pour améliorer l'attaque (Zeno) et la défense (Telo) du joueur.Les cartes s'appuient sur leur spécialité"
+
+[node name="ScrollContainer2" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+visible = false
+layout_mode = 2
+mascotte = ExtResource("3_o21fc")
+description = "Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur.Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur.Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur."
+metadata/_tab_index = 1
+metadata/mascotte = ExtResource("4_mdw6b")
+metadata/description = "Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur."
+metadata/start_deck = ExtResource("4_o21fc")
+
+[node name="ScrollContainer3" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+visible = false
+layout_mode = 2
+mascotte = ExtResource("4_mdw6b")
+description = "Principalement basé sur le \"Hasard\" quand on lance des dés. EN fonction du résultat, tel attaque/defense est appliqué"
+metadata/_tab_index = 2
+metadata/mascotte = ExtResource("4_mdw6b")
+metadata/description = "Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur."
+metadata/start_deck = ExtResource("4_o21fc")
+
+[connection signal="focus_entered" from="HBoxContainer/VFlowContainer/Button" to="." method="_on_button_focus_entered" binds= [0]]
+[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button" to="." method="_on_button_toggled" binds= [0]]
+[connection signal="focus_entered" from="HBoxContainer/VFlowContainer/Button2" to="." method="_on_button_focus_entered" binds= [1]]
+[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button2" to="." method="_on_button_toggled" binds= [1]]
+[connection signal="focus_entered" from="HBoxContainer/VFlowContainer/Button3" to="." method="_on_button_focus_entered" binds= [2]]
+[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button3" to="." method="_on_button_toggled" binds= [2]]
+[connection signal="focus_entered" from="HBoxContainer/VFlowContainer/Button4" to="." method="_on_button_focus_entered" binds= [3]]
+[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button4" to="." method="_on_button_toggled" binds= [3]]
+[connection signal="focus_entered" from="HBoxContainer/VFlowContainer/Button5" to="." method="_on_button_focus_entered" binds= [4]]
+[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button5" to="." method="_on_button_toggled" binds= [4]]
+[connection signal="focus_entered" from="HBoxContainer/VFlowContainer/Button6" to="." method="_on_button_focus_entered" binds= [5]]
+[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button6" to="." method="_on_button_toggled" binds= [5]]
+[connection signal="focus_entered" from="HBoxContainer/VFlowContainer/Button7" to="." method="_on_button_focus_entered" binds= [6]]
+[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button7" to="." method="_on_button_toggled" binds= [6]]
