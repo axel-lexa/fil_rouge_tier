@@ -1,11 +1,8 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
@@ -16,7 +13,6 @@ func _on_button_toggled(toggled_on: bool, index: int) -> void:
 	for i in range(btns.size()):
 		if i != index:
 			(btns[i] as Button).button_pressed = false;
-
 
 func _on_button_focus_entered(index: int) -> void:
 	$HBoxContainer/TabContainer.current_tab = index

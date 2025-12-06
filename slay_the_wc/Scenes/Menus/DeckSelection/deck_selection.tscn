@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bu54w76h513xk" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck_selection.gd" id="1_wccow"]
 [ext_resource type="PackedScene" uid="uid://diahsebjgskd0" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck_tab.tscn" id="2_emwxf"]
-[ext_resource type="Texture2D" uid="uid://c1o6sxw8x2yww" path="res://slay_the_wc/Assets/Art/heheboi.png" id="3_o21fc"]
+[ext_resource type="Resource" uid="uid://clylu2ckywn8u" path="res://slay_the_wc/Cards/Data/12Pandas/MascotCards.tres" id="3_o21fc"]
 [ext_resource type="Texture2D" uid="uid://cs1qe6awkyhlw" path="res://slay_the_wc/Assets/Art/patate_ennemie.png" id="4_mdw6b"]
-[ext_resource type="Resource" uid="uid://c15yittic1eu7" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck.tres" id="4_o21fc"]
+[ext_resource type="Resource" uid="uid://cv7xqru0hktx3" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck.tres" id="4_o21fc"]
 
 [node name="DeckSelection" type="Control"]
 layout_mode = 3
@@ -75,24 +75,27 @@ size_flags_horizontal = 3
 current_tab = 0
 tabs_visible = false
 
-[node name="ScrollContainer" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+[node name="DeckTab1" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
 layout_mode = 2
+deck_name = "Loups"
 description = "Les personnages changent pour améliorer l'attaque (Zeno) et la défense (Telo) du joueur.Les cartes s'appuient sur leur spécialité"
+mcards = ExtResource("3_o21fc")
 
-[node name="ScrollContainer2" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+[node name="DeckTab2" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
 visible = false
 layout_mode = 2
-mascotte = ExtResource("3_o21fc")
+deck_name = "Grosse Mite"
 description = "Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur.Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur.Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur."
 metadata/_tab_index = 1
 metadata/mascotte = ExtResource("4_mdw6b")
 metadata/description = "Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur."
 metadata/start_deck = ExtResource("4_o21fc")
 
-[node name="ScrollContainer3" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+[node name="DeckTab3" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
 visible = false
 layout_mode = 2
 mascotte = ExtResource("4_mdw6b")
+deck_name = "Bernard l'hermite"
 description = "Principalement basé sur le \"Hasard\" quand on lance des dés. EN fonction du résultat, tel attaque/defense est appliqué"
 metadata/_tab_index = 2
 metadata/mascotte = ExtResource("4_mdw6b")

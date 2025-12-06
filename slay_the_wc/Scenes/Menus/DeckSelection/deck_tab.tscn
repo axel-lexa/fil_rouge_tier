@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://diahsebjgskd0"]
+[gd_scene load_steps=5 format=3 uid="uid://diahsebjgskd0"]
 
 [ext_resource type="Script" uid="uid://1j4ah3nujn02" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck_tab.gd" id="1_y0hjh"]
 [ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Art/Telo.png" id="2_rkyqu"]
-[ext_resource type="Texture2D" uid="uid://dpmmx4xv2gmys" path="res://slay_the_wc/Assets/Art/template_panda_vide.jpg" id="2_y8noa"]
+[ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="4_h21b7"]
+[ext_resource type="PackedScene" uid="uid://dqtac4737yusy" path="res://slay_the_wc/Cards/UICard/UICard.tscn" id="4_rkyqu"]
 
 [node name="ScrollContainer" type="ScrollContainer"]
 offset_right = 1400.0
@@ -33,12 +34,22 @@ theme_override_constants/margin_bottom = 10
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_vertical = 4
+texture = ExtResource("2_rkyqu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer5" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Nom du Deck"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
@@ -58,7 +69,6 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
@@ -75,12 +85,10 @@ title = "Deck de départ:"
 [node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/FoldableContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/FoldableContainer/HFlowContainer"]
+[node name="CardBg" parent="MarginContainer/VBoxContainer/FoldableContainer/HFlowContainer" instance=ExtResource("4_rkyqu")]
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
-texture = ExtResource("2_y8noa")
-expand_mode = 1
-stretch_mode = 5
+data = ExtResource("4_h21b7")
 
 [node name="FoldableContainer2" type="FoldableContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -88,10 +96,3 @@ title = "Cartes à débloquer"
 
 [node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/FoldableContainer2"]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/FoldableContainer2/HFlowContainer"]
-custom_minimum_size = Vector2(150, 200)
-layout_mode = 2
-texture = ExtResource("2_y8noa")
-expand_mode = 1
-stretch_mode = 5

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MascotCards" load_steps=11 format=3 uid="uid://clylu2ckywn8u"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="1_1ttxk"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Cards/UICard/MascotCard.gd" id="1_rmmrq"]
+[ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_aah5l"]
+[ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_p812f"]
+[ext_resource type="Resource" uid="uid://d3r1o8bk6if70" path="res://slay_the_wc/Cards/Data/12Pandas/Corne_appel.tres" id="4_0e4w6"]
+[ext_resource type="Resource" uid="uid://8wbmqembthww" path="res://slay_the_wc/Cards/Data/12Pandas/Roulade.tres" id="5_pimgt"]
+[ext_resource type="Resource" uid="uid://cs5djc3moq2te" path="res://slay_the_wc/Cards/Data/12Pandas/Bamboust.tres" id="7_xnd3m"]
+[ext_resource type="Resource" uid="uid://dp2m1psb2nhsy" path="res://slay_the_wc/Cards/Data/12Pandas/Coup_bambou.tres" id="8_tmr0c"]
+[ext_resource type="Resource" uid="uid://dod3134p4ae1d" path="res://slay_the_wc/Cards/Data/12Pandas/Revanche.tres" id="9_cksfl"]
+[ext_resource type="Resource" uid="uid://drun886wlrbv2" path="res://slay_the_wc/Cards/Data/12Pandas/Tir_barrage.tres" id="10_nnbfq"]
+
+[resource]
+script = ExtResource("1_rmmrq")
+default_cards = Array[ExtResource("1_1ttxk")]([ExtResource("2_aah5l"), ExtResource("2_aah5l"), ExtResource("2_aah5l"), ExtResource("2_aah5l"), ExtResource("3_p812f"), ExtResource("3_p812f"), ExtResource("3_p812f"), ExtResource("3_p812f"), ExtResource("4_0e4w6"), ExtResource("5_pimgt")])
+unlockable_cards = Array[ExtResource("1_1ttxk")]([ExtResource("7_xnd3m"), ExtResource("7_xnd3m"), ExtResource("8_tmr0c"), ExtResource("8_tmr0c"), ExtResource("9_cksfl"), ExtResource("9_cksfl"), ExtResource("10_nnbfq"), ExtResource("10_nnbfq"), ExtResource("4_0e4w6"), ExtResource("5_pimgt")])
+metadata/_custom_type_script = "uid://d1cm5xud4uywf"

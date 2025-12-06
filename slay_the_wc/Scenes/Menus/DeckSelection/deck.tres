@@ -1,9 +1,6 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c15yittic1eu7"]
-
-[ext_resource type="Script" uid="uid://cuwiwbics1vdq" path="res://slay_the_wc/Cards/Base/CardData.gd" id="1_fopf4"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cv7xqru0hktx3"]
 
 [sub_resource type="Resource" id="Resource_kxp8m"]
-script = ExtResource("1_fopf4")
 metadata/_custom_type_script = "uid://cuwiwbics1vdq"
 
 [resource]

@@ -9,8 +9,8 @@ class_name CardData
 @export var target_type: String = "none"  # "none", "enemy", "self", "all_enemies", "random"
 @export var rarity: String = "common"  # "common", "uncommon", "rare"
 @export var card_type: String = "attack"  # "attack", "skill", "power"
-@export var icon: Texture2D = null
-@export var background: Texture2D = null
+@export var icon: CompressedTexture2D = null
+@export var background: CompressedTexture2D = null
 @export var card_team_owner: String = "commun" # "commun", "12Pandas", "bibi", "5d6", "confrerieBeurreSale", "aixAsperant", "pentaMonstre", "uwu"
 
 # Liste des effets (sera remplie avec des resources Effect)
