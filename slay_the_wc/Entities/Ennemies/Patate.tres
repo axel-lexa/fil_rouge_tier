@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="Entity" load_steps=3 format=3 uid="uid://c3y8qv4dcspai"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://c3y8qv4dcspai"]
 
-[ext_resource type="Script" uid="uid://c541r5p6gwvel" path="res://slay_the_wc/Entities/Entity.gd" id="1_7il3x"]
 [ext_resource type="Texture2D" uid="uid://cs1qe6awkyhlw" path="res://slay_the_wc/Assets/Art/patate_ennemie.png" id="1_ykivu"]
+[ext_resource type="Script" uid="uid://dtk6u04ciu554" path="res://slay_the_wc/Entities/enemy.gd" id="2_ykivu"]
 
 [resource]
-script = ExtResource("1_7il3x")
+script = ExtResource("2_ykivu")
 name = "La Patate"
 health = 12
+defense = null
+damage_modifier = null
+energy = null
 pattern = Array[Dictionary]([{
 "attaque": 9,
 "defense": 0,

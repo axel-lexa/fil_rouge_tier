@@ -17,7 +17,7 @@ extends Node2D
 @onready var token: AudioStreamPlayer = $Token
 
 var player: Entity
-var ennemy: Dictionary[String, Entity] = {}
+var ennemy: Dictionary[String, Enemy] = {}
 const MAX_HAND_SIZE = 10
 const MAX_ENERGY = 3
 
@@ -30,9 +30,17 @@ var label_health_enemy: Dictionary[String, RichTextLabel] = {}
 var texture_intention: Dictionary[String, Sprite2D] = {}
 var battle_desc: BattleDescription
 var increase_damage = 0
+var is_player_turn_start = false
 
+# 12 pandas
 var nb_pandas = 0
 var nb_pandas_left_battle = 0
+
+# PentaMonstres
+var nb_mites = 1
+var mites_to_add = 0
+var parasitism_effect = Vector2(0, 0)
+var parasitism_targeted_enemy_nb = null
 
 var card_played: Array[Card2]
 
@@ -156,6 +164,11 @@ func _on_hand_size_changed(size):
 # Quand le joueur attaque	
 func battle(card: Card2, ennemie_number: String, player_slot: bool):
 	#Début du tour joueur ?
+
+	if is_player_turn_start:
+		is_player_turn_start = false
+		process_next_turn_actions()
+
 			
 	print("Battle="+ennemie_number)
 	if not player_turn or end_game:
@@ -365,6 +378,11 @@ func process_card_confrerie_himself(card: Card2):
 func process_card_aix_asperant_himself(card: Card2):
 	pass	
 func process_card_penta_monstre_himself(card: Card2):
+	if card.data.id == "ponte_protegee":
+		mites_to_add += 10
+	elif card.data.id == "parasitisme":
+		parasitism_effect.x += 5
+		parasitism_effect.y += 6
 	pass	
 	
 func process_card_uwu_himself(card: Card2):
@@ -405,6 +423,34 @@ func process_card_penta_monstre_enemy(card: Card2):
 func process_card_uwu_enemy(card: Card2):
 	pass		
 	
+func process_pentamonstre_next_turn_actions():
+	add_mites(mites_to_add)
+	mites_to_add = 0
+	if parasitism_targeted_enemy_nb != null:
+		add_mites(parasitism_effect.x)
+		var target : Entity = ennemy.get(parasitism_targeted_enemy_nb)
+		if (target == null && ennemy.size() > 0):
+			for en in ennemy.values():
+				target = en
+				break
+			process_damage_entity(target.name, parasitism_effect.y)
+		parasitism_effect = Vector2(0,0)
+		parasitism_targeted_enemy_nb = null
+	
+func add_mites(amount: int):
+	nb_mites += amount
+	clamp(nb_mites, 0, 20)
+	
+func sub_mites(amount: int):
+	nb_mites -= amount
+	clamp(nb_mites, 0, 20)
+	
+func process_end_of_turn_actions():
+	pass
+	
+func process_next_turn_actions():
+	process_pentamonstre_next_turn_actions()
+	
 func move_card_to_bin(card: Card2):
 	
 	if end_game:
@@ -426,24 +472,23 @@ func move_card_to_bin(card: Card2):
 		tween.tween_property(card, "position", $Bin.position, 0.2)
 		tween.parallel().tween_property(card, "scale", Vector2(1.1,1.1), 0.2)
 
-func compute_intention_ennemie(entity: Entity, sprite_intention) -> String:
-	var random = randi_range(0, 99)
-	if random < 25:
+func compute_intention_ennemie(enemy: Enemy, sprite_intention) -> String:
+	var intention = enemy.compute_intention()
+	if intention == "ATK":
 		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/attack_icon.png")
-		return entity.pattern[0].type
-	elif random < 50:
+	elif intention == "DEF":
 		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/shield_icon.png")
-		return entity.pattern[1].type
-	elif random < 75:
+	elif intention == "BUFF":
 		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/up-arrow_icon.png")
-		return entity.pattern[2].type
-	else:
+	elif intention == "DEBUFF":
 		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/down-arrow_icon.png")
-		return entity.pattern[3].type
+	return intention
 
 # Boutton fin de tour appuyé
 func _on_button_pressed() -> void:
+	process_end_of_turn_actions()
 	player_turn = false
+	is_player_turn_start = true;
 	card_played = []
 	#Ajout CKC - On doit vider la main
 	var tmpList = player_hand_reference.player_hand.duplicate()
