@@ -274,6 +274,10 @@ func process_damage_entity(ennemie_number: String, damage: int):
 		# Entité KO
 		ennemy[ennemie_number].health = 0
 		update_health_ui(health_bar_enemy[ennemie_number], ennemy[ennemie_number], label_health_enemy[ennemie_number])
+		Events.battle_ended.emit(true)
+		Events.battle_won.emit()
+		get_tree().change_scene_to_file("res://Scenes/Menus/CardRewardScreen.tscn")
+		return
 	else:
 		attaque_sur_advesaire.play()
 		ennemy[ennemie_number].health = ennemy[ennemie_number].health - damage
@@ -417,9 +421,10 @@ func move_card_to_bin(card: Card2):
 	#card.disconnect("hovered_off", card_manager.on_hovered_off_card)
 
 	# 3️⃣ Tween pour position + scale
-	var tween = get_tree().create_tween()
-	tween.tween_property(card, "position", $Bin.position, 0.2)
-	tween.parallel().tween_property(card, "scale", Vector2(1.1,1.1), 0.2)
+	if get_tree():
+		var tween = get_tree().create_tween()
+		tween.tween_property(card, "position", $Bin.position, 0.2)
+		tween.parallel().tween_property(card, "scale", Vector2(1.1,1.1), 0.2)
 
 func compute_intention_ennemie(entity: Entity, sprite_intention) -> String:
 	var random = randi_range(0, 99)
