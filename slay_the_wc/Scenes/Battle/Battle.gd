@@ -1,5 +1,21 @@
 extends Node2D
 
+@onready var taunt_adversaire: AudioStreamPlayer = $TauntAdversaire
+@onready var debut_tour: AudioStreamPlayer = $DebutTour
+@onready var tirage_carte: AudioStreamPlayer = $TirageCarte
+@onready var fin_tour: AudioStreamPlayer = $FinTour
+@onready var discard_carte: AudioStreamPlayer = $DiscardCarte
+@onready var degats_pris: AudioStreamPlayer = $DegatsPris
+@onready var soin_pris: AudioStreamPlayer = $SoinPris
+@onready var buff_pris: AudioStreamPlayer = $BuffPris
+@onready var armure_prise: AudioStreamPlayer = $ArmurePrise
+@onready var attaque_sur_advesaire: AudioStreamPlayer = $AttaqueSurAdvesaire
+@onready var debuff_sur_adversaire: AudioStreamPlayer = $DebuffSurAdversaire
+@onready var ennemi_mort: AudioStreamPlayer = $EnnemiMort
+@onready var victoire: AudioStreamPlayer = $Victoire
+@onready var defaite: AudioStreamPlayer = $Defaite
+@onready var token: AudioStreamPlayer = $Token
+
 var player: Entity
 var ennemy: Dictionary[String, Entity] = {}
 const MAX_HAND_SIZE = 10
@@ -9,6 +25,8 @@ var player_turn
 var player_hand_reference
 var end_game
 var intention_ennemie: Dictionary[String, String] = {}
+var health_bar_enemy: Dictionary[String, ProgressBar] = {}
+var label_health_enemy: Dictionary[String, RichTextLabel] = {}
 var texture_intention: Dictionary[String, Sprite2D] = {}
 var battle_desc: BattleDescription
 var increase_damage = 0
@@ -97,16 +115,22 @@ func _ready():
 	
 	for i in range(0, 5):
 		$Deck.draw_card()
+		tirage_carte.play()
 		
 	player_turn = true
 	end_game = false
 	if ennemy.has("ennemie1"):
 		texture_intention["ennemie1"] = $BattleField/Characters/Ennemie1/IntentionEnnemie
 		intention_ennemie["ennemie1"] = compute_intention_ennemie(ennemy["ennemie1"], texture_intention["ennemie1"])
+		health_bar_enemy["ennemie1"] = $BattleField/Characters/Ennemie1/HealthBarEnnemie
+		label_health_enemy["ennemie1"] = $BattleField/Characters/Ennemie1/HealthEnnemy
 	if ennemy.has("ennemie2"):
 		texture_intention["ennemie2"] = $BattleField/Characters/Ennemie2/IntentionEnnemie
 		intention_ennemie["ennemie2"] = compute_intention_ennemie(ennemy["ennemie2"], texture_intention["ennemie2"])
-		
+		health_bar_enemy["ennemie2"] = $BattleField/Characters/Ennemie2/HealthBarEnnemie
+		label_health_enemy["ennemie2"] = $BattleField/Characters/Ennemie2/HealthEnnemy
+
+	taunt_adversaire.play()
 	
 func init_infos_player(p: Entity):
 	$BattleField/Characters/Player/NamePlayer.text = p.name
@@ -132,7 +156,6 @@ func _on_hand_size_changed(size):
 # Quand le joueur attaque	
 func battle(card: Card2, ennemie_number: String, player_slot: bool):
 	#Début du tour joueur ?
-
 			
 	print("Battle="+ennemie_number)
 	if not player_turn or end_game:
@@ -247,9 +270,12 @@ func process_card_player(card: Card2):
 
 func process_damage_entity(ennemie_number: String, damage: int):
 	if ennemy[ennemie_number].health <= damage:
+		ennemi_mort.play()
 		# Entité KO
-		pass
+		ennemy[ennemie_number].health = 0
+		update_health_ui(health_bar_enemy[ennemie_number], ennemy[ennemie_number], label_health_enemy[ennemie_number])
 	else:
+		attaque_sur_advesaire.play()
 		ennemy[ennemie_number].health = ennemy[ennemie_number].health - damage
 		var health_bar
 		var health_value
@@ -286,32 +312,43 @@ func process_card_commun_himself(card: Card2):
 	if card.data.id == "defense":
 		player.defense = player.defense + 5
 		$BattleField/Characters/Player/DefensePlayer.text = str(player.defense)
-	
+		armure_prise.play()
 	elif card.data.id == "esquive_rapide":
 		player.defense = player.defense + 2
 		$BattleField/Characters/Player/DefensePlayer.text = str(player.defense)
 		$Deck.draw_card()
+		armure_prise.play()
+		await get_tree().create_timer(0.2).timeout
+		tirage_carte.play()
 	elif card.data.id == "dopage":
 		player.health = player.health - 3
 		update_health_ui($BattleField/Characters/Player/HealthBarPlayer, player, $BattleField/Characters/Player/HealthPlayer)
 		increase_damage = increase_damage + 1
+		degats_pris.play()
+		await get_tree().create_timer(0.2).timeout
+		buff_pris.play()
 	elif card.data.id == "soin_urgence":
 		player.health = player.health + 4
 		update_health_ui($BattleField/Characters/Player/HealthBarPlayer, player, $BattleField/Characters/Player/HealthPlayer)
+		soin_pris.play()
 	elif card.data.id == "muraille":
 		player.defense = player.defense * 2
 		$BattleField/Characters/Player/DefensePlayer.text = str(player.defense)
+		armure_prise.play()
 	elif card.data.id == "changement_bareme":
 		# TODO : Mélange toutes les cartes (Pioche, défausse et main). Commence un nouveau tour
+		# TODO : ajouter les sons
 		pass
 	
 func process_card_12pandas_himself(card: Card2):
 	
 	if card.data.id == "corne_appel":
 		nb_pandas = nb_pandas + 3
+		token.play()
 		pass
 	elif card.data.id == "bamboust":
 		nb_pandas = nb_pandas * 2
+		token.play()
 		pass
 	pass
 	
@@ -334,7 +371,7 @@ func process_card_12pandas_enemy(card: Card2, ennemy_number: String):
 	if card.data.id == "coup_bambou":
 		process_damage_entity(ennemy_number, 7)
 		nb_pandas = nb_pandas + 3
-		
+		token.play()
 	elif card.data.id == "revanche":
 		for i in range(0, nb_pandas_left_battle):
 			var nb_random = randi()%100 + 1

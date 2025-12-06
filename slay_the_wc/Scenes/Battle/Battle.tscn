@@ -222,6 +222,36 @@ offset_bottom = 841.0
 scale = Vector2(2.1, 1.85)
 mouse_filter = 2
 
+[node name="TauntAdversaire" type="AudioStreamPlayer" parent="."]
+
+[node name="DebutTour" type="AudioStreamPlayer" parent="."]
+
+[node name="TirageCarte" type="AudioStreamPlayer" parent="."]
+
+[node name="FinTour" type="AudioStreamPlayer" parent="."]
+
+[node name="DiscardCarte" type="AudioStreamPlayer" parent="."]
+
+[node name="Token" type="AudioStreamPlayer" parent="."]
+
+[node name="DegatsPris" type="AudioStreamPlayer" parent="."]
+
+[node name="SoinPris" type="AudioStreamPlayer" parent="."]
+
+[node name="BuffPris" type="AudioStreamPlayer" parent="."]
+
+[node name="ArmurePrise" type="AudioStreamPlayer" parent="."]
+
+[node name="AttaqueSurAdvesaire" type="AudioStreamPlayer" parent="."]
+
+[node name="DebuffSurAdversaire" type="AudioStreamPlayer" parent="."]
+
+[node name="EnnemiMort" type="AudioStreamPlayer" parent="."]
+
+[node name="Victoire" type="AudioStreamPlayer" parent="."]
+
+[node name="Defaite" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="EndBattle" to="." method="_on_end_battle_pressed"]
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

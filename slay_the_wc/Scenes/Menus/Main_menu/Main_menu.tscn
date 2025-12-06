@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cekc18dbmnves"]
+[gd_scene load_steps=10 format=3 uid="uid://cekc18dbmnves"]
 
 [ext_resource type="Script" uid="uid://di081sdjvursu" path="res://slay_the_wc/Scenes/Menus/Main_menu/main_menu.gd" id="1_6fvm6"]
 [ext_resource type="Texture2D" uid="uid://wdb7prvrrf7t" path="res://slay_the_wc/Assets/Art/logoWinterCup.png" id="1_pye2b"]
+[ext_resource type="AudioStream" uid="uid://lptucsi6bej3" path="res://slay_the_wc/Assets/Sounds/NewGameOrContinue_woopie.mp3" id="3_7as4m"]
+[ext_resource type="AudioStream" uid="uid://dsu7f5mno8322" path="res://slay_the_wc/Assets/Sounds/menu_hover.mp3" id="3_sd575"]
+[ext_resource type="AudioStream" uid="uid://cixjuou0k15yk" path="res://slay_the_wc/Assets/Sounds/booooo.mp3" id="4_rgl0o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rkit"]
 bg_color = Color(0.14901961, 0.627451, 0.8039216, 1)
@@ -60,6 +63,18 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_7as4m")
 text = "Quitter la partie"
 
+[node name="continuer" type="AudioStreamPlayer" parent="VBoxContainer"]
+stream = ExtResource("3_7as4m")
+volume_db = -17.333
+
+[node name="hover" type="AudioStreamPlayer" parent="VBoxContainer"]
+stream = ExtResource("3_sd575")
+volume_db = -24.687
+
+[node name="booooo" type="AudioStreamPlayer" parent="VBoxContainer"]
+stream = ExtResource("4_rgl0o")
+volume_db = -21.535
+
 [node name="TitleGame" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -98,7 +113,11 @@ grow_vertical = 0
 theme_override_colors/default_color = Color(0.14901961, 0.627451, 0.8039216, 1)
 text = "© Winter Cup 2025 - 5d6, Les 12 pandas, Les Bibi, Les UwU, Les Pentamonstres, Les Aix-Asperants, La Confrérie du Beurre Salé"
 
+[connection signal="mouse_entered" from="VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/NewGame" to="." method="_on_new_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/ExitGame" to="." method="_on_exit_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/ExitGame" to="." method="_on_exit_game_pressed"]

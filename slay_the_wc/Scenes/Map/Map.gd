@@ -11,6 +11,9 @@ extends Node2D
 @onready var line4To5 = $Line4To5
 @onready var battle_final = $BattleFinal
 @onready var line5ToFinal = $Line5ToFinal
+@onready var lancer_bataille: AudioStreamPlayer = $LancerBataille
+@onready var retour_menu: AudioStreamPlayer = $retour_menu
+@onready var marche_entre_batailles: AudioStreamPlayer = $marche_entre_batailles
 
 func _process(_delta: float) -> void:
 	pass
@@ -22,6 +25,7 @@ func _process(_delta: float) -> void:
 	
 
 #func generate_line(b1, b2, l1To2):
+	#marche_entre_batailles.play()
 	#var p0 = get_center(b1)
 	#var p3 = get_center(b2)
 	## Point de contrôle pour créer la courbe
@@ -39,7 +43,8 @@ func _process(_delta: float) -> void:
 		#curve_points.append(point)
 #
 	#l1To2.points = curve_points
-	#
+	#marche_entre_batailles.stop()
+	
 #func cubic_bezier_point(p0, c1, c2, p3, t):
 	#return (
 		#p0 * pow(1 - t, 3)
@@ -51,8 +56,9 @@ func _process(_delta: float) -> void:
 #func get_center(node):
 	#return node.get_global_rect().get_center()
 
-
 func _on_battle_1_pressed() -> void:
+	lancer_bataille.play()
+	await get_tree().create_timer(0.2).timeout
 	var battle_desc = load("res://slay_the_wc/Scenes/Battle/StepBattle/Battle_1.tres")
 	GameState.current_battle_description = battle_desc
 	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
@@ -76,4 +82,9 @@ func _on_battle_5_pressed() -> void:
 
 
 func _on_battle_final_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_retour_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/Main_menu/Main_menu.tscn")
 	pass # Replace with function body.

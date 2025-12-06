@@ -15,4 +15,3 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"):  # Appuyer sur Entrée pour tester
 		if turn_manager.current_state == TurnManager.BattleState.PLAYER_TURN:
 			turn_manager.test_win_battle()
-

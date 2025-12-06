@@ -161,9 +161,23 @@ default_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_svm44")
 texture_mode = 1
 
+[node name="RetourMenu" type="Button" parent="."]
+offset_left = 1224.0
+offset_top = 27.0
+offset_right = 1349.0
+offset_bottom = 58.0
+text = "Menu principal"
+
+[node name="LancerBataille" type="AudioStreamPlayer" parent="."]
+
+[node name="retour_menu" type="AudioStreamPlayer" parent="."]
+
+[node name="marche_entre_batailles" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="Battle1" to="." method="_on_battle_1_pressed"]
 [connection signal="pressed" from="Battle2" to="." method="_on_battle_2_pressed"]
 [connection signal="pressed" from="BattleFinal" to="." method="_on_battle_final_pressed"]
 [connection signal="pressed" from="Battle3" to="." method="_on_battle_3_pressed"]
 [connection signal="pressed" from="Battle4" to="." method="_on_battle_4_pressed"]
 [connection signal="pressed" from="Battle5" to="." method="_on_battle_5_pressed"]
+[connection signal="pressed" from="RetourMenu" to="." method="_on_retour_menu_pressed"]
