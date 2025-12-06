@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MascotData" load_steps=3 format=3 uid="uid://bbu4b0sorcf3j"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="1_4wbe6"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Cards/UICard/MascotData.gd" id="2_d87qc"]
+
+[resource]
+script = ExtResource("2_d87qc")
+mascotte_name = "Telo et Zelo"
+deck_name = "Loups"
+description = "Les personnages changent pour améliorer l'attaque (Zeno) et la défense (Telo) du joueur. Les cartes s'appuient sur leur spécialité"
+metadata/_custom_type_script = "uid://d1cm5xud4uywf"

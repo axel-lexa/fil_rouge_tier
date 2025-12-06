@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cs5djc3moq2te"]
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://cs5djc3moq2te"]
 
 [ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_hk7kg"]
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_4uixx"]
+[ext_resource type="Texture2D" uid="uid://b2nrsr56ru0fa" path="res://slay_the_wc/Assets/Art/12Panda/bamboust-removebg-preview.png" id="2_h6knn"]
 
 [resource]
 script = ExtResource("2_4uixx")
@@ -11,6 +12,7 @@ mana_cost = 2
 description = "Double le nombre de pandas dans votre armée"
 target_type = "self"
 card_type = "skill"
+icon = ExtResource("2_h6knn")
 background = ExtResource("1_hk7kg")
 card_team_owner = "12Pandas"
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

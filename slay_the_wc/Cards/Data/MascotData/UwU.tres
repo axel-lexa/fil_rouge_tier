@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MascotData" load_steps=3 format=3 uid="uid://be71jmlaiee01"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="1_j8oht"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Cards/UICard/MascotData.gd" id="2_mqoqu"]
+
+[resource]
+script = ExtResource("2_mqoqu")
+mascotte_name = "Aurore"
+deck_name = "Licorne"
+description = "[b]Mécanique [/b]:
+Aurore est super rapide et speedrun sa main, lorsqu’elle joue une carte [color=lightblue]Follow up[/color] la prochaine carte [color=lightblue]Follow up[/color] jouée est gratuite.
+Une carte [color=lightblue]Follow up[/color] est jouée avec un effet supplémentaire si la condition de [color=lightblue]Follow up[/color] est réalisée dans le tour."
+metadata/_custom_type_script = "uid://d1cm5xud4uywf"

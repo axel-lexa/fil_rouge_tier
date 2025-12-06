@@ -1,63 +1,57 @@
-[gd_scene load_steps=11 format=3 uid="uid://diahsebjgskd0"]
+[gd_scene load_steps=3 format=3 uid="uid://diahsebjgskd0"]
 
 [ext_resource type="Script" uid="uid://1j4ah3nujn02" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck_tab.gd" id="1_y0hjh"]
 [ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Art/Telo.png" id="2_rkyqu"]
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="3_wrj8h"]
-[ext_resource type="Texture2D" uid="uid://ds5n2uh7ehomy" path="res://slay_the_wc/Assets/Art/cardlayout.png" id="4_13knv"]
-[ext_resource type="Texture2D" uid="uid://kh0wfnufxaby" path="res://icon.svg" id="5_bodci"]
-[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Cards/UICard/MascotCard.gd" id="6_su6x4"]
-[ext_resource type="Texture2D" uid="uid://bgw0v6u7pufsi" path="res://slay_the_wc/Assets/Art/template_hd.jpg" id="7_taqru"]
 
-[sub_resource type="Resource" id="Resource_0w8y1"]
-script = ExtResource("3_wrj8h")
-card_name = "Card Name"
-mana_cost = 42
-description = "Description of the card"
-icon = ExtResource("5_bodci")
-background = ExtResource("4_13knv")
-metadata/_custom_type_script = "uid://cdedm7rlawgj6"
-
-[sub_resource type="Resource" id="Resource_m20f7"]
-script = ExtResource("3_wrj8h")
-card_name = "Unlockable Card"
-description = "Card that you can unlock later"
-icon = ExtResource("5_bodci")
-background = ExtResource("7_taqru")
-metadata/_custom_type_script = "uid://cdedm7rlawgj6"
-
-[sub_resource type="Resource" id="Resource_u4mmr"]
-script = ExtResource("6_su6x4")
-default_cards = Array[ExtResource("3_wrj8h")]([SubResource("Resource_0w8y1")])
-unlockable_cards = Array[ExtResource("3_wrj8h")]([SubResource("Resource_m20f7")])
-metadata/_custom_type_script = "uid://d1cm5xud4uywf"
-
-[node name="ScrollContainer" type="ScrollContainer"]
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 1400.0
 offset_bottom = 843.0
-horizontal_scroll_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_y0hjh")
-mascotte = ExtResource("2_rkyqu")
-description = "La description ICI"
-mcards = SubResource("Resource_u4mmr")
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32141468, 0.39564434, 0.39113957, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="MascotteImg" type="TextureRect" parent="ScrollContainer/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_vertical = 4
@@ -65,56 +59,59 @@ texture = ExtResource("2_rkyqu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer5" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer5" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer5"]
+[node name="MascotteName" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/MarginContainer5"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "Nom du Deck"
+theme_override_colors/font_color = Color(0.50823194, 0.7937884, 0.99754936, 1)
+theme_override_font_sizes/font_size = 24
+text = "Nom de la mascotte"
 horizontal_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_top = 30
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="DescriptionTitle" type="RichTextLabel" parent="ScrollContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_constants/outline_size = 3
+bbcode_enabled = true
 text = "Description:"
-horizontal_alignment = 1
+fit_content = true
 
-[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer4"]
+[node name="Description" type="RichTextLabel" parent="ScrollContainer/MarginContainer/VBoxContainer/MarginContainer4"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-horizontal_alignment = 1
-autowrap_mode = 3
+bbcode_enabled = true
+text = "Lorem ipsum"
+fit_content = true
+justification_flags = 171
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 10
-
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "Deck de départ:"
-horizontal_alignment = 1
-
-[node name="FoldableContainer" type="FoldableContainer" parent="MarginContainer/VBoxContainer"]
+[node name="FoldableContainer" type="FoldableContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 title = "Deck de départ:"
 
-[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/FoldableContainer"]
+[node name="DefaultCardsContainer" type="HFlowContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/FoldableContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="FoldableContainer2" type="FoldableContainer" parent="MarginContainer/VBoxContainer"]
+[node name="FoldableContainer2" type="FoldableContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 title = "Cartes à débloquer"
 
-[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/FoldableContainer2"]
+[node name="UnlockableCardsContainer" type="HFlowContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/FoldableContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2

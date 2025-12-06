@@ -3,28 +3,16 @@ class_name UiCard
 
 @export var data: CardData
 
-var costLabel
-var nameLabel
-var descriptionLabel
-var illustration
-var cardBg
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	costLabel = $CardBg/VBoxContainer/HBoxContainer/VBoxContainer/IllustrationControl/CostLabel
-	nameLabel = $CardBg/VBoxContainer/HBoxContainer/VBoxContainer/Control/VBoxContainer2/Control/Control2/Name
-	descriptionLabel = $CardBg/VBoxContainer/HBoxContainer/VBoxContainer/Control/VBoxContainer2/Control2/Control2/Description
-	illustration = $CardBg/VBoxContainer/HBoxContainer/VBoxContainer/IllustrationControl/CardIllustration
-	cardBg = $CardBg
 	if data:
 		loadCardData(data)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta: float) -> void:
-	resizeLabel(costLabel, 45)
-	resizeLabel(nameLabel, 35)
-	resizeLabel(descriptionLabel, 30)
+	resizeLabel(%CostLabel, 45)
+	resizeLabel(%Name, 35)
+	resizeLabel(%Description, 30)
 	# reposition cost pivot to the bottom
-	costLabel.pivot_offset = Vector2(0, costLabel.size.y)
+	%CostLabel.pivot_offset = Vector2(0, %CostLabel.size.y)
 
 func resizeLabel(label: Label, base_font_size: int) -> void:
 	# scale label fonts
@@ -35,11 +23,11 @@ func resizeLabel(label: Label, base_font_size: int) -> void:
 	)
 
 func loadCardData(new_data: CardData):
-	nameLabel.text = new_data.card_name
-	costLabel.text = str(new_data.mana_cost)
-	descriptionLabel.text = new_data.description
-	illustration.texture = new_data.icon
-	cardBg.texture = new_data.background
+	%Name.text = new_data.card_name
+	%CostLabel.text = str(new_data.mana_cost)
+	%Description.text = new_data.description
+	%CardIllustration.texture = new_data.icon
+	%CardBg.texture = new_data.background
 	
 
 func _on_timer_timeout() -> void:
