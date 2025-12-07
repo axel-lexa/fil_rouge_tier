@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MascotData" load_steps=4 format=3 uid="uid://bktwb2vcvb6r0"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="1_eammp"]
+[ext_resource type="Texture2D" uid="uid://cdqfgpqvgexrh" path="res://slay_the_wc/Assets/Art/5d6/mascotte.png" id="2_p43vu"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Cards/UICard/MascotData.gd" id="2_wflcr"]
+
+[resource]
+script = ExtResource("2_wflcr")
+mascotte_img = ExtResource("2_p43vu")
+mascotte_name = "Bernard"
+deck_name = "Bernard L'hermite"
+description = "Principalement basé sur le \"Hasard\" quand on lance des dés. En fonction du résultat, tel attaque/defense est appliqué"
+metadata/_custom_type_script = "uid://d1cm5xud4uywf"

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="MascotData" load_steps=8 format=3 uid="uid://37p1kvqyq03a"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="1_uailf"]
+[ext_resource type="Texture2D" uid="uid://ds5n2uh7ehomy" path="res://slay_the_wc/Assets/Art/cardlayout.png" id="2_74sgd"]
+[ext_resource type="Texture2D" uid="uid://kh0wfnufxaby" path="res://icon.svg" id="3_jb370"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Cards/UICard/MascotData.gd" id="4_andnm"]
+[ext_resource type="Texture2D" uid="uid://bgw0v6u7pufsi" path="res://slay_the_wc/Assets/Art/template_hd.jpg" id="5_qkf1h"]
+
+[sub_resource type="Resource" id="Resource_0w8y1"]
+script = ExtResource("1_uailf")
+card_name = "Card Name"
+mana_cost = 42
+description = "Description of the card"
+icon = ExtResource("3_jb370")
+background = ExtResource("2_74sgd")
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"
+
+[sub_resource type="Resource" id="Resource_m20f7"]
+script = ExtResource("1_uailf")
+card_name = "Unlockable Card"
+description = "Card that you can unlock later"
+icon = ExtResource("3_jb370")
+background = ExtResource("5_qkf1h")
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"
+
+[resource]
+script = ExtResource("4_andnm")
+default_cards = Array[ExtResource("1_uailf")]([SubResource("Resource_0w8y1")])
+unlockable_cards = Array[ExtResource("1_uailf")]([SubResource("Resource_m20f7")])
+metadata/_custom_type_script = "uid://d1cm5xud4uywf"

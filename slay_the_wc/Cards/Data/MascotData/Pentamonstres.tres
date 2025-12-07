@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MascotData" load_steps=3 format=3 uid="uid://drrc22fcxgjln"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="1_2f311"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Cards/UICard/MascotData.gd" id="2_rpxul"]
+
+[resource]
+script = ExtResource("2_rpxul")
+mascotte_name = "La Grosse Mite"
+deck_name = "Grosse Mite"
+description = "[b]Mascotte[/b] :
+Une (très) Grosse Mite qui envoie ses enfants, une nuée de mites, combattre ses adversaires à sa place en leur donnant des instructions en relâchant des phéromones puissants. La nuée peut faire bouclier autour d’elle pour la protégé. Elle est capable de régénérer son armée très rapidement en pondant des œufs n’importe où, que ça soit à l’abris sous son propre corps ou bien même dans son adversaire pour que ses œufs s’en nourrissent.[b]
+
+Mécanique[/b] :
+Ajoute un paramètre, le Compteur Mite ([color=lightblue]CM[/color]), qui permet, en le faisant monter, de jouer les cartes mite plus puissantes.Ces cartes plus puissantes consomment des [color=lightblue]CM[/color], il faut alors pondre des œufs avec des cartes dédiés pour faire remonter le compteur. Attention à ne pas atteindre [color=lightblue]0 CM[/color] sous peine de rendre la Grosse Mite plus sensible aux attaques. À l’inverse, un compteur au max ([color=lightblue]20 CM[/color]) lui donnera un bonus de blocage au début du tour."
+metadata/_custom_type_script = "uid://d1cm5xud4uywf"

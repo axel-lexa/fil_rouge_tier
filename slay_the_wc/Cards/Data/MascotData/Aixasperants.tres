@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MascotData" load_steps=3 format=3 uid="uid://p6mtpue6roc"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="1_t3ahp"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Cards/UICard/MascotData.gd" id="2_mb6j3"]
+
+[resource]
+script = ExtResource("2_mb6j3")
+mascotte_name = "Pyralis"
+deck_name = "Phénix"
+description = "[color=red]Pas de description pour le moment[/color]"
+metadata/_custom_type_script = "uid://d1cm5xud4uywf"
