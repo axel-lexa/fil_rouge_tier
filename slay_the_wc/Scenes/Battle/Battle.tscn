@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=21 format=3 uid="uid://0lx4u2cbsbx5"]
 
 [ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
@@ -12,10 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://gtc861k7evva" path="res://slay_the_wc/Scenes/Battle/Player.tscn" id="9_37y5e"]
 [ext_resource type="Texture2D" uid="uid://d28urwm7s16i1" path="res://slay_the_wc/Assets/Art/shield_icon.png" id="10_qfjho"]
 [ext_resource type="Texture2D" uid="uid://bghcekvflyd27" path="res://slay_the_wc/Assets/Art/background_1.png" id="12_1usg4"]
-[ext_resource type="Script" uid="uid://chyutcygqtl2n" path="res://slay_the_wc/Cards/Scenes/CardSlot2.gd" id="13_aqkqu"]
+[ext_resource type="Script" uid="uid://chyutcygqtl2n" path="res://slay_the_wc/Cards/Scenes/Scripts/CardSlot2.gd" id="13_aqkqu"]
 [ext_resource type="PackedScene" uid="uid://de6ese77i7bfp" path="res://slay_the_wc/Cards/Scenes/CardSlot2.tscn" id="13_j145f"]
-[ext_resource type="PackedScene" uid="uid://b5cmrb6fsfldg" path="res://slay_the_wc/Cards/Scenes/CardSlot3.tscn" id="15_6qa6l"]
+[ext_resource type="PackedScene" uid="uid://c15ow4f4fu7sw" path="res://slay_the_wc/Cards/Scenes/CardSlot3.tscn" id="15_6qa6l"]
+[ext_resource type="PackedScene" uid="uid://b5cmrb6fsfldg" path="res://slay_the_wc/Cards/Scenes/CardSlot4.tscn" id="16_6qa6l"]
 [ext_resource type="PackedScene" uid="uid://caar8ogeia8u5" path="res://Scenes/Menus/CardRewardScreen.tscn" id="16_j145f"]
+[ext_resource type="Script" uid="uid://ef6n4gccbymx" path="res://slay_the_wc/Cards/Scenes/Scripts/CardSlot3.gd" id="16_q06er"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqkqu"]
 bg_color = Color(0.87058824, 0, 0.18039216, 1)
@@ -85,10 +87,10 @@ scroll_active = false
 
 [node name="HealthEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie1"]
 z_index = 31
-offset_left = 1240.0
-offset_top = 369.0
-offset_right = 1330.0
-offset_bottom = 388.0
+offset_left = 1233.0
+offset_top = 390.0
+offset_right = 1344.0
+offset_bottom = 409.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 13
 text = "12.0/12"
@@ -100,10 +102,10 @@ scale = Vector2(0.5, 0.545)
 
 [node name="HealthBarEnnemie" type="ProgressBar" parent="BattleField/Characters/Ennemie1"]
 z_index = 20
-offset_left = 1198.0
-offset_top = 368.0
-offset_right = 1324.0
-offset_bottom = 389.0
+offset_left = 1217.0
+offset_top = 389.0
+offset_right = 1343.0
+offset_bottom = 410.0
 theme_override_styles/background = SubResource("StyleBoxFlat_aqkqu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_j145f")
 value = 100.0
@@ -112,11 +114,12 @@ show_percentage = false
 
 [node name="DefenseIcon" type="Sprite2D" parent="BattleField/Characters/Ennemie1"]
 z_index = 30
-position = Vector2(1343.0001, 378.99997)
+position = Vector2(1360, 403)
 scale = Vector2(0.44035003, 0.47187483)
 texture = ExtResource("10_qfjho")
 
 [node name="Ennemie2" type="Node2D" parent="BattleField/Characters"]
+position = Vector2(52, -2)
 
 [node name="EnnemieImage" type="Sprite2D" parent="BattleField/Characters/Ennemie2"]
 position = Vector2(1039, 553)
@@ -171,6 +174,65 @@ position = Vector2(1110.475, 415.20004)
 scale = Vector2(0.47456047, 0.46250033)
 texture = ExtResource("10_qfjho")
 
+[node name="Ennemie3" type="Node2D" parent="BattleField/Characters"]
+position = Vector2(911, 568)
+
+[node name="EnnemieImage" type="Sprite2D" parent="BattleField/Characters/Ennemie3"]
+position = Vector2(0.00012207031, -0.99993896)
+scale = Vector2(0.4, 0.4)
+
+[node name="DefenseEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie3"]
+z_index = 31
+offset_left = 64.0
+offset_top = -153.0
+offset_right = 89.0
+offset_bottom = -129.0
+metadata/_edit_use_anchors_ = true
+
+[node name="NameEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie3"]
+offset_left = -46.0
+offset_top = -178.0
+offset_right = 109.0
+offset_bottom = -148.0
+theme_override_font_sizes/normal_font_size = 17
+text = "La patate"
+scroll_active = false
+
+[node name="HealthEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie3"]
+z_index = 31
+offset_left = -39.0
+offset_top = -147.0
+offset_right = 64.0
+offset_bottom = -125.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 13
+text = "12.0/12.0"
+metadata/_edit_use_anchors_ = true
+
+[node name="IntentionEnnemie" type="Sprite2D" parent="BattleField/Characters/Ennemie3"]
+z_index = 9
+position = Vector2(-10, -104)
+scale = Vector2(0.5, 0.545)
+
+[node name="HealthBarEnnemie" type="ProgressBar" parent="BattleField/Characters/Ennemie3"]
+z_index = 20
+offset_left = -69.0
+offset_top = -150.0
+offset_right = 57.0
+offset_bottom = -129.0
+theme_override_styles/background = SubResource("StyleBoxFlat_aqkqu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_j145f")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="DefenseIcon" type="Sprite2D" parent="BattleField/Characters/Ennemie3"]
+z_index = 30
+position = Vector2(71.474976, -138.79996)
+scale = Vector2(0.47456047, 0.46250033)
+texture = ExtResource("10_qfjho")
+
 [node name="CardSlot" parent="BattleField" instance=ExtResource("3_uxmdl")]
 light_mask = 2
 z_index = -14
@@ -178,10 +240,14 @@ position = Vector2(1281, 513)
 scale = Vector2(1.2, 1.2)
 
 [node name="CardSlot2" parent="BattleField" instance=ExtResource("13_j145f")]
-position = Vector2(1046, 559)
+position = Vector2(1093, 524)
 script = ExtResource("13_aqkqu")
 
 [node name="CardSlot3" parent="BattleField" instance=ExtResource("15_6qa6l")]
+position = Vector2(907, 538)
+script = ExtResource("16_q06er")
+
+[node name="CardSlot4" parent="BattleField" instance=ExtResource("16_6qa6l")]
 position = Vector2(294, 497)
 
 [node name="Button" type="Button" parent="."]
@@ -200,7 +266,6 @@ offset_bottom = 200.0
 theme_override_font_sizes/normal_font_size = 40
 
 [node name="EndBattle" type="Button" parent="."]
-visible = false
 z_index = 10
 offset_left = 608.0
 offset_top = 160.0
