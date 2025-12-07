@@ -1,13 +1,25 @@
-[gd_resource type="Resource" script_class="MascotData" load_steps=3 format=3 uid="uid://be71jmlaiee01"]
+[gd_resource type="Resource" script_class="MascotData" load_steps=12 format=3 uid="uid://be71jmlaiee01"]
 
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_j8oht"]
-[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="2_mqoqu"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_q3igl"]
+[ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_n7bci"]
+[ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_hsk8i"]
+[ext_resource type="Resource" uid="uid://linic5jr4jjf" path="res://slay_the_wc/Cards/Data/UwU/chant_de_ralliement.tres" id="4_5s5o4"]
+[ext_resource type="Resource" uid="uid://ccx2sgqo1hde" path="res://slay_the_wc/Cards/Data/UwU/too_fast.tres" id="5_fg51w"]
+[ext_resource type="Texture2D" uid="uid://bnysuqsbwx3ws" path="res://slay_the_wc/Assets/Mascottes/licorne_uwu.png" id="6_n7bci"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="6_ypr0r"]
+[ext_resource type="Resource" uid="uid://rc3qyra86jj4" path="res://slay_the_wc/Cards/Data/UwU/as_des_licornes.tres" id="7_sfui3"]
+[ext_resource type="Resource" uid="uid://dki4jjr1d4dtf" path="res://slay_the_wc/Cards/Data/UwU/escape.tres" id="8_sks2u"]
+[ext_resource type="Resource" uid="uid://kcj8yca6owss" path="res://slay_the_wc/Cards/Data/UwU/lets_brawl.tres" id="9_780p4"]
+[ext_resource type="Resource" uid="uid://blgsvewfss0qs" path="res://slay_the_wc/Cards/Data/UwU/le_p.tres" id="10_2nbwt"]
 
 [resource]
-script = ExtResource("2_mqoqu")
+script = ExtResource("6_ypr0r")
+mascotte_img = ExtResource("6_n7bci")
 mascotte_name = "Aurore"
 deck_name = "Licorne"
 description = "[b]Mécanique [/b]:
 Aurore est super rapide et speedrun sa main, lorsqu’elle joue une carte [color=lightblue]Follow up[/color] la prochaine carte [color=lightblue]Follow up[/color] jouée est gratuite.
 Une carte [color=lightblue]Follow up[/color] est jouée avec un effet supplémentaire si la condition de [color=lightblue]Follow up[/color] est réalisée dans le tour."
+default_cards = Array[ExtResource("1_q3igl")]([ExtResource("2_n7bci"), ExtResource("2_n7bci"), ExtResource("2_n7bci"), ExtResource("2_n7bci"), ExtResource("3_hsk8i"), ExtResource("3_hsk8i"), ExtResource("3_hsk8i"), ExtResource("3_hsk8i"), ExtResource("4_5s5o4"), ExtResource("5_fg51w")])
+unlockable_cards = Array[ExtResource("1_q3igl")]([ExtResource("4_5s5o4"), ExtResource("5_fg51w"), ExtResource("7_sfui3"), ExtResource("7_sfui3"), ExtResource("8_sks2u"), ExtResource("8_sks2u"), ExtResource("9_780p4"), ExtResource("9_780p4"), ExtResource("10_2nbwt"), ExtResource("10_2nbwt")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"
