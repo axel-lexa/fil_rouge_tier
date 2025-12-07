@@ -50,9 +50,14 @@ layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="MascotteImg" type="TextureRect" parent="ScrollContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="MascotImgContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+alignment = 1
+
+[node name="MascotteImg" type="TextureRect" parent="ScrollContainer/MarginContainer/VBoxContainer/MarginContainer/MascotImgContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 150)
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("2_rkyqu")
