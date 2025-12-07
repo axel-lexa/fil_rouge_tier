@@ -8,9 +8,11 @@ size = Vector2(116.15386, 153.07693)
 
 [sub_resource type="SystemFont" id="SystemFont_08lna"]
 font_names = PackedStringArray("Segoe Print")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_5ipkk"]
 font_names = PackedStringArray("Segoe Print")
+subpixel_positioning = 0
 
 [node name="Card" type="Node2D"]
 position = Vector2(150, 740)
@@ -59,6 +61,7 @@ theme_override_font_sizes/normal_font_size = 6
 scroll_active = false
 
 [node name="HoverTimer" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
 
 [node name="TextureRect" type="TextureRect" parent="."]

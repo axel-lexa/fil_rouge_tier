@@ -3,7 +3,7 @@ extends Node2D
 const CARD_SCENE_PATH = "res://slay_the_wc/Cards/Scenes/Card.tscn"
 const CARD_DRAW_SPEED = 0.2
 
-var player_deck = [load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
+var player_deck: Array[CardData] = [load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"), 
 load("res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres"),
 load("res://slay_the_wc/Cards/Data/Commun/Douleur_preparee.tres"),
 load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"),
@@ -26,12 +26,12 @@ func _ready() -> void:
 
 #Ajout CKC
 func add_card(card:Card2):
-	player_deck.append(card)
+	player_deck.append(card.duplicate())
 #Ajout CKC
 
 func draw_card():
 	# SI le joueur n'a plus de cartes dans son deck
-	if player_deck.size() == 0:
+	if player_deck.size() <= 0:
 		$Area2D/CollisionShape2D.disabled = true
 		$Sprite2D.visible = false
 		$RichTextLabel.visible = false
@@ -70,7 +70,7 @@ func shuffle_deck_from_bin():
 	if player_deck.size() > 0:
 		return
 	for i in range(0, $"../Bin".player_bin.size()):
-		self.add_card($"../Bin".player_bin[i])
+		add_card($"../Bin".player_bin[i])
 	player_deck.shuffle()
 		
 #Fin ajout CKC

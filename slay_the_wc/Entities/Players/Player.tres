@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_w4rw8")
-name = "CercusMC"
-health = 43
+health = 300
+max_health = 300
 energy = 3
 image = ExtResource("1_yjcop")
 metadata/_custom_type_script = "uid://c541r5p6gwvel"

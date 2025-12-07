@@ -1,19 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5cmrb6fsfldg"]
+[gd_scene load_steps=3 format=3 uid="uid://c15ow4f4fu7sw"]
 
-[ext_resource type="Script" uid="uid://bb1srvgmu770w" path="res://slay_the_wc/Scenes/Battle/CardSlot3.gd" id="1_rbu47"]
+[ext_resource type="Texture2D" uid="uid://bfbkp3msta04c" path="res://slay_the_wc/Assets/Art/card_slot.png" id="1_rbu47"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q06er"]
-size = Vector2(278, 225)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfjho"]
+size = Vector2(151, 177)
 
-[node name="CardSlot3" type="Node2D"]
-script = ExtResource("1_rbu47")
+[node name="CardSlot2" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CardSlotImage" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.17146145, 0.13033874)
+texture = ExtResource("1_rbu47")
 
 [node name="Area2D" type="Area2D" parent="."]
+light_mask = 8
+visibility_layer = 8
 collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_q06er")
+shape = SubResource("RectangleShape2D_qfjho")

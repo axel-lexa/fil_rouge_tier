@@ -3,7 +3,8 @@ extends Node2D
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_CARD_SLOT_ENNEMY_1 = 2
 const COLLISION_MASK_CARD_SLOT_ENNEMY_2 = 4
-const COLLISION_MASK_CARD_SLOT_PLAYER = 8
+const COLLISION_MASK_CARD_SLOT_ENNEMY_3 = 8
+const COLLISION_MASK_CARD_SLOT_PLAYER = 16
 const DEFAULT_CARD_MOVE_SPEED = 0.1
 
 var screen_size
@@ -38,40 +39,32 @@ func finish_drag():
 	card_being_dragged.scale = Vector2(1.05, 1.05)
 	var card_slot_found_ennemie1 = raycast_check_for_card_slot1()
 	var card_slot_found_ennemie2 = raycast_check_for_card_slot2()
-	var card_slot_found_player = raycast_check_for_card_slot3()
+	var card_slot_found_ennemie3 = raycast_check_for_card_slot3()
+	var card_slot_found_player = raycast_check_for_card_slot4()
 	var battle = $".."
 	
-	if battle.player_turn and (battle.player.energy > 0 and battle.player.energy >= card_being_dragged.data.mana_cost) and ((card_slot_found_ennemie1 and not card_slot_found_ennemie1.card_in_slot) or (card_slot_found_ennemie2 and not card_slot_found_ennemie2.card_in_slot) or (card_slot_found_player and not card_slot_found_player.card_in_slot)):
+	if battle.player_turn and (battle.player.energy > 0 and battle.player.energy >= card_being_dragged.data.mana_cost) and (card_slot_found_ennemie1 or card_slot_found_ennemie2 or card_slot_found_ennemie3 or card_slot_found_player):
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
-		var ennemy_number = ""
+		var ennemy_index = -1
 		var player_slot = false
 		if card_slot_found_ennemie1:
 			card_being_dragged.position = card_slot_found_ennemie1.position
-			ennemy_number = "ennemie1"
+			ennemy_index = 0
 		elif card_slot_found_ennemie2:
 			card_being_dragged.position = card_slot_found_ennemie2.position
-			ennemy_number = "ennemie2"
+			ennemy_index = 1
+		elif card_slot_found_ennemie3:
+			card_being_dragged.position = card_slot_found_ennemie3.position
+			ennemy_index = 2
 		elif card_slot_found_player:
 			card_being_dragged.position = card_slot_found_player.position
 			player_slot = true
 			
 		card_being_dragged.rotation = 0
-		
-		if card_slot_found_ennemie1 and !battle.ennemy.has("ennemie1"):
-			player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
-			card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = false
-			card_being_dragged = null
-			
-			return
-		if card_slot_found_ennemie2 and !battle.ennemy.has("ennemie2"):
-			player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
-			card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = false
-			card_being_dragged = null
-			
-			return
+
 		#card_slot_found.card_in_slot = true
 		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
-		battle.battle(card_being_dragged, ennemy_number, player_slot)
+		battle.battle(card_being_dragged, ennemy_index, player_slot)
 	else:
 		player_hand_reference.add_card_to_hand(card_being_dragged, DEFAULT_CARD_MOVE_SPEED)
 
@@ -156,6 +149,17 @@ func raycast_check_for_card_slot2():
 	return null
 	
 func raycast_check_for_card_slot3():
+	var space_state = get_world_2d().direct_space_state
+	var parameters = PhysicsPointQueryParameters2D.new()
+	parameters.position = get_global_mouse_position()
+	parameters.collide_with_areas = true
+	parameters.collision_mask = COLLISION_MASK_CARD_SLOT_ENNEMY_3
+	var result = space_state.intersect_point(parameters)
+	if result.size() > 0:
+		return result[0].collider.get_parent()
+	return null
+	
+func raycast_check_for_card_slot4():
 	var space_state = get_world_2d().direct_space_state
 	var parameters = PhysicsPointQueryParameters2D.new()
 	parameters.position = get_global_mouse_position()
