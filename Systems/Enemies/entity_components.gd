@@ -8,4 +8,17 @@ var defense_label : RichTextLabel
 var sprite : Sprite2D
 var defense_icon : Sprite2D
 var health_bar : ProgressBar
-var intention_ennemie : Sprite2D
+
+func turn_ui_off():
+	change_ui_state(false)
+
+func turn_ui_on():
+	change_ui_state(true)
+
+func change_ui_state(visibility: bool):
+	name_label.visible = visibility
+	health_label.visible = visibility
+	defense_label.visible = visibility
+	sprite.visible = visibility
+	defense_icon.visible = visibility
+	health_bar.visible = visibility

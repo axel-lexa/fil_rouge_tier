@@ -20,5 +20,6 @@ script = ExtResource("2_y87vj")
 attacks = Array[ExtResource("1_nv7y0")]([SubResource("Resource_8lmp2"), SubResource("Resource_o6xk2")])
 name = "Jammy"
 health = 69
+max_health = 69
 image = ExtResource("1_y87vj")
 metadata/_custom_type_script = "uid://c541r5p6gwvel"

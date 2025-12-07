@@ -6,7 +6,9 @@ var id : int
 var next_atk: Enemy_attack
 @export var attacks: Array[Enemy_attack] = []
 
+
 func perform_action(player: Entity):
+	print("Enemy " + name + " playing attack " + next_atk.name)
 	if next_atk.damage != 0:
 		attack(player, next_atk.damage)
 	if next_atk.strengh_buff != 0:
@@ -14,7 +16,7 @@ func perform_action(player: Entity):
 
 func compute_next_attack():
 	next_atk = attacks.get(randi_range(0, attacks.size()-1))
-	update_intention_sprite(next_atk.ATK_TYPE)
+	update_intention_sprite(next_atk.atk_type)
 	
 func set_intention_sprite(sprite: Sprite2D):
 	intention_sprite = sprite

@@ -6,6 +6,7 @@ class_name Enemy_attack
 
 enum ATK_TYPE {ATK, DEF, BUFF, DEBUFF}
 
+@export var name: String = "feur"
 @export var atk_type: ATK_TYPE = ATK_TYPE.ATK
 @export var damage: int = 0
 @export var multi_hit_damages: Array[int] = [0]

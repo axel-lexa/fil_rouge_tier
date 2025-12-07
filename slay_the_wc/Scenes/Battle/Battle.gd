@@ -25,10 +25,6 @@ const MAX_ENERGY = 3
 var player_turn
 var player_hand_reference
 var end_game
-var intention_ennemie: Dictionary[String, String] = {}
-var health_bar_enemy: Dictionary[String, ProgressBar] = {}
-var label_health_enemy: Dictionary[String, RichTextLabel] = {}
-var texture_intention: Dictionary[String, Sprite2D] = {}
 var battle_desc: BattleDescription
 var increase_damage = 0
 var is_player_turn_start = false
@@ -43,20 +39,7 @@ var mites_to_add = 0
 var parasitism_effect = Vector2(0, 0)
 var parasitism_targeted_enemy : Enemy
 
-var card_played: Array[Card2]
-
-func display_infos_player(boolean: bool):
-	$BattleField/Characters/Player/NamePlayer.visible = boolean
-	$BattleField/Characters/Player/HealthPlayer.visible = boolean
-	$BattleField/Characters/Player/DefensePlayer.visible = boolean
-	$BattleField/Characters/Player/EnergyPlayer.visible = boolean
-	$BattleField/Characters/Player/HealthBarPlayer.visible = boolean
-	$BattleField/Characters/Player/PlayerImage.visible = boolean
-	$BattleField/Characters/Player/DefenseIcon.visible = boolean
-	$BattleField/Characters/Player/FloconMana1.visible = boolean
-	$BattleField/Characters/Player/FloconMana2.visible = boolean
-	$BattleField/Characters/Player/FloconMana3.visible = boolean
-	
+var card_played: Array[Card2]	
 	
 func _ready():
 	battle_desc = GameState.current_battle_description
@@ -87,40 +70,50 @@ func _ready():
 	player_component.sprite = $BattleField/Characters/Player/PlayerImage
 	player_component.defense_icon = $BattleField/Characters/Player/DefenseIcon
 	player_component.health_bar = $BattleField/Characters/Player/HealthBarPlayer
-	
+	player_component.turn_ui_off()
 	player.components = player_component
-
 	player.update_health_ui()
+
+	var entity_component1 = Entity_components.new() 
+	entity_component1.name_label = $BattleField/Characters/Ennemie1/NameEnnemy
+	entity_component1.health_label = $BattleField/Characters/Ennemie1/HealthEnnemy
+	entity_component1.defense_label = $BattleField/Characters/Ennemie1/DefenseEnnemy
+	entity_component1.sprite = $BattleField/Characters/Ennemie1/EnnemieImage
+	entity_component1.defense_icon = $BattleField/Characters/Ennemie1/DefenseIcon
+	entity_component1.health_bar = $BattleField/Characters/Ennemie1/HealthBarEnnemie
+	entity_component1.turn_ui_off()
+
+	var entity_component2 = Entity_components.new() 
+	entity_component2.name_label = $BattleField/Characters/Ennemie2/NameEnnemy
+	entity_component2.health_label = $BattleField/Characters/Ennemie2/HealthEnnemy
+	entity_component2.defense_label = $BattleField/Characters/Ennemie2/DefenseEnnemy
+	entity_component2.sprite = $BattleField/Characters/Ennemie2/EnnemieImage
+	entity_component2.defense_icon = $BattleField/Characters/Ennemie2/DefenseIcon
+	entity_component2.health_bar = $BattleField/Characters/Ennemie2/HealthBarEnnemie
+	entity_component2.turn_ui_off()
+
+	var entity_component3 = Entity_components.new() 
+	entity_component3.name_label = $BattleField/Characters/Ennemie3/NameEnnemy
+	entity_component3.health_label = $BattleField/Characters/Ennemie3/HealthEnnemy
+	entity_component3.defense_label = $BattleField/Characters/Ennemie3/DefenseEnnemy
+	entity_component3.sprite = $BattleField/Characters/Ennemie3/EnnemieImage
+	entity_component3.defense_icon = $BattleField/Characters/Ennemie3/DefenseIcon
+	entity_component3.health_bar = $BattleField/Characters/Ennemie3/HealthBarEnnemie
+	entity_component3.turn_ui_off()
 	
 	var index = 0
 	for enemy in battle_desc.entities:
+		enemy = enemy.duplicate()
 		enemy.id = index
-		var entity_component = Entity_components.new() 
 		if (index == 0):
-			entity_component.name_label = $BattleField/Characters/Ennemie1/NameEnnemy
-			entity_component.health_label = $BattleField/Characters/Ennemie1/HealthEnnemy
-			entity_component.defense_label = $BattleField/Characters/Ennemie1/DefenseEnnemy
-			entity_component.sprite = $BattleField/Characters/Ennemie1/EnnemieImage
-			entity_component.defense_icon = $BattleField/Characters/Ennemie1/DefenseIcon
-			entity_component.health_bar = $BattleField/Characters/Ennemie1/HealthBarEnnemie
-			entity_component.intention_ennemie = $BattleField/Characters/Ennemie1/IntentionEnnemie
+			enemy.components = entity_component1
+			enemy.set_intention_sprite($BattleField/Characters/Ennemie1/IntentionEnnemie)
 		elif (index == 1):
-			entity_component.name_label = $BattleField/Characters/Ennemie2/NameEnnemy
-			entity_component.health_label = $BattleField/Characters/Ennemie2/HealthEnnemy
-			entity_component.defense_label = $BattleField/Characters/Ennemie2/DefenseEnnemy
-			entity_component.sprite = $BattleField/Characters/Ennemie2/EnnemieImage
-			entity_component.defense_icon = $BattleField/Characters/Ennemie2/DefenseIcon
-			entity_component.health_bar = $BattleField/Characters/Ennemie2/HealthBarEnnemie
-			entity_component.intention_ennemie = $BattleField/Characters/Ennemie2/IntentionEnnemie
+			enemy.components = entity_component2
+			enemy.set_intention_sprite($BattleField/Characters/Ennemie2/IntentionEnnemie)
 		elif (index == 2):
-			entity_component.name_label = $BattleField/Characters/Ennemie3/NameEnnemy
-			entity_component.health_label = $BattleField/Characters/Ennemie3/HealthEnnemy
-			entity_component.defense_label = $BattleField/Characters/Ennemie3/DefenseEnnemy
-			entity_component.sprite = $BattleField/Characters/Ennemie3/EnnemieImage
-			entity_component.defense_icon = $BattleField/Characters/Ennemie3/DefenseIcon
-			entity_component.health_bar = $BattleField/Characters/Ennemie3/HealthBarEnnemie
-			entity_component.intention_ennemie = $BattleField/Characters/Ennemie3/IntentionEnnemie
-		enemy.components = entity_component
+			enemy.components = entity_component3
+			enemy.set_intention_sprite($BattleField/Characters/Ennemie3/IntentionEnnemie)
 		enemy.update_health_ui()
 		battle_enemies.append(enemy)
 		alive_enemies.append(enemy)
@@ -144,7 +137,7 @@ func _on_hand_size_changed(size):
 		$Deck.set_deck_enabled(true)
 	
 func convert_scene_index_to_enemy(index: int) -> Enemy:
-	if index >= battle_enemies.size():
+	if index < battle_enemies.size():
 		for enemy in alive_enemies:
 			if enemy.id == index:
 				return enemy
@@ -194,7 +187,7 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 		#move_card_to_bin(card)
 
 func process_card(card: Card2, player_slot: bool, ennemie_index: int):
-	if player.energy < card.data.mana_cost:
+	if player.energy >= card.data.mana_cost:
 		if player_slot and card.data.target_type == "self":
 			# Si la carte est pour le joueur
 			player.energy = player.energy-card.data.mana_cost
@@ -269,6 +262,7 @@ func process_card_player(card: Card2):
 	player.update_health_ui()
 
 func process_damage_entity(enemy: Entity, damage: int):
+	play_hit_flash(enemy)
 	if not enemy.apply_damage_and_check_lifestatus(damage):
 		ennemi_mort.play()
 	else:
@@ -283,7 +277,7 @@ func process_shield_entity(target: Entity, amout: int):
 	armure_prise.play()
 
 func process_shield_multiply_entity(target: Entity, amout: int):
-	target.add_defense(amout)
+	target.multiply_defense(amout)
 	armure_prise.play()
 
 func process_buff_strenght_entity(target: Entity, amout: int):
@@ -311,10 +305,7 @@ func process_card_commun_enemy(card: Card2, target: Enemy):
 		pass
 	elif card.data.id == "melee_generale":
 		for enemy in alive_enemies:
-			enemy.apply_damage_and_check_lifestatus(12)
-
-		
-	play_hit_flash()
+			process_damage_entity(enemy, 12)
 
 func process_card_commun_himself(card: Card2):
 	if card.data.id == "defense":
@@ -469,28 +460,26 @@ func _on_button_pressed() -> void:
 	#Fin ajout CKC
 	# début du tour des ennemis
 	for enemy in alive_enemies:
-		
 		enemy.perform_action(player)
 		enemy.compute_next_attack()	
-			
-		if player.health == 0:
-			$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
-			$EndBattle.visible = true
-			$BattleField/Characters/Player/HealthPlayer.text = "0/0"
-			$Deck.set_deck_enabled(false)
-			end_game = true
-			return
-		else:
-			#Ajout CKC - Début tour joueur
-			for i in range(0,5):
-				$Deck.draw_card()
-			#Fin ajout CKC
-			player_turn = true
-			player.energy = MAX_ENERGY
-			$BattleField/Characters/Player/EnergyPlayer.text = "Energie :"
-			compute_energy()
-			$BattleField/Characters/Player/DefensePlayer.text = "0"
-			player.defense = 0
+	if player.health == 0:
+		$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
+		$EndBattle.visible = true
+		$BattleField/Characters/Player/HealthPlayer.text = "0/0"
+		$Deck.set_deck_enabled(false)
+		end_game = true
+		return
+	else:
+		#Ajout CKC - Début tour joueur
+		for i in range(0,5):
+			$Deck.draw_card()
+		#Fin ajout CKC
+		player_turn = true
+		player.energy = MAX_ENERGY
+		$BattleField/Characters/Player/EnergyPlayer.text = "Energie :"
+		compute_energy()
+		$BattleField/Characters/Player/DefensePlayer.text = "0"
+		player.defense = 0
 
 
 func _on_end_battle_pressed() -> void:
@@ -502,8 +491,11 @@ func _on_video_stream_player_finished() -> void:
 	$PlayerHand.visible = true
 	$Bin.visible = true
 	$Deck.visible = true
-	display_infos_player(true)
 	$Button.visible = true
+	player.setup_ui()
+	for enemy in battle_enemies:
+		enemy.setup_ui()
+		enemy.compute_next_attack()
 	
 func compute_energy():
 	if player.energy == 3:
@@ -524,8 +516,8 @@ func compute_energy():
 		$BattleField/Characters/Player/FloconMana3.visible = true
 		
 
-func play_hit_flash():
-	var sprite = $BattleField/Characters/Ennemie1/EnnemieImage  # ou le node qui affiche ton ennemi
+func play_hit_flash(target: Enemy):
+	var sprite = target.components.sprite
 	print("sprite=", sprite)
 	if sprite == null:
 		return

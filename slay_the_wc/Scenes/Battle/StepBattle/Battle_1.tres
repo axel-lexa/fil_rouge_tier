@@ -1,13 +1,33 @@
-[gd_resource type="Resource" script_class="BattleDescription" load_steps=5 format=3 uid="uid://643ymr7t4qfw"]
+[gd_resource type="Resource" script_class="BattleDescription" load_steps=9 format=3 uid="uid://643ymr7t4qfw"]
 
-[ext_resource type="Script" uid="uid://c541r5p6gwvel" path="res://slay_the_wc/Entities/Entity.gd" id="1_5fqq7"]
 [ext_resource type="VideoStream" uid="uid://begsuoqsgodcq" path="res://slay_the_wc/Assets/Art/Biome-foret-Animé.ogv" id="1_qcpx7"]
-[ext_resource type="Resource" uid="uid://c3y8qv4dcspai" path="res://slay_the_wc/Entities/Ennemies/Patate.tres" id="2_qcpx7"]
+[ext_resource type="Script" uid="uid://dtk6u04ciu554" path="res://slay_the_wc/Entities/enemy.gd" id="2_qcpx7"]
 [ext_resource type="Script" uid="uid://dgu1edrbcg2ev" path="res://slay_the_wc/Scenes/Battle/StepBattle/BattleDescription.gd" id="2_x2rc2"]
+[ext_resource type="Script" uid="uid://c7q0520cetml4" path="res://Systems/Enemies/enemy_attack.gd" id="3_72dwl"]
+[ext_resource type="Texture2D" uid="uid://cs1qe6awkyhlw" path="res://slay_the_wc/Assets/Art/patate_ennemie.png" id="4_gwbv2"]
+
+[sub_resource type="Resource" id="Resource_gsml8"]
+script = ExtResource("3_72dwl")
+name = "Boink"
+damage = 6
+metadata/_custom_type_script = "uid://c7q0520cetml4"
+
+[sub_resource type="Resource" id="Resource_a8iq4"]
+script = ExtResource("3_72dwl")
+name = "Concentration"
+atk_type = 2
+strengh_buff = 3
+metadata/_custom_type_script = "uid://c7q0520cetml4"
+
+[sub_resource type="Resource" id="Resource_ftgr1"]
+script = ExtResource("2_qcpx7")
+attacks = Array[ExtResource("3_72dwl")]([SubResource("Resource_gsml8"), SubResource("Resource_a8iq4")])
+image = ExtResource("4_gwbv2")
+metadata/_custom_type_script = "uid://dtk6u04ciu554"
 
 [resource]
 script = ExtResource("2_x2rc2")
 nom = "Bataille 1"
-entities = Array[ExtResource("1_5fqq7")]([ExtResource("2_qcpx7")])
+entities = Array[ExtResource("2_qcpx7")]([SubResource("Resource_ftgr1"), SubResource("Resource_ftgr1"), SubResource("Resource_ftgr1")])
 background = ExtResource("1_qcpx7")
 metadata/_custom_type_script = "uid://dgu1edrbcg2ev"
