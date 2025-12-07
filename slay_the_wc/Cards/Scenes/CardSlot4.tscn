@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5cmrb6fsfldg"]
+[gd_scene load_steps=3 format=3 uid="uid://bd4c0rtnebq23"]
 
 [ext_resource type="Script" uid="uid://bb1srvgmu770w" path="res://slay_the_wc/Cards/Scenes/Scripts/CardSlot4.gd" id="1_rbu47"]
 

@@ -16,7 +16,7 @@ extends Node2D
 @onready var defaite: AudioStreamPlayer = $Defaite
 @onready var token: AudioStreamPlayer = $Token
 
-var player: Entity
+var player: Player
 var battle_enemies: Array[Enemy]
 var alive_enemies: Array[Enemy]
 const MAX_HAND_SIZE = 10
@@ -61,6 +61,7 @@ func _ready():
 	$PlayerHand.connect("hand_size_changed", _on_hand_size_changed)
 	
 	player_hand_reference = $PlayerHand
+	DeckManager.player_hand_node = $PlayerHand
 	
 	player = load("res://slay_the_wc/Entities/Players/Player.tres")
 	var player_component = Entity_components.new() 
@@ -73,6 +74,8 @@ func _ready():
 	player_component.turn_ui_off()
 	player.components = player_component
 	player.update_health_ui()
+	load_deck()
+	
 
 	var entity_component1 = Entity_components.new() 
 	entity_component1.name_label = $BattleField/Characters/Ennemie1/NameEnnemy
@@ -121,14 +124,27 @@ func _ready():
 
 	$BattleField/Characters/Player/EnergyPlayer.text = "Energie : "
 	
-	for i in range(0, 5):
-		$Deck.draw_card()
-		tirage_carte.play()
+	player.draw_cards(5)
+	#$Deck.draw_card()
+	tirage_carte.play()
 		
 	player_turn = true
 	end_game = false
 
 	taunt_adversaire.play()
+
+func load_deck():
+	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
+	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres"))
+	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"))
+	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Dopage.tres"))
+	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
+	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
+	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
+	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
+	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"))
+	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"))
+
 
 func _on_hand_size_changed(size):
 	if size >= $PlayerHand.MAX_HAND_SIZE:
@@ -285,23 +301,23 @@ func process_buff_strenght_entity(target: Entity, amout: int):
 	buff_pris.play()
 
 func draw_cards(amount: int):
-	for i in range(1, amount):
-		$Deck.draw_card()
-		await get_tree().create_timer(0.2).timeout
-		tirage_carte.play()
+	DeckManager.draw_cards(amount)
+	await get_tree().create_timer(0.2).timeout
+	tirage_carte.play()
 
 func process_card_commun_enemy(card: Card2, target: Enemy):
 	if card.data.id == "baston":
 		process_damage_entity(target, 6)
 	elif card.data.id == "douleur_preparee":
-		process_damage_entity(target, $Deck.player_deck.size())
+		process_damage_entity(target, DeckManager.deck.size())
 		pass
 	elif card.data.id == "defense_offensive":
 		process_damage_entity(target, player.defense)
 		pass
 	elif card.data.id == "attaque_rapide":
 		process_damage_entity(target, 3)
-		$Deck.draw_card()
+		DeckManager.draw_cards(1)
+		#$Deck.draw_card()
 		pass
 	elif card.data.id == "melee_generale":
 		for enemy in alive_enemies:
@@ -471,8 +487,8 @@ func _on_button_pressed() -> void:
 		return
 	else:
 		#Ajout CKC - Début tour joueur
-		for i in range(0,5):
-			$Deck.draw_card()
+		DeckManager.draw_cards(5)
+		
 		#Fin ajout CKC
 		player_turn = true
 		player.energy = MAX_ENERGY

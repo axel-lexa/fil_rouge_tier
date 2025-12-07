@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=20 format=3 uid="uid://0lx4u2cbsbx5"]
 
 [ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
@@ -12,12 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://gtc861k7evva" path="res://slay_the_wc/Scenes/Battle/Player.tscn" id="9_37y5e"]
 [ext_resource type="Texture2D" uid="uid://d28urwm7s16i1" path="res://slay_the_wc/Assets/Art/shield_icon.png" id="10_qfjho"]
 [ext_resource type="Texture2D" uid="uid://bghcekvflyd27" path="res://slay_the_wc/Assets/Art/background_1.png" id="12_1usg4"]
-[ext_resource type="Script" uid="uid://chyutcygqtl2n" path="res://slay_the_wc/Cards/Scenes/Scripts/CardSlot2.gd" id="13_aqkqu"]
+[ext_resource type="Script" path="res://slay_the_wc/Cards/Scenes/Scripts/CardSlot2.gd" id="13_aqkqu"]
 [ext_resource type="PackedScene" uid="uid://de6ese77i7bfp" path="res://slay_the_wc/Cards/Scenes/CardSlot2.tscn" id="13_j145f"]
-[ext_resource type="PackedScene" uid="uid://c15ow4f4fu7sw" path="res://slay_the_wc/Cards/Scenes/CardSlot3.tscn" id="15_6qa6l"]
-[ext_resource type="PackedScene" uid="uid://b5cmrb6fsfldg" path="res://slay_the_wc/Cards/Scenes/CardSlot4.tscn" id="16_6qa6l"]
+[ext_resource type="PackedScene" uid="uid://b5cmrb6fsfldg" path="res://slay_the_wc/Cards/Scenes/CardSlot3.tscn" id="16_6qa6l"]
 [ext_resource type="PackedScene" uid="uid://caar8ogeia8u5" path="res://Scenes/Menus/CardRewardScreen.tscn" id="16_j145f"]
-[ext_resource type="Script" uid="uid://ef6n4gccbymx" path="res://slay_the_wc/Cards/Scenes/Scripts/CardSlot3.gd" id="16_q06er"]
+[ext_resource type="Script" path="res://slay_the_wc/Cards/Scenes/Scripts/CardSlot3.gd" id="16_q06er"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqkqu"]
 bg_color = Color(0.87058824, 0, 0.18039216, 1)
@@ -249,7 +248,7 @@ visibility_layer = 4
 position = Vector2(1093, 524)
 script = ExtResource("13_aqkqu")
 
-[node name="CardSlot3" parent="BattleField" instance=ExtResource("15_6qa6l")]
+[node name="CardSlot3" parent="BattleField" instance=ExtResource("16_6qa6l")]
 light_mask = 8
 visibility_layer = 8
 position = Vector2(907, 538)
