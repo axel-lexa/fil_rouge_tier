@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://rlsa333d1vkf"]
+
+[ext_resource type="Texture2D" uid="uid://xcgmg7c5b3e6" path="res://slay_the_wc/Assets/Cartes/Cartes 5d6/5d6_.png" id="1_6rgd3"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_vrsit"]
+
+[resource]
+script = ExtResource("2_vrsit")
+id = "5d6"
+card_name = "5d6"
+mana_cost = 3
+description = "Inflige 5d6 dégâts"
+target_type = 1
+background = ExtResource("1_6rgd3")
+card_team_owner = 3
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

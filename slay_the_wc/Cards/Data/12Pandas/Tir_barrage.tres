@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://drun886wlrbv2"]
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://drun886wlrbv2"]
 
-[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_ry47o"]
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_6ess1"]
-[ext_resource type="Texture2D" uid="uid://c5s3puyupocby" path="res://slay_the_wc/Assets/Art/12Panda/barrage-removebg-preview.png" id="2_mcy3g"]
+[ext_resource type="Texture2D" uid="uid://d1f4aw6px4f56" path="res://slay_the_wc/Assets/Cartes/Cartes Pandas/barrage_.png" id="1_ry47o"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_6ess1"]
 
 [resource]
 script = ExtResource("2_6ess1")
@@ -10,8 +9,7 @@ id = "tir_barrage"
 card_name = "Tirs de barrage"
 mana_cost = 1
 description = "Inflige 1 dégât par panda présent dans votre armée"
-target_type = "enemy"
-icon = ExtResource("2_mcy3g")
+target_type = 1
 background = ExtResource("1_ry47o")
-card_team_owner = "12Pandas"
+card_team_owner = 1
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

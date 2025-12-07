@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://gv0av0hnlo8a"]
+
+[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_4s1t2"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_mv65r"]
+
+[resource]
+script = ExtResource("2_mv65r")
+id = "jai_renverse"
+card_name = "J'ai renversé"
+mana_cost = 2
+description = "à définir"
+target_type = 1
+card_type = 1
+background = ExtResource("1_4s1t2")
+card_team_owner = 2
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

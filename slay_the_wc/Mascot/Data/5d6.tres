@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="MascotData" load_steps=12 format=3 uid="uid://bktwb2vcvb6r0"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_eammp"]
+[ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_wfcqq"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="2_wflcr"]
+[ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_328im"]
+[ext_resource type="Texture2D" uid="uid://cdqfgpqvgexrh" path="res://slay_the_wc/Assets/Art/mascotte_5d6.png" id="4_bvsyk"]
+[ext_resource type="Resource" uid="uid://bnchpkr1o06r4" path="res://slay_the_wc/Cards/Data/5d6/0d6.tres" id="4_wlcbr"]
+[ext_resource type="Resource" uid="uid://xikv1e1l3ngl" path="res://slay_the_wc/Cards/Data/5d6/2d6.tres" id="5_lefq5"]
+[ext_resource type="Resource" uid="uid://2jgqtxublu2h" path="res://slay_the_wc/Cards/Data/5d6/1d6.tres" id="8_7gi5t"]
+[ext_resource type="Resource" uid="uid://gnlobsgdq5ut" path="res://slay_the_wc/Cards/Data/5d6/3d6.tres" id="9_wuvx8"]
+[ext_resource type="Resource" uid="uid://cjx8cjekjlnxl" path="res://slay_the_wc/Cards/Data/5d6/4d6.tres" id="10_e7adr"]
+[ext_resource type="Resource" uid="uid://rlsa333d1vkf" path="res://slay_the_wc/Cards/Data/5d6/5d6.tres" id="11_3pcyn"]
+
+[resource]
+script = ExtResource("2_wflcr")
+mascotte_img = ExtResource("4_bvsyk")
+mascotte_name = "Bernard"
+deck_name = "Bernard L'hermite"
+description = "Principalement basé sur le \"Hasard\" quand on lance des dés. En fonction du résultat, tel attaque/defense est appliqué"
+default_cards = Array[ExtResource("1_eammp")]([ExtResource("2_wfcqq"), ExtResource("2_wfcqq"), ExtResource("2_wfcqq"), ExtResource("2_wfcqq"), ExtResource("3_328im"), ExtResource("3_328im"), ExtResource("3_328im"), ExtResource("3_328im"), ExtResource("4_wlcbr"), ExtResource("5_lefq5")])
+unlockable_cards = Array[ExtResource("1_eammp")]([ExtResource("4_wlcbr"), ExtResource("8_7gi5t"), ExtResource("8_7gi5t"), ExtResource("5_lefq5"), ExtResource("9_wuvx8"), ExtResource("9_wuvx8"), ExtResource("10_e7adr"), ExtResource("10_e7adr"), ExtResource("11_3pcyn"), ExtResource("11_3pcyn")])
+metadata/_custom_type_script = "uid://d1cm5xud4uywf"

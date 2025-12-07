@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cg04ltsib4yp6"]
 
-[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_hbewf"]
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_n3yps"]
+[ext_resource type="Texture2D" uid="uid://bv8d30yrlts0h" path="res://slay_the_wc/Assets/Cartes/Cartes communes/muraille_.png" id="1_hbewf"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_hbewf"]
 
 [resource]
-script = ExtResource("2_n3yps")
+script = ExtResource("2_hbewf")
 id = "muraille"
 card_name = "Muraille"
 mana_cost = 2
 description = "Double votre blocage actuel"
-target_type = "self"
-card_type = "skill"
+target_type = 2
+card_type = 1
 background = ExtResource("1_hbewf")
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

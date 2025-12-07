@@ -56,13 +56,13 @@ func _select_card_by_rarity(available_cards: Array[CardData]) -> CardData:
 	var total_weight = common_weight + uncommon_weight + rare_weight
 	var roll = randi() % total_weight
 	
-	var target_rarity: String
+	var target_rarity: CardData.RarityEnum
 	if roll < common_weight:
-		target_rarity = "common"
+		target_rarity = CardData.RarityEnum.COMMON
 	elif roll < common_weight + uncommon_weight:
-		target_rarity = "uncommon"
+		target_rarity =  CardData.RarityEnum.UNCOMMON
 	else:
-		target_rarity = "rare"
+		target_rarity =  CardData.RarityEnum.RARE
 	
 	# Chercher une carte de la rareté cible
 	var rarity_cards = available_cards.filter(func(card): return card.rarity == target_rarity)
