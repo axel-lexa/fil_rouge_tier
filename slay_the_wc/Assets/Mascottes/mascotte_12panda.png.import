@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpn25w2rccuim"
-path="res://.godot/imported/Telo.png-8d6c727beb71923353fcf21815a2670b.ctex"
+uid="uid://daxan6lmpci51"
+path="res://.godot/imported/mascotte_12panda.png-130d8ec93710979a5f33fff6a56b02ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slay_the_wc/Assets/Art/Telo.png"
-dest_files=["res://.godot/imported/Telo.png-8d6c727beb71923353fcf21815a2670b.ctex"]
+source_file="res://slay_the_wc/Assets/Mascottes/mascotte_12panda.png"
+dest_files=["res://.godot/imported/mascotte_12panda.png-130d8ec93710979a5f33fff6a56b02ef.ctex"]
 
 [params]
 

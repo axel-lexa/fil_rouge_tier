@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="MascotData" load_steps=12 format=3 uid="uid://bbu4b0sorcf3j"]
+[gd_resource type="Resource" script_class="MascotData" load_steps=13 format=3 uid="uid://bbu4b0sorcf3j"]
 
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_e8sna"]
 [ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_p63qu"]
 [ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_xm0rm"]
 [ext_resource type="Resource" uid="uid://bc14ptlxj6yap" path="res://slay_the_wc/Cards/Data/Bibi/en_avant_zeno.tres" id="4_4eugv"]
 [ext_resource type="Resource" uid="uid://deg17rw2r08hy" path="res://slay_the_wc/Cards/Data/Bibi/en_avant_telo.tres" id="5_bpi04"]
-[ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Art/Telo.png" id="6_p63qu"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="6_ptuaa"]
+[ext_resource type="Texture2D" uid="uid://cp8u8taodf3um" path="res://slay_the_wc/Assets/Mascottes/Zeno.png" id="6_xm0rm"]
+[ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Mascottes/Telo.png" id="7_4eugv"]
 [ext_resource type="Resource" uid="uid://d0eatstm8w7n6" path="res://slay_the_wc/Cards/Data/Bibi/cest_ma_tournee.tres" id="7_xgp25"]
 [ext_resource type="Resource" uid="uid://5o0gucsb0kek" path="res://slay_the_wc/Cards/Data/Bibi/cul_sec_zeno.tres" id="8_m0pnr"]
 [ext_resource type="Resource" uid="uid://c5g4ctv5qkx7q" path="res://slay_the_wc/Cards/Data/Bibi/cul_sec_telo.tres" id="9_3ofij"]
@@ -14,9 +15,9 @@
 
 [resource]
 script = ExtResource("6_ptuaa")
-mascotte_img = ExtResource("6_p63qu")
-mascotte_img2 = ExtResource("6_p63qu")
-mascotte_name = "Telo et Zelo"
+mascotte_img = ExtResource("7_4eugv")
+mascotte_img2 = ExtResource("6_xm0rm")
+mascotte_name = "Telo et Zeno"
 deck_name = "Loups"
 description = "Les personnages changent pour améliorer l'attaque (Zeno) et la défense (Telo) du joueur. Les cartes s'appuient sur leur spécialité"
 default_cards = Array[ExtResource("1_e8sna")]([ExtResource("2_p63qu"), ExtResource("2_p63qu"), ExtResource("2_p63qu"), ExtResource("2_p63qu"), ExtResource("3_xm0rm"), ExtResource("3_xm0rm"), ExtResource("3_xm0rm"), ExtResource("3_xm0rm"), ExtResource("4_4eugv"), ExtResource("5_bpi04")])

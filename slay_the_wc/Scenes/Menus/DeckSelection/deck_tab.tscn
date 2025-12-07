@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://diahsebjgskd0"]
 
 [ext_resource type="Script" uid="uid://1j4ah3nujn02" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck_tab.gd" id="1_y0hjh"]
-[ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Art/Telo.png" id="2_rkyqu"]
+[ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Mascottes/Telo.png" id="2_rkyqu"]
 
 [node name="Root" type="Control"]
 layout_mode = 3

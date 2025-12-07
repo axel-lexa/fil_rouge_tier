@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_wfcqq"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="2_wflcr"]
 [ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_328im"]
-[ext_resource type="Texture2D" uid="uid://cdqfgpqvgexrh" path="res://slay_the_wc/Assets/Art/mascotte_5d6.png" id="4_bvsyk"]
+[ext_resource type="Texture2D" uid="uid://cdqfgpqvgexrh" path="res://slay_the_wc/Assets/Mascottes/mascotte_5d6.png" id="4_bvsyk"]
 [ext_resource type="Resource" uid="uid://bnchpkr1o06r4" path="res://slay_the_wc/Cards/Data/5d6/0d6.tres" id="4_wlcbr"]
 [ext_resource type="Resource" uid="uid://xikv1e1l3ngl" path="res://slay_the_wc/Cards/Data/5d6/2d6.tres" id="5_lefq5"]
 [ext_resource type="Resource" uid="uid://2jgqtxublu2h" path="res://slay_the_wc/Cards/Data/5d6/1d6.tres" id="8_7gi5t"]

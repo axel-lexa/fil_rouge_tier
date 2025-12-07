@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdqfgpqvgexrh"
-path="res://.godot/imported/mascotte_5d6.png-42cc16022b9134c11a9648856d27bae3.ctex"
+uid="uid://ij68nu8sdo4b"
+path="res://.godot/imported/Mimi.png-c272655d0a3221727544f339e5c18f74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slay_the_wc/Assets/Art/mascotte_5d6.png"
-dest_files=["res://.godot/imported/mascotte_5d6.png-42cc16022b9134c11a9648856d27bae3.ctex"]
+source_file="res://slay_the_wc/Assets/Mascottes/Mimi.png"
+dest_files=["res://.godot/imported/Mimi.png-c272655d0a3221727544f339e5c18f74.ctex"]
 
 [params]
 

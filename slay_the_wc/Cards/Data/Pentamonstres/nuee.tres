@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bh6kiy3dlao40"]
+
+[ext_resource type="Texture2D" uid="uid://irmfoqku7sjl" path="res://slay_the_wc/Assets/Cartes/Cartes Penta/nuee.png" id="1_2f0dc"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_uhcs8"]
+
+[resource]
+script = ExtResource("1_uhcs8")
+id = "nuee"
+card_name = "Nuée"
+mana_cost = 2
+description = "Vous infligez autant de dégâts que de CM dépensés à tous les ennemis"
+target_type = 1
+background = ExtResource("1_2f0dc")
+card_team_owner = 6
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_xagsi"]
 [ext_resource type="Resource" uid="uid://d3r1o8bk6if70" path="res://slay_the_wc/Cards/Data/12Pandas/Corne_appel.tres" id="4_2b8um"]
 [ext_resource type="Resource" uid="uid://8wbmqembthww" path="res://slay_the_wc/Cards/Data/12Pandas/Roulade.tres" id="5_w2a41"]
-[ext_resource type="Texture2D" uid="uid://daxan6lmpci51" path="res://slay_the_wc/Assets/Art/mascotte_12panda.png" id="6_gxb2i"]
+[ext_resource type="Texture2D" uid="uid://daxan6lmpci51" path="res://slay_the_wc/Assets/Mascottes/mascotte_12panda.png" id="6_gxb2i"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="7_kvgjj"]
 [ext_resource type="Resource" uid="uid://cs5djc3moq2te" path="res://slay_the_wc/Cards/Data/12Pandas/Bamboust.tres" id="8_gsdce"]
 [ext_resource type="Resource" uid="uid://dp2m1psb2nhsy" path="res://slay_the_wc/Cards/Data/12Pandas/Coup_bambou.tres" id="9_gaboh"]

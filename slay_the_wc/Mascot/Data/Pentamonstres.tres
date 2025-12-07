@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="MascotData" load_steps=3 format=3 uid="uid://drrc22fcxgjln"]
+[gd_resource type="Resource" script_class="MascotData" load_steps=12 format=3 uid="uid://drrc22fcxgjln"]
 
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_vdq8h"]
+[ext_resource type="Texture2D" uid="uid://ij68nu8sdo4b" path="res://slay_the_wc/Assets/Mascottes/Mimi.png" id="2_0qnwn"]
+[ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_4f4l0"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="2_tn586"]
+[ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_7by2g"]
+[ext_resource type="Resource" uid="uid://m3obtvi78eim" path="res://slay_the_wc/Cards/Data/Pentamonstres/pentamite.tres" id="4_cyg15"]
+[ext_resource type="Resource" uid="uid://dwqqvdqkg2ou" path="res://slay_the_wc/Cards/Data/Pentamonstres/ponte_protegee.tres" id="5_6mv8f"]
+[ext_resource type="Resource" uid="uid://bh6kiy3dlao40" path="res://slay_the_wc/Cards/Data/Pentamonstres/nuee.tres" id="8_fqm6q"]
+[ext_resource type="Resource" uid="uid://bwsmdh13p63ta" path="res://slay_the_wc/Cards/Data/Pentamonstres/parasitisme.tres" id="9_quf7y"]
+[ext_resource type="Resource" uid="uid://b0fqff75qg4c0" path="res://slay_the_wc/Cards/Data/Pentamonstres/ponte_rapide.tres" id="10_vvmss"]
+[ext_resource type="Resource" uid="uid://bm1ymf810wie4" path="res://slay_the_wc/Cards/Data/Pentamonstres/sacrifice_mite.tres" id="11_vqed6"]
 
 [resource]
 script = ExtResource("2_tn586")
+mascotte_img = ExtResource("2_0qnwn")
 mascotte_name = "Mimi"
 deck_name = "Grosse Mite"
 description = "[b]Mascotte[/b] :
@@ -12,4 +22,6 @@ Une (très) Grosse Mite qui envoie ses enfants, une nuée de mites, combattre se
 
 Mécanique[/b] :
 Ajoute un paramètre, le Compteur Mite ([color=lightblue]CM[/color]), qui permet, en le faisant monter, de jouer les cartes mite plus puissantes.Ces cartes plus puissantes consomment des [color=lightblue]CM[/color], il faut alors pondre des œufs avec des cartes dédiés pour faire remonter le compteur. Attention à ne pas atteindre [color=lightblue]0 CM[/color] sous peine de rendre la Grosse Mite plus sensible aux attaques. À l’inverse, un compteur au max ([color=lightblue]20 CM[/color]) lui donnera un bonus de blocage au début du tour."
+default_cards = Array[ExtResource("1_vdq8h")]([ExtResource("2_4f4l0"), ExtResource("2_4f4l0"), ExtResource("2_4f4l0"), ExtResource("2_4f4l0"), ExtResource("3_7by2g"), ExtResource("3_7by2g"), ExtResource("3_7by2g"), ExtResource("3_7by2g"), ExtResource("4_cyg15"), ExtResource("5_6mv8f")])
+unlockable_cards = Array[ExtResource("1_vdq8h")]([ExtResource("8_fqm6q"), ExtResource("8_fqm6q"), ExtResource("9_quf7y"), ExtResource("9_quf7y"), ExtResource("4_cyg15"), ExtResource("5_6mv8f"), ExtResource("10_vvmss"), ExtResource("10_vvmss"), ExtResource("11_vqed6"), ExtResource("11_vqed6")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

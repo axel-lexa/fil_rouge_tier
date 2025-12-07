@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daxan6lmpci51"
-path="res://.godot/imported/mascotte_12panda.png-f44b7de8d29fe6bcedda5f4f479d1e7b.ctex"
+uid="uid://cp8u8taodf3um"
+path="res://.godot/imported/Zeno.png-5b4fa80763fc86e4d1fb8bb495fba705.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slay_the_wc/Assets/Art/mascotte_12panda.png"
-dest_files=["res://.godot/imported/mascotte_12panda.png-f44b7de8d29fe6bcedda5f4f479d1e7b.ctex"]
+source_file="res://slay_the_wc/Assets/Mascottes/Zeno.png"
+dest_files=["res://.godot/imported/Zeno.png-5b4fa80763fc86e4d1fb8bb495fba705.ctex"]
 
 [params]
 

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://b0fqff75qg4c0"]
+
+[ext_resource type="Texture2D" uid="uid://c58x3yvon8d83" path="res://slay_the_wc/Assets/Cartes/Cartes Penta/ponte_protegee.png" id="1_507do"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_degy4"]
+
+[resource]
+script = ExtResource("2_degy4")
+id = "ponte_rapide"
+card_name = "Ponte rapide"
+description = "Perd 3 PV
+Gagne 4 CM"
+target_type = 2
+card_type = 1
+background = ExtResource("1_507do")
+card_team_owner = 6
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"
