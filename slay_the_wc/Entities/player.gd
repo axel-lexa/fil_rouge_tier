@@ -3,6 +3,19 @@ class_name Player
 
 var team: String
 
+var increase_damage: int = 0
+
+# Team 12 pandas
+var nb_pandas: int = 0
+var nb_pandas_left_battle: int = 0
+
+# PentaMonstres
+var nb_mites: int = 1
+var mites_to_add: int = 0
+
+# AixAsperant
+var brulure: int = 0
+
 func add_card_to_deck(card: CardData):
 	DeckManager.add_card_to_deck(card)
 	

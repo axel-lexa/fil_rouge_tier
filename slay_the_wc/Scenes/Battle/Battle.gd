@@ -26,16 +26,9 @@ var player_turn
 var player_hand_reference
 var end_game
 var battle_desc: BattleDescription
-var increase_damage = 0
+
 var is_player_turn_start = false
 
-# 12 pandas
-var nb_pandas = 0
-var nb_pandas_left_battle = 0
-
-# PentaMonstres
-var nb_mites = 1
-var mites_to_add = 0
 var parasitism_effect = Vector2(0, 0)
 var parasitism_targeted_enemy : Enemy
 
@@ -296,6 +289,16 @@ func process_shield_multiply_entity(target: Entity, amout: int):
 	target.multiply_defense(amout)
 	armure_prise.play()
 
+func process_count_panda(operation: String, amount: int):
+	match operation:
+		"+":
+			player.nb_pandas += amount 
+		"-":
+			player.nb_pandas -= amount
+		"*":
+			player.nb_pandas *= amount
+	token.play()
+
 func process_buff_strenght_entity(target: Entity, amout: int):
 	target.add_strenght(amout)
 	buff_pris.play()
@@ -345,18 +348,21 @@ func process_card_commun_himself(card: Card2):
 func process_card_12pandas_himself(card: Card2):
 	
 	if card.data.id == "corne_appel":
-		nb_pandas = nb_pandas + 3
-		token.play()
-		pass
+		process_count_panda("+", 3)
 	elif card.data.id == "bamboust":
-		nb_pandas = nb_pandas * 2
-		token.play()
-		pass
+		process_count_panda("*", 2)
 	pass
 	
 func process_card_bibi_himself(card: Card2):
 	pass	
 func process_card_5d6_himself(card: Card2):
+	
+	if card.data.id == "3d6":
+		process_shield_entity(player, launch_dice(3))
+	elif card.data.id == "1d6":
+		process_heal_entity(player, launch_dice(1))
+		
+	
 	pass	
 func process_card_confrerie_himself(card: Card2):
 	pass	
@@ -364,7 +370,7 @@ func process_card_aix_asperant_himself(card: Card2):
 	pass	
 func process_card_penta_monstre_himself(card: Card2):
 	if card.data.id == "ponte_protegee":
-		mites_to_add += 10
+		player.mites_to_add += 10
 	pass	
 	
 func process_card_uwu_himself(card: Card2):
@@ -374,22 +380,43 @@ func process_card_12pandas_enemy(card: Card2, target: Enemy):
 	
 	if card.data.id == "coup_bambou":
 		process_damage_entity(target, 7)
-		nb_pandas = nb_pandas + 3
-		token.play()
+		process_count_panda("+", 3)
 	elif card.data.id == "revanche":
-		for i in range(0, nb_pandas_left_battle):
+		for i in range(0, player.nb_pandas_left_battle):
 			process_damage_entity(alive_enemies.get(randi_range(0, alive_enemies.size()-1)), 3)
 		
 	elif card.data.id == "roulade":
-		nb_pandas_left_battle = nb_pandas_left_battle + 3
+		player.nb_pandas_left_battle += 3
 		
 	elif card.data.id == "tir_barrage":
-		for nb in range(0, nb_pandas):
+		for nb in range(0, player.nb_pandas):
 			process_damage_entity(target, 1)
 	
 func process_card_bibi_enemy(card: Card2, target: Enemy):
 	pass	
 func process_card_5d6_enemy(card: Card2, target: Enemy):
+	
+	if card.data.id == "0d6":
+		process_damage_entity(target, 9)
+	elif card.data.id == "2d6":
+		var de1 = randi_range(1, 6)
+		var de2 = randi_range(1, 6)
+		process_damage_entity(target, de1+de2)
+		if de1 == de2:
+			DeckManager.draw_cards(2)
+		else:
+			DeckManager.draw_cards(1)
+	elif card.data.id == "4d6":
+		var result = launch_dice(4)
+		if result % 2 == 0:
+			process_damage_entity(target, result)
+		else:
+			process_shield_entity(player, result)
+	elif card.data.id == "5d6":
+		process_damage_entity(target, launch_dice(5))
+		
+		
+	
 	pass	
 func process_card_confrerie_enemy(card: Card2, target: Enemy):
 	pass	
@@ -407,8 +434,8 @@ func process_card_uwu_enemy(card: Card2, target: Enemy):
 	pass		
 	
 func process_pentamonstre_next_turn_actions():
-	add_mites(mites_to_add)
-	mites_to_add = 0
+	add_mites(player.mites_to_add)
+	player.mites_to_add = 0
 	if parasitism_targeted_enemy != null:
 		add_mites(parasitism_effect.x)
 		process_damage_entity(parasitism_targeted_enemy, parasitism_effect.y)
@@ -416,12 +443,20 @@ func process_pentamonstre_next_turn_actions():
 		parasitism_targeted_enemy = null
 	
 func add_mites(amount: int):
-	nb_mites += amount
-	clamp(nb_mites, 0, 20)
+	player.nb_mites += amount
+	clamp(player.nb_mites, 0, 20)
 	
 func sub_mites(amount: int):
-	nb_mites -= amount
-	clamp(nb_mites, 0, 20)
+	player.nb_mites -= amount
+	clamp(player.nb_mites, 0, 20)
+	
+	
+	
+func launch_dice(count: int):
+	var somme = 0
+	for i in range(0, count):
+		somme = randi_range(1, 6)	
+	return somme
 	
 func process_end_of_turn_actions():
 	pass

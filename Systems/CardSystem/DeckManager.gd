@@ -52,7 +52,7 @@ func shuffle_deck():
 # Pioche N cartes
 func draw_cards(count: int) -> Array[CardData]:
 	var drawn: Array[CardData] = []
-	
+	print("Taille du deck=" + str(deck.size()) + " / Taille du bin="+str(discard_pile.size()))
 	for i in range(count):
 		if deck.is_empty():
 			# Remélanger la défausse dans le deck
