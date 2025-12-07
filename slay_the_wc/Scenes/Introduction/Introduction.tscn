@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctggo1v13iri0"]
+
+[ext_resource type="Script" uid="uid://dw8311aq7ifr3" path="res://slay_the_wc/Scenes/Introduction/Introduction.gd" id="1_cyapr"]
+[ext_resource type="Texture2D" uid="uid://bghcekvflyd27" path="res://slay_the_wc/Assets/Art/background_1.png" id="2_qxx2c"]
+
+[node name="Introduction" type="Node2D"]
+script = ExtResource("1_cyapr")
+
+[node name="BackgroundImage" type="Sprite2D" parent="."]
+position = Vector2(699.5, 422.5)
+scale = Vector2(1.1960616, 1.0727041)
+texture = ExtResource("2_qxx2c")
+
+[node name="SkipScene" type="Button" parent="."]
+offset_left = 1317.0
+offset_top = 811.0
+offset_right = 1399.0
+offset_bottom = 842.0
+text = "Passer >>"
+
+[connection signal="pressed" from="SkipScene" to="." method="_on_skip_scene_pressed"]

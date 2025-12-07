@@ -56,6 +56,7 @@ func _process(_delta: float) -> void:
 #func get_center(node):
 	#return node.get_global_rect().get_center()
 
+
 func _on_battle_1_pressed() -> void:
 	lancer_bataille.play()
 	await get_tree().create_timer(0.2).timeout

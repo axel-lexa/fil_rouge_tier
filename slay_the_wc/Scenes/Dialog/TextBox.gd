@@ -5,21 +5,29 @@ extends MarginContainer
 
 signal clicked_inside
 
-const MAX_WIDTH = 1000
+const MAX_WIDTH = 1400
 
 var text = ""
 var letter_index = 0
 
-var letter_time = 0.03
-var space_time = 0.06
-var punctuation_time = 0.2
+var letter_time = 0.01
+var space_time = 0.006
+var punctuation_time = 0.02
+var is_skipping = false
 
 signal finished_displaying()
 
+signal skip_dialog
+
 func _gui_input(event):
 	if event is InputEventMouseButton and event.pressed:
+		if letter_index < text.length():
+			# Le texte n'est pas encore fini → on skip
+			is_skipping = true
+			_show_full_text()
 		# On émet un signal pour dire "clic dans la boîte"
-		emit_signal("clicked_inside")
+		else:
+			emit_signal("clicked_inside")
 
 
 func _ready():
@@ -33,7 +41,7 @@ func display_text(text_to_display: String):
 	label.text = text_to_display
 	
 	await resized
-	custom_minimum_size.x = min(size.x, MAX_WIDTH)
+	custom_minimum_size.x = MAX_WIDTH #min(size.x, MAX_WIDTH)
 	if size.x > MAX_WIDTH:
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD
 		await resized
@@ -60,3 +68,9 @@ func _display_letter():
 	
 func _on_letter_display_timer_timeout() -> void:
 	_display_letter()
+	
+func _show_full_text():
+	timer.stop()
+	label.text = text
+	letter_index = text.length()
+	finished_displaying.emit()
