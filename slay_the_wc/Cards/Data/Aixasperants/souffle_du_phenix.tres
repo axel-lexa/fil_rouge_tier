@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://c515cjdv2nhs"]
+
+[ext_resource type="Texture2D" uid="uid://cev2u61cqmdes" path="res://slay_the_wc/Assets/Cartes/Cartes Aix/souffle_.png" id="1_he573"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_ss6b2"]
+
+[resource]
+script = ExtResource("2_ss6b2")
+id = "souffle_du_phenix"
+card_name = "Souffle du phénix"
+mana_cost = 1
+description = "Double les brûlures de la cible (retirez la carte du jeu)"
+target_type = 1
+card_type = 1
+background = ExtResource("1_he573")
+card_team_owner = 5
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

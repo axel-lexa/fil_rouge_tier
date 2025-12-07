@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://ncximi7nr7hn"]
+
+[ext_resource type="Texture2D" uid="uid://3kfp87x0nebw" path="res://slay_the_wc/Assets/Cartes/Cartes Aix/brasier_solaire.png" id="1_11rt7"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_7rhtx"]
+
+[resource]
+script = ExtResource("2_7rhtx")
+id = "brasier_solaire"
+card_name = "Brasier Solaire"
+mana_cost = 2
+description = "Défaussez des cartes de votre main, appliquez 4 brûlures par carte défaussée"
+target_type = 1
+background = ExtResource("1_11rt7")
+card_team_owner = 5
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

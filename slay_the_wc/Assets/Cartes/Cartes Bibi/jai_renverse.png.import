@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2m45hu4d82y"
-path="res://.godot/imported/regard_solaire_.png-220edb680b35c5af3cfae1f0abca7610.ctex"
+uid="uid://0y8f7v1j8c3o"
+path="res://.godot/imported/jai_renverse.png-52a2d2afae0b145125a316b72a978775.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slay_the_wc/Assets/Cartes/Cartes Aix/regard_solaire_.png"
-dest_files=["res://.godot/imported/regard_solaire_.png-220edb680b35c5af3cfae1f0abca7610.ctex"]
+source_file="res://slay_the_wc/Assets/Cartes/Cartes Bibi/jai_renverse.png"
+dest_files=["res://.godot/imported/jai_renverse.png-52a2d2afae0b145125a316b72a978775.ctex"]
 
 [params]
 

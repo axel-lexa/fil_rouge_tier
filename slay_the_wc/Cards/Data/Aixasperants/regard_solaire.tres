@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://b4bayi3v6hgwy"]
+
+[ext_resource type="Texture2D" uid="uid://d2m45hu4d82y" path="res://slay_the_wc/Assets/Cartes/Cartes Aix/regard_solaire_.png" id="1_mfyr1"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_86qls"]
+
+[resource]
+script = ExtResource("2_86qls")
+id = "regard_solaire"
+card_name = "Regard Solaire"
+mana_cost = 1
+description = "Gagnez 1 de mana au prochain tour, choisissez une carte de votre main et placez là au dessus de votre pioche."
+target_type = 1
+card_type = 1
+background = ExtResource("1_mfyr1")
+card_team_owner = 5
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://beeovx8punhe5"]
+
+[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_sasiu"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_eu2ex"]
+
+[resource]
+script = ExtResource("2_eu2ex")
+id = "tournee_generale"
+card_name = "Tournée générale !"
+mana_cost = 1
+description = "Poulpy chauffe 1 à 4 bierraubeurres et les distribue à ses adversaires, avec un tel sourire qu'ils ne peuvent refuser. 
+
+Consomme les charges de cholestérol sur les adversaires pour infliger 4 dégats directs / charge de cholestérol présente sur les adversaires ciblés."
+target_type = 1
+background = ExtResource("1_sasiu")
+card_team_owner = 4
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://c5g4ctv5qkx7q"]
 
-[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_dt5qo"]
+[ext_resource type="Texture2D" uid="uid://cqo2ei1mwrd00" path="res://slay_the_wc/Assets/Cartes/Cartes Bibi/cul_sec_teno.png" id="1_dt5qo"]
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_gbl6m"]
 
 [resource]

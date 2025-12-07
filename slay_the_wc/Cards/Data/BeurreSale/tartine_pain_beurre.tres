@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bethx6d1sjii2"]
+
+[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_jjyx4"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_qky72"]
+
+[resource]
+script = ExtResource("2_qky72")
+id = "tartine_pain_beurre"
+card_name = "Tartine_pain_beurre"
+mana_cost = 1
+description = "Poulpy fait une tartine bien beurrée, et la propose à son adversaire, de la manière la plus polie qui soit.
+Selon sa générosité, il peut mettre de 1 à 3 beurres sur la tartine.
+L'adversaire accepte de la manger, ce qui lui inflige 15 dégat direct ainsi que 10 charges de cholestérol / beurre."
+target_type = 1
+background = ExtResource("1_jjyx4")
+card_team_owner = 4
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

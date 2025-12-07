@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://y2k4y8638e4g"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_3d0nd"]
+[ext_resource type="Texture2D" uid="uid://cg4iub4tk3ony" path="res://slay_the_wc/Assets/Cartes/Cartes Aix/explosion_nova_.png" id="1_yh074"]
+
+[resource]
+script = ExtResource("1_3d0nd")
+id = "flamme_eternelle"
+card_name = "Flamme eternellle"
+mana_cost = 4
+description = "Applique 10 brûlures, consomme l'ensemble des brûlures et inflige le double en dégât"
+target_type = 1
+background = ExtResource("1_yh074")
+card_team_owner = 5
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

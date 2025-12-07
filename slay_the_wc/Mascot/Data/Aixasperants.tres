@@ -1,11 +1,22 @@
-[gd_resource type="Resource" script_class="MascotData" load_steps=3 format=3 uid="uid://p6mtpue6roc"]
+[gd_resource type="Resource" script_class="MascotData" load_steps=12 format=3 uid="uid://p6mtpue6roc"]
 
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_t3ahp"]
-[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="2_mb6j3"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_e2pfh"]
+[ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_if3so"]
+[ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="3_6x3ci"]
+[ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_d4ngu"]
+[ext_resource type="Resource" uid="uid://36jb05sy7dhs" path="res://slay_the_wc/Cards/Data/Aixasperants/flamme_eternelle.tres" id="4_p74rg"]
+[ext_resource type="Resource" uid="uid://dmefxiuwuys46" path="res://slay_the_wc/Cards/Data/Aixasperants/resurrection_du_phenix.tres" id="5_8nxhd"]
+[ext_resource type="Resource" uid="uid://ncximi7nr7hn" path="res://slay_the_wc/Cards/Data/Aixasperants/brasier_solaire.tres" id="7_qw22w"]
+[ext_resource type="Resource" uid="uid://cim72or5peldg" path="res://slay_the_wc/Cards/Data/Aixasperants/couve.tres" id="8_qeh0c"]
+[ext_resource type="Resource" uid="uid://y2k4y8638e4g" path="res://slay_the_wc/Cards/Data/Aixasperants/explosion_nova.tres" id="9_lmwd8"]
+[ext_resource type="Resource" uid="uid://b4bayi3v6hgwy" path="res://slay_the_wc/Cards/Data/Aixasperants/regard_solaire.tres" id="10_fx10u"]
+[ext_resource type="Resource" uid="uid://c515cjdv2nhs" path="res://slay_the_wc/Cards/Data/Aixasperants/souffle_du_phenix.tres" id="11_70x6l"]
 
 [resource]
-script = ExtResource("2_mb6j3")
+script = ExtResource("3_6x3ci")
 mascotte_name = "Pyralis"
 deck_name = "Phénix"
 description = "[color=red]Pas de description pour le moment[/color]"
+default_cards = Array[ExtResource("1_e2pfh")]([ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("4_p74rg"), ExtResource("5_8nxhd")])
+unlockable_cards = Array[ExtResource("1_e2pfh")]([ExtResource("7_qw22w"), ExtResource("7_qw22w"), ExtResource("8_qeh0c"), ExtResource("8_qeh0c"), ExtResource("9_lmwd8"), ExtResource("9_lmwd8"), ExtResource("4_p74rg"), ExtResource("10_fx10u"), ExtResource("10_fx10u"), ExtResource("5_8nxhd"), ExtResource("11_70x6l"), ExtResource("11_70x6l")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2m45hu4d82y"
-path="res://.godot/imported/regard_solaire_.png-220edb680b35c5af3cfae1f0abca7610.ctex"
+uid="uid://b2ib57mvjeshd"
+path="res://.godot/imported/double_attaque.png-a23f7f96c5cc72798cf21c7f4934617e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://slay_the_wc/Assets/Cartes/Cartes Aix/regard_solaire_.png"
-dest_files=["res://.godot/imported/regard_solaire_.png-220edb680b35c5af3cfae1f0abca7610.ctex"]
+source_file="res://slay_the_wc/Assets/Cartes/Cartes Bibi/double_attaque.png"
+dest_files=["res://.godot/imported/double_attaque.png-a23f7f96c5cc72798cf21c7f4934617e.ctex"]
 
 [params]
 
