@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7q0520cetml4" path="res://Systems/Enemies/enemy_attack.gd" id="1_xroxt"]
 [ext_resource type="Texture2D" uid="uid://cs1qe6awkyhlw" path="res://slay_the_wc/Assets/Art/patate_ennemie.png" id="1_ykivu"]
-[ext_resource type="Script" uid="uid://dtk6u04ciu554" path="res://slay_the_wc/Entities/enemy.gd" id="2_ykivu"]
+[ext_resource type="Script" path="res://slay_the_wc/Entities/enemy.gd" id="2_ykivu"]
 
 [sub_resource type="Resource" id="Resource_xroxt"]
 script = ExtResource("1_xroxt")
