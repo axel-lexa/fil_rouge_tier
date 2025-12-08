@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://linic5jr4jjf"]
+
+[ext_resource type="Texture2D" uid="uid://cx5ig38gu8h30" path="res://slay_the_wc/Assets/Cartes/Cartes UwU/ralliement_.png" id="1_7fxtl"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_qw7v7"]
+
+[resource]
+script = ExtResource("1_qw7v7")
+id = "chant_de_ralliement"
+card_name = "Chant de ralliement UwU"
+mana_cost = 2
+description = "Lors du prochain tour, la prochaine attaque est doublée"
+target_type = 2
+card_type = 1
+background = ExtResource("1_7fxtl")
+card_team_owner = 7
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

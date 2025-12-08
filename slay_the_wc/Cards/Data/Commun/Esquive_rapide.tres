@@ -1,14 +1,15 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://l1nk01lsyq7s"]
 
 [ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_6jbb6"]
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_xgnft"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_6jbb6"]
 
 [resource]
-script = ExtResource("2_xgnft")
+script = ExtResource("2_6jbb6")
 id = "esquive_rapide"
 card_name = "Esquive rapide"
-description = "Gagne 2 blocage. Pioche une carte"
-target_type = "self"
-card_type = "skill"
+description = "Gagne 2 blocage
+Pioche une carte"
+target_type = 2
+card_type = 1
 background = ExtResource("1_6jbb6")
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

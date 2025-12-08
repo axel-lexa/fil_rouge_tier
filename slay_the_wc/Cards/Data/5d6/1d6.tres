@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://2jgqtxublu2h"]
+
+[ext_resource type="Texture2D" uid="uid://bmwpov4233m5s" path="res://slay_the_wc/Assets/Cartes/Cartes 5d6/1d6_.png" id="1_t1oax"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_tjdpf"]
+
+[resource]
+script = ExtResource("2_tjdpf")
+id = "1d6"
+card_name = "1d6"
+mana_cost = 1
+description = "Récupére 1d6 PV"
+target_type = 2
+card_type = 1
+background = ExtResource("1_t1oax")
+card_team_owner = 3
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

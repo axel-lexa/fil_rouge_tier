@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://36jb05sy7dhs"]
+
+[ext_resource type="Texture2D" uid="uid://b48h51nmh52lr" path="res://slay_the_wc/Assets/Cartes/Cartes Aix/flamme_eternelle_.png" id="1_l5f7m"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_rygok"]
+
+[resource]
+script = ExtResource("1_rygok")
+id = "flamme_eternelle"
+card_name = "Flamme eternellle"
+mana_cost = 1
+description = "Applique 5 brûlures"
+target_type = 1
+background = ExtResource("1_l5f7m")
+card_team_owner = 5
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://c5g4ctv5qkx7q"]
+
+[ext_resource type="Texture2D" uid="uid://cqo2ei1mwrd00" path="res://slay_the_wc/Assets/Cartes/Cartes Bibi/cul_sec_teno.png" id="1_dt5qo"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_gbl6m"]
+
+[resource]
+script = ExtResource("2_gbl6m")
+id = "cul_sec_telo"
+card_name = "Cul sec, Telo !"
+mana_cost = 1
+description = "Gagne 10 blocages"
+target_type = 2
+card_type = 1
+background = ExtResource("1_dt5qo")
+card_team_owner = 2
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

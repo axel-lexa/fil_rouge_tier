@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cjx8cjekjlnxl"]
+
+[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_63gxa"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_7trb6"]
+
+[resource]
+script = ExtResource("2_7trb6")
+id = "4d6"
+card_name = "4d6"
+mana_cost = 2
+description = "Lance 4d6
+Les résultats pairs font des dégâts, les résultats impairs du blocage"
+target_type = 4
+background = ExtResource("1_63gxa")
+card_team_owner = 3
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

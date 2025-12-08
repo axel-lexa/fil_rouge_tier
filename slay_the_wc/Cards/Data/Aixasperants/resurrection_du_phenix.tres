@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://dmefxiuwuys46"]
+
+[ext_resource type="Texture2D" uid="uid://bieaephujcj14" path="res://slay_the_wc/Assets/Cartes/Cartes Aix/resurrection_.png" id="1_e3tug"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_l4ri6"]
+
+[resource]
+script = ExtResource("2_l4ri6")
+id = "resurrection_du_phenix"
+card_name = "Résurrection du phénix"
+mana_cost = 1
+description = "Soigne 3PV, choisissez une carte de votre défausse et placez là dans votre main, elle coûte un mana de moins."
+target_type = 1
+card_type = 1
+background = ExtResource("1_e3tug")
+card_team_owner = 5
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

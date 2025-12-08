@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bm1ymf810wie4"]
+
+[ext_resource type="Texture2D" uid="uid://d1r25a1024x5e" path="res://slay_the_wc/Assets/Cartes/Cartes Penta/sacrifice.png" id="1_ivk75"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_t2n0w"]
+
+[resource]
+script = ExtResource("2_t2n0w")
+id = "sacrifice_mite"
+card_name = "Sacrifice mite"
+description = "Gagne 4 PV
+Gagne 4 blocages"
+target_type = 2
+card_type = 1
+background = ExtResource("1_ivk75")
+card_team_owner = 6
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

@@ -8,6 +8,10 @@ var card_scene = preload("res://slay_the_wc/Cards/UICard/UICard.tscn")
 func _ready() -> void:
 	if mascot:
 		%MascotteImg.texture = mascot.mascotte_img
+		if mascot.mascotte_img2:
+			var mascotteImg2 = %MascotteImg.duplicate()
+			mascotteImg2.texture = mascot.mascotte_img2
+			%MascotImgContainer.add_child(mascotteImg2)
 		%MascotteName.text = mascot.mascotte_name
 		%DescriptionTitle.text = "Description du deck \"" + mascot.deck_name + "\":"
 		%Description.text = mascot.description

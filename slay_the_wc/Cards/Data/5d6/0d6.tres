@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bnchpkr1o06r4"]
+
+[ext_resource type="Texture2D" uid="uid://3xva4y54l8t7" path="res://slay_the_wc/Assets/Cartes/Cartes 5d6/0d6_.png" id="1_7tgg6"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_bp7cq"]
+
+[resource]
+script = ExtResource("1_bp7cq")
+id = "0d6"
+card_name = "0d6"
+mana_cost = 1
+description = "Inflige 9 dégâts"
+target_type = 1
+background = ExtResource("1_7tgg6")
+card_team_owner = 3
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

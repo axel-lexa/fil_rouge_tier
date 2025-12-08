@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cim72or5peldg"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_tprih"]
+[ext_resource type="Texture2D" uid="uid://bukq2e1k4ttyr" path="res://slay_the_wc/Assets/Cartes/Cartes Aix/couve_.png" id="1_y0ngv"]
+
+[resource]
+script = ExtResource("1_tprih")
+id = "couve"
+card_name = "Couve"
+mana_cost = 3
+description = "Soigne 6PV, confère 6 d'armures, confère 3 de mana au prochain tour et met Fin au tour "
+target_type = 1
+card_type = 1
+background = ExtResource("1_y0ngv")
+card_team_owner = 5
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

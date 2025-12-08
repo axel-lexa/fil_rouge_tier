@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_ixlqc"]
 [ext_resource type="Script" uid="uid://dx30ejyxas2mb" path="res://slay_the_wc/Cards/UICard/UiCard.gd" id="1_u6gpl"]
-[ext_resource type="Texture2D" uid="uid://duymy0rlhs73j" path="res://slay_the_wc/Assets/Art/5d6/3d6.png" id="2_u6gpl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ixlqc"]
+load_path = "res://.godot/imported/3d6.png-7d39bce6bc6d66af067f1dab2489e9e5.ctex"
 
 [node name="UiCard" type="AspectRatioContainer"]
 anchors_preset = 15
@@ -71,7 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.9
-texture = ExtResource("2_u6gpl")
+texture = SubResource("CompressedTexture2D_ixlqc")
 expand_mode = 1
 stretch_mode = 5
 

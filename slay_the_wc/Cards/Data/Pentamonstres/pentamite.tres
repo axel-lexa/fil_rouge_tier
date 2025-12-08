@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://m3obtvi78eim"]
+
+[ext_resource type="Texture2D" uid="uid://wfttsef6yt25" path="res://slay_the_wc/Assets/Cartes/Cartes Penta/pentamite.png" id="1_nvjca"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_5gxh6"]
+
+[resource]
+script = ExtResource("2_5gxh6")
+id = "pentamite"
+card_name = "PentaMite"
+mana_cost = 2
+description = "Vous infligez 5 fois 3 dégâts"
+target_type = 2
+background = ExtResource("1_nvjca")
+card_team_owner = 6
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

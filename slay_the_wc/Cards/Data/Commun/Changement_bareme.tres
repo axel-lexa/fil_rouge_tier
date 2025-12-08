@@ -1,15 +1,16 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://55v2xp5sdfw7"]
 
-[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_feo3h"]
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_65huj"]
+[ext_resource type="Texture2D" uid="uid://c0dsxva0cduj2" path="res://slay_the_wc/Assets/Cartes/Cartes communes/changement_de_bareme.png" id="1_feo3h"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_feo3h"]
 
 [resource]
-script = ExtResource("2_65huj")
+script = ExtResource("2_feo3h")
 id = "changement_bareme"
 card_name = "Changement de barème"
 mana_cost = 2
-description = "Mélange toutes les cartes (Pioche, défausse et main). Commence un nouveau tour"
-target_type = "self"
-card_type = "skill"
+description = "Mélange toutes les cartes (Pioche, défausse et main).
+Commence un nouveau tour"
+target_type = 2
+card_type = 1
 background = ExtResource("1_feo3h")
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"
