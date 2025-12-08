@@ -12,11 +12,14 @@ var exhaust_pile: Array[CardData] = []
 const CARD_SCENE_PATH = "res://slay_the_wc/Cards/Scenes/Card.tscn"
 const CARD_DRAW_SPEED = 0.2
 
+var card_scene: PackedScene
+
 var deck_label: RichTextLabel = null
 var player_hand_node: Node = null
 
 
 func _ready():
+	card_scene = preload(CARD_SCENE_PATH)
 	print_tree_pretty()
 	# S'abonner aux événements
 	Events.card_selected.connect(_on_card_selected)
@@ -64,12 +67,12 @@ func draw_cards(count: int) -> Array[CardData]:
 				break
 		
 		if not deck.is_empty():
-			var card = deck.pop_front()
+			var card: CardData = deck.pop_front()
 			drawn.append(card)
 			hand.append(card)
 			_update_deck_label()
-			var card_scene = preload(CARD_SCENE_PATH)
-			var new_card = card_scene.instantiate()
+			
+			var new_card: Card2 = card_scene.instantiate()
 			new_card.data = card
 			player_hand_node.add_child(new_card)
 			if player_hand_node.player_hand.size() < player_hand_node.MAX_HAND_SIZE:

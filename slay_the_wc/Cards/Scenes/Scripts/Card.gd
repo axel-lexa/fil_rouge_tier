@@ -17,19 +17,16 @@ var is_hovering = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_tree().root.get_node("Battle/CardManager").connect_card_signals(self)
-	$NameLabel.text = data.card_name
-	$CostLabel.text = str(data.mana_cost)
-	$TextLabel.text = data.description
-	$CardImage.texture = data.background
-	$TextureRect.texture = data.background
+	if (get_tree().root.get_node("Battle/CardManager")):
+		get_tree().root.get_node("Battle/CardManager").connect_card_signals(self)
+	$UiCard.loadCardData(data)
 	$Area2D.mouse_entered.connect(_on_mouse_entered)
 	$Area2D.mouse_exited.connect(_on_mouse_exited)
 	$HoverTimer.timeout.connect(_on_hover_timeout)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -59,9 +56,11 @@ func _on_hover_timeout():
 # Affiche la carte HD
 func show_hd_card():
 	var zoom = get_tree().root.get_node("Battle/CardZoom")
-	zoom.show_card(data)  # ici data contient l'image complète HD
+	if (zoom):
+		zoom.show_card(data)  # ici data contient l'image complète HD
 
 # Cache la carte HD
 func hide_hd_card():
 	var zoom = get_tree().root.get_node("Battle/CardZoom")
-	zoom.hide_card()
+	if (zoom):
+		zoom.hide_card()
