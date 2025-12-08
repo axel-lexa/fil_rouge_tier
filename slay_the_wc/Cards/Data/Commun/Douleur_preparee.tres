@@ -1,15 +1,14 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bwha8c4c8ws0w"]
 
 [ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_0jbxr"]
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_5oc53"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_0jbxr"]
 
 [resource]
-script = ExtResource("2_5oc53")
+script = ExtResource("2_0jbxr")
 id = "douleur_preparee"
 card_name = "Douleur préparées"
 mana_cost = 2
 description = "Inflige autant de dégâts que de cartes dans votre deck"
-target_type = "enemy"
-card_type = "skill"
+target_type = 1
 background = ExtResource("1_0jbxr")
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

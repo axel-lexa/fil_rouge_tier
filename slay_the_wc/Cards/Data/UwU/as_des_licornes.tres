@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://rc3qyra86jj4"]
+
+[ext_resource type="Texture2D" uid="uid://jnihej8xvfja" path="res://slay_the_wc/Assets/Cartes/Cartes UwU/as_licorne.png" id="1_7dpwo"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_pwlvs"]
+
+[resource]
+script = ExtResource("2_pwlvs")
+id = "as_des_licornes"
+card_name = "As des licornes"
+mana_cost = 1
+description = "Pioche 1 carte, Combo : coute 0 si \"Too fast, HexaCorn\" vient d'être jouée"
+target_type = 2
+card_type = 1
+background = ExtResource("1_7dpwo")
+card_team_owner = 7
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

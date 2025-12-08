@@ -1,7 +1,8 @@
 [gd_resource type="Resource" script_class="Player" load_steps=3 format=3 uid="uid://b7nfllbrogt2t"]
 
-[ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Art/Telo.png" id="1_yjcop"]
+
 [ext_resource type="Script" uid="uid://bxc5k4inq3a6o" path="res://slay_the_wc/Entities/player.gd" id="2_yjcop"]
+[ext_resource type="Texture2D" uid="uid://cpn25w2rccuim" path="res://slay_the_wc/Assets/Mascottes/Telo.png" id="1_yjcop"]
 
 [resource]
 script = ExtResource("2_yjcop")

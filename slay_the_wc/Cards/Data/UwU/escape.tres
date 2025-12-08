@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://dki4jjr1d4dtf"]
+
+[ext_resource type="Texture2D" uid="uid://fbwshuecinxi" path="res://slay_the_wc/Assets/Cartes/Cartes UwU/escape_.png" id="1_alg2d"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_hq3nl"]
+
+[resource]
+script = ExtResource("2_hq3nl")
+id = "escape"
+card_name = "Escape.ppt"
+mana_cost = 3
+description = "Inflige 3 points de dégât à tous les ennemis, Combo : + 3 points supplémentaire si \"Too Fast, HexaCorn\" vient d'être jouée"
+target_type = 2
+card_type = 1
+background = ExtResource("1_alg2d")
+card_team_owner = 7
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://ccx2sgqo1hde"]
+
+[ext_resource type="Texture2D" uid="uid://bjjqglo2x72kq" path="res://slay_the_wc/Assets/Cartes/Cartes UwU/too_fast_.png" id="1_cq8yr"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_6cdey"]
+
+[resource]
+script = ExtResource("2_6cdey")
+id = "too_fast"
+card_name = "Too fast, HexaCorn"
+mana_cost = 1
+description = "Inflige 3 points de dégâts à une cible et 3 points supplémentaires si la carte est jouée au début du tour"
+target_type = 1
+background = ExtResource("1_cq8yr")
+card_team_owner = 7
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

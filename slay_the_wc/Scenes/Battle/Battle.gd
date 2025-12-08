@@ -197,7 +197,7 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 
 func process_card(card: Card2, player_slot: bool, ennemie_index: int):
 	if player.energy >= card.data.mana_cost:
-		if player_slot and card.data.target_type == "self":
+		if player_slot and card.data.target_type == CardData.TargetTypeEnum.SELF:
 			# Si la carte est pour le joueur
 			player.energy = player.energy-card.data.mana_cost
 			card_played.append(card)
@@ -219,54 +219,54 @@ func process_card(card: Card2, player_slot: bool, ennemie_index: int):
 	
 	
 func process_card_player_to_enemy(card: Card2, target: Enemy):
-	if card.data.card_team_owner == "commun":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.COMMON:
 		process_card_commun_enemy(card, target)
 			
-	if card.data.card_team_owner == "12Pandas":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum._12_PANDAS:
 		process_card_12pandas_enemy(card, target)
 		
-	if card.data.card_team_owner == "bibi":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.BIBI:
 		process_card_bibi_enemy(card, target)
 		
-	if card.data.card_team_owner == "5d6":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum._5D6:
 		process_card_5d6_enemy(card, target)
 		
-	if card.data.card_team_owner == "confrerieBeurreSale":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.CONFRERIE_BEURRE_SALE:
 		process_card_confrerie_enemy(card, target)
 		
-	if card.data.card_team_owner == "aixAsperant":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.AIXASPERANTS:
 		process_card_aix_asperant_enemy(card, target)
 		
-	if card.data.card_team_owner == "pentaMonstre":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.PENTAMONSTRES:
 		process_card_penta_monstre_enemy(card, target)
 		
-	if card.data.card_team_owner == "uwu":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.UWU:
 		process_card_uwu_enemy(card, target)	
 
 
 func process_card_player(card: Card2):
-	if card.data.card_team_owner == "commun":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.COMMON:
 		process_card_commun_himself(card)
 			
-	if card.data.card_team_owner == "12Pandas":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum._12_PANDAS:
 		process_card_12pandas_himself(card)
 		
-	if card.data.card_team_owner == "bibi":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.BIBI:
 		process_card_bibi_himself(card)
 		
-	if card.data.card_team_owner == "5d6":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum._5D6:
 		process_card_5d6_himself(card)
 		
-	if card.data.card_team_owner == "confrerieBeurreSale":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.CONFRERIE_BEURRE_SALE:
 		process_card_confrerie_himself(card)
 		
-	if card.data.card_team_owner == "aixAsperant":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.AIXASPERANTS:
 		process_card_aix_asperant_himself(card)
 		
-	if card.data.card_team_owner == "pentaMonstre":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.PENTAMONSTRES:
 		process_card_penta_monstre_himself(card)
 		
-	if card.data.card_team_owner == "uwu":
+	if card.data.card_team_owner == CardData.OwnerTeamEnum.UWU:
 		process_card_uwu_himself(card)	
 	player.update_health_ui()
 

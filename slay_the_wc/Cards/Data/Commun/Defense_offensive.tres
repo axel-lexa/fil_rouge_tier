@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://b8ugmsa7067vr"]
 
-[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_u70er"]
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_gskqb"]
+[ext_resource type="Texture2D" uid="uid://cnnjdjym5scl0" path="res://slay_the_wc/Assets/Cartes/Cartes communes/defense_offensive.png" id="1_u70er"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_u70er"]
 
 [resource]
-script = ExtResource("2_gskqb")
+script = ExtResource("2_u70er")
 id = "defense_offensive"
 card_name = "Défense offensive"
 mana_cost = 1
 description = "Inflige autant de dégâts que votre nombre de blocages"
-target_type = "enemy"
+target_type = 1
 background = ExtResource("1_u70er")
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

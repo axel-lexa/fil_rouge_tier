@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://blgsvewfss0qs"]
+
+[ext_resource type="Texture2D" uid="uid://xvqvpivisnek" path="res://slay_the_wc/Assets/Cartes/Cartes UwU/le_P.png" id="1_2rfju"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_xfd5k"]
+
+[resource]
+script = ExtResource("2_xfd5k")
+id = "le_p"
+card_name = "Le P !  En avant !"
+mana_cost = 2
+description = "Inflige 3 points de dégât à tous les ennemis, Combo : + 3 points supplémentaire si \"Too Fast, HexaCorn\" vient d'être jouée"
+target_type = 1
+background = ExtResource("1_2rfju")
+card_team_owner = 7
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

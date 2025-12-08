@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BattleDescription" load_steps=9 format=3 uid="uid://643ymr7t4qfw"]
 
-[ext_resource type="VideoStream" uid="uid://begsuoqsgodcq" path="res://slay_the_wc/Assets/Art/Biome-foret-Animé.ogv" id="1_qcpx7"]
+[ext_resource type="VideoStream" path="res://slay_the_wc/Assets/Art/Biome-foret-Animé.ogv" id="1_qcpx7"]
 [ext_resource type="Script" uid="uid://dtk6u04ciu554" path="res://slay_the_wc/Entities/enemy.gd" id="2_qcpx7"]
 [ext_resource type="Script" uid="uid://dgu1edrbcg2ev" path="res://slay_the_wc/Scenes/Battle/StepBattle/BattleDescription.gd" id="2_x2rc2"]
 [ext_resource type="Script" uid="uid://c7q0520cetml4" path="res://Systems/Enemies/enemy_attack.gd" id="3_72dwl"]

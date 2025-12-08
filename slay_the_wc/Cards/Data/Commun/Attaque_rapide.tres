@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://dnpeitqik7k3n"]
 
-[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_s5vda"]
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_urjvk"]
+[ext_resource type="Texture2D" uid="uid://bm67u4wbs3n14" path="res://slay_the_wc/Assets/Cartes/Cartes communes/attaque_rapide.png" id="1_s5vda"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_s5vda"]
 
 [resource]
-script = ExtResource("2_urjvk")
+script = ExtResource("2_s5vda")
 id = "attaque_rapide"
 card_name = "Attaque rapide"
-description = "Inflige 3 dégats. Pioche une carte"
-target_type = "enemy"
-card_type = "skill"
+description = "Inflige 3 dégats
+Pioche une carte"
+target_type = 1
 background = ExtResource("1_s5vda")
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

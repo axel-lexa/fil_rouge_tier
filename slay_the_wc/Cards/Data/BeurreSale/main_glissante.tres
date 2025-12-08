@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://beeovx8punhe5"]
+
+[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_sdess"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_8qbse"]
+
+[resource]
+script = ExtResource("2_8qbse")
+id = "main_glissante"
+card_name = "Main glissante"
+mana_cost = 1
+description = "Poulpy chausse ses chaussons beurrés et glisse jusqu'a chez lui en une vitesse record! Il ramène du renfort!
+
+Pioche 3 cartes
+Consomme les charges de cholestérol sur les adversaires pour infliger 4 dégats directs / charge de cholestérol présente sur les adversaires ciblés."
+target_type = 2
+card_type = 1
+background = ExtResource("1_sdess")
+card_team_owner = 4
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

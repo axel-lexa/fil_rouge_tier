@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://dod3134p4ae1d"]
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://dod3134p4ae1d"]
 
-[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_tnap4"]
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="2_0r6p8"]
-[ext_resource type="Texture2D" uid="uid://dr7w04hgdl5qb" path="res://slay_the_wc/Assets/Art/12Panda/revanche-removebg-preview.png" id="2_qe7u3"]
+[ext_resource type="Texture2D" uid="uid://c03g4k1mwoty1" path="res://slay_the_wc/Assets/Cartes/Cartes Pandas/revanche_.png" id="1_tnap4"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_0r6p8"]
 
 [resource]
 script = ExtResource("2_0r6p8")
@@ -10,8 +9,7 @@ id = "revanche"
 card_name = "Revanche"
 mana_cost = 3
 description = "Inflige 3 dégâts à une cible aléatoire pour chaque panda parti à l'attaque ce combat"
-target_type = "random"
-icon = ExtResource("2_qe7u3")
+target_type = 1
 background = ExtResource("1_tnap4")
-card_team_owner = "12Pandas"
+card_team_owner = 1
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

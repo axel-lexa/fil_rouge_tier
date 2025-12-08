@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://kcj8yca6owss"]
+
+[ext_resource type="Texture2D" uid="uid://c61y7rt2c4muj" path="res://slay_the_wc/Assets/Cartes/Cartes UwU/brawl_.png" id="1_uusao"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_pjjn4"]
+
+[resource]
+script = ExtResource("2_pjjn4")
+id = "lets_brawl"
+card_name = "Let's Brawl !"
+description = "Inflige 3 points de dégâts, Combo : Reviens dans la main si \"As des licornes\" vient d'être jouée"
+target_type = 1
+background = ExtResource("1_uusao")
+card_team_owner = 7
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

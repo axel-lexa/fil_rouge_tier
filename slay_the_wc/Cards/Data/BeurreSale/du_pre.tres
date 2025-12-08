@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cmhqix17a6dd1"]
+
+[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_j1pa4"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_p2bq1"]
+
+[resource]
+script = ExtResource("1_p2bq1")
+id = "du_pre"
+card_name = "Du pré..."
+mana_cost = 1
+description = "Un bon produit commence par de bons forunisseurs! Margueurite, la meilleure amie de Poulpy, donne du sien.
+
+Ajoute la carte \"... A la laiterie ...\" dans votre pioche
+Exil"
+target_type = 2
+card_type = 1
+background = ExtResource("1_j1pa4")
+card_team_owner = 4
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

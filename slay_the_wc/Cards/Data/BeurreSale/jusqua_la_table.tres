@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://gvi8vx7bv0eo"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_fhly3"]
+[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_tpkxv"]
+
+[resource]
+script = ExtResource("1_fhly3")
+id = "jusqua_la_table"
+card_name = "... Jusqu'à la table !"
+mana_cost = 3
+description = "Enfin, après un passage à la confection, le produit est fin prêt à être dégusté ! 
+
+Pour ce combat, tous les ennemis prennent 60 dégâts à la fin de chacun de vos tours
+Exil"
+target_type = 1
+background = ExtResource("1_tpkxv")
+card_team_owner = 4
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

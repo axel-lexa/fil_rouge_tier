@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bwsmdh13p63ta"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_7wm4g"]
+[ext_resource type="Texture2D" uid="uid://wcryo6pu5163" path="res://slay_the_wc/Assets/Cartes/Cartes Penta/parasitisme.png" id="1_jmxya"]
+
+[resource]
+script = ExtResource("1_7wm4g")
+id = "parasitisme"
+card_name = "Parasitisme"
+mana_cost = 1
+description = "Inflige debuff -2ATK
+Au tour suivant:
+Inflige 5 dégâts
+Gagne 6 CM"
+target_type = 1
+background = ExtResource("1_jmxya")
+card_team_owner = 6
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

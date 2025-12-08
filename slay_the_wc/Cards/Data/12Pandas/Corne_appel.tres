@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://d3r1o8bk6if70"]
 
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://Cards/Base/CardData.gd" id="1_b3g8k"]
-[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_wg56j"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_b3g8k"]
+[ext_resource type="Texture2D" uid="uid://3llfq8g34fvd" path="res://slay_the_wc/Assets/Cartes/Cartes Pandas/corne_appel.png" id="1_wg56j"]
 
 [resource]
 script = ExtResource("1_b3g8k")
@@ -9,8 +9,8 @@ id = "corne_appel"
 card_name = "Corne d'appel"
 mana_cost = 1
 description = "3 Pandas rejoignent votre armée"
-target_type = "self"
-card_type = "skill"
+target_type = 2
+card_type = 1
 background = ExtResource("1_wg56j")
-card_team_owner = "12Pandas"
+card_team_owner = 1
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

@@ -58,6 +58,7 @@ func _clear_cards():
 # Crée une UI de carte cliquable
 func _create_card_ui(card_data: CardData, index: int) -> Control:
 	# Si une scène de carte UI existe, l'utiliser
+	# TODO utiliser UiCard
 	if card_ui_scene:
 		var card_instance = card_ui_scene.instantiate()
 		if card_instance.has_method("set_card_data"):
@@ -92,7 +93,7 @@ func _create_card_ui(card_data: CardData, index: int) -> Control:
 	
 	# Rareté
 	var rarity_label = Label.new()
-	rarity_label.text = "Rareté: " + card_data.rarity
+	rarity_label.text = "Rareté: " + str(card_data.rarity)
 	rarity_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(rarity_label)
 	
