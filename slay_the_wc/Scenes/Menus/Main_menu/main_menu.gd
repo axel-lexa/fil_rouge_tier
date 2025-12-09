@@ -13,7 +13,11 @@ func _ready() -> void:
 	
 	#DialogManager.start_dialog(Vector2(0, 0), lines)
 	
-	pass # Replace with function body.
+	# Si une sauvegarde existe, charger automatiquement après un court délai
+	# pour restaurer l'état du jeu
+	if SaveManager.has_save_data:
+		await get_tree().create_timer(0.1).timeout
+		SaveManager.load_game()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,13 +68,23 @@ func _on_continue_pressed() -> void:
 	continuer.play()
 	await get_tree().create_timer(1.2).timeout
 	print("Continuer la partie")
-	#get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
-	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
+	if SaveManager.has_save_data:
+		# Charger la sauvegarde (elle chargera automatiquement la bonne scène)
+		SaveManager.load_game()
+	else:
+		# Pas de sauvegarde, aller à la map
+		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
+
 # Called when user click on button "Nouvelle partie"
 func _on_new_game_pressed() -> void:
 	continuer.play()
 	await get_tree().create_timer(1.2).timeout
 	print("Nouvelle partie")
+	# Supprimer la sauvegarde existante
+	SaveManager.delete_save()
+	# Réinitialiser RunManager
+	RunManager.start_new_run()
+	# Aller à la map
 	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Introduction/Introduction.tscn")
 
 # Called when user click on button "Paramètres"

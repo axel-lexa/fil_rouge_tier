@@ -35,6 +35,9 @@ var parasitism_targeted_enemy : Enemy
 var card_played: Array[Card2]	
 	
 func _ready():
+	# Ajouter au groupe pour la sauvegarde
+	add_to_group("battle")
+	
 	battle_desc = GameState.current_battle_description
 	
 	$VideoStreamPlayer.stream = battle_desc.background

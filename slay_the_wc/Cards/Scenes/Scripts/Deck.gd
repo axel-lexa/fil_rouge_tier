@@ -4,6 +4,36 @@ func _ready() -> void:
 	print(">>> Deck.gd _ready called")
 	print(">>> Label found? ", $RichTextLabel)
 	DeckManager.register_deck_label($RichTextLabel)
+	# Ajouter au groupe pour la sauvegarde
+	add_to_group("deck")
+	$RichTextLabel.text = str(player_deck.size())
+
+
+func draw_card():
+	
+	var card_draw = player_deck[0]
+	player_deck.erase(card_draw)
+	
+	# SI le joueur n'a plus de cartes dans son deck
+	if player_deck.size() == 0:
+		$Area2D/CollisionShape2D.disabled = true
+		$Sprite2D.visible = false
+		$RichTextLabel.visible = false
+		
+	# On met a jour le libelle qui compte le nombre de cartes restantes du deck
+	$RichTextLabel.text = str(player_deck.size())
+	var card_scene = preload(CARD_SCENE_PATH)
+	var new_card = card_scene.instantiate()
+	new_card.data = card_draw
+	$"../PlayerHand".add_child(new_card)
+	new_card.name = "Card"
+	
+	var hand = $"../PlayerHand"
+	if hand.player_hand.size() < hand.MAX_HAND_SIZE:
+		hand.add_card_to_hand(new_card, CARD_DRAW_SPEED)
+	else:
+		return
+	
 
 func set_deck_enabled(enabled: bool):
 	$Area2D/CollisionShape2D.disabled = not enabled
