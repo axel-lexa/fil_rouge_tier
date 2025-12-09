@@ -23,6 +23,8 @@ load("res://slay_the_wc/Cards/Data/Commun/Baston.tres")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Ajouter au groupe pour la sauvegarde
+	add_to_group("deck")
 	$RichTextLabel.text = str(player_deck.size())
 
 

@@ -45,6 +45,8 @@ func display_infos_ennemie2(boolean: bool):
 	
 	
 func _ready():
+	# Ajouter au groupe pour la sauvegarde
+	add_to_group("battle")
 	
 	battle_desc = GameState.current_battle_description
 	

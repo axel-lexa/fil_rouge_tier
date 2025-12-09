@@ -15,6 +15,8 @@ var center_screen_x
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Ajouter au groupe pour la sauvegarde
+	add_to_group("player_hand")
 	center_screen_x = get_viewport().size.x/2
 	
 
