@@ -3,9 +3,9 @@ class_name CardRewardScreen
 
 # Scène UI pour afficher 3 cartes et permettre la sélection
 
-@onready var card_container: HBoxContainer = $"."/VBoxContainer/CardContainer
-@onready var title_label: Label = $"."/VBoxContainer/TitleLabel
-@onready var instruction_label: Label = $"."/VBoxContainer/InstructionLabel
+@onready var card_container: HBoxContainer = $VBoxContainer/CardContainer
+@onready var title_label: Label = $VBoxContainer/TitleLabel
+@onready var instruction_label: Label = $VBoxContainer/InstructionLabel
 
 var reward_cards: Array[CardData] = []
 var card_ui_scenes: Array[Control] = []
@@ -18,10 +18,8 @@ func _ready():
 	print("Parent type =", get_parent())
 	#var ok = Events.card_reward_offered.connect(_on_card_reward_offered)
 	#print("Connexion =", ok)
-	# S'abonner aux événements
-	#Events.card_reward_offered.connect(_on_card_reward_offered)
 	# Masquer par défaut
-	visible = true
+	visible = false
 
 # Affiche les 3 cartes de récompense
 func _on_card_reward_offered(cards: Array):

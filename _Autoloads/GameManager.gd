@@ -11,3 +11,4 @@ func _ready():
 	card_reward_screen = reward_screen_scene.instantiate()
 	get_tree().root.add_child(card_reward_screen)
 	card_reward_screen.z_index = 1000  # S'assurer qu'il est au-dessus de tout
+	card_reward_screen.visible = false  # Masquer par défaut
