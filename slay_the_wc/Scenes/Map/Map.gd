@@ -4,50 +4,32 @@ extends Node2D
 @onready var retour_menu: AudioStreamPlayer = $retour_menu
 @onready var marche_entre_batailles: AudioStreamPlayer = $marche_entre_batailles
 
-const BATTLE_ORDER = [
-	"flocon1",
-	"flocon2",
-	"flocon3",
-	"flocon4",
-	"flocon5",
-	"boss1",
-]
-
 func _ready() -> void:
 	update_battle_buttons()
 	update_roads()
-	
-	
-func get_next_battle() -> String:
-	for key in BATTLE_ORDER:
-		if PlayerMap.playerBattleDone[key] == false:
-			return key
-	return ""
+
 	
 func update_battle_buttons():
-	var next_battle = get_next_battle()
+	var next_battle = "flocon"+str(RunManager.current_floor)
+	print(next_battle)
 
 	for battle in $Battles.get_children():
 		battle.disabled = battle.name != next_battle
 
 func update_roads():
-	var state = PlayerMap.playerBattleDone
-	var next_battle = get_next_battle()
 
 	for road in $Roads.get_children():
 		road.visible = false
 
-	for i in range(BATTLE_ORDER.size() - 1):
-		var current = BATTLE_ORDER[i]
-		var next_id = BATTLE_ORDER[i + 1]
-		var road_name = "%sTo%s" % [current, next_id]
+	for i in range(0, RunManager.current_floor-1):
+		var road_name = "flocon%sToflocon%s" % [i+1, i+2]
 
 		var road = $Roads.get_node_or_null(road_name)
 		if road == null:
 			print("Chemin introuvable :", road_name)
 			continue
 
-		if state[current] == true or next_id == next_battle:
+		if i< RunManager.current_floor:
 			road.visible = true
 
 

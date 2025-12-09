@@ -98,7 +98,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_b5qyj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("2_q6eef")
 
-[node name="boss1" type="Button" parent="Battles"]
+[node name="flocon6" type="Button" parent="Battles"]
 offset_left = 644.0
 offset_top = 74.0
 offset_right = 1208.0
@@ -169,7 +169,7 @@ default_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_svm44")
 texture_mode = 1
 
-[node name="flocon5Toboss1" type="Line2D" parent="Roads"]
+[node name="flocon5Toflocon6" type="Line2D" parent="Roads"]
 texture_repeat = 2
 points = PackedVector2Array(669, 298, 703, 140)
 width = 5.0
@@ -182,5 +182,5 @@ texture_mode = 1
 [connection signal="pressed" from="Battles/flocon3" to="." method="_on_battle_3_pressed"]
 [connection signal="pressed" from="Battles/flocon4" to="." method="_on_battle_4_pressed"]
 [connection signal="pressed" from="Battles/flocon5" to="." method="_on_battle_5_pressed"]
-[connection signal="pressed" from="Battles/boss1" to="." method="_on_battle_final_pressed"]
+[connection signal="pressed" from="Battles/flocon6" to="." method="_on_battle_final_pressed"]
 [connection signal="pressed" from="RetourMenu" to="." method="_on_retour_menu_pressed"]

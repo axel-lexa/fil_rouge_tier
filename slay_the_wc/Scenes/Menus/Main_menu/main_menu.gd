@@ -3,10 +3,14 @@ extends Control
 @onready var hover: AudioStreamPlayer = $VBoxContainer/hover
 @onready var booooo: AudioStreamPlayer = $VBoxContainer/booooo
 
+@onready var video_player = $VideoContainer/VideoStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
 	hide_informations(false)
+	video_player.play()
+	video_player.finished.connect(_on_video_stream_player_finished)
 	
 	#const lines: Array[String] = ["La foret d'Arpos est un lieu ou les animaux vivent en communauté et en harmonie avec la nature.",
 	#"Chaque année lors des premières neiges la forêt est insuflée d'un pouvoir magique et mystérieux. Les animaux se regroupent à cette période pour fabriquer de belles constructions à l'éfigie de l'hiver."]
@@ -15,9 +19,11 @@ func _ready() -> void:
 	
 	# Si une sauvegarde existe, charger automatiquement après un court délai
 	# pour restaurer l'état du jeu
-	if SaveManager.has_save_data:
-		await get_tree().create_timer(0.1).timeout
-		SaveManager.load_game()
+	if not SaveManager.has_save_data:
+		$VBoxContainer/Continue.visible = false
+		#await get_tree().create_timer(0.1).timeout
+		#SaveManager.load_game()
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,11 +40,13 @@ func hide_informations(boolean: bool):
 	$LogoWinterCup.visible = boolean
 	$LogoWinterCup2.visible = boolean
 	$Copyright.visible = boolean
-	
+	$BackGround.visible = boolean
 	
 	
 
 func show_elements_progressively():
+	
+	$BackGround.visible = true
 	
 	# Liste des éléments du menu dans l'ordre d'apparition
 	var elements = [
@@ -84,7 +92,7 @@ func _on_new_game_pressed() -> void:
 	SaveManager.delete_save()
 	# Réinitialiser RunManager
 	RunManager.start_new_run()
-	# Aller à la map
+	# Go to introduction
 	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Introduction/Introduction.tscn")
 
 # Called when user click on button "Paramètres"
@@ -118,3 +126,15 @@ func _on_exit_game_mouse_entered() -> void:
 
 func _on_video_stream_player_finished() -> void:
 	show_elements_progressively()
+
+func _skip_video():
+	# Stop the video player so audio/visuals cut immediately
+	video_player.stop()
+	 # Manually call the finish logic
+	_on_video_stream_player_finished()
+
+
+func _on_skip_button_pressed() -> void:
+	_skip_video()
+	
+	pass # Replace with function body.

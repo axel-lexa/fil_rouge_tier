@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cekc18dbmnves"]
+[gd_scene load_steps=12 format=3 uid="uid://cekc18dbmnves"]
 
 [ext_resource type="Script" uid="uid://di081sdjvursu" path="res://slay_the_wc/Scenes/Menus/Main_menu/main_menu.gd" id="1_6fvm6"]
 [ext_resource type="Texture2D" uid="uid://wdb7prvrrf7t" path="res://slay_the_wc/Assets/Art/logoWinterCup.png" id="1_pye2b"]
 [ext_resource type="AudioStream" uid="uid://lptucsi6bej3" path="res://slay_the_wc/Assets/Sounds/NewGameOrContinue_woopie.mp3" id="3_7as4m"]
 [ext_resource type="AudioStream" uid="uid://dsu7f5mno8322" path="res://slay_the_wc/Assets/Sounds/menu_hover.mp3" id="3_sd575"]
 [ext_resource type="AudioStream" uid="uid://cixjuou0k15yk" path="res://slay_the_wc/Assets/Sounds/booooo.mp3" id="4_rgl0o"]
+[ext_resource type="Texture2D" uid="uid://bspsothfktngg" path="res://slay_the_wc/Assets/Art/Main_Menu/background.png" id="7_fa5sa"]
 [ext_resource type="VideoStream" uid="uid://dabkhi3yvqf5u" path="res://slay_the_wc/Assets/Art/Main_Menu/intro_main_menu.ogv" id="7_sdlof"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rkit"]
@@ -134,8 +135,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 stream = ExtResource("7_sdlof")
-autoplay = true
 expand = true
+
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1318.0
+offset_top = 813.0
+offset_right = 1400.0
+offset_bottom = 844.0
+text = "Passer >>"
+
+[node name="BackGround" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(701, 421.00003)
+scale = Vector2(1.195, 1.075)
+texture = ExtResource("7_fa5sa")
 
 [connection signal="mouse_entered" from="VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
@@ -146,3 +160,4 @@ expand = true
 [connection signal="mouse_entered" from="VBoxContainer/ExitGame" to="." method="_on_exit_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/ExitGame" to="." method="_on_exit_game_pressed"]
 [connection signal="finished" from="VideoContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

@@ -297,4 +297,3 @@ func delete_save():
 		DirAccess.remove_absolute(SAVE_FILE_PATH)
 		has_save_data = false
 		print("Sauvegarde supprimée")
-
