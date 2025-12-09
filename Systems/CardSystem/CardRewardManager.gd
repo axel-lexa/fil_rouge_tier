@@ -43,7 +43,10 @@ func generate_card_reward() -> Array[CardData]:
 		var selected_card = _select_card_by_rarity(available_cards)
 		if selected_card:
 			reward_cards.append(selected_card)
-			available_cards.erase(selected_card)
+			# Retirer la carte sélectionnée pour éviter les doublons
+			var index_to_remove = available_cards.find(selected_card)
+			if index_to_remove >= 0:
+				available_cards.remove_at(index_to_remove)
 	
 	return reward_cards
 
@@ -87,6 +90,8 @@ func _on_battle_won():
 		#Events.card_reward_offered.emit(reward_cards)
 
 func _emit_reward(reward_cards):
-	if reward_cards.size() == 3:
+	if reward_cards.size() > 0:
 		Events.debug_emit()
 		Events.card_reward_offered.emit(reward_cards)
+	else:
+		push_error("Aucune carte de récompense générée!")
