@@ -1,32 +1,27 @@
 [gd_scene load_steps=3 format=3 uid="uid://1k2k2fb7j37s"]
 
-[sub_resource type="SystemFont" id="SystemFont_pm1on"]
-font_names = PackedStringArray("Segoe Print")
-
-[sub_resource type="SystemFont" id="SystemFont_ag4bc"]
-font_names = PackedStringArray("Segoe Print")
+[ext_resource type="Script" uid="uid://dv0liaebeo6ga" path="res://slay_the_wc/Cards/Scenes/CardZoom.gd" id="1_fuflj"]
+[ext_resource type="PackedScene" uid="uid://dqtac4737yusy" path="res://slay_the_wc/Cards/UICard/UICard.tscn" id="2_pm1on"]
 
 [node name="CardZoom" type="CanvasLayer"]
+script = ExtResource("1_fuflj")
 
-[node name="HDCardImage" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1132.0
+offset_bottom = -493.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Description" type="RichTextLabel" parent="."]
-z_index = 2
-offset_left = 31.0
-offset_top = 338.0
-offset_right = 304.0
-offset_bottom = 531.0
-theme_override_fonts/normal_font = SubResource("SystemFont_pm1on")
-theme_override_font_sizes/normal_font_size = 16
-scroll_active = false
+[node name="UiCard" parent="Control" instance=ExtResource("2_pm1on")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+alignment_horizontal = 0
+is_tweened = true
 
-[node name="Name" type="RichTextLabel" parent="."]
-offset_left = 48.0
-offset_top = 301.0
-offset_right = 278.0
-offset_bottom = 331.0
-theme_override_fonts/normal_font = SubResource("SystemFont_ag4bc")
-scroll_active = false
+[connection signal="mouse_entered" from="Control" to="." method="_on_ui_card_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_ui_card_mouse_exited"]

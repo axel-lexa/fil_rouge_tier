@@ -2,39 +2,49 @@ extends CanvasLayer
 
 const POP_DURATION = 0.15
 
+var tween: PropertyTweener
+var lastData: CardData
+
+var debounceTimer: Timer = Timer.new()
+
 func _ready():
+	add_child(debounceTimer)
+	debounceTimer.wait_time = 0.5
+	debounceTimer.one_shot = true
+	debounceTimer.timeout.connect(_hide)
 	visible = false
+	$Control/UiCard.alignment_horizontal = HORIZONTAL_ALIGNMENT_LEFT
+	$Control/UiCard.get_node("%NameScroll").get_v_scroll_bar().mouse_filter = VScrollBar.MouseFilter.MOUSE_FILTER_IGNORE
+	$Control/UiCard.get_node("%DescriptionScroll").get_v_scroll_bar().mouse_filter = VScrollBar.MouseFilter.MOUSE_FILTER_IGNORE
 
 func show_card(data: CardData):
 	if !data.background:
 		return
 	visible = true
-	$HDCardImage.texture = data.background
-	$Description.text = data.description
-	$Name.text = data.card_name
 	var screen_size = get_viewport().get_visible_rect().size
-
 	# Limites max pour la carte HD
-	var max_width = screen_size.x * 0.4
 	var max_height = screen_size.y * 0.6
+	var max_width = max_height * $Control/UiCard.ratio
 
-	# Taille originale de la texture
-	var tex_size = data.background.get_size()
-	var aspect = tex_size.x / tex_size.y
-	
-	# Calcul du scale proportionnel pour ne pas dépasser les limites
-	var scale_x = min(max_width / tex_size.x, max_height / tex_size.y)
-	var scale_y = scale_x  # garder le ratio
-	
-	# Commence minuscule pour l’animation pop
-	$HDCardImage.scale = Vector2(0, 0)
-
-	# Positionner au centre
-	#$HDCardImage.position = (screen_size - tex_size * scale_x) / 2
-	$HDCardImage.position = Vector2(0, 0)
-
+	debounceTimer.stop()
 	# Tween pour animation pop
-	create_tween().tween_property($HDCardImage, "scale", Vector2(scale_x, scale_y), POP_DURATION)
-	
+	if (!lastData || data.id != lastData.id):
+		print(data.id)
+		if (lastData):
+			print(lastData.id)
+		$Control/UiCard.loadCardData(data)
+		$Control.size = Vector2(0, 0)
+		tween = create_tween().tween_property($Control, "size", Vector2(max_width, max_height), POP_DURATION)
+		lastData = data
+
 func hide_card():
+	debounceTimer.start()
+
+func _hide():
 	visible = false
+
+# keep displaying when mouse hover the zoomed card to be able to scroll card labels
+func _on_ui_card_mouse_entered() -> void:
+	debounceTimer.stop()
+func _on_ui_card_mouse_exited() -> void:
+	debounceTimer.start()

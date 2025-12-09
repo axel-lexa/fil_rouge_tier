@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_qky72")
 id = "tartine_pain_beurre"
-card_name = "Tartine_pain_beurre"
+card_name = "Tartine pain-beurre"
 mana_cost = 1
 description = "Poulpy fait une tartine bien beurrée, et la propose à son adversaire, de la manière la plus polie qui soit.
 Selon sa générosité, il peut mettre de 1 à 3 beurres sur la tartine.
