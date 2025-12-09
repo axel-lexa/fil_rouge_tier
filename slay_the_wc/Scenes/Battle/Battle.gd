@@ -519,6 +519,7 @@ func _on_button_pressed() -> void:
 		$BattleField/Characters/Player/HealthPlayer.text = "0/0"
 		$Deck.set_deck_enabled(false)
 		end_game = true
+		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
 		return
 	else:
 		#Ajout CKC - Début tour joueur

@@ -16,6 +16,8 @@ var mites_to_add: int = 0
 # AixAsperant
 var brulure: int = 0
 
+var battle_achieved: Dictionary[String, bool] = {}
+
 func add_card_to_deck(card: CardData):
 	DeckManager.add_card_to_deck(card)
 	

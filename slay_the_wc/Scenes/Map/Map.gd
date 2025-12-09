@@ -1,89 +1,84 @@
 extends Node2D
 
-@onready var battle1 = $Battle1
-@onready var battle2 = $Battle2
-@onready var battle3 = $Battle3
-@onready var battle4 = $Battle4
-@onready var battle5 = $Battle5
-@onready var line1To2 = $Line1To2
-@onready var line2To3 = $Line2To3
-@onready var line3To4 = $Line3To4
-@onready var line4To5 = $Line4To5
-@onready var battle_final = $BattleFinal
-@onready var line5ToFinal = $Line5ToFinal
 @onready var lancer_bataille: AudioStreamPlayer = $LancerBataille
 @onready var retour_menu: AudioStreamPlayer = $retour_menu
 @onready var marche_entre_batailles: AudioStreamPlayer = $marche_entre_batailles
 
-func _process(_delta: float) -> void:
-	pass
-	#generate_line(battle1, battle2, line1To2)
-	#generate_line(battle2, battle3, line2To3)
-	#generate_line(battle3, battle4, line3To4)
-	#generate_line(battle4, battle5, line4To5)
-	#generate_line(battle5, battle_final, line5ToFinal)
-	
+const BATTLE_ORDER = [
+	"flocon1",
+	"flocon2",
+	"flocon3",
+	"flocon4",
+	"flocon5",
+	"boss1",
+]
 
-#func generate_line(b1, b2, l1To2):
-	#marche_entre_batailles.play()
-	#var p0 = get_center(b1)
-	#var p3 = get_center(b2)
-	## Point de contrôle pour créer la courbe
-	#var mid = (p0 + p3) / 2
-	#var control_offset = Vector2(0, -150)  # vers le haut (change le sens en inversant)
-#
-	#var c1 = mid + control_offset
-	#var c2 = mid + control_offset
-#
-	## Génération des points de la courbe
-	#var curve_points = []
-	#for t in range(21): # 0..20 -> 21 segments = courbe fluide
-		#var k = t / 20.0
-		#var point = cubic_bezier_point(p0, c1, c2, p3, k)
-		#curve_points.append(point)
-#
-	#l1To2.points = curve_points
-	#marche_entre_batailles.stop()
+func _ready() -> void:
+	update_battle_buttons()
+	update_roads()
 	
-#func cubic_bezier_point(p0, c1, c2, p3, t):
-	#return (
-		#p0 * pow(1 - t, 3)
-		#+ c1 * 5 * pow(1 - t, 2) * t
-		#+ c2 * 7 * (1 - t) * pow(t, 2)
-		#+ p3 * pow(t, 3)
-	#)
-#
-#func get_center(node):
-	#return node.get_global_rect().get_center()
+	
+func get_next_battle() -> String:
+	for key in BATTLE_ORDER:
+		if PlayerMap.playerBattleDone[key] == false:
+			return key
+	return ""
+	
+func update_battle_buttons():
+	var next_battle = get_next_battle()
+
+	for battle in $Battles.get_children():
+		battle.disabled = battle.name != next_battle
+
+func update_roads():
+	var state = PlayerMap.playerBattleDone
+	var next_battle = get_next_battle()
+
+	for road in $Roads.get_children():
+		road.visible = false
+
+	for i in range(BATTLE_ORDER.size() - 1):
+		var current = BATTLE_ORDER[i]
+		var next_id = BATTLE_ORDER[i + 1]
+		var road_name = "%sTo%s" % [current, next_id]
+
+		var road = $Roads.get_node_or_null(road_name)
+		if road == null:
+			print("Chemin introuvable :", road_name)
+			continue
+
+		if state[current] == true or next_id == next_battle:
+			road.visible = true
 
 
 func _on_battle_1_pressed() -> void:
 	lancer_bataille.play()
 	await get_tree().create_timer(0.2).timeout
-	var battle_desc = load("res://slay_the_wc/Scenes/Battle/StepBattle/Battle_1.tres")
-	GameState.current_battle_description = battle_desc
-	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
-	pass # Replace with function body.
+	print("bataille 1")
+	#var battle_desc = load("res://slay_the_wc/Scenes/Battle/StepBattle/Battle_1.tres")
+	#GameState.current_battle_description = battle_desc
+	#get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
+	#pass # Replace with function body.
 
 
 func _on_battle_2_pressed() -> void:
-	pass # Replace with function body.
+	print("bataille 2")
 
 
 func _on_battle_3_pressed() -> void:
-	pass # Replace with function body.
+	print("bataille 3")
 
 
 func _on_battle_4_pressed() -> void:
-	pass # Replace with function body.
+	print("bataille 4")
 
 
 func _on_battle_5_pressed() -> void:
-	pass # Replace with function body.
+	print("bataille 5")
 
 
 func _on_battle_final_pressed() -> void:
-	pass # Replace with function body.
+	print("bataille boss")
 
 
 func _on_retour_menu_pressed() -> void:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cekc18dbmnves"]
+[gd_scene load_steps=11 format=3 uid="uid://cekc18dbmnves"]
 
 [ext_resource type="Script" uid="uid://di081sdjvursu" path="res://slay_the_wc/Scenes/Menus/Main_menu/main_menu.gd" id="1_6fvm6"]
 [ext_resource type="Texture2D" uid="uid://wdb7prvrrf7t" path="res://slay_the_wc/Assets/Art/logoWinterCup.png" id="1_pye2b"]
 [ext_resource type="AudioStream" uid="uid://lptucsi6bej3" path="res://slay_the_wc/Assets/Sounds/NewGameOrContinue_woopie.mp3" id="3_7as4m"]
 [ext_resource type="AudioStream" uid="uid://dsu7f5mno8322" path="res://slay_the_wc/Assets/Sounds/menu_hover.mp3" id="3_sd575"]
 [ext_resource type="AudioStream" uid="uid://cixjuou0k15yk" path="res://slay_the_wc/Assets/Sounds/booooo.mp3" id="4_rgl0o"]
+[ext_resource type="VideoStream" uid="uid://dabkhi3yvqf5u" path="res://slay_the_wc/Assets/Art/Main_Menu/intro_main_menu.ogv" id="7_sdlof"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rkit"]
 bg_color = Color(0.14901961, 0.627451, 0.8039216, 1)
@@ -85,6 +86,7 @@ offset_top = 94.0
 offset_right = 241.0
 offset_bottom = 172.0
 grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 50
 text = "Slay the Winter Cup"
 
@@ -113,6 +115,28 @@ grow_vertical = 0
 theme_override_colors/default_color = Color(0.14901961, 0.627451, 0.8039216, 1)
 text = "© Winter Cup 2025 - 5d6, Les 12 pandas, Les Bibi, Les UwU, Les Pentamonstres, Les Aix-Asperants, La Confrérie du Beurre Salé"
 
+[node name="VideoContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="VideoContainer"]
+z_index = -8
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stream = ExtResource("7_sdlof")
+autoplay = true
+expand = true
+
 [connection signal="mouse_entered" from="VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/NewGame" to="." method="_on_new_game_mouse_entered"]
@@ -121,3 +145,4 @@ text = "© Winter Cup 2025 - 5d6, Les 12 pandas, Les Bibi, Les UwU, Les Pentamon
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/ExitGame" to="." method="_on_exit_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/ExitGame" to="." method="_on_exit_game_pressed"]
+[connection signal="finished" from="VideoContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

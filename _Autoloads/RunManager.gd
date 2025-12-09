@@ -26,4 +26,3 @@ func end_run():
 func complete_floor():
 	current_floor += 1
 	Events.floor_completed.emit()
-
