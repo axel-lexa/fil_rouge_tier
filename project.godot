@@ -24,6 +24,7 @@ GameManager="*res://_Autoloads/GameManager.gd"
 CardRewardManager="*res://Systems/CardSystem/CardRewardManager.gd"
 DeckManager="*res://Systems/CardSystem/DeckManager.gd"
 DialogManager="*res://slay_the_wc/Scenes/Dialog/DialogManager.gd"
+PlayerMap="*res://_Autoloads/PlayerMap.gd"
 
 [display]
 

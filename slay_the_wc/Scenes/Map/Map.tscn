@@ -21,12 +21,9 @@
 [node name="Map" type="Node2D"]
 script = ExtResource("1_svm44")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(700, 421.49997)
-scale = Vector2(1.1969178, 1.070153)
-texture = ExtResource("6_b5qyj")
+[node name="Battles" type="Node" parent="."]
 
-[node name="Battle1" type="Button" parent="."]
+[node name="flocon1" type="Button" parent="Battles"]
 offset_left = 996.0
 offset_top = 759.0
 offset_right = 1033.0
@@ -41,7 +38,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_b5qyj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("2_q6eef")
 
-[node name="Battle2" type="Button" parent="."]
+[node name="flocon2" type="Button" parent="Battles"]
 offset_left = 660.0
 offset_top = 559.0
 offset_right = 697.0
@@ -56,23 +53,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_b5qyj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("2_q6eef")
 
-[node name="BattleFinal" type="Button" parent="."]
-z_index = -1
-offset_left = 644.0
-offset_top = 74.0
-offset_right = 1208.0
-offset_bottom = 633.0
-scale = Vector2(0.2, 0.2)
-theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_q6eef")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_oda81")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_sppq5")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_svm44")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_b5qyj")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
-icon = ExtResource("3_sppq5")
-
-[node name="Battle3" type="Button" parent="."]
+[node name="flocon3" type="Button" parent="Battles"]
 offset_left = 381.0
 offset_top = 432.0
 offset_right = 418.0
@@ -87,7 +68,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_b5qyj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("2_q6eef")
 
-[node name="Battle4" type="Button" parent="."]
+[node name="flocon4" type="Button" parent="Battles"]
 offset_left = 837.0
 offset_top = 363.0
 offset_right = 874.0
@@ -102,7 +83,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_b5qyj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("2_q6eef")
 
-[node name="Battle5" type="Button" parent="."]
+[node name="flocon5" type="Button" parent="Battles"]
 offset_left = 637.0
 offset_top = 254.0
 offset_right = 674.0
@@ -117,49 +98,25 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_b5qyj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
 icon = ExtResource("2_q6eef")
 
-[node name="Line1To2" type="Line2D" parent="."]
-texture_repeat = 2
-position = Vector2(367.8552, 246.67706)
-scale = Vector2(0.80379546, 0.56963074)
-points = PackedVector2Array(412, 620, 820.04047, 981.90436)
-width = 5.0
-default_color = Color(0, 0, 0, 1)
-texture = ExtResource("4_svm44")
-texture_mode = 1
+[node name="boss1" type="Button" parent="Battles"]
+offset_left = 644.0
+offset_top = 74.0
+offset_right = 1208.0
+offset_bottom = 633.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q6eef")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oda81")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sppq5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_svm44")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b5qyj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uwur7")
+icon = ExtResource("3_sppq5")
 
-[node name="Line2To3" type="Line2D" parent="."]
-texture_repeat = 2
-position = Vector2(252.62354, 230.24036)
-scale = Vector2(1.092251, 0.6057693)
-points = PackedVector2Array(410, 611, 151, 415)
-width = 5.0
-default_color = Color(0, 0, 0, 1)
-texture = ExtResource("4_svm44")
-texture_mode = 1
-
-[node name="Line3To4" type="Line2D" parent="."]
-texture_repeat = 2
-points = PackedVector2Array(409, 474, 869, 403)
-width = 5.0
-default_color = Color(0, 0, 0, 1)
-texture = ExtResource("4_svm44")
-texture_mode = 1
-
-[node name="Line4To5" type="Line2D" parent="."]
-texture_repeat = 2
-points = PackedVector2Array(866, 405, 661, 296)
-width = 5.0
-default_color = Color(0, 0, 0, 1)
-texture = ExtResource("4_svm44")
-texture_mode = 1
-
-[node name="Line5ToFinal" type="Line2D" parent="."]
-texture_repeat = 2
-points = PackedVector2Array(669, 298, 703, 140)
-width = 5.0
-default_color = Color(0, 0, 0, 1)
-texture = ExtResource("4_svm44")
-texture_mode = 1
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(700, 421.49997)
+scale = Vector2(1.1969178, 1.070153)
+texture = ExtResource("6_b5qyj")
 
 [node name="RetourMenu" type="Button" parent="."]
 offset_left = 1224.0
@@ -174,10 +131,56 @@ text = "Menu principal"
 
 [node name="marche_entre_batailles" type="AudioStreamPlayer" parent="."]
 
-[connection signal="pressed" from="Battle1" to="." method="_on_battle_1_pressed"]
-[connection signal="pressed" from="Battle2" to="." method="_on_battle_2_pressed"]
-[connection signal="pressed" from="BattleFinal" to="." method="_on_battle_final_pressed"]
-[connection signal="pressed" from="Battle3" to="." method="_on_battle_3_pressed"]
-[connection signal="pressed" from="Battle4" to="." method="_on_battle_4_pressed"]
-[connection signal="pressed" from="Battle5" to="." method="_on_battle_5_pressed"]
+[node name="Roads" type="Node" parent="."]
+
+[node name="flocon1Toflocon2" type="Line2D" parent="Roads"]
+texture_repeat = 2
+position = Vector2(367.8552, 246.67706)
+scale = Vector2(0.80379546, 0.56963074)
+points = PackedVector2Array(412, 620, 820.04047, 981.90436)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+texture = ExtResource("4_svm44")
+texture_mode = 1
+
+[node name="flocon2Toflocon3" type="Line2D" parent="Roads"]
+texture_repeat = 2
+position = Vector2(252.62354, 230.24036)
+scale = Vector2(1.092251, 0.6057693)
+points = PackedVector2Array(410, 611, 151, 415)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+texture = ExtResource("4_svm44")
+texture_mode = 1
+
+[node name="flocon3Toflocon4" type="Line2D" parent="Roads"]
+texture_repeat = 2
+points = PackedVector2Array(409, 474, 869, 403)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+texture = ExtResource("4_svm44")
+texture_mode = 1
+
+[node name="flocon4Toflocon5" type="Line2D" parent="Roads"]
+texture_repeat = 2
+points = PackedVector2Array(866, 405, 661, 296)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+texture = ExtResource("4_svm44")
+texture_mode = 1
+
+[node name="flocon5Toboss1" type="Line2D" parent="Roads"]
+texture_repeat = 2
+points = PackedVector2Array(669, 298, 703, 140)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+texture = ExtResource("4_svm44")
+texture_mode = 1
+
+[connection signal="pressed" from="Battles/flocon1" to="." method="_on_battle_1_pressed"]
+[connection signal="pressed" from="Battles/flocon2" to="." method="_on_battle_2_pressed"]
+[connection signal="pressed" from="Battles/flocon3" to="." method="_on_battle_3_pressed"]
+[connection signal="pressed" from="Battles/flocon4" to="." method="_on_battle_4_pressed"]
+[connection signal="pressed" from="Battles/flocon5" to="." method="_on_battle_5_pressed"]
+[connection signal="pressed" from="Battles/boss1" to="." method="_on_battle_final_pressed"]
 [connection signal="pressed" from="RetourMenu" to="." method="_on_retour_menu_pressed"]
