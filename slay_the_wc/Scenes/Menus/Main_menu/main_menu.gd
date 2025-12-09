@@ -47,6 +47,7 @@ func hide_informations(boolean: bool):
 func show_elements_progressively():
 	
 	$BackGround.visible = true
+	$SkipButton.visible = false
 	
 	# Liste des éléments du menu dans l'ordre d'apparition
 	var elements = [

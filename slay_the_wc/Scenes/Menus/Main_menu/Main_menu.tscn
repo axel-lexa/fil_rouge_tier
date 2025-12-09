@@ -135,6 +135,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 stream = ExtResource("7_sdlof")
+speed_scale = 1.179
 expand = true
 
 [node name="SkipButton" type="Button" parent="."]
