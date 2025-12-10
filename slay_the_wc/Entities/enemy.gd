@@ -8,11 +8,16 @@ var next_atk: Enemy_attack
 
 
 func perform_action(player: Entity):
+	if not next_atk:
+		return
 	print("Enemy " + name + " playing attack " + next_atk.name)
+	
 	if next_atk.damage != 0:
 		attack(player, next_atk.damage)
 	if next_atk.strengh_buff != 0:
 		add_strenght(next_atk.strengh_buff)
+		
+		
 
 func compute_next_attack():
 	next_atk = attacks.get(randi_range(0, attacks.size()-1))
