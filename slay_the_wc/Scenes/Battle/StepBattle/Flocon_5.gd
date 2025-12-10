@@ -1,5 +1,5 @@
 extends BattleDescription
-
+class_name flocon5
 func _ready():
 	nom = "Flocon 5"
 	entities = [techRex.new()]

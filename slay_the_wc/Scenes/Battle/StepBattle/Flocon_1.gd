@@ -1,5 +1,5 @@
 extends BattleDescription
-
+class_name flocon1
 func _ready():
 	nom = "Flocon 1"
 	entities = [patate.new(), patate.new()]

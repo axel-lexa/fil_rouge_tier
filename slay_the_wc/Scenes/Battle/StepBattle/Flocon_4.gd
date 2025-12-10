@@ -1,5 +1,5 @@
 extends BattleDescription
-
+class_name flocon4
 func _ready():
 	nom = "Flocon 4"
 	entities = [deformice.new()]
