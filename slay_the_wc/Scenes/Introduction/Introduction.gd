@@ -20,4 +20,4 @@ func _ready() -> void:
 
 func _on_skip_scene_pressed() -> void:
 	DialogManager.skip_all_dialog()
-	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/DeckSelection/deck_selection.tscn")

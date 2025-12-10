@@ -4,7 +4,7 @@ var btns: Array[Node]
 
 func _ready() -> void:
 	# array of tab button
-	btns = $HBoxContainer/VFlowContainer.get_children().filter(
+	btns = %HBoxContainer/VFlowContainer.get_children().filter(
 		func(child): return child is Button
 	)
 	# set buttons texts to deck name
@@ -26,9 +26,13 @@ func _on_button_toggled(toggled_on: bool, index: int) -> void:
 	%ButtonNext.disabled = false
 
 
-func _on_button_return_pressed() -> void:
-	pass # Replace with function body.
-
-
 func _on_button_next_pressed() -> void:
-	pass # Replace with function body.
+	var mascotData: MascotData = %TabContainer.get_current_tab_control().mascot
+	DeckManager.deck = mascotData.default_cards
+	DeckManager.unlockable_cards = mascotData.unlockable_cards
+	DeckManager.mascotData = mascotData
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
+
+
+func _on_button_return_pressed() -> void:
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/Main_menu/Main_menu.tscn")

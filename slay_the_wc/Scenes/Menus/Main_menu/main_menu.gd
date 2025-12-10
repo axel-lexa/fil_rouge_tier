@@ -91,7 +91,7 @@ func _on_continue_pressed() -> void:
 		SaveManager.load_game()
 	else:
 		# Pas de sauvegarde, aller à la map
-		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
+		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/DeckSelection/deck_selection.tscn")
 
 # Called when user click on button "Nouvelle partie"
 func _on_new_game_pressed() -> void:
