@@ -9,6 +9,7 @@ func _init():
 	
 	attacks = [attack1]
 	health = 20
+	max_health = health
 	name = "Choppy Orc"
 	image = load("res://slay_the_wc/Assets/Art/patate_ennemie.png")
 	

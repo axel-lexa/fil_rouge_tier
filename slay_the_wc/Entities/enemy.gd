@@ -16,7 +16,9 @@ func perform_action(player: Entity):
 		attack(player, next_atk.damage)
 	if next_atk.strengh_buff != 0:
 		add_strenght(next_atk.strengh_buff)
-		
+	if next_atk.useless_cards_to_add != 0:
+		for i in range(0,next_atk.useless_cards_to_add):
+			DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Unplayable.tres"))
 		
 
 func compute_next_attack():

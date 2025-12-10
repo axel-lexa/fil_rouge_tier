@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://ddg77h12jqj0q"]
+
+[ext_resource type="Texture2D" uid="uid://ds5n2uh7ehomy" path="res://slay_the_wc/Assets/Art/cardlayout.png" id="1_c8hlr"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_oo7om"]
+
+[resource]
+script = ExtResource("2_oo7om")
+id = "muraille"
+card_name = "Retry"
+description = "Carte injouable"
+card_type = 1
+background = ExtResource("1_c8hlr")
+exil = true
+draftable = false
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

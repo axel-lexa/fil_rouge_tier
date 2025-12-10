@@ -8,6 +8,7 @@ class_name Entity
 @export var strenght: int
 @export var weakness_debuff: int
 @export var fragility_debuff: int
+@export var burn: int
 @export var image: Texture2D
 
 var components : Entity_components
@@ -69,3 +70,15 @@ func turn_ui_off():
 
 func turn_ui_on():
 	components.turn_ui_on()
+
+func compute_burn() -> bool:
+	health = clamp(health-burn, 0, max_health)
+	if burn > 0:
+		burn -= 1
+	return health > 0
+
+func add_burn(amout: int):
+	burn += amout
+
+func multiply_burn(mult: int):
+	burn *= mult

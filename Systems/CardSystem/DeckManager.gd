@@ -77,9 +77,11 @@ func draw_cards(count: int) -> Array[CardData]:
 
 func reset_deck():
 	for card in hand:
-		add_card_to_deck(card)
+		if card.target_type != CardData.TargetTypeEnum.NONE:
+			add_card_to_deck(card)
 	for card in discard_pile:
-		add_card_to_deck(card)
+		if card.target_type != CardData.TargetTypeEnum.NONE:
+			add_card_to_deck(card)
 	hand.clear()
 	discard_pile.clear()
 
@@ -87,7 +89,8 @@ func reset_deck():
 func discard_card(card: CardData):
 	if hand.has(card):
 		hand.erase(card)
-		discard_pile.append(card)
+		if card.target_type != CardData.TargetTypeEnum.NONE:
+			discard_pile.append(card)
 		player_hand_node.remove_card_from_hand(card)
 
 # Épuise une carte (retire du deck définitivement)

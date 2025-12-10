@@ -43,6 +43,8 @@ enum OwnerTeamEnum {
 @export var icon: CompressedTexture2D = null
 @export var background: CompressedTexture2D = null
 @export var card_team_owner: OwnerTeamEnum = OwnerTeamEnum.COMMON
+@export var exil: bool = false
+@export var draftable: bool = true
 
 # Liste des effets (sera remplie avec des resources Effect)
 @export var effects: Array[Resource] = []

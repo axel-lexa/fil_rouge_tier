@@ -9,6 +9,7 @@ func _init():
 	
 	attacks = [attack1]
 	health = 15
+	max_health = health
 	name = "Greedy Mimic"
 	image = load("res://slay_the_wc/Assets/Art/patate_ennemie.png")
 	

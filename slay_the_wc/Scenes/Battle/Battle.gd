@@ -400,7 +400,8 @@ func process_card_12pandas_himself(card: Card2):
 	pass
 	
 func process_card_bibi_himself(card: Card2):
-	pass	
+	pass
+
 func process_card_5d6_himself(card: Card2):
 	
 	if card.data.id == "3d6":
@@ -411,9 +412,13 @@ func process_card_5d6_himself(card: Card2):
 	
 	pass	
 func process_card_confrerie_himself(card: Card2):
+	if card.data.id == "main_glissante":
+		draw_cards(3)
 	pass	
+
 func process_card_aix_asperant_himself(card: Card2):
 	pass	
+
 func process_card_penta_monstre_himself(card: Card2):
 	if card.data.id == "ponte_protegee":
 		player.mites_to_add += 10
@@ -440,6 +445,7 @@ func process_card_12pandas_enemy(card: Card2, target: Enemy):
 	
 func process_card_bibi_enemy(card: Card2, target: Enemy):
 	pass	
+	
 func process_card_5d6_enemy(card: Card2, target: Enemy):
 	
 	if card.data.id == "0d6":
@@ -460,14 +466,31 @@ func process_card_5d6_enemy(card: Card2, target: Enemy):
 			process_shield_entity(player, result)
 	elif card.data.id == "5d6":
 		process_damage_entity(target, launch_dice(5))
-		
-		
-	
 	pass	
+
 func process_card_confrerie_enemy(card: Card2, target: Enemy):
+	if card.data.id == "tournee_generale":
+		for i in range(0, 3):
+			var target2 = alive_enemies.get(randi_range(0, alive_enemies.size()-1))
+			target2.add_burn(3)
+	elif card.data.id == "calories":
+		target.multiply_burn(2)
+	elif card.data.id == "bataille_de_beurre":
+		for enemy in alive_enemies:
+			process_damage_entity(enemy, 10)
+		move_card_to_bin(DeckManager.hand.get(randi_range(0, DeckManager.hand.size()-1)))
+	elif card.data.id == "crepe_beurre_sucre":
+		process_damage_entity(target, 6)
+		target.add_burn(3)
+	elif card.data.id == "tartine_pain_beurre":
+		process_damage_entity(target, 7)
+		if target.burn != 0:
+			process_damage_entity(target, 7)
 	pass	
+
 func process_card_aix_asperant_enemy(card: Card2, target: Enemy):
 	pass	
+	
 func process_card_penta_monstre_enemy(card: Card2, target: Enemy):
 	if card.data.id == "parasitisme":
 		parasitism_effect.x += 5
@@ -536,10 +559,19 @@ func _on_button_pressed() -> void:
 	for card in tmpList:
 		move_card_to_bin(card)
 
+	var enemies_to_kill = []
+
 	for enemy in alive_enemies:
+		if !enemy.compute_burn():
+			enemies_to_kill.append(enemy)
+			break
 		enemy.perform_action(player)
 		enemy.compute_next_attack()	
-	if player.health == 0:
+	for enemy in enemies_to_kill:
+		alive_enemies.erase(enemy)
+
+	player.compute_burn()
+	if player.health <= 0:
 		$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
 		$EndBattle.visible = true
 		$BattleField/Characters/Player/HealthPlayer.text = "0/0"
