@@ -28,5 +28,6 @@ one_shot = true
 
 [connection signal="mouse_entered" from="UiCard" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="UiCard" to="." method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="HoverTimer" to="." method="_on_hover_timeout"]

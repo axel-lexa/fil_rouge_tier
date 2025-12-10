@@ -9,7 +9,6 @@ const DEFAULT_CARD_MOVE_SPEED = 0.1
 
 var screen_size
 var card_being_dragged: Card2
-var is_hovering_on_card
 var player_hand_reference
 
 
@@ -70,45 +69,9 @@ func finish_drag():
 
 	card_being_dragged = null
 
-
-func connect_card_signals(card):
-	if not card is Card2:
-		return;
-	card.connect("hovered", on_hovered_over_card)
-	card.connect("hovered_off", on_hovered_off_card)
-
 func on_left_click_released():
 	if card_being_dragged:
 		finish_drag()
-
-func on_hovered_over_card(card):
-	if not card is Card2:
-		return;
-	if !is_hovering_on_card:
-		is_hovering_on_card = true
-		hightlight_card(card, true)
-	
-func on_hovered_off_card(card):
-	if not card is Card2:
-		return;
-	if !card_being_dragged:
-		hightlight_card(card, false)
-		var new_card_hovered = raycast_check_for_card()
-		if new_card_hovered:
-			hightlight_card(new_card_hovered, true)
-		else:
-			is_hovering_on_card = false
-	
-func hightlight_card(card, hovered):
-	if not card is Card2:
-		return;
-	if hovered:
-		card.scale = card.HOVER_SCALE
-		card.z_index = 2
-	else:
-		card.scale = card.BASE_SCALE
-		card.z_index = 1
-	
 
 func raycast_check_for_card():
 	var space_state = get_world_2d().direct_space_state

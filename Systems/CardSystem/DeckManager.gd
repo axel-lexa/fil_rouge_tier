@@ -72,11 +72,6 @@ func draw_cards(count: int) -> Array[CardData]:
 			hand.append(card)
 			_update_deck_label()
 			
-			var new_card: Card2 = card_scene.instantiate()
-			new_card.data = card
-			player_hand_node.add_child(new_card)
-			if player_hand_node.player_hand.size() < player_hand_node.MAX_HAND_SIZE:
-				player_hand_node.add_card_to_hand(new_card, CARD_DRAW_SPEED)
 		
 	return drawn
 

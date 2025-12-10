@@ -69,8 +69,12 @@ var parasitism_effect = Vector2(0, 0)
 var parasitism_targeted_enemy : Enemy
 
 var card_played: Array[Card2]	
+
+var card_scene: PackedScene
 	
 func _ready():
+	card_scene = preload("res://slay_the_wc/Cards/Scenes/Card.tscn")
+		
 	# Ajouter au groupe pour la sauvegarde
 	add_to_group("battle")
 	
@@ -157,8 +161,7 @@ func _ready():
 
 	$BattleField/Characters/Player/EnergyPlayer.text = "Energie : "
 	
-	player.draw_cards(5)
-	#$Deck.draw_card()
+	draw_cards(5, true)
 		
 	player_turn = true
 	end_game = false
@@ -232,7 +235,6 @@ func process_card(card: Card2, player_slot: bool, ennemie_index: int):
 				return
 	$PlayerHand.add_card_to_hand(card, $PlayerHand.DEFAULT_CARD_MOVE_SPEED)
 	card.get_node("Area2D/CollisionShape2D").disabled = false
-	
 	
 func process_card_player_to_enemy(card: Card2, target: Enemy):
 	if card.data.card_team_owner == CardData.OwnerTeamEnum.COMMON:
@@ -328,8 +330,19 @@ func process_buff_strenght_entity(target: Entity, amout: int):
 	target.add_strenght(amout)
 	play_sound_battle_random(buff_taken_array)
 
-func draw_cards(amount: int):
-	DeckManager.draw_cards(amount)
+func draw_cards(amount: int, is_init: bool = false):
+	var drawn = player.draw_cards(amount)
+	# instantiate card nodes and add them to the canvas
+	for  cardData in drawn:
+		if $PlayerHand.player_hand.size() < $PlayerHand.MAX_HAND_SIZE:
+			var new_card: Card2 = card_scene.instantiate()
+			new_card.data = cardData
+			print("connect " + new_card.data.card_name)
+			new_card.connect("hovered", func (c: Card2): $CardZoom.show_card(c.data))
+			new_card.connect("hovered_off", $CardZoom.hide_card)
+			$PlayerHand.add_child(new_card)
+			$PlayerHand.add_card_to_hand(new_card, DeckManager.CARD_DRAW_SPEED)
+	if !is_init:
 	await get_tree().create_timer(0.2).timeout
 	play_sound_battle_random(draw_card_array)
 
