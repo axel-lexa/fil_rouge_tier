@@ -97,7 +97,7 @@ func _ready():
 	$BattleField/CardSlot.visible = false
 	$Button.visible = false
 	$PlayerHand.connect("hand_size_changed", _on_hand_size_changed)
-	
+	$EndBattle.visible = false
 	player_hand_reference = $PlayerHand
 	DeckManager.player_hand_node = $PlayerHand
 
@@ -105,6 +105,8 @@ func _ready():
 	energy_bar.visible = false
 	energy_label = $BattleField/Characters/Player/EnergyPlayer
 	energy_label.visible = false
+	
+	$AtkName.visible = false
 	
 	player = load("res://slay_the_wc/Entities/Players/Player.tres")
 	var player_component = Entity_components.new() 
@@ -539,6 +541,17 @@ func _on_button_pressed() -> void:
 	for enemy in alive_enemies:
 		enemy.perform_action(player)
 		enemy.compute_next_attack()	
+	
+	var text: String = ""
+	$AtkName.visible = true
+	for enemy in alive_enemies:
+		
+		text += enemy.name + " a utilisé l'attaque " + enemy.next_atk.name+"\n"
+	
+	$AtkName.text = text
+	await get_tree().create_timer(1.5).timeout
+	$AtkName.visible = false
+	
 	if player.health == 0:
 		$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
 		$EndBattle.visible = true

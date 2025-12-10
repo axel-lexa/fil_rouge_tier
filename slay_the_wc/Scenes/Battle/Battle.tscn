@@ -417,6 +417,13 @@ stream = ExtResource("40_2cu6y")
 [node name="Defeat2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("41_lh858")
 
+[node name="AtkName" type="RichTextLabel" parent="."]
+offset_left = 512.0
+offset_top = 12.0
+offset_right = 1221.0
+offset_bottom = 55.0
+scroll_active = false
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="EndBattle" to="." method="_on_end_battle_pressed"]
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

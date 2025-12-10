@@ -7,9 +7,14 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$VBoxContainer/Continue.visible = false
 	
+	print("current_floor_init=", str(RunManager.current_floor))
 	hide_informations(false)
 	video_player.play()
+	
+	
+	
 	video_player.finished.connect(_on_video_stream_player_finished)
 	
 	#const lines: Array[String] = ["La foret d'Arpos est un lieu ou les animaux vivent en communauté et en harmonie avec la nature.",
@@ -17,13 +22,7 @@ func _ready() -> void:
 	
 	#DialogManager.start_dialog(Vector2(0, 0), lines)
 	
-	# Si une sauvegarde existe, charger automatiquement après un court délai
-	# pour restaurer l'état du jeu
-	if not SaveManager.has_save_data:
-		$VBoxContainer/Continue.visible = false
-		#await get_tree().create_timer(0.1).timeout
-		#SaveManager.load_game()
-		
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,7 +53,6 @@ func show_elements_progressively():
 		$TitleGame,
 		$LogoWinterCup,
 		$LogoWinterCup2,
-		$VBoxContainer/Continue,
 		$VBoxContainer/NewGame,
 		$VBoxContainer/Options,
 		$VBoxContainer/ExitGame,
@@ -71,6 +69,17 @@ func show_elements_progressively():
 		
 		# Attendre avant d'afficher le suivant
 		await get_tree().create_timer(0.25).timeout
+		
+	# Si une sauvegarde existe, charger automatiquement après un court délai
+	# pour restaurer l'état du jeu
+	if RunManager.current_floor == 0:
+		$VBoxContainer/Continue.visible = false
+		#await get_tree().create_timer(0.1).timeout
+		#SaveManager.load_game()
+	else:
+		$VBoxContainer/Continue.visible = true
+		await get_tree().create_timer(0.1).timeout
+		SaveManager.load_game()
 	
 # Called when user click on button "Continuer la partie"
 func _on_continue_pressed() -> void:
@@ -98,7 +107,7 @@ func _on_new_game_pressed() -> void:
 
 # Called when user click on button "Paramètres"
 func _on_options_pressed() -> void:
-	print("Paramètres")
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Credits/Credit.tscn")
 
 # Called when user click on button "Quitter la partie"
 func _on_exit_game_pressed() -> void:
