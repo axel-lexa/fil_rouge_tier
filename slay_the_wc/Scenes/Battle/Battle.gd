@@ -351,8 +351,8 @@ func draw_cards(amount: int, is_init: bool = false):
 			$PlayerHand.add_child(new_card)
 			$PlayerHand.add_card_to_hand(new_card, DeckManager.CARD_DRAW_SPEED)
 	if !is_init:
-	await get_tree().create_timer(0.2).timeout
-	play_sound_battle_random(draw_card_array)
+		await get_tree().create_timer(0.2).timeout
+		play_sound_battle_random(draw_card_array)
 
 func process_card_commun_enemy(card: Card2, target: Enemy):
 	if card.data.id == "baston":
@@ -550,7 +550,7 @@ func _on_button_pressed() -> void:
 		return
 	else:
 		#Ajout CKC - Début tour joueur
-		DeckManager.draw_cards(5)
+		draw_cards(5)
 		
 		#Fin ajout CKC
 		player_turn = true
