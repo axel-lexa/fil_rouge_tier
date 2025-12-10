@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=44 format=3 uid="uid://0lx4u2cbsbx5"]
 
 [ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
@@ -16,6 +16,31 @@
 [ext_resource type="PackedScene" uid="uid://c15ow4f4fu7sw" path="res://slay_the_wc/Cards/Scenes/CardSlot3.tscn" id="16_6qa6l"]
 [ext_resource type="PackedScene" uid="uid://caar8ogeia8u5" path="res://Scenes/Menus/CardRewardScreen.tscn" id="16_j145f"]
 [ext_resource type="Script" uid="uid://ef6n4gccbymx" path="res://slay_the_wc/Cards/Scenes/Scripts/CardSlot3.gd" id="16_q06er"]
+[ext_resource type="AudioStream" uid="uid://srnamrugpgfh" path="res://slay_the_wc/Assets/Sounds/Battle/ailleDegatVoix.mp3" id="17_jl3o8"]
+[ext_resource type="AudioStream" uid="uid://d2tjpu3exh3im" path="res://slay_the_wc/Assets/Sounds/Battle/AllezDebutToursVoix.mp3" id="17_owfkm"]
+[ext_resource type="AudioStream" uid="uid://577o58mq1hes" path="res://slay_the_wc/Assets/Sounds/Battle/tirageCarte.wav" id="18_k5vkt"]
+[ext_resource type="AudioStream" uid="uid://dfvsk0nhs47se" path="res://slay_the_wc/Assets/Sounds/Battle/OuchDegat.wav" id="18_tn42b"]
+[ext_resource type="AudioStream" uid="uid://dsyetaoeujiif" path="res://slay_the_wc/Assets/Sounds/Battle/ouchDegatVoix.mp3" id="19_hvpji"]
+[ext_resource type="AudioStream" uid="uid://jh2t8e8q0hrn" path="res://slay_the_wc/Assets/Sounds/Battle/flap(tirageCarteVoix).mp3" id="19_k7pm8"]
+[ext_resource type="AudioStream" uid="uid://c6dgjvb0hfdd" path="res://slay_the_wc/Assets/Sounds/Battle/BonFinToursVoix.mp3" id="20_gyr2t"]
+[ext_resource type="AudioStream" uid="uid://34y3smegkfs5" path="res://slay_the_wc/Assets/Sounds/Battle/oufffDegatVoix.mp3" id="20_wwwhs"]
+[ext_resource type="AudioStream" uid="uid://bbliyg882el4e" path="res://slay_the_wc/Assets/Sounds/Battle/HopDiscardCardVoix.mp3" id="21_rtcng"]
+[ext_resource type="AudioStream" uid="uid://5v8o0pknp3ob" path="res://slay_the_wc/Assets/Sounds/Battle/umpDegatVoix.mp3" id="21_tblcf"]
+[ext_resource type="AudioStream" uid="uid://b5n3cdgoa1w8c" path="res://slay_the_wc/Assets/Sounds/Battle/Oulala.mp3" id="22_05lnr"]
+[ext_resource type="AudioStream" uid="uid://bhefjxj5hlh8" path="res://slay_the_wc/Assets/Sounds/Battle/ding.mp3" id="22_ybaud"]
+[ext_resource type="AudioStream" uid="uid://57k8s5ujreri" path="res://slay_the_wc/Assets/Sounds/Battle/MaisAillheuDegatVoix.mp3" id="29_we3w5"]
+[ext_resource type="AudioStream" uid="uid://dd5tqi28w7bu8" path="res://slay_the_wc/Assets/Sounds/Battle/HaaaSoinVoix.mp3" id="30_67pud"]
+[ext_resource type="AudioStream" uid="uid://bcsocy5t30u45" path="res://slay_the_wc/Assets/Sounds/Battle/tudududu_UP.wav" id="31_tvaeq"]
+[ext_resource type="AudioStream" uid="uid://dlyyerb2rxrwd" path="res://slay_the_wc/Assets/Sounds/Battle/OuYeah.wav" id="32_gkdbt"]
+[ext_resource type="AudioStream" uid="uid://byyhpy2l16825" path="res://slay_the_wc/Assets/Sounds/Battle/Waaaw.wav" id="33_nwa02"]
+[ext_resource type="AudioStream" uid="uid://ca5d8wcvc00by" path="res://slay_the_wc/Assets/Sounds/Battle/DefaiteKitarsh.wav" id="34_k5vkt"]
+[ext_resource type="AudioStream" uid="uid://crujrqcohhee8" path="res://slay_the_wc/Assets/Sounds/Battle/aQuiLeTourVictoireVoix.mp3" id="34_tvaeq"]
+[ext_resource type="AudioStream" uid="uid://dhmenjb3diijn" path="res://slay_the_wc/Assets/Sounds/Battle/bonDebarrasEnnemiMortVoix.mp3" id="35_gkdbt"]
+[ext_resource type="AudioStream" uid="uid://bwubw4r243nkc" path="res://slay_the_wc/Assets/Sounds/Battle/caFaitUnDeMoins.wav" id="36_nwa02"]
+[ext_resource type="AudioStream" uid="uid://b8ieb3qxlq011" path="res://slay_the_wc/Assets/Sounds/Battle/tropFortVictoireVoix.mp3" id="38_vgi75"]
+[ext_resource type="AudioStream" uid="uid://cx3y2ke78lanp" path="res://slay_the_wc/Assets/Sounds/Battle/hehejaiGagne.wav" id="39_iuuyh"]
+[ext_resource type="AudioStream" uid="uid://dxv1s2vupgfma" path="res://slay_the_wc/Assets/Sounds/Battle/apprendAJouerDefaiteVoix.mp3" id="40_2cu6y"]
+[ext_resource type="AudioStream" uid="uid://383ci5m43hib" path="res://slay_the_wc/Assets/Sounds/Battle/tropNulJaiPerdu.wav" id="41_lh858"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqkqu"]
 bg_color = Color(0.87058824, 0, 0.18039216, 1)
@@ -295,35 +320,106 @@ offset_bottom = 841.0
 scale = Vector2(2.1, 1.85)
 mouse_filter = 2
 
-[node name="TauntAdversaire" type="AudioStreamPlayer" parent="."]
+[node name="TauntEnemy1" type="AudioStreamPlayer" parent="."]
 
-[node name="DebutTour" type="AudioStreamPlayer" parent="."]
+[node name="TauntEnemy2" type="AudioStreamPlayer" parent="."]
 
-[node name="TirageCarte" type="AudioStreamPlayer" parent="."]
+[node name="TauntEnemy3" type="AudioStreamPlayer" parent="."]
 
-[node name="FinTour" type="AudioStreamPlayer" parent="."]
+[node name="TauntEnemy4" type="AudioStreamPlayer" parent="."]
 
-[node name="DiscardCarte" type="AudioStreamPlayer" parent="."]
+[node name="TauntEnemy5" type="AudioStreamPlayer" parent="."]
 
-[node name="Token" type="AudioStreamPlayer" parent="."]
+[node name="TauntEnemy6" type="AudioStreamPlayer" parent="."]
 
-[node name="DegatsPris" type="AudioStreamPlayer" parent="."]
+[node name="TauntEnemy7" type="AudioStreamPlayer" parent="."]
 
-[node name="SoinPris" type="AudioStreamPlayer" parent="."]
+[node name="TauntEnemy8" type="AudioStreamPlayer" parent="."]
 
-[node name="BuffPris" type="AudioStreamPlayer" parent="."]
+[node name="TauntEnemy9" type="AudioStreamPlayer" parent="."]
 
-[node name="ArmurePrise" type="AudioStreamPlayer" parent="."]
+[node name="TauntEnemy10" type="AudioStreamPlayer" parent="."]
 
-[node name="AttaqueSurAdvesaire" type="AudioStreamPlayer" parent="."]
+[node name="BeginPhase" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_owfkm")
 
-[node name="DebuffSurAdversaire" type="AudioStreamPlayer" parent="."]
+[node name="DrawCard1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_k5vkt")
 
-[node name="EnnemiMort" type="AudioStreamPlayer" parent="."]
+[node name="DrawCard2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_k7pm8")
 
-[node name="Victoire" type="AudioStreamPlayer" parent="."]
+[node name="EndPhase" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_gyr2t")
 
-[node name="Defaite" type="AudioStreamPlayer" parent="."]
+[node name="DiscardCard1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_rtcng")
+
+[node name="DiscardCard2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_rtcng")
+
+[node name="TokenTaken" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_ybaud")
+
+[node name="TokenPanda" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_ybaud")
+
+[node name="HitTaken" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_jl3o8")
+
+[node name="HitTaken2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_tn42b")
+
+[node name="HitTaken3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_hvpji")
+
+[node name="HitTaken4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_wwwhs")
+
+[node name="HitTaken5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_tblcf")
+
+[node name="HitTakenRare1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_05lnr")
+
+[node name="HitTakenRare2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_we3w5")
+
+[node name="HealTaken1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_67pud")
+
+[node name="HealTaken2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_tvaeq")
+
+[node name="BuffTaken1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_gkdbt")
+
+[node name="BuffTaken2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_nwa02")
+
+[node name="EnemyDeath1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_tvaeq")
+
+[node name="EnemyDeath2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_gkdbt")
+
+[node name="EnemyDeath3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_nwa02")
+
+[node name="DeathByKitarsh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_k5vkt")
+
+[node name="Victory1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("38_vgi75")
+
+[node name="Victory2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("39_iuuyh")
+
+[node name="Defeat1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("40_2cu6y")
+
+[node name="Defeat2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("41_lh858")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="EndBattle" to="." method="_on_end_battle_pressed"]

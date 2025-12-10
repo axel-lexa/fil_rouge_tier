@@ -1,20 +1,56 @@
 extends Node2D
 
-@onready var taunt_adversaire: AudioStreamPlayer = $TauntAdversaire
-@onready var debut_tour: AudioStreamPlayer = $DebutTour
-@onready var tirage_carte: AudioStreamPlayer = $TirageCarte
-@onready var fin_tour: AudioStreamPlayer = $FinTour
-@onready var discard_carte: AudioStreamPlayer = $DiscardCarte
-@onready var degats_pris: AudioStreamPlayer = $DegatsPris
-@onready var soin_pris: AudioStreamPlayer = $SoinPris
-@onready var buff_pris: AudioStreamPlayer = $BuffPris
-@onready var armure_prise: AudioStreamPlayer = $ArmurePrise
-@onready var attaque_sur_advesaire: AudioStreamPlayer = $AttaqueSurAdvesaire
-@onready var debuff_sur_adversaire: AudioStreamPlayer = $DebuffSurAdversaire
-@onready var ennemi_mort: AudioStreamPlayer = $EnnemiMort
-@onready var victoire: AudioStreamPlayer = $Victoire
-@onready var defaite: AudioStreamPlayer = $Defaite
-@onready var token: AudioStreamPlayer = $Token
+#Sons
+@onready var taunt_enemy_1: AudioStreamPlayer = $TauntEnemy1
+@onready var taunt_enemy_2: AudioStreamPlayer = $TauntEnemy2
+@onready var taunt_enemy_3: AudioStreamPlayer = $TauntEnemy3
+@onready var taunt_enemy_4: AudioStreamPlayer = $TauntEnemy4
+@onready var taunt_enemy_5: AudioStreamPlayer = $TauntEnemy5
+@onready var taunt_enemy_6: AudioStreamPlayer = $TauntEnemy6
+@onready var taunt_enemy_7: AudioStreamPlayer = $TauntEnemy7
+@onready var taunt_enemy_8: AudioStreamPlayer = $TauntEnemy8
+@onready var taunt_enemy_9: AudioStreamPlayer = $TauntEnemy9
+@onready var taunt_enemy_10: AudioStreamPlayer = $TauntEnemy10
+#TODO trouver où le mettre
+@onready var begin_phase: AudioStreamPlayer = $BeginPhase
+@onready var draw_card_1: AudioStreamPlayer = $DrawCard1
+@onready var draw_card_2: AudioStreamPlayer = $DrawCard2
+@onready var end_phase: AudioStreamPlayer = $EndPhase
+@onready var discard_card_1: AudioStreamPlayer = $DiscardCard1
+@onready var discard_card_2: AudioStreamPlayer = $DiscardCard2
+@onready var token_taken: AudioStreamPlayer = $TokenTaken
+@onready var token_panda: AudioStreamPlayer = $TokenPanda
+@onready var hit_taken_1: AudioStreamPlayer = $HitTaken
+@onready var hit_taken_2: AudioStreamPlayer = $HitTaken2
+@onready var hit_taken_3: AudioStreamPlayer = $HitTaken3
+@onready var hit_taken_4: AudioStreamPlayer = $HitTaken4
+@onready var hit_taken_5: AudioStreamPlayer = $HitTaken5
+@onready var hit_taken_rare_1: AudioStreamPlayer = $HitTakenRare1
+@onready var hit_taken_rare_2: AudioStreamPlayer = $HitTakenRare2
+@onready var heal_taken_1: AudioStreamPlayer = $HealTaken1
+@onready var heal_taken_2: AudioStreamPlayer = $HealTaken2
+@onready var buff_taken_1: AudioStreamPlayer = $BuffTaken1
+@onready var buff_taken_2: AudioStreamPlayer = $BuffTaken2
+@onready var enemy_death_1: AudioStreamPlayer = $EnemyDeath1
+@onready var enemy_death_2: AudioStreamPlayer = $EnemyDeath2
+#TODO trouver où le mettre
+@onready var death_by_kitarsh: AudioStreamPlayer = $DeathByKitarsh
+@onready var victory_1: AudioStreamPlayer = $Victory1
+@onready var victory_2: AudioStreamPlayer = $Victory2
+@onready var defeat_1: AudioStreamPlayer = $Defeat1
+@onready var defeat_2: AudioStreamPlayer = $Defeat2
+#Arrays de sons
+@onready var hit_taken_array: Array[AudioStreamPlayer] = [hit_taken_1,hit_taken_2,hit_taken_3,hit_taken_4,hit_taken_5,hit_taken_rare_1,hit_taken_rare_2]
+@onready var draw_card_array: Array[AudioStreamPlayer] = [draw_card_1,draw_card_2]
+#TODO trouver où le mettre
+@onready var discard_card_array: Array[AudioStreamPlayer] = [discard_card_1,discard_card_2]
+@onready var heal_taken_array: Array[AudioStreamPlayer] = [heal_taken_1,heal_taken_2]
+@onready var buff_taken_array: Array[AudioStreamPlayer] = [buff_taken_1,buff_taken_2]
+@onready var enemy_death_array: Array[AudioStreamPlayer] = [enemy_death_1,enemy_death_2]
+#TODO trouver où le mettre
+@onready var victory_array: Array[AudioStreamPlayer] = [victory_1,victory_2]
+#TODO trouver où le mettre
+@onready var defeat_array: Array[AudioStreamPlayer] = [defeat_1,defeat_2]
 
 var player: Player
 var battle_enemies: Array[Enemy]
@@ -107,6 +143,7 @@ func _ready():
 		if (index == 0):
 			enemy.components = entity_component1
 			enemy.set_intention_sprite($BattleField/Characters/Ennemie1/IntentionEnnemie)
+			play_sound_battle(null,enemy.name)
 		elif (index == 1):
 			enemy.components = entity_component2
 			enemy.set_intention_sprite($BattleField/Characters/Ennemie2/IntentionEnnemie)
@@ -122,12 +159,9 @@ func _ready():
 	
 	player.draw_cards(5)
 	#$Deck.draw_card()
-	tirage_carte.play()
 		
 	player_turn = true
 	end_game = false
-
-	taunt_adversaire.play()
 
 func load_deck():
 	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
@@ -276,21 +310,21 @@ func process_card_player(card: Card2):
 func process_damage_entity(enemy: Entity, damage: int):
 	play_hit_flash(enemy)
 	if not enemy.apply_damage_and_check_lifestatus(damage):
-		ennemi_mort.play()
+		play_sound_battle_random(enemy_death_array)
 	else:
-		attaque_sur_advesaire.play()
-	
+		play_sound_battle(null,"hit_taken")
+
 func process_heal_entity(target: Entity, amout: int):
 	target.heal(amout)
-	soin_pris.play()
+	play_sound_battle_random(heal_taken_array)
 
 func process_shield_entity(target: Entity, amout: int):
 	target.add_defense(amout)
-	armure_prise.play()
+	play_sound_battle_random(buff_taken_array)
 
 func process_shield_multiply_entity(target: Entity, amout: int):
 	target.multiply_defense(amout)
-	armure_prise.play()
+	play_sound_battle_random(buff_taken_array)
 
 func process_count_panda(operation: String, amount: int):
 	match operation:
@@ -300,16 +334,16 @@ func process_count_panda(operation: String, amount: int):
 			player.nb_pandas -= amount
 		"*":
 			player.nb_pandas *= amount
-	token.play()
+	play_sound_battle(token_panda,"")
 
 func process_buff_strenght_entity(target: Entity, amout: int):
 	target.add_strenght(amout)
-	buff_pris.play()
+	play_sound_battle_random(buff_taken_array)
 
 func draw_cards(amount: int):
 	DeckManager.draw_cards(amount)
 	await get_tree().create_timer(0.2).timeout
-	tirage_carte.play()
+	play_sound_battle_random(draw_card_array)
 
 func process_card_commun_enemy(card: Card2, target: Enemy):
 	if card.data.id == "baston":
@@ -448,6 +482,7 @@ func process_pentamonstre_next_turn_actions():
 func add_mites(amount: int):
 	player.nb_mites += amount
 	clamp(player.nb_mites, 0, 20)
+	play_sound_battle(token_taken,"")
 	
 func sub_mites(amount: int):
 	player.nb_mites -= amount
@@ -462,7 +497,7 @@ func launch_dice(count: int):
 	return somme
 	
 func process_end_of_turn_actions():
-	pass
+	play_sound_battle(end_phase,"")
 	
 func process_next_turn_actions():
 	process_pentamonstre_next_turn_actions()
@@ -597,3 +632,44 @@ func play_hit_flash(target: Enemy):
 	# Retour normal
 	tween.tween_property(sprite, "modulate", original_modulate, 0.1)
 	tween.tween_property(sprite, "position", original_pos, 0.05)
+
+func play_sound_battle_random(sounds: Array[AudioStreamPlayer]):
+	var rng = RandomNumberGenerator.new()
+	var randomIndex = rng.randi_range(1,sounds.size()+1)
+	var soundChoisi
+	if sounds.has(hit_taken_array.find(1)):
+		var random = rng.randi_range(1,100)
+		if random <= 20: randomIndex = 1
+		elif random <= 40: randomIndex = 2
+		elif random <= 60: randomIndex = 3
+		elif random <= 80: randomIndex = 4
+		elif random <= 98: randomIndex = 5
+		elif random <= 98: randomIndex = 6
+		else: randomIndex = 7
+	soundChoisi = sounds.find(randomIndex)
+	soundChoisi.play()
+			
+func play_sound_battle(sound: AudioStreamPlayer, titleSound: String):
+	if sound != null:
+		sound.play()
+	else:
+		if titleSound == "enemy_1":
+			taunt_enemy_1.play()
+		elif titleSound == "enemy_2":
+			taunt_enemy_2.play()
+		elif titleSound == "enemy_3":
+			taunt_enemy_3.play()
+		elif titleSound == "enemy_4":
+			taunt_enemy_4.play()
+		elif titleSound == "enemy_5":
+			taunt_enemy_5.play()
+		elif titleSound == "enemy_6":
+			taunt_enemy_6.play()
+		elif titleSound == "enemy_7":
+			taunt_enemy_7.play()
+		elif titleSound == "enemy_8":
+			taunt_enemy_8.play()
+		elif titleSound == "enemy_9":
+			taunt_enemy_9.play()
+		elif titleSound == "enemy_10":
+			taunt_enemy_10.play()
