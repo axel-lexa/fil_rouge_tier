@@ -12,7 +12,7 @@ func _init():
 	health = 24
 	max_health = health
 	name = "One Trick Mage"
-	image = load("res://slay_the_wc/Assets/Art/patate_ennemie.png")
+	image = load("res://slay_the_wc/Assets/Art/enemies/onetrick mage-modified (1).png")
 	
 	
 func compute_next_attack():

@@ -11,7 +11,7 @@ func _init():
 	health = 20
 	max_health = health
 	name = "Choppy Orc"
-	image = load("res://slay_the_wc/Assets/Art/patate_ennemie.png")
+	image = load("res://slay_the_wc/Assets/Art/enemies/orc-modified.png")
 	
 func compute_next_attack():
 	next_atk = attacks[0]

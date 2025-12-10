@@ -220,9 +220,16 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 	
 	# Quand tout les ennemies sont KO :
 	if alive_enemies.size() == 0:
-		RunManager.current_hp = RunManager.max_hp
+		#RunManager.current_hp = RunManager.max_hp
 		RunManager.complete_floor()
 		SaveManager.save_game()
+		$ResultBattle.text = "Vous avez gagné le combat !"
+		$EndBattle.visible = true
+		#$BattleField/Characters/Player/HealthPlayer.text = "0/0"
+		$Deck.set_deck_enabled(false)
+		DeckManager.reset_deck()
+		end_game = true
+		return
 	
 
 func process_card(card: Card2, player_slot: bool, ennemie_index: int):
@@ -554,6 +561,7 @@ func _on_button_pressed() -> void:
 	player_turn = false
 	is_player_turn_start = true;
 	card_played = []
+	$Button.disabled = true
 	var tmpList = player_hand_reference.player_hand.duplicate()
 	for card in tmpList:
 		move_card_to_bin(card)
@@ -575,7 +583,7 @@ func _on_button_pressed() -> void:
 		text += enemy.name + " a utilisé l'attaque " + enemy.next_atk.name+"\n"
 	
 	$AtkName.text = text
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1).timeout
 	$AtkName.visible = false
 	player.compute_burn()
 	if player.health == 0:
@@ -598,6 +606,7 @@ func _on_button_pressed() -> void:
 		compute_energy()
 		$BattleField/Characters/Player/DefensePlayer.text = "0"
 		player.defense = 0
+		$Button.disabled = false
 
 
 func _on_end_battle_pressed() -> void:
