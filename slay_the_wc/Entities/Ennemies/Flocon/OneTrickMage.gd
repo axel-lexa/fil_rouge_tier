@@ -10,6 +10,7 @@ func _init():
 	attack1.name = "Boule de feu"
 	attacks = [attack1]
 	health = 24
+	max_health = health
 	name = "One Trick Mage"
 	image = load("res://slay_the_wc/Assets/Art/patate_ennemie.png")
 	

@@ -8,7 +8,8 @@ script = ExtResource("2_7rhtx")
 id = "brasier_solaire"
 card_name = "Brasier Solaire"
 mana_cost = 2
-description = "Défaussez des cartes de votre main, appliquez 4 brûlures par carte défaussée"
+description = "Défaussez toutes les cartes de votre main, appliquez 4 brûlures par carte défaussée
+"
 target_type = 1
 background = ExtResource("1_11rt7")
 card_team_owner = 5

@@ -12,6 +12,7 @@ func _init():
 	attack2.atk_type = Enemy_attack.ATK_TYPE.BUFF
 	attacks = [attack1, attack2]
 	health = 42
+	max_health = health
 	name = "Athar"
 	image = load("res://slay_the_wc/Assets/Art/patate_ennemie.png")
 	

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://ceagi2sn0a5lf"]
+
+[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_g8e2a"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_05tuc"]
+
+[resource]
+script = ExtResource("2_05tuc")
+id = "bataille_de_beurre"
+card_name = "Bataille de beurre"
+mana_cost = 1
+description = "Inflige 10 dégâts à tous les ennemis
+Défausse une carte aléatoire
+"
+target_type = 1
+background = ExtResource("1_g8e2a")
+card_team_owner = 4
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"
