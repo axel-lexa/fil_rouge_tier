@@ -37,26 +37,46 @@ func _on_battle_1_pressed() -> void:
 	lancer_bataille.play()
 	await get_tree().create_timer(0.2).timeout
 	print("bataille 1")
-	#var battle_desc = load("res://slay_the_wc/Scenes/Battle/StepBattle/Battle_1.tres")
-	#GameState.current_battle_description = battle_desc
-	#get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
+	var battle_desc = load("res://slay_the_wc/Scenes/Battle/StepBattle/Flocon_1.tres")
+	GameState.current_battle_description = battle_desc
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
 	#pass # Replace with function body.
 
 
 func _on_battle_2_pressed() -> void:
+	lancer_bataille.play()
+	await get_tree().create_timer(0.2).timeout
 	print("bataille 2")
+	var battle_desc = load("res://slay_the_wc/Scenes/Battle/StepBattle/Flocon_2.tres")
+	GameState.current_battle_description = battle_desc
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
 
 
 func _on_battle_3_pressed() -> void:
+	lancer_bataille.play()
+	await get_tree().create_timer(0.2).timeout
 	print("bataille 3")
+	var battle_desc = load("res://slay_the_wc/Scenes/Battle/StepBattle/Flocon_3.tres")
+	GameState.current_battle_description = battle_desc
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
 
 
 func _on_battle_4_pressed() -> void:
+	lancer_bataille.play()
+	await get_tree().create_timer(0.2).timeout
 	print("bataille 4")
+	var battle_desc = load("res://slay_the_wc/Scenes/Battle/StepBattle/Flocon_4.tres")
+	GameState.current_battle_description = battle_desc
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
 
 
 func _on_battle_5_pressed() -> void:
+	lancer_bataille.play()
+	await get_tree().create_timer(0.2).timeout
 	print("bataille 5")
+	var battle_desc = load("res://slay_the_wc/Scenes/Battle/StepBattle/Flocon_5.tres")
+	GameState.current_battle_description = battle_desc
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
 
 
 func _on_battle_final_pressed() -> void:
