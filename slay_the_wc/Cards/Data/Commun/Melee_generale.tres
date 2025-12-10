@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://dvrsmea8ug1fq"]
 
-[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_ggtjd"]
+[ext_resource type="Texture2D" uid="uid://cdl62pe2q6ca0" path="res://slay_the_wc/Assets/Cartes/Cartes communes/melee_generale.png" id="1_ggtjd"]
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_sup2p"]
 
 [resource]
