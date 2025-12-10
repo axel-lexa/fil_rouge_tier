@@ -117,6 +117,7 @@ func _ready():
 	player_component.defense_icon = $BattleField/Characters/Player/DefenseIcon
 	player_component.health_bar = $BattleField/Characters/Player/HealthBarPlayer
 	player_component.turn_ui_off()
+	player.image = DeckManager.mascotData.mascotte_img
 	player.components = player_component
 	player.update_health_ui()
 	load_deck()

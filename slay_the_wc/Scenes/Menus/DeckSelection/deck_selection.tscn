@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wccow")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,11 +29,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VFlowContainer" type="VFlowContainer" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Choisissez une mascotte"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VFlowContainer" type="VFlowContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer/VFlowContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
@@ -41,60 +51,60 @@ button_pressed = true
 text = "Deck 1"
 autowrap_mode = 2
 
-[node name="Button2" type="Button" parent="HBoxContainer/VFlowContainer"]
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 text = "Deck 2"
 autowrap_mode = 2
 
-[node name="Button3" type="Button" parent="HBoxContainer/VFlowContainer"]
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 text = "Deck 3"
 autowrap_mode = 2
 
-[node name="Button4" type="Button" parent="HBoxContainer/VFlowContainer"]
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 text = "Deck 4"
 autowrap_mode = 2
 
-[node name="Button5" type="Button" parent="HBoxContainer/VFlowContainer"]
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 text = "Deck 5"
 autowrap_mode = 2
 
-[node name="Button6" type="Button" parent="HBoxContainer/VFlowContainer"]
+[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 text = "Deck 6"
 autowrap_mode = 2
 
-[node name="Button7" type="Button" parent="HBoxContainer/VFlowContainer"]
+[node name="Button7" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 toggle_mode = true
 text = "Deck 7"
 autowrap_mode = 2
 
-[node name="TabContainer" type="TabContainer" parent="HBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 current_tab = 0
 tabs_visible = false
 
-[node name="Panda" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+[node name="Panda" parent="VBoxContainer/HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
 layout_mode = 2
 mascot = ExtResource("3_marq2")
 
-[node name="5d6" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+[node name="5d6" parent="VBoxContainer/HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
 visible = false
 layout_mode = 2
 mascot = ExtResource("3_wltii")
@@ -103,25 +113,25 @@ metadata/mascotte = ExtResource("4_mdw6b")
 metadata/description = "Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur."
 metadata/start_deck = ExtResource("4_o21fc")
 
-[node name="Bibi" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+[node name="Bibi" parent="VBoxContainer/HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
 visible = false
 layout_mode = 2
 mascot = ExtResource("7_3k8pf")
 metadata/_tab_index = 2
 
-[node name="Beurre" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+[node name="Beurre" parent="VBoxContainer/HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
 visible = false
 layout_mode = 2
 mascot = ExtResource("8_yh1kd")
 metadata/_tab_index = 3
 
-[node name="Pentamonstres" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+[node name="Pentamonstres" parent="VBoxContainer/HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
 visible = false
 layout_mode = 2
 mascot = ExtResource("10_7bvkn")
 metadata/_tab_index = 4
 
-[node name="UwU" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+[node name="UwU" parent="VBoxContainer/HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
 visible = false
 layout_mode = 2
 mascot = ExtResource("6_marq2")
@@ -130,7 +140,7 @@ metadata/mascotte = ExtResource("4_mdw6b")
 metadata/description = "Ajoute un paramètre, le Compteur Mite, qui permet, en le faisant baisser, de jouer les cartes mite plus puissantes. Il faut pondre des oeufs avec des cartes dédiés pour faire remonter le compteur."
 metadata/start_deck = ExtResource("4_o21fc")
 
-[node name="Aixasperants" parent="HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
+[node name="Aixasperants" parent="VBoxContainer/HBoxContainer/TabContainer" instance=ExtResource("2_emwxf")]
 visible = false
 layout_mode = 2
 mascot = ExtResource("9_3j3n3")
@@ -160,12 +170,12 @@ grow_horizontal = 0
 text = "Suivant
 "
 
-[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button" to="." method="_on_button_toggled" binds= [0]]
-[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button2" to="." method="_on_button_toggled" binds= [1]]
-[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button3" to="." method="_on_button_toggled" binds= [2]]
-[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button4" to="." method="_on_button_toggled" binds= [3]]
-[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button5" to="." method="_on_button_toggled" binds= [4]]
-[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button6" to="." method="_on_button_toggled" binds= [5]]
-[connection signal="toggled" from="HBoxContainer/VFlowContainer/Button7" to="." method="_on_button_toggled" binds= [6]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button" to="." method="_on_button_toggled" binds= [0]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button2" to="." method="_on_button_toggled" binds= [1]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button3" to="." method="_on_button_toggled" binds= [2]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button4" to="." method="_on_button_toggled" binds= [3]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button5" to="." method="_on_button_toggled" binds= [4]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button6" to="." method="_on_button_toggled" binds= [5]]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button7" to="." method="_on_button_toggled" binds= [6]]
 [connection signal="pressed" from="ButtonReturn" to="." method="_on_button_return_pressed"]
 [connection signal="pressed" from="ButtonNext" to="." method="_on_button_next_pressed"]

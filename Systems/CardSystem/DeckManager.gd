@@ -4,6 +4,8 @@ extends Node
 
 # Gère le deck du joueur (cartes disponibles, main, défausse, etc.)
 
+var mascotData: MascotData
+var unlockable_cards: Array[CardData] = []
 var deck: Array[CardData] = []
 var hand: Array[CardData] = []
 var discard_pile: Array[CardData] = []
