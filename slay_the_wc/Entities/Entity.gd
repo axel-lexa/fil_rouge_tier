@@ -8,7 +8,6 @@ class_name Entity
 @export var strenght: int
 @export var weakness_debuff: int
 @export var fragility_debuff: int
-@export var energy: int
 @export var image: Texture2D
 
 var components : Entity_components
@@ -64,3 +63,9 @@ func setup_ui():
 
 func add_strenght(amount: int):
 	strenght += amount
+
+func turn_ui_off():
+	components.turn_ui_off()
+
+func turn_ui_on():
+	components.turn_ui_on()

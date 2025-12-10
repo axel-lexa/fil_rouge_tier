@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://gtc861k7evva"]
+[gd_scene load_steps=4 format=3 uid="uid://gtc861k7evva"]
 
 [ext_resource type="Texture2D" uid="uid://d28urwm7s16i1" path="res://slay_the_wc/Assets/Art/shield_icon.png" id="1_1duer"]
-[ext_resource type="Texture2D" uid="uid://wdb7prvrrf7t" path="res://slay_the_wc/Assets/Art/logoWinterCup.png" id="2_kxs3e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37y5e"]
 bg_color = Color(0.87058824, 0, 0.18039216, 1)
@@ -52,10 +51,10 @@ offset_bottom = 421.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 
 [node name="NamePlayer" type="RichTextLabel" parent="."]
-offset_left = 227.0
-offset_top = 300.0
-offset_right = 506.0
-offset_bottom = 340.0
+offset_left = 264.0
+offset_top = 374.0
+offset_right = 942.0
+offset_bottom = 414.0
 theme_override_font_sizes/normal_font_size = 30
 scroll_active = false
 
@@ -65,17 +64,9 @@ position = Vector2(428, 410)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_1duer")
 
-[node name="FloconMana1" type="Sprite2D" parent="."]
-position = Vector2(274, 373)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_kxs3e")
-
-[node name="FloconMana2" type="Sprite2D" parent="."]
-position = Vector2(309, 373)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_kxs3e")
-
-[node name="FloconMana3" type="Sprite2D" parent="."]
-position = Vector2(343, 373)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_kxs3e")
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 267.0
+offset_top = 374.0
+offset_right = 812.0
+offset_bottom = 414.0
+theme_override_constants/separation = 35

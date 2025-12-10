@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://de6ese77i7bfp"]
+[gd_scene load_steps=4 format=3 uid="uid://de6ese77i7bfp"]
 
 [ext_resource type="Texture2D" uid="uid://bfbkp3msta04c" path="res://slay_the_wc/Assets/Art/card_slot.png" id="1_2bnwp"]
+[ext_resource type="Script" uid="uid://chyutcygqtl2n" path="res://slay_the_wc/Cards/Scenes/Scripts/CardSlot2.gd" id="1_ofjvx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfjho"]
 size = Vector2(151, 177)
 
 [node name="CardSlot2" type="Node2D"]
+script = ExtResource("1_ofjvx")
 
 [node name="CardSlotImage" type="Sprite2D" parent="."]
 visible = false

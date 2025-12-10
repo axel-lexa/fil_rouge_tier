@@ -80,6 +80,14 @@ func draw_cards(count: int) -> Array[CardData]:
 		
 	return drawn
 
+func reset_deck():
+	for card in hand:
+		add_card_to_deck(card)
+	for card in discard_pile:
+		add_card_to_deck(card)
+	hand.clear()
+	discard_pile.clear()
+
 # Défausse une carte de la main
 func discard_card(card: CardData):
 	if hand.has(card):

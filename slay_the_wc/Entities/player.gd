@@ -3,7 +3,7 @@ class_name Player
 
 var team: String
 
-var increase_damage: int = 0
+var energy = 3
 
 # Team 12 pandas
 var nb_pandas: int = 0

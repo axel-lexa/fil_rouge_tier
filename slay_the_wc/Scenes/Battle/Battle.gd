@@ -57,6 +57,8 @@ var battle_enemies: Array[Enemy]
 var alive_enemies: Array[Enemy]
 const MAX_HAND_SIZE = 10
 const MAX_ENERGY = 3
+var energy_bar: HBoxContainer
+var energy_label: RichTextLabel
 
 var player_turn
 var player_hand_reference
@@ -94,6 +96,11 @@ func _ready():
 	
 	player_hand_reference = $PlayerHand
 	DeckManager.player_hand_node = $PlayerHand
+
+	energy_bar = $BattleField/Characters/Player/HBoxContainer
+	energy_bar.visible = false
+	energy_label = $BattleField/Characters/Player/EnergyPlayer
+	energy_label.visible = false
 	
 	player = load("res://slay_the_wc/Entities/Players/Player.tres")
 	var player_component = Entity_components.new() 
@@ -107,8 +114,8 @@ func _ready():
 	player.components = player_component
 	player.update_health_ui()
 	load_deck()
+	compute_energy()
 	
-
 	var entity_component1 = Entity_components.new() 
 	entity_component1.name_label = $BattleField/Characters/Ennemie1/NameEnnemy
 	entity_component1.health_label = $BattleField/Characters/Ennemie1/HealthEnnemy
@@ -164,16 +171,17 @@ func _ready():
 	end_game = false
 
 func load_deck():
-	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
-	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres"))
-	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"))
-	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Dopage.tres"))
-	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
-	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
-	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
-	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
-	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"))
-	DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"))
+	if DeckManager.deck.size() == 0:
+		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
+		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres"))
+		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"))
+		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Dopage.tres"))
+		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
+		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
+		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
+		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
+		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"))
+		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Defense.tres"))
 
 
 func _on_hand_size_changed(size):
@@ -221,7 +229,7 @@ func process_card(card: Card2, player_slot: bool, ennemie_index: int):
 			process_card_player(card)
 			move_card_to_bin(card)
 			return
-		else:
+		elif !player_slot and card.data.target_type != CardData.TargetTypeEnum.SELF:
 			var target = convert_scene_index_to_enemy(ennemie_index)
 			if target != null:
 				player.energy = player.energy-card.data.mana_cost
@@ -290,17 +298,17 @@ func process_damage_player(enemy: Player, damage: int):
 	if not enemy.apply_damage_and_check_lifestatus(damage):
 		play_sound_battle_random(enemy_death_array)
 	else:
-		play_sound_battle(null,"hit_taken")
+		play_sound_battle_random(hit_taken_array)
 		
 func process_damage_entity(enemy: Enemy, damage: int):
 	play_hit_flash(enemy)
 	# En cas de mort
 	if not enemy.apply_damage_and_check_lifestatus(damage):
 		play_sound_battle_random(enemy_death_array)
-		enemy.components.turn_ui_off()
+		enemy.turn_ui_off()
 		alive_enemies.erase(enemy)
 	else:
-		play_sound_battle(null,"hit_taken")
+		play_sound_battle_random(hit_taken_array)
 
 func process_heal_entity(target: Entity, amout: int):
 	target.heal(amout)
@@ -494,34 +502,16 @@ func move_card_to_bin(card: Card2):
 	
 	if end_game:
 		return
-	
-	# 1️⃣ Retirer de la main
-	player_hand_reference.remove_card_from_hand(card)
-	#Ajout CKC
-	$Bin.add_to_bin(card)
-	#fin ajout CKC
-	# 2️⃣ Désactiver le hover pour que le CardManager ne la touche plus
-	#var card_manager = get_tree().root.get_node("Battle/CardManager")
-	#card.disconnect("hovered", card_manager.on_hovered_over_card)
-	#card.disconnect("hovered_off", card_manager.on_hovered_off_card)
 
-	# 3️⃣ Tween pour position + scale
+	player_hand_reference.remove_card_from_hand(card)
+	player.discard_card(card.data)
+
 	if get_tree():
 		var tween = get_tree().create_tween()
 		tween.tween_property(card, "position", $Bin.position, 0.2)
 		tween.parallel().tween_property(card, "scale", Vector2(1.1,1.1), 0.2)
 
-func compute_intention_ennemie(enemy: Enemy, sprite_intention) -> String:
-	var intention = enemy.compute_intention()
-	if intention == "ATK":
-		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/attack_icon.png")
-	elif intention == "DEF":
-		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/shield_icon.png")
-	elif intention == "BUFF":
-		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/up-arrow_icon.png")
-	elif intention == "DEBUFF":
-		sprite_intention.texture = load("res://slay_the_wc/Assets/Art/down-arrow_icon.png")
-	return intention
+
 
 # Boutton fin de tour appuyé
 func _on_button_pressed() -> void:
@@ -529,13 +519,10 @@ func _on_button_pressed() -> void:
 	player_turn = false
 	is_player_turn_start = true;
 	card_played = []
-	#Ajout CKC - On doit vider la main
 	var tmpList = player_hand_reference.player_hand.duplicate()
 	for card in tmpList:
 		move_card_to_bin(card)
-		# Ca ne vide pas la main entièrement je comprends pas pourquoi des cartes ne sont pas attachées à la main j'imagine
-	#Fin ajout CKC
-	# début du tour des ennemis
+
 	for enemy in alive_enemies:
 		enemy.perform_action(player)
 		enemy.compute_next_attack()	
@@ -544,6 +531,7 @@ func _on_button_pressed() -> void:
 		$EndBattle.visible = true
 		$BattleField/Characters/Player/HealthPlayer.text = "0/0"
 		$Deck.set_deck_enabled(false)
+		DeckManager.reset_deck()
 		end_game = true
 		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
 		return
@@ -571,28 +559,24 @@ func _on_video_stream_player_finished() -> void:
 	$Deck.visible = true
 	$Button.visible = true
 	player.setup_ui()
+	energy_bar.visible = true
+	energy_label.visible = true
 	for enemy in battle_enemies:
 		enemy.setup_ui()
 		enemy.compute_next_attack()
 	
 func compute_energy():
-	if player.energy == 3:
-		$BattleField/Characters/Player/FloconMana1.visible = true
-		$BattleField/Characters/Player/FloconMana2.visible = true
-		$BattleField/Characters/Player/FloconMana3.visible = true
-	if player.energy == 2:
-		$BattleField/Characters/Player/FloconMana1.visible = true
-		$BattleField/Characters/Player/FloconMana2.visible = true
-		$BattleField/Characters/Player/FloconMana3.visible = false
-	if player.energy == 1:
-		$BattleField/Characters/Player/FloconMana1.visible = true
-		$BattleField/Characters/Player/FloconMana2.visible = false
-		$BattleField/Characters/Player/FloconMana3.visible = false
-	if player.energy == 0:
-		$BattleField/Characters/Player/FloconMana1.visible = true
-		$BattleField/Characters/Player/FloconMana2.visible = true
-		$BattleField/Characters/Player/FloconMana3.visible = true
-		
+	for child in energy_bar.get_children():
+		child.queue_free()
+
+	for i in range(player.energy):
+		var sprite = Sprite2D.new()
+		sprite.texture = load("res://slay_the_wc/Assets/Art/logoWinterCup.png")
+		sprite.visible = true
+		sprite.scale = Vector2(0.1, 0.1)
+		var align_box = Control.new()
+		align_box.add_child(sprite)
+		energy_bar.add_child(align_box)
 
 func play_hit_flash(target: Enemy):
 	var sprite = target.components.sprite
@@ -623,19 +607,8 @@ func play_hit_flash(target: Enemy):
 
 func play_sound_battle_random(sounds: Array[AudioStreamPlayer]):
 	var rng = RandomNumberGenerator.new()
-	var randomIndex = rng.randi_range(1,sounds.size()+1)
-	var soundChoisi
-	if sounds.has(hit_taken_array.find(1)):
-		var random = rng.randi_range(1,100)
-		if random <= 20: randomIndex = 1
-		elif random <= 40: randomIndex = 2
-		elif random <= 60: randomIndex = 3
-		elif random <= 80: randomIndex = 4
-		elif random <= 98: randomIndex = 5
-		elif random <= 98: randomIndex = 6
-		else: randomIndex = 7
-	soundChoisi = sounds.find(randomIndex)
-	soundChoisi.play()
+	var randomIndex = rng.randi_range(0,sounds.size()-1)
+	sounds.get(randomIndex).play()
 			
 func play_sound_battle(sound: AudioStreamPlayer, titleSound: String):
 	if sound != null:

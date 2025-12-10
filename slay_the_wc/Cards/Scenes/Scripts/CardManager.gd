@@ -43,7 +43,7 @@ func finish_drag():
 	var card_slot_found_player = raycast_check_for_card_slot4()
 	var battle = $".."
 	
-	if battle.player_turn and (battle.player.energy > 0 and battle.player.energy >= card_being_dragged.data.mana_cost) and (card_slot_found_ennemie1 or card_slot_found_ennemie2 or card_slot_found_ennemie3 or card_slot_found_player):
+	if battle.player_turn and battle.player.energy >= card_being_dragged.data.mana_cost and (card_slot_found_ennemie1 or card_slot_found_ennemie2 or card_slot_found_ennemie3 or card_slot_found_player):
 		player_hand_reference.remove_card_from_hand(card_being_dragged)
 		var ennemy_index = -1
 		var player_slot = false

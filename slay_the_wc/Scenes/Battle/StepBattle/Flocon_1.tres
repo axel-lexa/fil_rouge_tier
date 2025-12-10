@@ -22,6 +22,8 @@ metadata/_custom_type_script = "uid://c7q0520cetml4"
 [sub_resource type="Resource" id="Resource_ftgr1"]
 script = ExtResource("2_qcpx7")
 attacks = Array[ExtResource("3_72dwl")]([SubResource("Resource_gsml8"), SubResource("Resource_a8iq4")])
+health = 12
+max_health = 12
 image = ExtResource("4_gwbv2")
 metadata/_custom_type_script = "uid://dtk6u04ciu554"
 
