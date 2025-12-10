@@ -14,7 +14,8 @@ func _ready() -> void:
 		for i in data_received["text"]:
 			dialogs.append(i)
 		DialogManager.start_dialog(Vector2(0, 750), dialogs)
-	
+	RunManager.complete_floor()
+	print("current_floor=", str(RunManager.current_floor))
 
 
 func _on_skip_scene_pressed() -> void:

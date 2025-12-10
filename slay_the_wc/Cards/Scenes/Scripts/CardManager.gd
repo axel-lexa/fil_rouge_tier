@@ -31,6 +31,7 @@ func start_drag(card):
 		return
 	card_being_dragged = card
 	#card.scale = Vector2(10, 10)
+	$"../CardZoom".hide()
 	
 func finish_drag():
 	if not card_being_dragged:

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bwha8c4c8ws0w"]
 
-[ext_resource type="Texture2D" uid="uid://p4fh5a3g0rxx" path="res://slay_the_wc/Assets/Art/template_panda_vide.png" id="1_0jbxr"]
+[ext_resource type="Texture2D" uid="uid://k148pxvar7l4" path="res://slay_the_wc/Assets/Cartes/Cartes communes/douleur_preparee.png" id="1_0jbxr"]
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_0jbxr"]
 
 [resource]

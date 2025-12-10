@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhdna20qv4g34"]
+
+[ext_resource type="Script" uid="uid://7wpqmns7fq68" path="res://slay_the_wc/Scenes/Credits/credit.gd" id="1_jqs72"]
+[ext_resource type="VideoStream" uid="uid://cqdp1kle5cu1v" path="res://slay_the_wc/Assets/Art/generique_fin_credit.ogv" id="2_jqs72"]
+
+[node name="Credit" type="Node2D"]
+script = ExtResource("1_jqs72")
+
+[node name="VideoContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="VideoContainer"]
+z_index = -2
+layout_mode = 0
+offset_right = 1400.0
+offset_bottom = 839.0
+stream = ExtResource("2_jqs72")
+autoplay = true
+expand = true
+
+[node name="Retour" type="Button" parent="."]
+offset_left = 505.0
+offset_top = 323.0
+offset_right = 941.0
+offset_bottom = 444.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+text = "Retour au menu"
+
+[node name="Skip" type="Button" parent="."]
+offset_left = 1318.0
+offset_top = 812.0
+offset_right = 1400.0
+offset_bottom = 843.0
+text = "Passer >>"
+
+[connection signal="finished" from="VideoContainer/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="Retour" to="." method="_on_retour_pressed"]
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]

@@ -169,7 +169,7 @@ func _load_battle_state(battle_data):
 		return
 	
 	# Charger l'état du joueur
-	if battle_data.has("player"):
+	if battle_data && battle_data.has("player"):
 		var player_data = battle_data["player"]
 		if battle_scene.has("player") and battle_scene.player:
 			var player = battle_scene.player
