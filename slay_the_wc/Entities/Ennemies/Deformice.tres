@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://5shfav03fqxq"]
+
+[ext_resource type="Script" uid="uid://c7q0520cetml4" path="res://Systems/Enemies/enemy_attack.gd" id="1_e8tqg"]
+[ext_resource type="Script" uid="uid://dtk6u04ciu554" path="res://slay_the_wc/Entities/enemy.gd" id="2_jagrv"]
+
+[sub_resource type="Resource" id="Resource_e8tqg"]
+script = ExtResource("1_e8tqg")
+name = "Morsure"
+damage = 6
+metadata/_custom_type_script = "uid://c7q0520cetml4"
+
+[sub_resource type="Resource" id="Resource_jagrv"]
+script = ExtResource("1_e8tqg")
+name = "Concentration"
+atk_type = 2
+strengh_buff = 3
+metadata/_custom_type_script = "uid://c7q0520cetml4"
+
+[resource]
+script = ExtResource("2_jagrv")
+attacks = Array[ExtResource("1_e8tqg")]([SubResource("Resource_e8tqg"), SubResource("Resource_jagrv")])
+name = "Déformice"
+health = 25
+max_health = 25
+metadata/_custom_type_script = "uid://dtk6u04ciu554"
