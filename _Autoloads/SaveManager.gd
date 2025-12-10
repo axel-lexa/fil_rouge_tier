@@ -40,7 +40,7 @@ func save_game():
 	var battle_scene = get_tree().get_first_node_in_group("battle")
 	if battle_scene:
 		save_data["in_battle"] = true
-		save_data["battle_data"] = _save_battle_state(battle_scene)
+#		save_data["battle_data"] = _save_battle_state(battle_scene)
 	
 	# Sauvegarder le deck si on est en combat
 	var deck_node = get_tree().get_first_node_in_group("deck")
@@ -49,8 +49,8 @@ func save_game():
 	
 	# Sauvegarder la main si on est en combat
 	var player_hand = get_tree().get_first_node_in_group("player_hand")
-	if player_hand and player_hand.has("player_hand"):
-		save_data["battle_data"]["player_hand"] = _save_hand(player_hand.player_hand)
+	#if player_hand and player_hand.has("player_hand"):
+	#	save_data["battle_data"]["player_hand"] = _save_hand(player_hand.player_hand)
 	
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 	if file:
@@ -129,38 +129,38 @@ func load_game():
 	return true
 
 # Sauvegarde l'état du combat
-func _save_battle_state(battle_scene):
-	var battle_data = {}
-	
-	# Sauvegarder l'état du joueur
-	if battle_scene.has("player") and battle_scene.player:
-		var player = battle_scene.player
-		battle_data["player"] = {
-			"health": player.health,
-			"defense": player.defense,
-			"energy": player.energy,
-			"resource_path": _get_resource_path(player)
-		}
-	
-	# Sauvegarder l'état des ennemis
-	if battle_scene.has("ennemy"):
-		battle_data["ennemies"] = {}
-		for key in battle_scene.ennemy.keys():
-			var enemy = battle_scene.ennemy[key]
-			battle_data["ennemies"][key] = {
-				"health": enemy.health,
-				"defense": enemy.defense,
-				"resource_path": _get_resource_path(enemy)
-			}
-	
-	# Sauvegarder l'état du tour
-	if battle_scene.has("player_turn"):
-		battle_data["player_turn"] = battle_scene.player_turn
-	
-	if battle_scene.has("end_game"):
-		battle_data["end_game"] = battle_scene.end_game
-	
-	return battle_data
+#func _save_battle_state(battle_scene):
+	#var battle_data = {}
+	#
+	## Sauvegarder l'état du joueur
+	#if battle_scene.has("player") and battle_scene.player:
+		#var player = battle_scene.player
+		#battle_data["player"] = {
+			#"health": player.health,
+			#"defense": player.defense,
+			#"energy": player.energy,
+			#"resource_path": _get_resource_path(player)
+		#}
+	#
+	## Sauvegarder l'état des ennemis
+	#if battle_scene.has("ennemy"):
+		#battle_data["ennemies"] = {}
+		#for key in battle_scene.ennemy.keys():
+			#var enemy = battle_scene.ennemy[key]
+			#battle_data["ennemies"][key] = {
+				#"health": enemy.health,
+				#"defense": enemy.defense,
+				#"resource_path": _get_resource_path(enemy)
+			#}
+	#
+	## Sauvegarder l'état du tour
+	#if battle_scene.has("player_turn"):
+		#battle_data["player_turn"] = battle_scene.player_turn
+	#
+	#if battle_scene.has("end_game"):
+		#battle_data["end_game"] = battle_scene.end_game
+	#
+	#return battle_data
 
 # Charge l'état du combat
 func _load_battle_state(battle_data):

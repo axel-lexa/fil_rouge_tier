@@ -1,7 +1,7 @@
 extends Enemy
 class_name choppyOrc
 
-func _ready():
+func _init():
 	
 	var attack1 = Enemy_attack.new()
 	attack1.damage = 4

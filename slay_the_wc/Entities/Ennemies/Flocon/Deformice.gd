@@ -3,7 +3,7 @@ class_name deformice
 
 var attack_history: Array[String] = []
 
-func _ready():
+func _init():
 	
 	var attack1 = Enemy_attack.new()
 	attack1.damage = 6

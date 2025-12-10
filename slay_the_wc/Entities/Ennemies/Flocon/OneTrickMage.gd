@@ -3,7 +3,7 @@ class_name oneTrickMage
 
 var turn: int = 0
 
-func _ready():
+func _init():
 	
 	var attack1 = Enemy_attack.new()
 	attack1.damage = 25
