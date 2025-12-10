@@ -35,3 +35,13 @@ func update_intention_sprite(atk_type: Enemy_attack.ATK_TYPE):
 func attack(target: Entity, amount: int):
 	amount = clamp(amount + (strenght - weakness_debuff), 0, 999999)
 	target.apply_damage_and_check_lifestatus(amount)
+
+func turn_ui_off():
+	super.turn_ui_off()
+	if intention_sprite != null:
+		intention_sprite.visible = false
+	
+func turn_ui_on():
+	super.turn_ui_on()
+	if intention_sprite != null:
+		intention_sprite.visible = true
