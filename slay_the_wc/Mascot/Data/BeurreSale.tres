@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_3j1bh"]
 [ext_resource type="Resource" uid="uid://brkxqxesxrtf3" path="res://slay_the_wc/Cards/Data/BeurreSale/calories.tres" id="5_jarm6"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="6_forfu"]
-[ext_resource type="Resource" uid="uid://ceagi2sn0a5lf" path="res://slay_the_wc/Cards/Data/BeurreSale/bataille_de_beurre.tres" id="7_jgv2r"]
+[ext_resource type="Resource" path="res://slay_the_wc/Cards/Data/BeurreSale/bataille_de_beurre.tres" id="7_jarm6"]
 [ext_resource type="Resource" uid="uid://dwmii3p5jcqga" path="res://slay_the_wc/Cards/Data/BeurreSale/crepe_beurre_sucre.tres" id="8_6sis5"]
 [ext_resource type="Resource" uid="uid://bethx6d1sjii2" path="res://slay_the_wc/Cards/Data/BeurreSale/tartine_pain_beurre.tres" id="11_dxvos"]
 [ext_resource type="Resource" uid="uid://beeovx8punhe5" path="res://slay_the_wc/Cards/Data/BeurreSale/tournee_generale.tres" id="12_xk60u"]
@@ -30,5 +30,5 @@ La plupart des cartes vont donner du [color=lightgreen]cholestérol [/color]à l
 Les [color=pink]dégats[/color] sont infligés au début du tour de l’énemi à raison de : 1 charge de [color=lightgreen]cholesterol[/color] = 1 point de [color=pink]dégat[/color].
 Les charges restent définitivement sur l’énemi sauf en cas de consommation par une carte attaque"
 default_cards = Array[ExtResource("1_rum2l")]([ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("12_xk60u"), ExtResource("5_jarm6")])
-unlockable_cards = Array[ExtResource("1_rum2l")]([ExtResource("5_jarm6"), ExtResource("12_xk60u"), ExtResource("7_jgv2r"), ExtResource("7_jgv2r"), ExtResource("8_6sis5"), ExtResource("8_6sis5"), ExtResource("11_dxvos"), ExtResource("11_dxvos"), ExtResource("7_jgv2r"), ExtResource("7_jgv2r")])
+unlockable_cards = Array[ExtResource("1_rum2l")]([ExtResource("5_jarm6"), ExtResource("12_xk60u"), ExtResource("7_jarm6"), ExtResource("7_jarm6"), ExtResource("8_6sis5"), ExtResource("8_6sis5"), ExtResource("12_xk60u"), ExtResource("12_xk60u"), ExtResource("11_dxvos"), ExtResource("11_dxvos")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"
