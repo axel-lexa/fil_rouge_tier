@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3 uid="uid://f4hvnkv4ii84"]
+
+[ext_resource type="Script" uid="uid://c7q0520cetml4" path="res://Systems/Enemies/enemy_attack.gd" id="1_p62tk"]
+[ext_resource type="Script" uid="uid://dtk6u04ciu554" path="res://slay_the_wc/Entities/enemy.gd" id="2_4is5d"]
+
+[sub_resource type="Resource" id="Resource_p62tk"]
+script = ExtResource("1_p62tk")
+name = "Chute"
+damage = 9
+metadata/_custom_type_script = "uid://c7q0520cetml4"
+
+[resource]
+script = ExtResource("2_4is5d")
+attacks = Array[ExtResource("1_p62tk")]([SubResource("Resource_p62tk")])
+name = "Techrex"
+health = 40
+max_health = 40
+metadata/_custom_type_script = "uid://dtk6u04ciu554"
