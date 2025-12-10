@@ -339,7 +339,7 @@ func process_buff_strenght_entity(target: Entity, amout: int):
 	play_sound_battle_random(buff_taken_array)
 
 func draw_cards(amount: int, is_init: bool = false):
-	var drawn = player.draw_cards(amount)
+	var drawn = DeckManager.draw_cards(amount)
 	# instantiate card nodes and add them to the canvas
 	for  cardData in drawn:
 		if $PlayerHand.player_hand.size() < $PlayerHand.MAX_HAND_SIZE:
@@ -347,7 +347,7 @@ func draw_cards(amount: int, is_init: bool = false):
 			new_card.data = cardData
 			print("connect " + new_card.data.card_name)
 			new_card.connect("hovered", func (c: Card2): $CardZoom.show_card(c.data))
-			new_card.connect("hovered_off", $CardZoom.hide_card)
+			new_card.connect("hovered_off",  func (_c: Card2): $CardZoom.hide_card())
 			$PlayerHand.add_child(new_card)
 			$PlayerHand.add_card_to_hand(new_card, DeckManager.CARD_DRAW_SPEED)
 	if !is_init:
@@ -365,7 +365,7 @@ func process_card_commun_enemy(card: Card2, target: Enemy):
 		pass
 	elif card.data.id == "attaque_rapide":
 		process_damage_entity(target, 3)
-		DeckManager.draw_cards(1)
+		draw_cards(1)
 		#$Deck.draw_card()
 		pass
 	elif card.data.id == "melee_generale":
@@ -449,9 +449,9 @@ func process_card_5d6_enemy(card: Card2, target: Enemy):
 		var de2 = randi_range(1, 6)
 		process_damage_entity(target, de1+de2)
 		if de1 == de2:
-			DeckManager.draw_cards(2)
+			draw_cards(2)
 		else:
-			DeckManager.draw_cards(1)
+			draw_cards(1)
 	elif card.data.id == "4d6":
 		var result = launch_dice(4)
 		if result % 2 == 0:
