@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattleDescription" load_steps=5 format=3 uid="uid://d36mbgnkl6pd6"]
+
+[ext_resource type="Script" uid="uid://dtk6u04ciu554" path="res://slay_the_wc/Entities/enemy.gd" id="1_lobk1"]
+[ext_resource type="VideoStream" uid="uid://begsuoqsgodcq" path="res://slay_the_wc/Assets/Art/Biome-foret-Animé.ogv" id="1_mch5k"]
+[ext_resource type="Script" uid="uid://dgu1edrbcg2ev" path="res://slay_the_wc/Scenes/Battle/StepBattle/BattleDescription.gd" id="2_4w6vp"]
+[ext_resource type="Resource" uid="uid://b7seny3nvtmyj" path="res://slay_the_wc/Entities/Ennemies/Athar.tres" id="3_50gk5"]
+
+[resource]
+script = ExtResource("2_4w6vp")
+nom = "Flocon 2"
+entities = Array[ExtResource("1_lobk1")]([ExtResource("3_50gk5")])
+background = ExtResource("1_mch5k")
+metadata/_custom_type_script = "uid://dgu1edrbcg2ev"

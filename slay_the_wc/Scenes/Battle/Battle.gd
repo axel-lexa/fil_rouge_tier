@@ -204,33 +204,12 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 	
 	process_card(card, player_slot, ennemie_index)
 	
-	#if player_slot:
-		#
-		#if card.data.card_type == "power":
-			#player.energy = player.energy-card.data.mana_cost
-			#player.defense = player.defense+card.data.defense
-			#$BattleField/Characters/Player/DefensePlayer.text = str(player.defense)
-			#$BattleField/Characters/Player/EnergyPlayer.text = "Energie :"
-			#compute_energy()
-			#move_card_to_bin(card)
-	#else:
-		#if card.data.card_type == "attack":
-			#print("ATTAQUE !!!!!!!")
-			#ennemy[ennemie_number].health = 0
-			#
-			#update_health_ui($BattleField/Characters/Ennemie1/HealthBarEnnemie, ennemy[ennemie_number], $BattleField/Characters/Ennemie1/HealthEnnemy)
-			#if ennemy[ennemie_number].health == 0:
-				#print("ureitgblrgtr")
-				#Events.battle_ended.emit(true)
-				#Events.battle_won.emit()
-				#get_tree().change_scene_to_file("res://Scenes/Menus/CardRewardScreen.tscn")
-				#return
-			#pass
-		#elif card.data.card_type == "power":
-			#$PlayerHand.add_card_to_hand(card, $PlayerHand.DEFAULT_CARD_MOVE_SPEED)
-			#card.get_node("Area2D/CollisionShape2D").disabled = false
-			#return
-		#move_card_to_bin(card)
+	# Quand tout les ennemies sont KO :
+	if alive_enemies.size() == 0:
+		RunManager.current_hp = RunManager.max_hp
+		RunManager.complete_floor()
+		SaveManager.save_game()
+	
 
 func process_card(card: Card2, player_slot: bool, ennemie_index: int):
 	if player.energy >= card.data.mana_cost:
@@ -307,10 +286,19 @@ func process_card_player(card: Card2):
 		process_card_uwu_himself(card)	
 	player.update_health_ui()
 
-func process_damage_entity(enemy: Entity, damage: int):
-	play_hit_flash(enemy)
+func process_damage_player(enemy: Player, damage: int):
 	if not enemy.apply_damage_and_check_lifestatus(damage):
 		play_sound_battle_random(enemy_death_array)
+	else:
+		play_sound_battle(null,"hit_taken")
+		
+func process_damage_entity(enemy: Enemy, damage: int):
+	play_hit_flash(enemy)
+	# En cas de mort
+	if not enemy.apply_damage_and_check_lifestatus(damage):
+		play_sound_battle_random(enemy_death_array)
+		enemy.components.turn_ui_off()
+		alive_enemies.erase(enemy)
 	else:
 		play_sound_battle(null,"hit_taken")
 
@@ -370,7 +358,7 @@ func process_card_commun_himself(card: Card2):
 		process_shield_entity(player, 2)
 		draw_cards(1)
 	elif card.data.id == "dopage":
-		process_damage_entity(player, 3)
+		process_damage_player(player, 3)
 		await get_tree().create_timer(0.2).timeout
 		process_buff_strenght_entity(player, 2)
 	elif card.data.id == "soin_urgence":
