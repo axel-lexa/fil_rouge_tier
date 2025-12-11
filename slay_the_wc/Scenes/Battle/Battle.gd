@@ -225,6 +225,7 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 		SaveManager.save_game()
 		$ResultBattle.text = "Vous avez gagné le combat !"
 		$EndBattle.visible = true
+		$Button.visiblr = false
 		#$BattleField/Characters/Player/HealthPlayer.text = "0/0"
 		$Deck.set_deck_enabled(false)
 		DeckManager.reset_deck()
@@ -590,6 +591,7 @@ func _on_button_pressed() -> void:
 		$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
 		$EndBattle.visible = true
 		$BattleField/Characters/Player/HealthPlayer.text = "0/0"
+		$Button.visible = false
 		$Deck.set_deck_enabled(false)
 		DeckManager.reset_deck()
 		end_game = true
