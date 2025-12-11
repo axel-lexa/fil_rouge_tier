@@ -3,4 +3,4 @@ class_name flocon1
 func _init():
 	nom = "Flocon 1"
 	entities = [patate.new(), patate.new()]
-	background = load("res://slay_the_wc/Assets/Art/Biome-foret-Animé.ogv")
+	background = load("res://slay_the_wc/Assets/Art/BackgroundBattle/Biome-Mine-animé.ogv")

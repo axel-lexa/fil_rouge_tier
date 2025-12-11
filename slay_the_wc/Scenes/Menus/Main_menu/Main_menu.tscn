@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cekc18dbmnves"]
+[gd_scene load_steps=13 format=3 uid="uid://cekc18dbmnves"]
 
 [ext_resource type="Script" uid="uid://di081sdjvursu" path="res://slay_the_wc/Scenes/Menus/Main_menu/main_menu.gd" id="1_6fvm6"]
 [ext_resource type="Texture2D" uid="uid://wdb7prvrrf7t" path="res://slay_the_wc/Assets/Art/logoWinterCup.png" id="1_pye2b"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cixjuou0k15yk" path="res://slay_the_wc/Assets/Sounds/booooo.mp3" id="4_rgl0o"]
 [ext_resource type="Texture2D" uid="uid://bspsothfktngg" path="res://slay_the_wc/Assets/Art/Main_Menu/background.png" id="7_fa5sa"]
 [ext_resource type="VideoStream" uid="uid://dabkhi3yvqf5u" path="res://slay_the_wc/Assets/Art/Main_Menu/intro_main_menu.ogv" id="7_sdlof"]
+[ext_resource type="AudioStream" uid="uid://ci4kvgrs2yqhc" path="res://slay_the_wc/Assets/Sounds/Theme 1 (Cover Winter).mp3" id="8_fa5sa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rkit"]
 bg_color = Color(0.14901961, 0.627451, 0.8039216, 1)
@@ -42,6 +43,7 @@ grow_horizontal = 2
 theme_override_constants/separation = 20
 
 [node name="Continue" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_1rkit")
@@ -150,6 +152,11 @@ z_index = -1
 position = Vector2(701, 421.00003)
 scale = Vector2(1.195, 1.075)
 texture = ExtResource("7_fa5sa")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_fa5sa")
+volume_db = -30.457
+autoplay = true
 
 [connection signal="mouse_entered" from="VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]

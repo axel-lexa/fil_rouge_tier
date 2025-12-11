@@ -17,7 +17,7 @@ func _init():
 	health = 40
 	max_health = health
 	name = "Techrex"
-	image = load("res://slay_the_wc/Assets/Art/patate_ennemie.png")
+	image = load("res://slay_the_wc/Assets/Art/enemies/tech rex.png")
 	
 func compute_next_attack():
 	next_atk = attacks[next_attack_index]

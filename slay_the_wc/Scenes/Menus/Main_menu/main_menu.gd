@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 
 
 func hide_informations(boolean: bool):
-	$VBoxContainer/Continue.visible = boolean
+	#$VBoxContainer/Continue.visible = boolean
 	$VBoxContainer/NewGame.visible = boolean
 	$VBoxContainer/Options.visible = boolean
 	$VBoxContainer/ExitGame.visible = boolean
@@ -72,29 +72,31 @@ func show_elements_progressively():
 		
 	# Si une sauvegarde existe, charger automatiquement après un court délai
 	# pour restaurer l'état du jeu
-	if RunManager.current_floor == 0:
-		$VBoxContainer/Continue.visible = false
+	#if RunManager.current_floor == 0:
+	#	pass
+		#$VBoxContainer/Continue.visible = false
 		#await get_tree().create_timer(0.1).timeout
 		#SaveManager.load_game()
-	else:
-		$VBoxContainer/Continue.visible = true
-		await get_tree().create_timer(0.1).timeout
-		SaveManager.load_game()
+	#else:
+		#$VBoxContainer/Continue.visible = true
+		#await get_tree().create_timer(0.1).timeout
+		#SaveManager.load_game()
 	
 # Called when user click on button "Continuer la partie"
-func _on_continue_pressed() -> void:
-	continuer.play()
-	await get_tree().create_timer(1.2).timeout
-	print("Continuer la partie")
-	if SaveManager.has_save_data:
-		# Charger la sauvegarde (elle chargera automatiquement la bonne scène)
-		SaveManager.load_game()
-	else:
-		# Pas de sauvegarde, aller à la map
-		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/DeckSelection/deck_selection.tscn")
+#func _on_continue_pressed() -> void:
+	#continuer.play()
+	#await get_tree().create_timer(1.2).timeout
+	#print("Continuer la partie")
+	#if SaveManager.has_save_data:
+		## Charger la sauvegarde (elle chargera automatiquement la bonne scène)
+		#SaveManager.load_game()
+	#else:
+		## Pas de sauvegarde, aller à la map
+		#get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/DeckSelection/deck_selection.tscn")
 
 # Called when user click on button "Nouvelle partie"
 func _on_new_game_pressed() -> void:
+	$AudioStreamPlayer.stop()
 	continuer.play()
 	await get_tree().create_timer(1.2).timeout
 	print("Nouvelle partie")
@@ -107,6 +109,7 @@ func _on_new_game_pressed() -> void:
 
 # Called when user click on button "Paramètres"
 func _on_options_pressed() -> void:
+	$AudioStreamPlayer.stop()
 	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Credits/Credit.tscn")
 
 # Called when user click on button "Quitter la partie"
