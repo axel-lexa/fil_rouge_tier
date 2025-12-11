@@ -17,11 +17,15 @@ script = ExtResource("2_tn586")
 mascotte_img = ExtResource("2_0qnwn")
 mascotte_name = "Mimi"
 deck_name = "Grosse Mite"
-description = "[b]Mascotte[/b] :
-Une (très) Grosse Mite qui envoie ses enfants, une nuée de mites, combattre ses adversaires à sa place en leur donnant des instructions en relâchant des phéromones puissants. La nuée peut faire bouclier autour d’elle pour la protégé. Elle est capable de régénérer son armée très rapidement en pondant des œufs n’importe où, que ça soit à l’abris sous son propre corps ou bien même dans son adversaire pour que ses œufs s’en nourrissent.[b]
+description = "[b]Histoire : [/b]
 
-Mécanique[/b] :
-Ajoute un paramètre, le Compteur Mite ([color=lightblue]CM[/color]), qui permet, en le faisant monter, de jouer les cartes mite plus puissantes.Ces cartes plus puissantes consomment des [color=lightblue]CM[/color], il faut alors pondre des œufs avec des cartes dédiés pour faire remonter le compteur. Attention à ne pas atteindre [color=lightblue]0 CM[/color] sous peine de rendre la Grosse Mite plus sensible aux attaques. À l’inverse, un compteur au max ([color=lightblue]20 CM[/color]) lui donnera un bonus de blocage au début du tour."
+Mimi est arrivée dans la forêt d’Arpos l’année dernière. C’est une créature très joviale et extravertie. Elle adore rencontrer de nouveaux amis pour leur raconter ses blagues préférées. 
+Comme elle déteste la solitude, elle est capable d’utiliser une quantité colossale d’énergie pour rapidement pondre et avoir une colonie d’autres mites à qui faire la discussion. Ce pouvoir gagne en puissance pendant la période de la fête de l’hiver.
+
+[b]Mécaniques du deck : [/b]
+
+Le deck de Mimi se base sur une mécanique de “nuée”. Certaines cartes permettent de créer une nuée de mites qui vont incrémenter un compteur de mites (CM). D’autres cartes sont bien plus puissantes mais nécessitent à la fois des flocons et des CM pour pouvoir être utilisées.
+"
 default_cards = Array[ExtResource("1_vdq8h")]([ExtResource("2_4f4l0"), ExtResource("2_4f4l0"), ExtResource("2_4f4l0"), ExtResource("2_4f4l0"), ExtResource("3_7by2g"), ExtResource("3_7by2g"), ExtResource("3_7by2g"), ExtResource("3_7by2g"), ExtResource("4_cyg15"), ExtResource("5_6mv8f")])
 unlockable_cards = Array[ExtResource("1_vdq8h")]([ExtResource("8_fqm6q"), ExtResource("8_fqm6q"), ExtResource("9_quf7y"), ExtResource("9_quf7y"), ExtResource("4_cyg15"), ExtResource("5_6mv8f"), ExtResource("10_vvmss"), ExtResource("10_vvmss"), ExtResource("11_vqed6"), ExtResource("11_vqed6")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

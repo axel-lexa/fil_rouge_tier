@@ -15,9 +15,19 @@
 [resource]
 script = ExtResource("7_kvgjj")
 mascotte_img = ExtResource("6_gxb2i")
+flip_mascotte_img = true
 mascotte_name = "Jeanne"
 deck_name = "Panda"
-description = "[color=red]Pas de description pour le moment[/color]"
+description = "[b]Histoire : [/b]
+
+Jeanne habite dans la forêt depuis qu’elle existe. 
+C’est sa maison. À sa connaissance, elle n’a jamais croisé d’autres pandas, mais grâce à la magie de l’hiver, elle peut en invoquer pour s’amuser avec eux. Depuis que d’autres animaux ont rejoint la forêt, Jeanne n’utilise ses invocations que pour se battre.
+Surtout depuis qu’elle a été changée en pierre par un sorcier au bâton d’onyx il y a 5ans, elle ne peut profiter de ses amis que quelques mois par an.
+
+[b]Mécaniques du deck : [/b]
+
+Le deck de Jeanne se base sur les mécaniques “d’invocation” et “d’envoie à l’attaque” de Pandas. Plus le joueur arrive à en invoquer, et plus le deck devient puissant. Une légende raconte qu’il ne peut pas y en avoir plus que 12, mais ce n’est qu’une légende.
+"
 default_cards = Array[ExtResource("1_g4x5o")]([ExtResource("2_5yy45"), ExtResource("2_5yy45"), ExtResource("2_5yy45"), ExtResource("2_5yy45"), ExtResource("3_xagsi"), ExtResource("3_xagsi"), ExtResource("3_xagsi"), ExtResource("3_xagsi"), ExtResource("4_2b8um"), ExtResource("5_w2a41")])
 unlockable_cards = Array[ExtResource("1_g4x5o")]([ExtResource("8_gsdce"), ExtResource("8_gsdce"), ExtResource("9_gaboh"), ExtResource("9_gaboh"), ExtResource("10_3h5nh"), ExtResource("10_3h5nh"), ExtResource("11_ecb73"), ExtResource("11_ecb73"), ExtResource("4_2b8um"), ExtResource("5_w2a41")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

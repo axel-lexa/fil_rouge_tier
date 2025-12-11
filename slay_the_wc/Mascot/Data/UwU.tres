@@ -17,9 +17,15 @@ script = ExtResource("6_ypr0r")
 mascotte_img = ExtResource("6_n7bci")
 mascotte_name = "Aurore"
 deck_name = "Licorne"
-description = "[b]Mécanique [/b]:
-Aurore est super rapide et speedrun sa main, lorsqu’elle joue une carte [color=lightblue]Follow up[/color] la prochaine carte [color=lightblue]Follow up[/color] jouée est gratuite.
-Une carte [color=lightblue]Follow up[/color] est jouée avec un effet supplémentaire si la condition de [color=lightblue]Follow up[/color] est réalisée dans le tour."
+description = "[b]Histoire : [/b]
+
+Aurore est arrivée dans la forêt il y a 3 ans. 
+Elle était déjà belle et resplendissante avant, mais la forêt lui permet d’avoir une vitesse inégalable. Pendant l’hiver, on raconte qu’elle fait des bons si grands qu’elle génère des arc-en-ciel derrière elle ou l’on peut lire “UwU” à travers les couleurs de celui-ci.
+
+[b]Mécaniques du deck : [/b]
+
+Le deck d’Aurore se joue autour d’une mécanique de combo “follow up”. Les cartes du deck paraissent un peu moins fortes si jouées seules, mais si elles sont jouées après certaines cartes spécifiques, elles activent un pouvoir de “follow up” en plus de leur pouvoir de base.
+"
 default_cards = Array[ExtResource("1_q3igl")]([ExtResource("2_n7bci"), ExtResource("2_n7bci"), ExtResource("2_n7bci"), ExtResource("2_n7bci"), ExtResource("3_hsk8i"), ExtResource("3_hsk8i"), ExtResource("3_hsk8i"), ExtResource("3_hsk8i"), ExtResource("4_5s5o4"), ExtResource("5_fg51w")])
 unlockable_cards = Array[ExtResource("1_q3igl")]([ExtResource("4_5s5o4"), ExtResource("5_fg51w"), ExtResource("7_sfui3"), ExtResource("7_sfui3"), ExtResource("8_sks2u"), ExtResource("8_sks2u"), ExtResource("9_780p4"), ExtResource("9_780p4"), ExtResource("10_2nbwt"), ExtResource("10_2nbwt")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

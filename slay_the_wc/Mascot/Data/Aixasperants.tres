@@ -18,7 +18,15 @@ script = ExtResource("3_6x3ci")
 mascotte_img = ExtResource("6_p74rg")
 mascotte_name = "Pyralis"
 deck_name = "Phénix"
-description = "[color=red]Pas de description pour le moment[/color]"
+description = "[b]Histoire : [/b]
+
+Pyralis a toujours vécu dans la forêt d’Arpos. 
+Il volait fièrement dans le ciel, aux yeux de toute la forêt pour montrer qu’il était grand et majestueux. Mais préférant être en agréable compagnie plutôt que seul avec son arrogance, il finit par s’installer dans le petit village fondé par Jeanne. Désormais, il ne vole plus très haut, mais il est très heureux de partager du temps avec ses amis.
+
+[b]Mécaniques du deck : [/b]
+
+Le deck de Pyralis se joue autour de la mécanique de brûlure. Les cartes du deck permettent d’ajouter des stacks de brûlure sur l’adversaire. Elles génèrent des dégâts de brûlure tous les tours, et en plus peuvent être consommées pour infliger encore plus de dégâts directs à la cible. 
+"
 default_cards = Array[ExtResource("1_e2pfh")]([ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("4_p74rg"), ExtResource("5_8nxhd")])
 unlockable_cards = Array[ExtResource("1_e2pfh")]([ExtResource("7_qw22w"), ExtResource("7_qw22w"), ExtResource("8_qeh0c"), ExtResource("8_qeh0c"), ExtResource("9_lmwd8"), ExtResource("9_lmwd8"), ExtResource("4_p74rg"), ExtResource("10_fx10u"), ExtResource("10_fx10u"), ExtResource("5_8nxhd"), ExtResource("11_70x6l"), ExtResource("11_70x6l")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"
