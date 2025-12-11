@@ -19,7 +19,8 @@ func perform_action(player: Entity):
 	if next_atk.useless_cards_to_add != 0:
 		for i in range(0,next_atk.useless_cards_to_add):
 			DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Unplayable.tres"))
-		
+	if next_atk.burn != 0:
+		player.add_burn(next_atk.burn)
 
 func compute_next_attack():
 	next_atk = attacks.get(randi_range(0, attacks.size()-1))

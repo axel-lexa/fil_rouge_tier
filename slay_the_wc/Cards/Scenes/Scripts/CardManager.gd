@@ -29,6 +29,7 @@ func _process(_delta: float) -> void:
 func start_drag(card):
 	if not (card is Card2):
 		return
+	
 	card_being_dragged = card
 	#card.scale = Vector2(10, 10)
 	$"../CardZoom".hide()

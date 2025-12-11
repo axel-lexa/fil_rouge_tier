@@ -546,7 +546,7 @@ func move_card_to_bin(card: Card2):
 	
 	if end_game:
 		return
-
+	card.get_node("Area2D/CollisionShape2D").disabled = true
 	player_hand_reference.remove_card_from_hand(card)
 	player.discard_card(card.data)
 

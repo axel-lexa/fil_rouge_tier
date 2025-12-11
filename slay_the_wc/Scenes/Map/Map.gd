@@ -80,7 +80,12 @@ func _on_battle_5_pressed() -> void:
 
 
 func _on_battle_final_pressed() -> void:
-	print("bataille boss")
+	lancer_bataille.play()
+	await get_tree().create_timer(0.2).timeout
+	print("bataille Boss")
+	var battle_desc = bossFlocon.new()
+	GameState.current_battle_description = battle_desc
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Battle/Battle.tscn")
 
 
 func _on_retour_menu_pressed() -> void:

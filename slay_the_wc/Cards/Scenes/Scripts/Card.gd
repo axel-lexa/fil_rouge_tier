@@ -12,6 +12,7 @@ var starting_position
 @export var highlight_on_hover: bool = true
 @export var data: CardData
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$UiCard.loadCardData(data)
@@ -24,7 +25,7 @@ func _process(_delta: float) -> void:
 func _on_mouse_entered():
 	if (highlight_on_hover):
 		hightlight_card(true)
-	$HoverTimer.start()
+		$HoverTimer.start()
 
 
 func _on_mouse_exited():

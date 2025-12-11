@@ -3,4 +3,4 @@ class_name flocon4
 func _init():
 	nom = "Flocon 4"
 	entities = [deformice.new()]
-	background = load("res://slay_the_wc/Assets/Art/BackgroundBattle/Biome-Chateau-Animé.ogv")
+	background = load("res://slay_the_wc/Assets/Art/BackgroundBattle/Biome-plaine-animé.ogv")

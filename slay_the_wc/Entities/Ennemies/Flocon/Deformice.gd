@@ -3,6 +3,9 @@ class_name deformice
 
 var attack_history: Array[String] = []
 
+var compteur_morsure: int = 0
+var compteur_concentration: int = 0
+
 func _init():
 	
 	var attack1 = Enemy_attack.new()
@@ -20,50 +23,21 @@ func _init():
 	image = load("res://slay_the_wc/Assets/Art/enemies/Souris.webp")
 	
 func compute_next_attack():
-	var possible_attacks = []
-
-	# 60% morsure
-	if can_use_attack("Morsure"):
-		possible_attacks.append({"name":"Morsure", "weight": 0.6})
-
-	# 40% concentration
-	if can_use_attack("Concentration"):
-		possible_attacks.append({"name":"Concentration", "weight": 0.4})
-
-	# Sécurité : si rien n’est possible (rare mais possible)
-	if possible_attacks.is_empty():
-		# Choisit la moins restrictive = Morsure
-		next_atk = attacks[0]
-		return
-
-	# Tirage pondéré
-	var rnd = randf()
-	var cumulative = 0.0
-
-	for atk in possible_attacks:
-		cumulative += atk["weight"]
-		if rnd <= cumulative:
+	
+	var random = randi_range(0, 99)
+	if random <= 60:
+		if compteur_morsure < 3:
+			next_atk = attacks[0]
+			compteur_morsure += 1
+		else:
 			next_atk = attacks[1]
-			break
-
-	# Mise à jour de l’historique
-	attack_history.append(next_atk.name)
-
-	# Garde la taille raisonnable
-	if attack_history.size() > 5:
-		attack_history.pop_front()
-
+			compteur_morsure = 0
+	else:
+		if compteur_concentration < 2:
+			next_atk = attacks[1]
+			compteur_concentration += 1
+		else:
+			next_atk = attacks[0]
+			compteur_concentration = 0
+	
 	update_intention_sprite(next_atk.atk_type)
-
-func can_use_attack(attack_name: String) -> bool:
-	if attack_name == "Morsure":
-		# On vérifie si les 2 derniers coups sont "Morsure"
-		if attack_history.size() >= 2 and attack_history[-1] == "Morsure" and attack_history[-2] == "Morsure":
-			return false
-
-	if attack_name == "Concentration":
-		# On vérifie si le dernier coup est "Concentration"
-		if attack_history.size() >= 1 and attack_history[-1] == "Concentration":
-			return false
-
-	return true

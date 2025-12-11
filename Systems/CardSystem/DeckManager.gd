@@ -94,6 +94,7 @@ func discard_card(card: CardData):
 		if card.target_type != CardData.TargetTypeEnum.NONE:
 			discard_pile.append(card)
 		player_hand_node.remove_card_from_hand(card)
+		
 
 # Épuise une carte (retire du deck définitivement)
 func exhaust_card(card: CardData):
