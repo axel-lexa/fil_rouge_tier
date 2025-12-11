@@ -118,6 +118,7 @@ func _ready():
 	player_component.health_bar = $BattleField/Characters/Player/HealthBarPlayer
 	player_component.turn_ui_off()
 	player.image = DeckManager.mascotData.mascotte_img
+	$BattleField/Characters/Player/PlayerImage.flip_h = DeckManager.mascotData.flip_mascotte_img
 	player.components = player_component
 	player.update_health_ui()
 	load_deck()
@@ -225,7 +226,7 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 		SaveManager.save_game()
 		$ResultBattle.text = "Vous avez gagné le combat !"
 		$EndBattle.visible = true
-		$Button.visiblr = false
+		$Button.visible = false
 		#$BattleField/Characters/Player/HealthPlayer.text = "0/0"
 		$Deck.set_deck_enabled(false)
 		DeckManager.reset_deck()

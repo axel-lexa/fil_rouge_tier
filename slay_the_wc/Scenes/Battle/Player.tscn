@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://gtc861k7evva"]
+[gd_scene load_steps=5 format=3 uid="uid://gtc861k7evva"]
 
 [ext_resource type="Texture2D" uid="uid://d28urwm7s16i1" path="res://slay_the_wc/Assets/Art/shield_icon.png" id="1_1duer"]
+[ext_resource type="Texture2D" uid="uid://daxan6lmpci51" path="res://slay_the_wc/Assets/Mascottes/mascotte_12panda.png" id="1_kxs3e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37y5e"]
 bg_color = Color(0.87058824, 0, 0.18039216, 1)
@@ -10,9 +11,18 @@ bg_color = Color(0.6784314, 0.9882353, 0.5058824, 1)
 
 [node name="Player" type="Node2D"]
 
-[node name="PlayerImage" type="Sprite2D" parent="."]
-position = Vector2(291, 550)
-scale = Vector2(0.2, 0.2)
+[node name="PlayerImage" type="TextureRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_top = 457.0
+offset_right = 453.0
+offset_bottom = 642.0
+grow_vertical = 0
+texture = ExtResource("1_kxs3e")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="HealthBarPlayer" type="ProgressBar" parent="."]
 top_level = true
