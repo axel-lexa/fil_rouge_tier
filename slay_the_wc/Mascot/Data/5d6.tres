@@ -17,7 +17,14 @@ script = ExtResource("2_wflcr")
 mascotte_img = ExtResource("4_bvsyk")
 mascotte_name = "Bernard"
 deck_name = "Bernard L'hermite"
-description = "Principalement basé sur le \"Hasard\" quand on lance des dés. En fonction du résultat, tel attaque/defense est appliqué"
+description = "[b]Histoire :[/b] 
+
+Bernard n’a pas toujours eu de la chance dans la vie. Déjà sa condition de Bernard l’hermite le force à porter sa maison sur son dos. Mais depuis son arrivée à la forêt d’Arpos, il a beaucoup plus de chance. Surtout pendant l’hiver ! Et en plus il s’est fait plein de nouveaux amis.
+
+[b]Mécaniques du deck : [/b]
+
+Le deck de Bernard se base sur une mécanique connue de tous, qui est “la RNG”. La majorité des cartes spécifiques à ce deck font lancer des dés à 6 faces. Si le score est bas, les cartes seront moins efficaces que les cartes des autres decks, si le score est haut, les cartes sont dévastatrices. 
+"
 default_cards = Array[ExtResource("1_eammp")]([ExtResource("2_wfcqq"), ExtResource("2_wfcqq"), ExtResource("2_wfcqq"), ExtResource("2_wfcqq"), ExtResource("3_328im"), ExtResource("3_328im"), ExtResource("3_328im"), ExtResource("3_328im"), ExtResource("4_wlcbr"), ExtResource("5_lefq5")])
 unlockable_cards = Array[ExtResource("1_eammp")]([ExtResource("4_wlcbr"), ExtResource("8_7gi5t"), ExtResource("8_7gi5t"), ExtResource("5_lefq5"), ExtResource("9_wuvx8"), ExtResource("9_wuvx8"), ExtResource("10_e7adr"), ExtResource("10_e7adr"), ExtResource("11_3pcyn"), ExtResource("11_3pcyn")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

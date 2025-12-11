@@ -1,34 +1,32 @@
-[gd_resource type="Resource" script_class="MascotData" load_steps=10 format=3 uid="uid://d08ms81l5qrkc"]
+[gd_resource type="Resource" script_class="MascotData" load_steps=11 format=3 uid="uid://d08ms81l5qrkc"]
 
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_rum2l"]
 [ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_uhumm"]
 [ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_3j1bh"]
 [ext_resource type="Resource" uid="uid://brkxqxesxrtf3" path="res://slay_the_wc/Cards/Data/BeurreSale/calories.tres" id="5_jarm6"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="6_forfu"]
-[ext_resource type="Resource" path="res://slay_the_wc/Cards/Data/BeurreSale/bataille_de_beurre.tres" id="7_jarm6"]
+[ext_resource type="Texture2D" uid="uid://bmjhomy2jm2k0" path="res://slay_the_wc/Assets/Mascottes/poulpy.png" id="6_jarm6"]
+[ext_resource type="Resource" uid="uid://ceagi2sn0a5lf" path="res://slay_the_wc/Cards/Data/BeurreSale/bataille_de_beurre.tres" id="7_jarm6"]
 [ext_resource type="Resource" uid="uid://dwmii3p5jcqga" path="res://slay_the_wc/Cards/Data/BeurreSale/crepe_beurre_sucre.tres" id="8_6sis5"]
 [ext_resource type="Resource" uid="uid://bethx6d1sjii2" path="res://slay_the_wc/Cards/Data/BeurreSale/tartine_pain_beurre.tres" id="11_dxvos"]
 [ext_resource type="Resource" uid="uid://beeovx8punhe5" path="res://slay_the_wc/Cards/Data/BeurreSale/tournee_generale.tres" id="12_xk60u"]
 
 [resource]
 script = ExtResource("6_forfu")
+mascotte_img = ExtResource("6_jarm6")
+flip_mascotte_img = true
 mascotte_name = "Poulpy"
 deck_name = "Poulpy Beurré"
-description = "[b]Mascotte [/b]:
-Un poulpy qui se promène toujours avec ses tartines de pain dans un tentacule, son beurre dans l’autre, et son couteau à beurre dans la troisième.
+description = "[b]Histoire : [/b]
 
-C’est un poulpy tellement mignon et poli qu’on ne peu presque rien lui refuser, surtout quand il demande gentiment (sauf de perdre un combat, faut pas non plus abuser). 
+Poulpy a été recueilli dans la forêt il y a 4 ans. 
+En survolant le ciel une nuit, Pyralis l’a trouvé inconscient dans la neige, et l’a déposé dans la forêt d’Arpos, prêt des constructions de la fête de l’hiver. Poulpy est très gourmand, et ce jour-là, il était tombé dans les pommes car il faisait une crise d’hypoglycémie. Si il n’est pas avec ses amis, c’est qu’il est quelque part en train de manger. 
+Depuis cette année, il est devenu jaune, car mangeait beaucoup trop de beurre, mais cette addiction a réveillé en lui un pouvoir hivernal très particulier.
 
-[b]Son but[/b] :
-Ramasser le [color=lightblue]sel[/color] pour saler son beurre. Il peu utiliser le seul comme ‘token’ pour augmenter les effets de ses cartes. 
-Il commence la partie avec 1 grain de [color=lightblue]sel[/color]. Si il tombe à zéro, il devient depressif, et tous les effets des cartes sont divisés par deux. A chaque début de combat il dit “Tout ça pour du beurre DOUX…”.
+[b]Mécaniques du deck : [/b]
 
-Pour gagner du [color=lightblue]sel[/color]: effet de cartes, RNG, coffres et ramassage sur la map, ou ce que vous avez décidé? Si vous ramassez du [color=lightblue]sel[/color], à chaque ramassage, ça lui fait un token en plus? 
-
-[b]Thème [/b]: deck [color=lightgreen]poison[/color]. 
-La plupart des cartes vont donner du [color=lightgreen]cholestérol [/color]à l’ennemi ce qui va lentement l’empoisonner. 
-Les [color=pink]dégats[/color] sont infligés au début du tour de l’énemi à raison de : 1 charge de [color=lightgreen]cholesterol[/color] = 1 point de [color=pink]dégat[/color].
-Les charges restent définitivement sur l’énemi sauf en cas de consommation par une carte attaque"
+Le deck de Poulpy se base sur la mécanique de “Cholestérol” qui fait office de poison. Comme il utilise des attaques autour d’un excès de beurre, les adversaires sont empoisonnés avec des stacks de “cholestérol”. Plus l’adversaire a de cholestérol, plus il risque de prendre de dégâts par le deck de Poulpy en plus des dégâts de poison.
+"
 default_cards = Array[ExtResource("1_rum2l")]([ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("12_xk60u"), ExtResource("5_jarm6")])
 unlockable_cards = Array[ExtResource("1_rum2l")]([ExtResource("5_jarm6"), ExtResource("12_xk60u"), ExtResource("7_jarm6"), ExtResource("7_jarm6"), ExtResource("8_6sis5"), ExtResource("8_6sis5"), ExtResource("12_xk60u"), ExtResource("12_xk60u"), ExtResource("11_dxvos"), ExtResource("11_dxvos")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

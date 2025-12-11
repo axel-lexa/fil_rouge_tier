@@ -19,7 +19,15 @@ mascotte_img = ExtResource("7_4eugv")
 mascotte_img2 = ExtResource("6_xm0rm")
 mascotte_name = "Telo et Zeno"
 deck_name = "Loups"
-description = "Les personnages changent pour améliorer l'attaque (Zeno) et la défense (Telo) du joueur. Les cartes s'appuient sur leur spécialité"
+description = "[b]Histoire : [/b]
+
+Telo et Zeno sont 2 frères loups qui ne se quittent jamais. 
+Ils ont été recueillis par Jeanne il y a 2ans et depuis, les animaux de la forêt sont leur nouvelle famille. Telo le grand frère est solide et robuste, Zeno le petit frère est agile et fort. Ils aiment faire la fête, et le houblon décuple leur puissance hivernale magique.
+
+[b]Mécaniques du deck : [/b]
+
+Le deck de Telo et Zeno se joue sur des cartes spécialisées “Attaque” ou “Défense”. Les cartes autour de Zeno permettent d’attaquer, les cartes autour de Telo permettent de défendre. Certaines cartes permettent de combiner leur puissance pour avoir encore plus d’impact sur le jeu.
+"
 default_cards = Array[ExtResource("1_e8sna")]([ExtResource("2_p63qu"), ExtResource("2_p63qu"), ExtResource("2_p63qu"), ExtResource("2_p63qu"), ExtResource("3_xm0rm"), ExtResource("3_xm0rm"), ExtResource("3_xm0rm"), ExtResource("3_xm0rm"), ExtResource("4_4eugv"), ExtResource("5_bpi04")])
 unlockable_cards = Array[ExtResource("1_e8sna")]([ExtResource("7_xgp25"), ExtResource("7_xgp25"), ExtResource("8_m0pnr"), ExtResource("8_m0pnr"), ExtResource("9_3ofij"), ExtResource("9_3ofij"), ExtResource("10_24xqt"), ExtResource("10_24xqt"), ExtResource("5_bpi04"), ExtResource("4_4eugv")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"
