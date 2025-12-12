@@ -574,18 +574,20 @@ func _on_button_pressed() -> void:
 			enemies_to_kill.append(enemy)
 			break
 		enemy.perform_action(player)
-		$AtkName.visible = true
+		
 		textEnnemy += enemy.name + " a utilisé l'attaque " + enemy.next_atk.name+"\n"
-		$AtkName.text = textEnnemy
-		play_sound_battle(begin_phase,"")
-		await get_tree().create_timer(1).timeout
-		$AtkName.visible = false
+		
+		
 		enemy.compute_next_attack()	
 	for enemy in enemies_to_kill:
 		alive_enemies.erase(enemy)
 	
-	
-	
+	$AtkName.visible = true
+	$AtkName.text = textEnnemy
+	play_sound_battle(begin_phase,"")
+	await get_tree().create_timer(1).timeout
+	$AtkName.visible = false
+	textEnnemy = ""
 	player.compute_burn()
 	if player.health == 0:
 		var timeWait = play_sound_battle_random(defeat_array)
