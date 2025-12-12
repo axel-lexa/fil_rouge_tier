@@ -40,7 +40,7 @@ func hide_informations(boolean: bool):
 	$LogoWinterCup2.visible = boolean
 	$Copyright.visible = boolean
 	$BackGround.visible = boolean
-	
+	$TitreJeu.visible = boolean
 	
 
 func show_elements_progressively():
@@ -50,6 +50,7 @@ func show_elements_progressively():
 	
 	# Liste des éléments du menu dans l'ordre d'apparition
 	var elements = [
+		$TitreJeu,
 		$TitleGame,
 		$LogoWinterCup,
 		$LogoWinterCup2,

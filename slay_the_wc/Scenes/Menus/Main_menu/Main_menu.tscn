@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cekc18dbmnves"]
+[gd_scene load_steps=14 format=3 uid="uid://cekc18dbmnves"]
 
 [ext_resource type="Script" uid="uid://di081sdjvursu" path="res://slay_the_wc/Scenes/Menus/Main_menu/main_menu.gd" id="1_6fvm6"]
 [ext_resource type="Texture2D" uid="uid://wdb7prvrrf7t" path="res://slay_the_wc/Assets/Art/logoWinterCup.png" id="1_pye2b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bspsothfktngg" path="res://slay_the_wc/Assets/Art/Main_Menu/background.png" id="7_fa5sa"]
 [ext_resource type="VideoStream" uid="uid://dabkhi3yvqf5u" path="res://slay_the_wc/Assets/Art/Main_Menu/intro_main_menu.ogv" id="7_sdlof"]
 [ext_resource type="AudioStream" uid="uid://ci4kvgrs2yqhc" path="res://slay_the_wc/Assets/Sounds/Theme 1 (Cover Winter).mp3" id="8_fa5sa"]
+[ext_resource type="Texture2D" uid="uid://b1nm5futjckoq" path="res://slay_the_wc/Assets/Art/Les-7-Esprits-de-lHiver.png" id="9_b021u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rkit"]
 bg_color = Color(0.14901961, 0.627451, 0.8039216, 1)
@@ -26,6 +27,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6fvm6")
@@ -84,25 +89,23 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -241.0
-offset_top = 94.0
-offset_right = 241.0
-offset_bottom = 172.0
+offset_left = 208.0
+offset_top = 19.0
+offset_right = 690.0
+offset_bottom = 97.0
 grow_horizontal = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 50
-text = "7 Esprits de l'Hiver"
 horizontal_alignment = 1
 
 [node name="LogoWinterCup" type="Sprite2D" parent="."]
-position = Vector2(216.99998, 273.00003)
-scale = Vector2(0.5099668, 0.51916933)
+position = Vector2(87, 754)
+scale = Vector2(0.5, 0.51)
 texture = ExtResource("1_pye2b")
 
 [node name="LogoWinterCup2" type="Sprite2D" parent="."]
-position = Vector2(1109, 270)
-scale = Vector2(0.51, 0.496)
-texture = ExtResource("1_pye2b")
+position = Vector2(1320, 615)
+scale = Vector2(0.2, 0.195)
 
 [node name="Copyright" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -143,9 +146,9 @@ expand = true
 [node name="SkipButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1318.0
-offset_top = 813.0
+offset_top = 806.0
 offset_right = 1400.0
-offset_bottom = 844.0
+offset_bottom = 837.0
 text = "Passer >>"
 
 [node name="BackGround" type="Sprite2D" parent="."]
@@ -156,8 +159,12 @@ texture = ExtResource("7_fa5sa")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_fa5sa")
-volume_db = -30.457
+volume_db = -16.343
 autoplay = true
+
+[node name="TitreJeu" type="Sprite2D" parent="."]
+position = Vector2(694, 110)
+texture = ExtResource("9_b021u")
 
 [connection signal="mouse_entered" from="VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]

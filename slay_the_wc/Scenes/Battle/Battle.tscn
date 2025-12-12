@@ -106,7 +106,6 @@ grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 expand_mode = 1
 stretch_mode = 5
-flip_h = true
 
 [node name="DefenseEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie1"]
 z_index = 31
@@ -173,7 +172,6 @@ grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 expand_mode = 1
 stretch_mode = 5
-flip_h = true
 
 [node name="DefenseEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie2"]
 z_index = 31
@@ -240,7 +238,6 @@ grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 expand_mode = 1
 stretch_mode = 5
-flip_h = true
 
 [node name="DefenseEnnemy" type="RichTextLabel" parent="BattleField/Characters/Ennemie3"]
 z_index = 31
@@ -328,14 +325,16 @@ offset_left = 454.0
 offset_top = 21.0
 offset_right = 1063.0
 offset_bottom = 200.0
-theme_override_font_sizes/normal_font_size = 40
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 80
 
 [node name="EndBattle" type="Button" parent="."]
 z_index = 10
-offset_left = 608.0
-offset_top = 160.0
-offset_right = 810.0
-offset_bottom = 191.0
+offset_left = 614.0
+offset_top = 197.0
+offset_right = 816.0
+offset_bottom = 228.0
 text = "Retour à l'ecran principal"
 
 [node name="BackGround" type="Sprite2D" parent="."]

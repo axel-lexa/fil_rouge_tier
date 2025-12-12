@@ -9,7 +9,7 @@ func _skip_video():
 
 func _on_video_stream_player_finished() -> void:
 	
-	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/Main_menu/Main_menu.tscn")
+	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/DeckSelection/deck_selection.tscn")
 
 
 func _on_skip_scene_pressed() -> void:

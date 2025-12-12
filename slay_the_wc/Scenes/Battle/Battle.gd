@@ -72,6 +72,7 @@ var card_scene: PackedScene
 var textEnnemy: String = ""
 	
 func _ready():
+	set_process_unhandled_input(true)
 	card_scene = preload("res://slay_the_wc/Cards/Scenes/Card.tscn")
 		
 	# Ajouter au groupe pour la sauvegarde
@@ -106,6 +107,7 @@ func _ready():
 	$AtkName.visible = false
 	
 	player = load("res://slay_the_wc/Entities/Players/Player.tres")
+	player.health = RunManager.current_hp
 	var player_component = Entity_components.new() 
 	player_component.name_label = $BattleField/Characters/Player/NamePlayer
 	player_component.health_label = $BattleField/Characters/Player/HealthPlayer
@@ -174,6 +176,14 @@ func _ready():
 	player_turn = true
 	end_game = false
 
+func _unhandled_input(event):
+	if event.is_action_pressed("heal_cheat"):
+		if player:
+			RunManager.current_hp = player.max_health
+			#player.health = player.max_health
+			player.heal(player.max_health)
+
+
 func load_deck():
 	if DeckManager.deck.size() == 0:
 		DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Baston.tres"))
@@ -223,6 +233,7 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 		enemy_death_2.stop()
 		play_sound_battle_random(victory_array)
 		RunManager.complete_floor()
+		RunManager.current_hp = player.health
 		SaveManager.save_game()
 		$ResultBattle.text = "Vous avez gagné le combat !"
 		$EndBattle.visible = true
@@ -600,13 +611,15 @@ func _on_button_pressed() -> void:
 	player.compute_burn()
 	if player.health == 0:
 		var timeWait = play_sound_battle_random(defeat_array)
-		$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
+		$ResultBattle.text = "GAME OVER"
 		$EndBattle.visible = true
 		$BattleField/Characters/Player/HealthPlayer.text = "0/0"
 		$Button.visible = false
 		$Deck.set_deck_enabled(false)
 		DeckManager.reset_deck()
 		end_game = true
+		RunManager.current_hp = RunManager.max_hp
+		RunManager.current_floor = 1
 		await get_tree().create_timer(timeWait).timeout
 		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
 		return
