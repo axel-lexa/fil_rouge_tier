@@ -7,8 +7,9 @@
 script = ExtResource("2_1i8fr")
 id = "en_avant_zeno"
 card_name = "En avant, Zeno !"
-description = "Tant que Zeno est en avant, vous doublez les dégâts infligés et reçus"
-target_type = 2
+mana_cost = 2
+description = "Inflige 12 dégâts"
+target_type = 1
 card_type = 1
 background = ExtResource("1_1i8fr")
 card_team_owner = 2

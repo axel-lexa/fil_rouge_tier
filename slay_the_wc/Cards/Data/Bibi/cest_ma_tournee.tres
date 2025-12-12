@@ -8,8 +8,8 @@ script = ExtResource("2_edlnx")
 id = "cest_ma_tournee"
 card_name = "C'est ma tournée !"
 mana_cost = 1
-description = "Gagne 5 blocages
-Inflige 5 dégâts"
+description = "Gagne 4 blocages
+Inflige 4 dégâts"
 target_type = 1
 background = ExtResource("1_e0sbs")
 card_team_owner = 2

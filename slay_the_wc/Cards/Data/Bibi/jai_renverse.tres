@@ -7,9 +7,8 @@
 script = ExtResource("2_mv65r")
 id = "jai_renverse"
 card_name = "J'ai renversé"
-mana_cost = 2
-description = "à définir"
-target_type = 1
+description = "Défaussez toutes les cartes de votre main, piochez autant de cartes"
+target_type = 2
 card_type = 1
 background = ExtResource("1_4s1t2")
 card_team_owner = 2

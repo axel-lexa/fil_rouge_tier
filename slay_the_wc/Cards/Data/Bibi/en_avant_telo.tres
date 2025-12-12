@@ -7,7 +7,8 @@
 script = ExtResource("2_5lvm6")
 id = "en_avant_teno"
 card_name = "En avant, Teno !"
-description = "Tant que Telo est en avant, vous avez 1 énergie en moins et doublez vos effets de blocages"
+mana_cost = 2
+description = "Gagne 12 blocages"
 target_type = 2
 card_type = 1
 background = ExtResource("1_6imyi")

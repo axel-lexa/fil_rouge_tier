@@ -12,4 +12,5 @@ description = "Inflige 8 dégâts
 Gagne 8 blocages"
 target_type = 1
 background = ExtResource("1_f0hs8")
+card_team_owner = 2
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

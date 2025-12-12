@@ -523,7 +523,7 @@ func process_card_bibi_enemy(card: Card2, target: Enemy):
 	elif card.data.id == "cest_ma_tournee":
 		process_damage_entity(target, 4)
 		process_shield_entity(player, 4)
-	elif card.cata.id == "en_avant_zeno":
+	elif card.data.id == "en_avant_zeno":
 		process_damage_entity(target, 12)
 	elif card.data.id == "double_attaque":
 		process_damage_entity(target, 8)

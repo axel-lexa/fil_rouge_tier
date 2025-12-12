@@ -81,6 +81,7 @@ position = Vector2(1323, 742)
 light_mask = 16
 visibility_layer = 16
 position = Vector2(88, 736)
+scale = Vector2(3, 3)
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("6_8ajvn")
