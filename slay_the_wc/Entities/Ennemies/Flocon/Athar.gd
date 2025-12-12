@@ -20,8 +20,8 @@ func compute_next_attack():
 	
 	var random = randi_range(0, 99)
 	if random < 25:
-		next_atk = attacks[0]
-	else:
 		next_atk = attacks[1]
+	else:
+		next_atk = attacks[0]
 	
 	update_intention_sprite(next_atk.atk_type)

@@ -15,7 +15,7 @@ func _ready():
 
 func start_new_run():
 	current_hp = max_hp
-	# current_floor = 4
+	current_floor = 1
 	run_seed = randi()
 	seed(run_seed)
 	Events.run_started.emit()

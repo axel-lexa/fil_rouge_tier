@@ -9,6 +9,7 @@ id = "3d6"
 card_name = "3d6"
 mana_cost = 1
 description = "Gagne 3d6 blocages"
+target_type = 2
 card_type = 1
 background = ExtResource("1_1yqg5")
 card_team_owner = 3

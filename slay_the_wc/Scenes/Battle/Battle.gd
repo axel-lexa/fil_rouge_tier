@@ -68,6 +68,8 @@ var parasitism_targeted_enemy : Enemy
 var card_played: Array[Card2]	
 
 var card_scene: PackedScene
+
+var textEnnemy: String = ""
 	
 func _ready():
 	card_scene = preload("res://slay_the_wc/Cards/Scenes/Card.tscn")
@@ -412,7 +414,6 @@ func process_card_12pandas_himself(card: Card2):
 func process_card_bibi_himself(card: Card2):
 	pass	
 func process_card_5d6_himself(card: Card2):
-	
 	if card.data.id == "3d6":
 		process_shield_entity(player, launch_dice(3))
 	elif card.data.id == "1d6":
@@ -531,7 +532,7 @@ func sub_mites(amount: int):
 func launch_dice(count: int):
 	var somme = 0
 	for i in range(0, count):
-		somme = randi_range(1, 6)	
+		somme += randi_range(1, 6)	
 	return somme
 	
 func process_end_of_turn_actions():
@@ -573,19 +574,18 @@ func _on_button_pressed() -> void:
 			enemies_to_kill.append(enemy)
 			break
 		enemy.perform_action(player)
+		$AtkName.visible = true
+		textEnnemy += enemy.name + " a utilisé l'attaque " + enemy.next_atk.name+"\n"
+		$AtkName.text = textEnnemy
+		play_sound_battle(begin_phase,"")
+		await get_tree().create_timer(1).timeout
+		$AtkName.visible = false
 		enemy.compute_next_attack()	
 	for enemy in enemies_to_kill:
 		alive_enemies.erase(enemy)
-	var text: String = ""
-	$AtkName.visible = true
-	for enemy in alive_enemies:
-		
-		text += enemy.name + " a utilisé l'attaque " + enemy.next_atk.name+"\n"
 	
-	$AtkName.text = text
-	play_sound_battle(begin_phase,"")
-	await get_tree().create_timer(1).timeout
-	$AtkName.visible = false
+	
+	
 	player.compute_burn()
 	if player.health == 0:
 		var timeWait = play_sound_battle_random(defeat_array)

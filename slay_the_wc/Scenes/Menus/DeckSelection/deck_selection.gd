@@ -36,6 +36,7 @@ func _on_button_toggled(toggled_on: bool, index: int) -> void:
 func _on_button_next_pressed() -> void:
 	var mascotData: MascotData = %TabContainer.get_current_tab_control().mascot
 	DeckManager.deck = mascotData.default_cards
+	DeckManager.shuffle_deck()
 	DeckManager.unlockable_cards = mascotData.unlockable_cards
 	DeckManager.mascotData = mascotData
 	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
