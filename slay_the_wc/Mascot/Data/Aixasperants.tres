@@ -23,4 +23,5 @@ Il volait fièrement dans le ciel, aux yeux de toute la forêt pour montrer qu�
 Le deck de Pyralis se joue autour de la mécanique de brûlure. Les cartes du deck permettent d’ajouter des stacks de brûlure sur l’adversaire. Elles génèrent des dégâts de brûlure tous les tours, et en plus peuvent être consommées pour infliger encore plus de dégâts directs à la cible. 
 "
 default_cards = Array[ExtResource("1_e2pfh")]([ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("4_p74rg"), ExtResource("5_8nxhd")])
+theme_color = Color(0.8, 0, 0, 1)
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

@@ -25,4 +25,5 @@ Depuis cette année, il est devenu jaune, car mangeait beaucoup trop de beurre, 
 Le deck de Poulpy se base sur la mécanique de “Cholestérol” qui fait office de poison. Comme il utilise des attaques autour d’un excès de beurre, les adversaires sont empoisonnés avec des stacks de “cholestérol”. Plus l’adversaire a de cholestérol, plus il risque de prendre de dégâts par le deck de Poulpy en plus des dégâts de poison.
 "
 default_cards = Array[ExtResource("1_rum2l")]([ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("12_xk60u"), ExtResource("5_jarm6")])
+theme_color = Color(0.5764706, 0.76862746, 0.49019608, 1)
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

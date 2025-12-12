@@ -53,6 +53,7 @@ alignment = 1
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_constants/outline_size = 5
 toggle_mode = true
 button_pressed = true
 text = "Deck 1"
@@ -61,6 +62,7 @@ autowrap_mode = 2
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_constants/outline_size = 5
 toggle_mode = true
 text = "Deck 2"
 autowrap_mode = 2
@@ -68,6 +70,7 @@ autowrap_mode = 2
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_constants/outline_size = 5
 toggle_mode = true
 text = "Deck 3"
 autowrap_mode = 2
@@ -75,6 +78,7 @@ autowrap_mode = 2
 [node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_constants/outline_size = 5
 toggle_mode = true
 text = "Deck 4"
 autowrap_mode = 2
@@ -82,6 +86,7 @@ autowrap_mode = 2
 [node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_constants/outline_size = 5
 toggle_mode = true
 text = "Deck 5"
 autowrap_mode = 2
@@ -89,6 +94,7 @@ autowrap_mode = 2
 [node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_constants/outline_size = 5
 toggle_mode = true
 text = "Deck 6"
 autowrap_mode = 2
@@ -96,6 +102,7 @@ autowrap_mode = 2
 [node name="Button7" type="Button" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_constants/outline_size = 5
 toggle_mode = true
 text = "Deck 7"
 autowrap_mode = 2
