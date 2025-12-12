@@ -5,6 +5,7 @@ func debug_emit():
 
 # SignalBus pour découplage total entre systèmes
 # Événements de combat
+@warning_ignore_start("unused_signal")
 signal battle_started
 signal battle_ended(victory: bool)
 signal battle_won

@@ -48,7 +48,7 @@ func save_game():
 		save_data["battle_data"]["player_deck"] = _save_deck(deck_node.player_deck)
 	
 	# Sauvegarder la main si on est en combat
-	var player_hand = get_tree().get_first_node_in_group("player_hand")
+	#var player_hand = get_tree().get_first_node_in_group("player_hand")
 	#if player_hand and player_hand.has("player_hand"):
 	#	save_data["battle_data"]["player_hand"] = _save_hand(player_hand.player_hand)
 	
