@@ -1,21 +1,19 @@
 extends Node2D
 
 #Sons
-@onready var taunt_enemy_1: AudioStreamPlayer = $TauntEnemy1
-@onready var taunt_enemy_2: AudioStreamPlayer = $TauntEnemy2
-@onready var taunt_enemy_3: AudioStreamPlayer = $TauntEnemy3
-@onready var taunt_enemy_4: AudioStreamPlayer = $TauntEnemy4
-@onready var taunt_enemy_5: AudioStreamPlayer = $TauntEnemy5
-@onready var taunt_enemy_6: AudioStreamPlayer = $TauntEnemy6
-@onready var taunt_enemy_7: AudioStreamPlayer = $TauntEnemy7
+@onready var taunt_enemy_athar: AudioStreamPlayer = $TauntEnemyAthar
+@onready var taunt_enemy_choppy_orc: AudioStreamPlayer = $TauntEnemyChoppyOrc
+@onready var taunt_enemy_deformice: AudioStreamPlayer = $TauntEnemyDeformice
+@onready var taunt_enemy_greedy_mimic: AudioStreamPlayer = $TauntEnemyGreedyMimic
+@onready var taunt_enemy_one_trick_mage: AudioStreamPlayer = $TauntEnemyOneTrickMage
+@onready var taunt_enemy_patate: AudioStreamPlayer = $TauntEnemyPatate
+@onready var taunt_enemy_tech_rex: AudioStreamPlayer = $TauntEnemyTechRex
 @onready var taunt_enemy_8: AudioStreamPlayer = $TauntEnemy8
 @onready var taunt_enemy_9: AudioStreamPlayer = $TauntEnemy9
 @onready var taunt_enemy_10: AudioStreamPlayer = $TauntEnemy10
-#TODO trouver où le mettre
 @onready var begin_phase: AudioStreamPlayer = $BeginPhase
 @onready var draw_card_1: AudioStreamPlayer = $DrawCard1
 @onready var draw_card_2: AudioStreamPlayer = $DrawCard2
-@onready var end_phase: AudioStreamPlayer = $EndPhase
 @onready var discard_card_1: AudioStreamPlayer = $DiscardCard1
 @onready var discard_card_2: AudioStreamPlayer = $DiscardCard2
 @onready var token_taken: AudioStreamPlayer = $TokenTaken
@@ -42,14 +40,11 @@ extends Node2D
 #Arrays de sons
 @onready var hit_taken_array: Array[AudioStreamPlayer] = [hit_taken_1,hit_taken_2,hit_taken_3,hit_taken_4,hit_taken_5,hit_taken_rare_1,hit_taken_rare_2]
 @onready var draw_card_array: Array[AudioStreamPlayer] = [draw_card_1,draw_card_2]
-#TODO trouver où le mettre
 @onready var discard_card_array: Array[AudioStreamPlayer] = [discard_card_1,discard_card_2]
 @onready var heal_taken_array: Array[AudioStreamPlayer] = [heal_taken_1,heal_taken_2]
 @onready var buff_taken_array: Array[AudioStreamPlayer] = [buff_taken_1,buff_taken_2]
 @onready var enemy_death_array: Array[AudioStreamPlayer] = [enemy_death_1,enemy_death_2]
-#TODO trouver où le mettre
 @onready var victory_array: Array[AudioStreamPlayer] = [victory_1,victory_2]
-#TODO trouver où le mettre
 @onready var defeat_array: Array[AudioStreamPlayer] = [defeat_1,defeat_2]
 
 var player: Player
@@ -222,6 +217,9 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 	# Quand tout les ennemies sont KO :
 	if alive_enemies.size() == 0:
 		#RunManager.current_hp = RunManager.max_hp
+		enemy_death_1.stop()
+		enemy_death_2.stop()
+		play_sound_battle_random(victory_array)
 		RunManager.complete_floor()
 		SaveManager.save_game()
 		$ResultBattle.text = "Vous avez gagné le combat !"
@@ -310,7 +308,7 @@ func process_card_player(card: Card2):
 
 func process_damage_player(enemy: Player, damage: int):
 	if not enemy.apply_damage_and_check_lifestatus(damage):
-		play_sound_battle_random(enemy_death_array)
+		play_sound_battle_random(defeat_array)
 	else:
 		play_sound_battle_random(hit_taken_array)
 		
@@ -537,7 +535,7 @@ func launch_dice(count: int):
 	return somme
 	
 func process_end_of_turn_actions():
-	play_sound_battle(end_phase,"")
+	pass
 	
 func process_next_turn_actions():
 	process_pentamonstre_next_turn_actions()
@@ -585,10 +583,12 @@ func _on_button_pressed() -> void:
 		text += enemy.name + " a utilisé l'attaque " + enemy.next_atk.name+"\n"
 	
 	$AtkName.text = text
+	play_sound_battle(begin_phase,"")
 	await get_tree().create_timer(1).timeout
 	$AtkName.visible = false
 	player.compute_burn()
 	if player.health == 0:
+		var timeWait = play_sound_battle_random(defeat_array)
 		$ResultBattle.text = "La patate a été plus fort(e) que vous, une prochaine fois mdr"
 		$EndBattle.visible = true
 		$BattleField/Characters/Player/HealthPlayer.text = "0/0"
@@ -596,6 +596,7 @@ func _on_button_pressed() -> void:
 		$Deck.set_deck_enabled(false)
 		DeckManager.reset_deck()
 		end_game = true
+		await get_tree().create_timer(timeWait).timeout
 		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
 		return
 	else:
@@ -669,30 +670,32 @@ func play_hit_flash(target: Enemy):
 	tween.tween_property(sprite, "modulate", original_modulate, 0.1)
 	tween.tween_property(sprite, "position", original_pos, 0.05)
 
-func play_sound_battle_random(sounds: Array[AudioStreamPlayer]):
+func play_sound_battle_random(sounds: Array[AudioStreamPlayer]) -> float:
 	var rng = RandomNumberGenerator.new()
 	var randomIndex = rng.randi_range(0,sounds.size()-1)
-	sounds.get(randomIndex).play()
+	var soundPlaying = sounds.get(randomIndex)
+	soundPlaying.play()
+	return soundPlaying.stream.get_length()
 			
 func play_sound_battle(sound: AudioStreamPlayer, titleSound: String):
 	if sound != null:
 		sound.play()
 	else:
-		if titleSound == "enemy_1":
-			taunt_enemy_1.play()
-		elif titleSound == "enemy_2":
-			taunt_enemy_2.play()
-		elif titleSound == "enemy_3":
-			taunt_enemy_3.play()
-		elif titleSound == "enemy_4":
-			taunt_enemy_4.play()
-		elif titleSound == "enemy_5":
-			taunt_enemy_5.play()
-		elif titleSound == "enemy_6":
-			taunt_enemy_6.play()
-		elif titleSound == "enemy_7":
-			taunt_enemy_7.play()
-		elif titleSound == "enemy_8":
+		if titleSound == "Athar":
+			taunt_enemy_athar.play()
+		elif titleSound == "Choppy Orc":
+			taunt_enemy_choppy_orc.play()
+		elif titleSound == "Déformice":
+			taunt_enemy_deformice.play()
+		elif titleSound == "Greedy Mimic":
+			taunt_enemy_greedy_mimic.play()
+		elif titleSound == "One Trick Mage":
+			taunt_enemy_one_trick_mage.play()
+		elif titleSound == "La patate":
+			taunt_enemy_patate.play()
+		elif titleSound == "Techrex":
+			taunt_enemy_tech_rex.play()
+		elif titleSound == "BruleSonge":
 			taunt_enemy_8.play()
 		elif titleSound == "enemy_9":
 			taunt_enemy_9.play()

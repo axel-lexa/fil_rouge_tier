@@ -4,7 +4,7 @@ extends Node
 
 var current_hp: int = 100
 var max_hp: int = 100
-var current_floor: int = 4
+var current_floor: int = 1
 var run_seed: int = 0
 
 func _ready():
@@ -15,7 +15,7 @@ func _ready():
 
 func start_new_run():
 	current_hp = max_hp
-	current_floor = 4
+	# current_floor = 4
 	run_seed = randi()
 	seed(run_seed)
 	Events.run_started.emit()
