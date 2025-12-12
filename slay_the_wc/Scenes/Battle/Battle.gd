@@ -511,7 +511,7 @@ func process_card_penta_monstre_himself(card: Card2):
 		player.mites_to_add += 10
 	if card.data.id == "ponte_rapide":
 		process_damage_player(player, 3)
-		process_count_mites("+", 4)
+		process_count_mites("+", 5)
 	if card.data.id == "sacrifice_mite":
 		if player.nb_mites >= 5:
 			process_count_mites("-", 5)
@@ -754,7 +754,8 @@ func _on_button_pressed() -> void:
 		enemy.perform_action(player)
 		if enemy.next_atk:
 			textEnnemy += enemy.name + " a utilisé l'attaque " + enemy.next_atk.name+"\n"
-		
+		else:
+			textEnnemy += ""
 		
 		enemy.compute_next_attack()	
 	for enemy in enemies_to_kill:
