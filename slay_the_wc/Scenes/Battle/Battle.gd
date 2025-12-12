@@ -115,11 +115,13 @@ func _ready():
 	player_component.sprite = $BattleField/Characters/Player/PlayerImage
 	player_component.defense_icon = $BattleField/Characters/Player/DefenseIcon
 	player_component.health_bar = $BattleField/Characters/Player/HealthBarPlayer
-	player_component.turn_ui_off()
 	player.image = DeckManager.mascotData.mascotte_img
 	$BattleField/Characters/Player/PlayerImage.flip_h = DeckManager.mascotData.flip_mascotte_img
+	player.set_tokens_label($BattleField/Characters/Player/TokensLabel)
+	player.compute_tokens_visibility()
 	player.components = player_component
 	player.update_health_ui()
+	player.turn_ui_off()
 	load_deck()
 	compute_energy()
 	
@@ -350,6 +352,13 @@ func process_shield_multiply_entity(target: Entity, amout: int):
 	target.multiply_defense(amout)
 	play_sound_battle_random(buff_taken_array)
 
+func add_token_panda(amount: int) -> int:
+	play_sound_battle(token_panda,"")
+	return add_token(amount)
+	
+func add_token(amount: int) -> int:
+	return player.add_tokens(amount)
+
 func process_count_panda(operation: String, amount: int):
 	match operation:
 		"+":
@@ -456,12 +465,13 @@ func process_card_uwu_himself(card: Card2):
 	pass		
 	
 func process_card_12pandas_enemy(card: Card2, target: Enemy):
-	
 	if card.data.id == "coup_bambou":
 		process_damage_entity(target, 7)
-		process_count_panda("+", 3)
+		var overflow = add_token_panda(3)
+		for i in range(0, overflow):
+			process_damage_entity(alive_enemies.get(randi_range(0, alive_enemies.size()-1)), 3)
 	elif card.data.id == "revanche":
-		for i in range(0, player.nb_pandas_left_battle):
+		for i in range(0, player.tokens):
 			process_damage_entity(alive_enemies.get(randi_range(0, alive_enemies.size()-1)), 3)
 		
 	elif card.data.id == "roulade":
