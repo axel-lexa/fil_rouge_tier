@@ -64,7 +64,7 @@ text = "Nouvelle partie"
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_6fvm6")
-text = "Crédit"
+text = "Crédits"
 
 [node name="ExitGame" type="Button" parent="VBoxContainer"]
 layout_mode = 2
