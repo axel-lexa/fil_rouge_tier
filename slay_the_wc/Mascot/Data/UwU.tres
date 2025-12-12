@@ -33,4 +33,5 @@ Le deck d’Aurore se joue autour d’une mécanique de combo “follow up”. L
 "
 default_cards = Array[ExtResource("1_q3igl")]([ExtResource("7_sfui3"), ExtResource("7_sfui3"), ExtResource("7_sfui3"), ExtResource("5_fg51w"), ExtResource("5_fg51w"), ExtResource("5_fg51w"), ExtResource("9_780p4"), ExtResource("4_5s5o4"), ExtResource("8_sks2u"), ExtResource("10_2nbwt"), ExtResource("3_hsk8i"), ExtResource("9_sfui3"), ExtResource("10_sks2u"), ExtResource("2_n7bci"), ExtResource("2_n7bci"), ExtResource("12_780p4"), ExtResource("13_2nbwt"), ExtResource("14_ul4lq")])
 unlockable_cards = Array[ExtResource("1_q3igl")]([ExtResource("4_5s5o4"), ExtResource("5_fg51w"), ExtResource("7_sfui3"), ExtResource("7_sfui3"), ExtResource("8_sks2u"), ExtResource("8_sks2u"), ExtResource("9_780p4"), ExtResource("9_780p4"), ExtResource("10_2nbwt"), ExtResource("10_2nbwt")])
+theme_color = Color(0.8352941, 0.6509804, 0.7411765, 1)
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

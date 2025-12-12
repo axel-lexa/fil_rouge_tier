@@ -35,4 +35,5 @@ Ils ont été recueillis par Jeanne il y a 2ans et depuis, les animaux de la for
 Le deck de Telo et Zeno se joue sur des cartes spécialisées “Attaque” ou “Défense”. Les cartes autour de Zeno permettent d’attaquer, les cartes autour de Telo permettent de défendre. Certaines cartes permettent de combiner leur puissance pour avoir encore plus d’impact sur le jeu.
 "
 default_cards = Array[ExtResource("1_e8sna")]([ExtResource("8_m0pnr"), ExtResource("8_m0pnr"), ExtResource("9_3ofij"), ExtResource("9_3ofij"), ExtResource("7_xgp25"), ExtResource("7_xgp25"), ExtResource("10_24xqt"), ExtResource("5_bpi04"), ExtResource("4_4eugv"), ExtResource("8_24xqt"), ExtResource("9_74t23"), ExtResource("2_p63qu"), ExtResource("2_p63qu"), ExtResource("11_8m02v"), ExtResource("3_xm0rm"), ExtResource("13_3qlom"), ExtResource("14_hxwy4"), ExtResource("15_sdewf"), ExtResource("16_7plxt"), ExtResource("17_7opge")])
+theme_color = Color(0.63529414, 0.40784314, 0.6627451, 1)
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

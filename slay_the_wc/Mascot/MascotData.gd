@@ -9,3 +9,4 @@ class_name MascotData
 @export_multiline var description: String
 @export var default_cards :Array[CardData]
 @export var unlockable_cards :Array[CardData]
+@export var theme_color: Color
