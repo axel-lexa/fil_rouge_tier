@@ -80,3 +80,11 @@ offset_top = 374.0
 offset_right = 812.0
 offset_bottom = 414.0
 theme_override_constants/separation = 35
+
+[node name="SpecialPower" type="RichTextLabel" parent="."]
+offset_left = 178.0
+offset_top = 330.0
+offset_right = 666.0
+offset_bottom = 360.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5

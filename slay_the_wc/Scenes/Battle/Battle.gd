@@ -115,6 +115,7 @@ func _ready():
 	player_component.sprite = $BattleField/Characters/Player/PlayerImage
 	player_component.defense_icon = $BattleField/Characters/Player/DefenseIcon
 	player_component.health_bar = $BattleField/Characters/Player/HealthBarPlayer
+	player_component.extra_info = $BattleField/Characters/Player/SpecialPower
 	player_component.turn_ui_off()
 	player.image = DeckManager.mascotData.mascotte_img
 	$BattleField/Characters/Player/PlayerImage.flip_h = DeckManager.mascotData.flip_mascotte_img
@@ -353,11 +354,24 @@ func process_shield_multiply_entity(target: Entity, amout: int):
 func process_count_panda(operation: String, amount: int):
 	match operation:
 		"+":
-			player.nb_pandas += amount 
+			if player.nb_pandas + amount > 12:
+				var nb_pandas_attack = player.nb_pandas + amount - 12
+				panda_left_battle(nb_pandas_attack)
+				player.nb_pandas = 12
+				player.update_extra_info()
+			else:
+				player.nb_pandas += amount
 		"-":
 			player.nb_pandas -= amount
 		"*":
-			player.nb_pandas *= amount
+			if player.nb_pandas * amount > 12:
+				var nb_pandas_attack = player.nb_pandas * amount - 12
+				panda_left_battle(nb_pandas_attack)
+				player.nb_pandas = 12
+				player.update_extra_info()
+			else:
+				player.nb_pandas *= amount
+	player.update_extra_info()
 	play_sound_battle(token_panda,"")
 
 func process_buff_strenght_entity(target: Entity, amout: int):
@@ -421,7 +435,10 @@ func process_card_commun_himself(card: Card2):
 		$BattleField/Characters/Player/DefensePlayer.text = "0"
 		player.defense = 0
 		play_sound_battle_random([$DrawCard1, $DrawCard2])
-		pass
+		var tmpList = player_hand_reference.player_hand.duplicate()
+		for cardTmp in tmpList:
+			move_card_to_bin(cardTmp)
+		DeckManager.draw_cards(5)
 	
 func process_card_12pandas_himself(card: Card2):
 	
@@ -465,12 +482,30 @@ func process_card_12pandas_enemy(card: Card2, target: Enemy):
 			process_damage_entity(alive_enemies.get(randi_range(0, alive_enemies.size()-1)), 3)
 		
 	elif card.data.id == "roulade":
-		player.nb_pandas_left_battle += 3
+		#player.nb_pandas_left_battle += 3
+		if player.nb_pandas < 3:
+			$PlayerHand.add_card_to_hand(card, $PlayerHand.DEFAULT_CARD_MOVE_SPEED)
+			card.get_node("Area2D/CollisionShape2D").disabled = false
+			return
+		else:
+			player.nb_pandas -= 3
+			player.nb_pandas_left_battle +=3
+			player.update_extra_info()
+			panda_left_battle(3)
 		
 	elif card.data.id == "tir_barrage":
 		for nb in range(0, player.nb_pandas):
 			process_damage_entity(target, 1)
-	
+
+func panda_left_battle(count: int):
+	for i in range (0, count):
+		var enemy_chosen
+		if alive_enemies.size() == 1:
+			enemy_chosen = alive_enemies[0]
+		else:
+			enemy_chosen = alive_enemies[randi_range(0, alive_enemies.size()-1)]
+		process_damage_entity(enemy_chosen, 3)
+
 func process_card_bibi_enemy(card: Card2, target: Enemy):
 	pass	
 func process_card_5d6_enemy(card: Card2, target: Enemy):
@@ -486,11 +521,14 @@ func process_card_5d6_enemy(card: Card2, target: Enemy):
 		else:
 			draw_cards(1)
 	elif card.data.id == "4d6":
-		var result = launch_dice(4)
-		if result % 2 == 0:
-			process_damage_entity(target, result)
-		else:
-			process_shield_entity(player, result)
+		
+		for i in range(0, 4):
+			var result = launch_dice(1)
+			if result % 2 == 0:
+				process_damage_entity(target, result)
+			else:
+				process_shield_entity(player, result)
+		
 	elif card.data.id == "5d6":
 		process_damage_entity(target, launch_dice(5))
 		
@@ -638,7 +676,10 @@ func _on_button_pressed() -> void:
 
 
 func _on_end_battle_pressed() -> void:
-	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
+	if battle_enemies[0].name == "BruleSonge":
+		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/End/End.tscn")
+	else:
+		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
 
 
 func _on_video_stream_player_finished() -> void:
@@ -668,31 +709,32 @@ func compute_energy():
 		energy_bar.add_child(align_box)
 
 func play_hit_flash(target: Enemy):
-	var sprite = target.components.sprite
-	print("sprite=", sprite)
-	if sprite == null:
-		return
+	if target:
+		var sprite = target.components.sprite
+		print("sprite=", sprite)
+		if sprite == null:
+			return
 
-	var original_modulate = sprite.modulate
-	var original_pos = sprite.position
-	var original_scale = sprite.scale
+		var original_modulate = sprite.modulate
+		var original_pos = sprite.position
+		var original_scale = sprite.scale
 
-	var tween = create_tween()
+		var tween = create_tween()
 
-	# Flash rouge
-	tween.tween_property(sprite, "modulate", Color(1, 0.2, 0.2), 0.05)
+		# Flash rouge
+		tween.tween_property(sprite, "modulate", Color(1, 0.2, 0.2), 0.05)
 
-	# Shake léger
-	for i in range(3):
-		tween.tween_property(sprite, "position", original_pos + Vector2(randf()*4-2, randf()*4-2), 0.03)
+		# Shake léger
+		for i in range(3):
+			tween.tween_property(sprite, "position", original_pos + Vector2(randf()*4-2, randf()*4-2), 0.03)
 
-	# Pop
-	tween.tween_property(sprite, "scale", sprite.scale * 1.1, 0.05)
-	tween.tween_property(sprite, "scale", original_scale, 0.08)
+		# Pop
+		tween.tween_property(sprite, "scale", sprite.scale * 1.1, 0.05)
+		tween.tween_property(sprite, "scale", original_scale, 0.08)
 
-	# Retour normal
-	tween.tween_property(sprite, "modulate", original_modulate, 0.1)
-	tween.tween_property(sprite, "position", original_pos, 0.05)
+		# Retour normal
+		tween.tween_property(sprite, "modulate", original_modulate, 0.1)
+		tween.tween_property(sprite, "position", original_pos, 0.05)
 
 func play_sound_battle_random(sounds: Array[AudioStreamPlayer]) -> float:
 	var rng = RandomNumberGenerator.new()

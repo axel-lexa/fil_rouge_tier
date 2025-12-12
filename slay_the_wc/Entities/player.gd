@@ -40,3 +40,17 @@ func discard_card(card: CardData):
 # Épuise une carte (retire du deck définitivement)
 func exhaust_card(card: CardData):
 	exhaust_card(card)
+
+func update_extra_info():
+	if DeckManager.mascotData.mascotte_name == "Jeanne" and nb_pandas > 0:
+		components.extra_info.visible = true
+		components.extra_info.text = "Pandas : " + str(nb_pandas)
+		pass
+	elif DeckManager.mascotData.mascotte_name == "Mimi" and nb_mites > 0:
+		components.extra_info.visible = true
+		components.extra_info.text = "Mites : " + str(nb_mites)
+		pass
+	else:
+		components.extra_info.visible = false
+	
+	

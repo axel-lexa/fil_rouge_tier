@@ -37,6 +37,7 @@ func _init():
 	health = 250
 	max_health = 250
 	image = load("res://slay_the_wc/Assets/Art/enemies/fire-modified.png")
+	name = "BruleSonge"
 
 func compute_next_attack():
 	if turn == 0:

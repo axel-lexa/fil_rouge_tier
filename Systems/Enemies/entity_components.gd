@@ -8,6 +8,7 @@ var defense_label : RichTextLabel
 var sprite : TextureRect
 var defense_icon : Sprite2D
 var health_bar : ProgressBar
+var extra_info: RichTextLabel = null
 
 func turn_ui_off():
 	change_ui_state(false)
@@ -22,3 +23,5 @@ func change_ui_state(visibility: bool):
 	sprite.visible = visibility
 	defense_icon.visible = visibility
 	health_bar.visible = visibility
+	if extra_info:
+		extra_info.visible = visibility

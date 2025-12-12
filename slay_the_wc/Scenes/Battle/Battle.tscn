@@ -323,11 +323,11 @@ text = "Fin du tour"
 [node name="ResultBattle" type="RichTextLabel" parent="."]
 offset_left = 454.0
 offset_top = 21.0
-offset_right = 1063.0
-offset_bottom = 200.0
+offset_right = 1227.0
+offset_bottom = 93.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 40
 
 [node name="EndBattle" type="Button" parent="."]
 z_index = 10
@@ -465,6 +465,8 @@ offset_left = 512.0
 offset_top = 12.0
 offset_right = 1221.0
 offset_bottom = 55.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 scroll_active = false
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,14 +1,21 @@
-[gd_resource type="Resource" script_class="MascotData" load_steps=12 format=3 uid="uid://clylu2ckywn8u"]
+[gd_resource type="Resource" script_class="MascotData" load_steps=19 format=3 uid="uid://clylu2ckywn8u"]
 
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_g4x5o"]
 [ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_5yy45"]
+[ext_resource type="Resource" uid="uid://dnpeitqik7k3n" path="res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres" id="2_s6n3s"]
 [ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_xagsi"]
 [ext_resource type="Resource" uid="uid://d3r1o8bk6if70" path="res://slay_the_wc/Cards/Data/12Pandas/Corne_appel.tres" id="4_2b8um"]
+[ext_resource type="Resource" uid="uid://55v2xp5sdfw7" path="res://slay_the_wc/Cards/Data/Commun/Changement_bareme.tres" id="4_yh15i"]
 [ext_resource type="Resource" uid="uid://8wbmqembthww" path="res://slay_the_wc/Cards/Data/12Pandas/Roulade.tres" id="5_w2a41"]
+[ext_resource type="Resource" uid="uid://b8ugmsa7067vr" path="res://slay_the_wc/Cards/Data/Commun/Defense_offensive.tres" id="6_1ash4"]
 [ext_resource type="Texture2D" uid="uid://daxan6lmpci51" path="res://slay_the_wc/Assets/Mascottes/mascotte_12panda.png" id="6_gxb2i"]
+[ext_resource type="Resource" uid="uid://l1nk01lsyq7s" path="res://slay_the_wc/Cards/Data/Commun/Esquive_rapide.tres" id="7_35a4q"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="7_kvgjj"]
 [ext_resource type="Resource" uid="uid://cs5djc3moq2te" path="res://slay_the_wc/Cards/Data/12Pandas/Bamboust.tres" id="8_gsdce"]
+[ext_resource type="Resource" uid="uid://dvrsmea8ug1fq" path="res://slay_the_wc/Cards/Data/Commun/Melee_generale.tres" id="8_ieuro"]
+[ext_resource type="Resource" uid="uid://cg04ltsib4yp6" path="res://slay_the_wc/Cards/Data/Commun/Muraille.tres" id="9_3kax8"]
 [ext_resource type="Resource" uid="uid://dp2m1psb2nhsy" path="res://slay_the_wc/Cards/Data/12Pandas/Coup_bambou.tres" id="9_gaboh"]
+[ext_resource type="Resource" uid="uid://d1lk70arp16t0" path="res://slay_the_wc/Cards/Data/Commun/Soin_urgence.tres" id="10_0okjk"]
 [ext_resource type="Resource" uid="uid://dod3134p4ae1d" path="res://slay_the_wc/Cards/Data/12Pandas/Revanche.tres" id="10_3h5nh"]
 [ext_resource type="Resource" uid="uid://drun886wlrbv2" path="res://slay_the_wc/Cards/Data/12Pandas/Tir_barrage.tres" id="11_ecb73"]
 
@@ -28,6 +35,6 @@ Surtout depuis qu’elle a été changée en pierre par un sorcier au bâton d�
 
 Le deck de Jeanne se base sur les mécaniques “d’invocation” et “d’envoie à l’attaque” de Pandas. Plus le joueur arrive à en invoquer, et plus le deck devient puissant. Une légende raconte qu’il ne peut pas y en avoir plus que 12, mais ce n’est qu’une légende.
 "
-default_cards = Array[ExtResource("1_g4x5o")]([ExtResource("2_5yy45"), ExtResource("2_5yy45"), ExtResource("2_5yy45"), ExtResource("2_5yy45"), ExtResource("3_xagsi"), ExtResource("3_xagsi"), ExtResource("3_xagsi"), ExtResource("3_xagsi"), ExtResource("4_2b8um"), ExtResource("5_w2a41")])
+default_cards = Array[ExtResource("1_g4x5o")]([ExtResource("2_s6n3s"), ExtResource("2_5yy45"), ExtResource("2_5yy45"), ExtResource("4_yh15i"), ExtResource("3_xagsi"), ExtResource("6_1ash4"), ExtResource("7_35a4q"), ExtResource("8_ieuro"), ExtResource("9_3kax8"), ExtResource("10_0okjk"), ExtResource("4_2b8um"), ExtResource("4_2b8um"), ExtResource("5_w2a41"), ExtResource("5_w2a41"), ExtResource("9_gaboh"), ExtResource("9_gaboh"), ExtResource("11_ecb73"), ExtResource("10_3h5nh"), ExtResource("8_gsdce"), ExtResource("8_gsdce")])
 unlockable_cards = Array[ExtResource("1_g4x5o")]([ExtResource("8_gsdce"), ExtResource("8_gsdce"), ExtResource("9_gaboh"), ExtResource("9_gaboh"), ExtResource("10_3h5nh"), ExtResource("10_3h5nh"), ExtResource("11_ecb73"), ExtResource("11_ecb73"), ExtResource("4_2b8um"), ExtResource("5_w2a41")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"
