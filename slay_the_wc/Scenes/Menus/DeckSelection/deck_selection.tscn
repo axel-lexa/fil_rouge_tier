@@ -1,13 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://4x521qri8ul1"]
+[gd_scene load_steps=19 format=3 uid="uid://4x521qri8ul1"]
 
 [ext_resource type="Script" uid="uid://bu54w76h513xk" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck_selection.gd" id="1_wccow"]
+[ext_resource type="AudioStream" uid="uid://br6v7r4slx2f1" path="res://slay_the_wc/Assets/Sounds/MascottesDecks/PANDA.mp3" id="2_3k8pf"]
 [ext_resource type="PackedScene" uid="uid://diahsebjgskd0" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck_tab.tscn" id="2_emwxf"]
+[ext_resource type="AudioStream" uid="uid://db7i665jddmnp" path="res://slay_the_wc/Assets/Sounds/MascottesDecks/SonSelectBernard.mp3" id="3_jhyb7"]
 [ext_resource type="Resource" uid="uid://clylu2ckywn8u" path="res://slay_the_wc/Mascot/Data/12Pandas.tres" id="3_marq2"]
 [ext_resource type="Resource" uid="uid://bktwb2vcvb6r0" path="res://slay_the_wc/Mascot/Data/5d6.tres" id="3_wltii"]
 [ext_resource type="Texture2D" uid="uid://cs1qe6awkyhlw" path="res://slay_the_wc/Assets/Art/patate_ennemie.png" id="4_mdw6b"]
 [ext_resource type="Resource" uid="uid://cv7xqru0hktx3" path="res://slay_the_wc/Scenes/Menus/DeckSelection/deck.tres" id="4_o21fc"]
+[ext_resource type="AudioStream" uid="uid://1pu1jko64ovw" path="res://slay_the_wc/Assets/Sounds/MascottesDecks/SonSelectLoup.mp3" id="4_tjwaa"]
+[ext_resource type="AudioStream" uid="uid://s1dtjmgbeh8h" path="res://slay_the_wc/Assets/Sounds/MascottesDecks/SonSelectPoulpy.mp3" id="5_0ywl0"]
+[ext_resource type="AudioStream" uid="uid://b8j3nb63ojfkc" path="res://slay_the_wc/Assets/Sounds/MascottesDecks/SonSelectGrosseMite.mp3" id="6_13qpa"]
 [ext_resource type="Resource" uid="uid://be71jmlaiee01" path="res://slay_the_wc/Mascot/Data/UwU.tres" id="6_marq2"]
 [ext_resource type="Resource" uid="uid://bbu4b0sorcf3j" path="res://slay_the_wc/Mascot/Data/Bibi.tres" id="7_3k8pf"]
+[ext_resource type="AudioStream" uid="uid://dxccgw715em0n" path="res://slay_the_wc/Assets/Sounds/MascottesDecks/SonSelectLicorne.mp3" id="7_db824"]
+[ext_resource type="AudioStream" uid="uid://ckwor37onalsg" path="res://slay_the_wc/Assets/Sounds/MascottesDecks/SonSelectPhoenix.mp3" id="8_2g5h8"]
 [ext_resource type="Resource" uid="uid://d08ms81l5qrkc" path="res://slay_the_wc/Mascot/Data/BeurreSale.tres" id="8_yh1kd"]
 [ext_resource type="Resource" uid="uid://p6mtpue6roc" path="res://slay_the_wc/Mascot/Data/Aixasperants.tres" id="9_3j3n3"]
 [ext_resource type="Resource" uid="uid://drrc22fcxgjln" path="res://slay_the_wc/Mascot/Data/Pentamonstres.tres" id="10_7bvkn"]
@@ -93,6 +100,28 @@ toggle_mode = true
 text = "Deck 7"
 autowrap_mode = 2
 
+[node name="SonSelectPanda" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
+stream = ExtResource("2_3k8pf")
+volume_db = -16.0
+
+[node name="SonSelectBernard" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
+stream = ExtResource("3_jhyb7")
+
+[node name="SonSelectLoups" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
+stream = ExtResource("4_tjwaa")
+
+[node name="SonSelectPoulpy" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
+stream = ExtResource("5_0ywl0")
+
+[node name="SonSelectGrosseMite" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
+stream = ExtResource("6_13qpa")
+
+[node name="SonSelectLicorne" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
+stream = ExtResource("7_db824")
+
+[node name="SonSelectPhoenix" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
+stream = ExtResource("8_2g5h8")
+
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -170,12 +199,19 @@ grow_horizontal = 0
 text = "Suivant
 "
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VFlowContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button" to="." method="_on_button_toggled" binds= [0]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VFlowContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button2" to="." method="_on_button_toggled" binds= [1]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VFlowContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button3" to="." method="_on_button_toggled" binds= [2]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VFlowContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button4" to="." method="_on_button_toggled" binds= [3]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VFlowContainer/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button5" to="." method="_on_button_toggled" binds= [4]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VFlowContainer/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button6" to="." method="_on_button_toggled" binds= [5]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VFlowContainer/Button7" to="." method="_on_button_7_pressed"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VFlowContainer/Button7" to="." method="_on_button_toggled" binds= [6]]
 [connection signal="pressed" from="ButtonReturn" to="." method="_on_button_return_pressed"]
 [connection signal="pressed" from="ButtonNext" to="." method="_on_button_next_pressed"]

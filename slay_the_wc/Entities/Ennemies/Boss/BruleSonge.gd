@@ -16,19 +16,19 @@ func _init():
 	attack2.burn =+ 2
 	
 	var attack3 = Enemy_attack.new()
-	attack2.name = "Tacle"
-	attack2.damage = 10
+	attack3.name = "Tacle"
+	attack3.damage = 10
 	
 	var attack4 = Enemy_attack.new()
-	attack2.name = "Enflammer"
-	attack2.atk_type = attack2.ATK_TYPE.BUFF
-	attack2.defense += 12
-	attack2.strengh_buff += 2 
+	attack4.name = "Enflammer"
+	attack4.atk_type = attack4.ATK_TYPE.BUFF
+	attack4.defense += 12
+	attack4.strengh_buff += 2 
 	
 	var attack5 = Enemy_attack.new()
-	attack2.name = "Chaleur infernal"
-	attack2.damage += 12
-	attack2.strengh_buff += 3
+	attack5.name = "Chaleur infernal"
+	attack5.damage += 12
+	attack5.strengh_buff += 3
 	
 	index = [1, 2, 1, 3, 2, 1, 4]
 	
@@ -40,11 +40,11 @@ func _init():
 
 func compute_next_attack():
 	if turn == 0:
-		next_atk = null
-		update_intention_sprite(next_atk.atk_type)
-		turn += 1
-		return
-	if turn == 1:
+		#next_atk = null
+		#update_intention_sprite(next_atk.atk_type)
+		#turn += 1
+		#return
+	#if turn == 1:
 		next_atk = attacks[0]
 		update_intention_sprite(next_atk.atk_type)
 		turn += 1

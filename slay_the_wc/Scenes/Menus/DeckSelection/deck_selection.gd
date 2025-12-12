@@ -1,6 +1,13 @@
 extends Control
 
 var btns: Array[Node]
+@onready var son_select_panda: AudioStreamPlayer = $VBoxContainer/HBoxContainer/VFlowContainer/SonSelectPanda
+@onready var son_select_bernard: AudioStreamPlayer = $VBoxContainer/HBoxContainer/VFlowContainer/SonSelectBernard
+@onready var son_select_loups: AudioStreamPlayer = $VBoxContainer/HBoxContainer/VFlowContainer/SonSelectLoups
+@onready var son_select_poulpy: AudioStreamPlayer = $VBoxContainer/HBoxContainer/VFlowContainer/SonSelectPoulpy
+@onready var son_select_grosse_mite: AudioStreamPlayer = $VBoxContainer/HBoxContainer/VFlowContainer/SonSelectGrosseMite
+@onready var son_select_licorne: AudioStreamPlayer = $VBoxContainer/HBoxContainer/VFlowContainer/SonSelectLicorne
+@onready var son_select_phoenix: AudioStreamPlayer = $VBoxContainer/HBoxContainer/VFlowContainer/SonSelectPhoenix
 
 func _ready() -> void:
 	# array of tab button
@@ -36,3 +43,24 @@ func _on_button_next_pressed() -> void:
 
 func _on_button_return_pressed() -> void:
 	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Menus/Main_menu/Main_menu.tscn")
+
+func _on_button_pressed() -> void:
+	son_select_panda.play()
+
+func _on_button_2_pressed() -> void:
+	son_select_bernard.play()
+
+func _on_button_3_pressed() -> void:
+	son_select_loups.play()
+
+func _on_button_4_pressed() -> void:
+	son_select_poulpy.play()
+
+func _on_button_5_pressed() -> void:
+	son_select_grosse_mite.play()
+
+func _on_button_6_pressed() -> void:
+	son_select_licorne.play()
+
+func _on_button_7_pressed() -> void:
+	son_select_phoenix.play()
