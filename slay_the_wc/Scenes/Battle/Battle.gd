@@ -244,6 +244,8 @@ func process_card(card: Card2, player_slot: bool, ennemie_index: int):
 			process_card_player(card)
 			move_card_to_bin(card)
 			return
+		#elif !player_slot and card.cata.target-type == CardData.TargetTypeEnum.ALL_ENEMIES:
+			#pass
 		elif !player_slot and card.data.target_type != CardData.TargetTypeEnum.SELF:
 			var target = convert_scene_index_to_enemy(ennemie_index)
 			if target != null:
@@ -253,6 +255,7 @@ func process_card(card: Card2, player_slot: bool, ennemie_index: int):
 				process_card_player_to_enemy(card, target)
 				move_card_to_bin(card)
 				return
+		
 	$PlayerHand.add_card_to_hand(card, $PlayerHand.DEFAULT_CARD_MOVE_SPEED)
 	card.get_node("Area2D/CollisionShape2D").disabled = false
 	
@@ -381,7 +384,8 @@ func process_card_commun_enemy(card: Card2, target: Enemy):
 		#$Deck.draw_card()
 		pass
 	elif card.data.id == "melee_generale":
-		for enemy in alive_enemies:
+		var list_duplicate = alive_enemies.duplicate()
+		for enemy in list_duplicate:
 			process_damage_entity(enemy, 12)
 
 func process_card_commun_himself(card: Card2):
@@ -399,8 +403,13 @@ func process_card_commun_himself(card: Card2):
 	elif card.data.id == "muraille":
 		process_shield_multiply_entity(player, 2)
 	elif card.data.id == "changement_bareme":
-		# TODO : Mélange toutes les cartes (Pioche, défausse et main). Commence un nouveau tour
-		# TODO : ajouter les sons
+		DeckManager.shuffle_deck()
+		player.energy = MAX_ENERGY
+		$BattleField/Characters/Player/EnergyPlayer.text = "Energie :"
+		compute_energy()
+		$BattleField/Characters/Player/DefensePlayer.text = "0"
+		player.defense = 0
+		play_sound_battle_random([$DrawCard1, $DrawCard2])
 		pass
 	
 func process_card_12pandas_himself(card: Card2):
