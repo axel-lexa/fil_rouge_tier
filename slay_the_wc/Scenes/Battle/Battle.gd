@@ -438,7 +438,7 @@ func process_card_commun_himself(card: Card2):
 		var tmpList = player_hand_reference.player_hand.duplicate()
 		for cardTmp in tmpList:
 			move_card_to_bin(cardTmp)
-		DeckManager.draw_cards(5)
+		draw_cards(5, true)
 	
 func process_card_12pandas_himself(card: Card2):
 	
