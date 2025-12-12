@@ -17,7 +17,7 @@ func _ready() -> void:
 	# set buttons texts to deck name
 	for i in range(btns.size()):
 		if %TabContainer.get_children().size() > i:
-			btns[i].text = %TabContainer.get_children()[i].mascot.deck_name
+			btns[i].text = %TabContainer.get_children()[i].mascot.mascotte_name
 
 func _process(_delta: float) -> void:
 	pass

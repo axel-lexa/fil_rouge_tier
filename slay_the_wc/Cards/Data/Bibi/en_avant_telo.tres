@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_5lvm6")
-id = "en_avant_teno"
+id = "en_avant_telo"
 card_name = "En avant, Teno !"
 mana_cost = 2
 description = "Gagne 12 blocages"

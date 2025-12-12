@@ -20,12 +20,16 @@ offset_left = 982.0
 offset_top = 322.0
 offset_right = 1007.0
 offset_bottom = 346.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 
 [node name="NameEnnemy" type="RichTextLabel" parent="."]
 offset_left = 1048.0
 offset_top = 213.0
 offset_right = 1326.0
 offset_bottom = 253.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 30
 scroll_active = false
 
