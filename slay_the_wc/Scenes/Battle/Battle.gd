@@ -752,8 +752,8 @@ func _on_button_pressed() -> void:
 			enemies_to_kill.append(enemy)
 			break
 		enemy.perform_action(player)
-		
-		textEnnemy += enemy.name + " a utilisé l'attaque " + enemy.next_atk.name+"\n"
+		if enemy.next_atk:
+			textEnnemy += enemy.name + " a utilisé l'attaque " + enemy.next_atk.name+"\n"
 		
 		
 		enemy.compute_next_attack()	

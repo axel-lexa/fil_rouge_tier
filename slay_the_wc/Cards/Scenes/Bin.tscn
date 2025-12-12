@@ -21,5 +21,10 @@ shape = SubResource("RectangleShape2D_n0u8k")
 disabled = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -112.0
+offset_top = -18.0
+offset_right = -72.0
+offset_bottom = 22.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
