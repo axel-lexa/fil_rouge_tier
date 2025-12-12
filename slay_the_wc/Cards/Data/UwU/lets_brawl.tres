@@ -7,7 +7,7 @@
 script = ExtResource("2_pjjn4")
 id = "lets_brawl"
 card_name = "Let's Brawl !"
-description = "Inflige 3 points de dégâts, Combo : Reviens dans la main si \"As des licornes\" vient d'être jouée"
+description = "Inflige 4 points de dégâts, Combo : Reviens dans la main si \"As des licornes\" vient d'être jouée"
 target_type = 1
 background = ExtResource("1_uusao")
 card_team_owner = 7

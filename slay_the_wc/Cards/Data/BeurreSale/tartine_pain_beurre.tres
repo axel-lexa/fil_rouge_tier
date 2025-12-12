@@ -8,9 +8,8 @@ script = ExtResource("2_qky72")
 id = "tartine_pain_beurre"
 card_name = "Tartine pain-beurre"
 mana_cost = 1
-description = "Poulpy fait une tartine bien beurrée, et la propose à son adversaire, de la manière la plus polie qui soit.
-Selon sa générosité, il peut mettre de 1 à 3 beurres sur la tartine.
-L'adversaire accepte de la manger, ce qui lui inflige 15 dégat direct ainsi que 10 charges de cholestérol / beurre."
+description = "Inflige 7 dégâts
+Si la cible a du cholestérol, inflige à nouveau 7 dégâts"
 target_type = 1
 background = ExtResource("1_jjyx4")
 card_team_owner = 4

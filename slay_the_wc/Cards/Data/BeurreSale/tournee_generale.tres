@@ -7,10 +7,8 @@
 script = ExtResource("2_eu2ex")
 id = "tournee_generale"
 card_name = "Tournée générale !"
-mana_cost = 1
-description = "Poulpy chauffe 1 à 4 bierraubeurres et les distribue à ses adversaires, avec un tel sourire qu'ils ne peuvent refuser. 
-
-Consomme les charges de cholestérol sur les adversaires pour infliger 4 dégats directs / charge de cholestérol présente sur les adversaires ciblés."
+mana_cost = 3
+description = "Applique 3 cholestérol à 3 ennemis aléatoires"
 target_type = 1
 background = ExtResource("1_sasiu")
 card_team_owner = 4

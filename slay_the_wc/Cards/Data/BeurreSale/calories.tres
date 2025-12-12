@@ -8,10 +8,7 @@ script = ExtResource("2_hop17")
 id = "calories"
 card_name = "Calories"
 mana_cost = 1
-description = "Poulpy se coupe un petit morceau de beurre. 
-Cela augmente grandement son moral (tellement important).
-
-Gagne 2 énergies et 2 Def."
+description = "Double le cholestérol de la cible"
 target_type = 2
 card_type = 1
 background = ExtResource("1_qidkp")

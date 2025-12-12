@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b43gm6k5ytdp2"]
+[gd_scene load_steps=17 format=3 uid="uid://b43gm6k5ytdp2"]
 
 [ext_resource type="Script" uid="uid://bloufm6f2cfp0" path="res://slay_the_wc/Scenes/Map/Map.gd" id="1_svm44"]
 [ext_resource type="Texture2D" uid="uid://c8rd5vmhhncme" path="res://slay_the_wc/Assets/Art/icon_battle_map.png" id="2_q6eef"]
 [ext_resource type="Texture2D" uid="uid://bi265as0umern" path="res://slay_the_wc/Assets/Art/boss_fianl_icon.png" id="3_sppq5"]
 [ext_resource type="Texture2D" uid="uid://d1gc0714x4vke" path="res://slay_the_wc/Assets/Art/line_between_step.png" id="4_svm44"]
 [ext_resource type="Texture2D" uid="uid://dq1w4ptv6t4ly" path="res://slay_the_wc/Assets/Art/map_global.png" id="6_b5qyj"]
+[ext_resource type="AudioStream" uid="uid://obtkewwhbimg" path="res://slay_the_wc/Assets/Sounds/segaa_final_2.mp3" id="6_uwur7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q6eef"]
 
@@ -17,6 +18,18 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5qyj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwur7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svm44"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwur7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5qyj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsasb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_svm44")
@@ -177,6 +190,21 @@ default_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_svm44")
 texture_mode = 1
 
+[node name="Button" type="Button" parent="."]
+z_index = 4
+offset_left = 194.0
+offset_top = 51.0
+offset_right = 288.0
+offset_bottom = 105.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_svm44")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uwur7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b5qyj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hsasb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_uwur7")
+volume_db = 10.866
+
 [connection signal="pressed" from="Battles/flocon1" to="." method="_on_battle_1_pressed"]
 [connection signal="pressed" from="Battles/flocon2" to="." method="_on_battle_2_pressed"]
 [connection signal="pressed" from="Battles/flocon3" to="." method="_on_battle_3_pressed"]
@@ -184,3 +212,4 @@ texture_mode = 1
 [connection signal="pressed" from="Battles/flocon5" to="." method="_on_battle_5_pressed"]
 [connection signal="pressed" from="Battles/flocon6" to="." method="_on_battle_final_pressed"]
 [connection signal="pressed" from="RetourMenu" to="." method="_on_retour_menu_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

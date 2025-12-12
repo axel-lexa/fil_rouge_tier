@@ -8,10 +8,7 @@ script = ExtResource("2_8qbse")
 id = "main_glissante"
 card_name = "Main glissante"
 mana_cost = 1
-description = "Poulpy chausse ses chaussons beurrés et glisse jusqu'a chez lui en une vitesse record! Il ramène du renfort!
-
-Pioche 3 cartes
-Consomme les charges de cholestérol sur les adversaires pour infliger 4 dégats directs / charge de cholestérol présente sur les adversaires ciblés."
+description = "Pioche 3 cartes"
 target_type = 2
 card_type = 1
 background = ExtResource("1_sdess")

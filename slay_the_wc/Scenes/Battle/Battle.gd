@@ -234,8 +234,8 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 				card_in_battle.data.mana_cost = 1
 				card_in_battle.updateUi()
 		if card.data.id != "as_des_licornes":
-			if card_in_battle.data.id == "escape" && card_in_battle.data.mana_cost == 2:
-				card_in_battle.data.mana_cost = 3
+			if card_in_battle.data.id == "escape" && card_in_battle.data.mana_cost == 1:
+				card_in_battle.data.mana_cost = 2
 				card_in_battle.updateUi()
 	# reset mult (uwu)
 	print("reset mult")
@@ -524,11 +524,11 @@ func process_card_uwu_himself(card: Card2):
 		draw_cards(1)
 		for card_in_hand in player_hand_reference.player_hand:
 			if card_in_hand.data.id == "escape":
-				card_in_hand.data.mana_cost = 2
+				card_in_hand.data.mana_cost = 1
 				card_in_hand.updateUi()
 		for card_in_deck in DeckManager.deck:
 			if card_in_deck.id == "escape":
-				card_in_deck.mana_cost = 2
+				card_in_deck.mana_cost = 1
 	
 func process_card_12pandas_enemy(card: Card2, target: Enemy):
 	
@@ -647,18 +647,18 @@ func process_card_penta_monstre_enemy(card: Card2, target: Enemy):
 func process_card_uwu_enemy(card: Card2, target: Enemy):
 	if card.data.id == "le_p":
 		for enemy in alive_enemies:
-			process_damage_entity(enemy, 3)
+			process_damage_entity(enemy, 8)
 			# follow up
 			if player.cards_played_this_turn.size() && player.cards_played_this_turn.back().id == "too_fast":
 				await get_tree().create_timer(0.2).timeout
-				process_damage_entity(enemy, 3)
+				process_damage_entity(enemy, 4)
 	if card.data.id == "lets_brawl":
-		process_damage_entity(target, 3)
+		process_damage_entity(target, 4)
 	if card.data.id == "too_fast":
-		process_damage_entity(target, 3)
+		process_damage_entity(target, 6)
 		if player.cards_played_this_turn.size() == 0:
 			await get_tree().create_timer(0.2).timeout
-			process_damage_entity(target, 3)
+			process_damage_entity(target, 4)
 		for card_in_hand in player_hand_reference.player_hand:
 			if card_in_hand.data.id == "as_des_licornes":
 				card_in_hand.data.mana_cost = 0

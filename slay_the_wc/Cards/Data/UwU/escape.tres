@@ -7,7 +7,7 @@
 script = ExtResource("2_hq3nl")
 id = "escape"
 card_name = "Escape.ppt"
-mana_cost = 3
+mana_cost = 2
 description = "Reduit tous les dégats subis ce tour à 1, Combo : coute 1 de moins si \"As des licornes\" vient d'être jouée"
 target_type = 2
 card_type = 1

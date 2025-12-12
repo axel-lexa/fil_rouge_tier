@@ -8,7 +8,7 @@ script = ExtResource("2_degy4")
 id = "ponte_rapide"
 card_name = "Ponte rapide"
 description = "Perd 3 PV
-Gagne 4 mites"
+Gagne 5 mites"
 target_type = 2
 card_type = 1
 background = ExtResource("1_507do")

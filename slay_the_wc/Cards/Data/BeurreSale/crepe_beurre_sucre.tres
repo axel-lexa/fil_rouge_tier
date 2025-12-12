@@ -8,8 +8,8 @@ script = ExtResource("2_quojr")
 id = "crepe_beurre_sucre"
 card_name = "Crêpe beurre-sucre"
 mana_cost = 1
-description = "Poulpy invite ses adversaires pour le goûter! Il a fait des crêpes. Il peu en distribuer jusqu'à 4.
-Inflige 5 charges de cholestérol / crêpe."
+description = "Inflige 6 dégâts
+Applique 3 cholestérol"
 target_type = 1
 background = ExtResource("1_ff2i7")
 card_team_owner = 4
