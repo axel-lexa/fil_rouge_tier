@@ -1,14 +1,21 @@
-[gd_resource type="Resource" script_class="MascotData" load_steps=12 format=3 uid="uid://drrc22fcxgjln"]
+[gd_resource type="Resource" script_class="MascotData" load_steps=19 format=3 uid="uid://drrc22fcxgjln"]
 
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_vdq8h"]
 [ext_resource type="Texture2D" uid="uid://ij68nu8sdo4b" path="res://slay_the_wc/Assets/Mascottes/Mimi.png" id="2_0qnwn"]
 [ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_4f4l0"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="2_tn586"]
+[ext_resource type="Resource" uid="uid://dnpeitqik7k3n" path="res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres" id="2_vqed6"]
 [ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_7by2g"]
+[ext_resource type="Resource" uid="uid://55v2xp5sdfw7" path="res://slay_the_wc/Cards/Data/Commun/Changement_bareme.tres" id="4_a8v2n"]
 [ext_resource type="Resource" uid="uid://m3obtvi78eim" path="res://slay_the_wc/Cards/Data/Pentamonstres/pentamite.tres" id="4_cyg15"]
 [ext_resource type="Resource" uid="uid://dwqqvdqkg2ou" path="res://slay_the_wc/Cards/Data/Pentamonstres/ponte_protegee.tres" id="5_6mv8f"]
+[ext_resource type="Resource" uid="uid://b8ugmsa7067vr" path="res://slay_the_wc/Cards/Data/Commun/Defense_offensive.tres" id="6_1vmyl"]
+[ext_resource type="Resource" uid="uid://l1nk01lsyq7s" path="res://slay_the_wc/Cards/Data/Commun/Esquive_rapide.tres" id="7_tecvr"]
 [ext_resource type="Resource" uid="uid://bh6kiy3dlao40" path="res://slay_the_wc/Cards/Data/Pentamonstres/nuee.tres" id="8_fqm6q"]
+[ext_resource type="Resource" uid="uid://dvrsmea8ug1fq" path="res://slay_the_wc/Cards/Data/Commun/Melee_generale.tres" id="8_hvxii"]
 [ext_resource type="Resource" uid="uid://bwsmdh13p63ta" path="res://slay_the_wc/Cards/Data/Pentamonstres/parasitisme.tres" id="9_quf7y"]
+[ext_resource type="Resource" uid="uid://cg04ltsib4yp6" path="res://slay_the_wc/Cards/Data/Commun/Muraille.tres" id="9_sjh7j"]
+[ext_resource type="Resource" uid="uid://d1lk70arp16t0" path="res://slay_the_wc/Cards/Data/Commun/Soin_urgence.tres" id="10_ghooi"]
 [ext_resource type="Resource" uid="uid://b0fqff75qg4c0" path="res://slay_the_wc/Cards/Data/Pentamonstres/ponte_rapide.tres" id="10_vvmss"]
 [ext_resource type="Resource" uid="uid://bm1ymf810wie4" path="res://slay_the_wc/Cards/Data/Pentamonstres/sacrifice_mite.tres" id="11_vqed6"]
 
@@ -26,6 +33,5 @@ Comme elle déteste la solitude, elle est capable d’utiliser une quantité col
 
 Le deck de Mimi se base sur une mécanique de “nuée”. Certaines cartes permettent de créer une nuée de mites qui vont incrémenter un compteur de mites (CM). D’autres cartes sont bien plus puissantes mais nécessitent à la fois des flocons et des CM pour pouvoir être utilisées.
 "
-default_cards = Array[ExtResource("1_vdq8h")]([ExtResource("2_4f4l0"), ExtResource("2_4f4l0"), ExtResource("2_4f4l0"), ExtResource("2_4f4l0"), ExtResource("3_7by2g"), ExtResource("3_7by2g"), ExtResource("3_7by2g"), ExtResource("3_7by2g"), ExtResource("4_cyg15"), ExtResource("5_6mv8f")])
-unlockable_cards = Array[ExtResource("1_vdq8h")]([ExtResource("8_fqm6q"), ExtResource("8_fqm6q"), ExtResource("9_quf7y"), ExtResource("9_quf7y"), ExtResource("4_cyg15"), ExtResource("5_6mv8f"), ExtResource("10_vvmss"), ExtResource("10_vvmss"), ExtResource("11_vqed6"), ExtResource("11_vqed6")])
+default_cards = Array[ExtResource("1_vdq8h")]([ExtResource("2_vqed6"), ExtResource("2_4f4l0"), ExtResource("2_4f4l0"), ExtResource("4_a8v2n"), ExtResource("3_7by2g"), ExtResource("6_1vmyl"), ExtResource("7_tecvr"), ExtResource("8_hvxii"), ExtResource("9_sjh7j"), ExtResource("10_ghooi"), ExtResource("9_quf7y"), ExtResource("9_quf7y"), ExtResource("9_quf7y"), ExtResource("5_6mv8f"), ExtResource("5_6mv8f"), ExtResource("10_vvmss"), ExtResource("10_vvmss"), ExtResource("11_vqed6"), ExtResource("8_fqm6q"), ExtResource("4_cyg15")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

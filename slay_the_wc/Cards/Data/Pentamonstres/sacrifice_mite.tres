@@ -7,8 +7,9 @@
 script = ExtResource("2_t2n0w")
 id = "sacrifice_mite"
 card_name = "Sacrifice mite"
-description = "Gagne 4 PV
-Gagne 4 blocages"
+description = "Coûte 5 mites
+Gagne 5 PV
+Gagne 5 blocages"
 target_type = 2
 card_type = 1
 background = ExtResource("1_ivk75")

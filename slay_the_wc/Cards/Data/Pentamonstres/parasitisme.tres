@@ -11,7 +11,7 @@ mana_cost = 1
 description = "Inflige debuff -2ATK
 Au tour suivant:
 Inflige 5 dégâts
-Gagne 6 CM"
+Gagne 6 mites"
 target_type = 1
 background = ExtResource("1_jmxya")
 card_team_owner = 6

@@ -9,7 +9,7 @@ id = "ponte_protegee"
 card_name = "Ponte protégée"
 mana_cost = 3
 description = "Au tour suivant:
-Gagne 10 CM"
+Gagne 10 mites"
 target_type = 2
 card_type = 1
 background = ExtResource("1_6wxo1")
