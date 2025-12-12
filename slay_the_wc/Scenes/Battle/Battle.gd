@@ -229,12 +229,14 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 	var all_cards_in_battle: Array[Card2] = player_hand_reference.player_hand.duplicate()
 	all_cards_in_battle.append_array(card2Bin)
 	for card_in_battle in all_cards_in_battle:
-		if card_in_battle.data.id == "as_des_licornes" && card_in_battle.data.mana_cost == 0:
-			card_in_battle.data.mana_cost = 1
-			card_in_battle.updateUi()
-		if card_in_battle.data.id == "escape" && card_in_battle.data.mana_cost == 2:
-			card_in_battle.data.mana_cost = 3
-			card_in_battle.updateUi()
+		if card.data.id != "too_fast":
+			if card_in_battle.data.id == "as_des_licornes" && card_in_battle.data.mana_cost == 0:
+				card_in_battle.data.mana_cost = 1
+				card_in_battle.updateUi()
+		if card.data.id != "as_des_licornes":
+			if card_in_battle.data.id == "escape" && card_in_battle.data.mana_cost == 2:
+				card_in_battle.data.mana_cost = 3
+				card_in_battle.updateUi()
 	# reset mult (uwu)
 	print("reset mult")
 	player.attack_multiplicator = 1
@@ -524,6 +526,9 @@ func process_card_uwu_himself(card: Card2):
 			if card_in_hand.data.id == "escape":
 				card_in_hand.data.mana_cost = 2
 				card_in_hand.updateUi()
+		for card_in_deck in DeckManager.deck:
+			if card_in_deck.id == "escape":
+				card_in_deck.mana_cost = 2
 	
 func process_card_12pandas_enemy(card: Card2, target: Enemy):
 	
