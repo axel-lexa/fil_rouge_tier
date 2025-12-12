@@ -562,9 +562,10 @@ func panda_left_battle(count: int):
 		var enemy_chosen
 		if alive_enemies.size() == 1:
 			enemy_chosen = alive_enemies[0]
-		else:
+		elif alive_enemies.size() != 0:
 			enemy_chosen = alive_enemies[randi_range(0, alive_enemies.size()-1)]
-		process_damage_entity(enemy_chosen, 3)
+		if enemy_chosen:
+			process_damage_entity(enemy_chosen, 3)
 
 func process_card_bibi_enemy(card: Card2, target: Enemy):
 	if card.data.id == "cul_sec_zeno":
