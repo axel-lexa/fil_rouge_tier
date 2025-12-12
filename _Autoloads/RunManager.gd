@@ -6,6 +6,7 @@ var current_hp: int = 100
 var max_hp: int = 100
 var current_floor: int = 1
 var run_seed: int = 0
+var current_team: String
 
 func _ready():
 	# Initialiser la seed si nécessaire

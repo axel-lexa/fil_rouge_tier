@@ -6,7 +6,7 @@ var turn: int = 0
 func _init():
 	
 	var attack1 = Enemy_attack.new()
-	attack1.damage = 25
+	attack1.damage = 15
 	attack1.name = "Boule de feu"
 	attacks = [attack1]
 	health = 24

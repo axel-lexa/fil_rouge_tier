@@ -34,6 +34,10 @@ Surtout depuis qu’elle a été changée en pierre par un sorcier au bâton d�
 [b]Mécaniques du deck : [/b]
 
 Le deck de Jeanne se base sur les mécaniques “d’invocation” et “d’envoie à l’attaque” de Pandas. Plus le joueur arrive à en invoquer, et plus le deck devient puissant. Une légende raconte qu’il ne peut pas y en avoir plus que 12, mais ce n’est qu’une légende.
+
+Un Panda qui rejoint l'armée incrémente le compteur de Pandas (au dessus du personnage joué)
+Un panda envoyé en combat inflige 3 dégâts à une cible aléatoire et enlève 3 au compteur de pandas.
+Si un Panda rejoint l’armée alors que le compteur de Pandas est déjà à 12, il est directement envoyé en combat.
 "
 default_cards = Array[ExtResource("1_g4x5o")]([ExtResource("2_s6n3s"), ExtResource("2_5yy45"), ExtResource("2_5yy45"), ExtResource("4_yh15i"), ExtResource("3_xagsi"), ExtResource("6_1ash4"), ExtResource("7_35a4q"), ExtResource("8_ieuro"), ExtResource("9_3kax8"), ExtResource("10_0okjk"), ExtResource("4_2b8um"), ExtResource("4_2b8um"), ExtResource("5_w2a41"), ExtResource("5_w2a41"), ExtResource("9_gaboh"), ExtResource("9_gaboh"), ExtResource("11_ecb73"), ExtResource("10_3h5nh"), ExtResource("8_gsdce"), ExtResource("8_gsdce")])
 unlockable_cards = Array[ExtResource("1_g4x5o")]([ExtResource("8_gsdce"), ExtResource("8_gsdce"), ExtResource("9_gaboh"), ExtResource("9_gaboh"), ExtResource("10_3h5nh"), ExtResource("10_3h5nh"), ExtResource("11_ecb73"), ExtResource("11_ecb73"), ExtResource("4_2b8um"), ExtResource("5_w2a41")])

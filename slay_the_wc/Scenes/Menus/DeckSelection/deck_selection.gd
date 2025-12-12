@@ -39,6 +39,7 @@ func _on_button_next_pressed() -> void:
 	DeckManager.shuffle_deck()
 	DeckManager.unlockable_cards = mascotData.unlockable_cards
 	DeckManager.mascotData = mascotData
+	RunManager.current_team = mascotData.mascotte_name
 	get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
 
 

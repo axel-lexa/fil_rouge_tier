@@ -86,6 +86,8 @@ func _ready():
 	$VideoStreamPlayer.autoplay = true
 	$VideoStreamPlayer.play()
 	
+	if battle_desc.entities.size() == 1 and battle_desc.entities[0].name == "BruleSonge":
+		$BossFinal.play()
 	
 	$CardManager.visible = false
 	$PlayerHand.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://0lx4u2cbsbx5"]
+[gd_scene load_steps=52 format=3 uid="uid://0lx4u2cbsbx5"]
 
 [ext_resource type="Script" uid="uid://d1k1dbpexnxn6" path="res://slay_the_wc/Scenes/Battle/Battle.gd" id="1_m54iq"]
 [ext_resource type="Script" uid="uid://51ls0ltds4a4" path="res://slay_the_wc/Cards/Scenes/Scripts/CardManager.gd" id="1_skn0e"]
@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://5v8o0pknp3ob" path="res://slay_the_wc/Assets/Sounds/Battle/umpDegatVoix.mp3" id="21_tblcf"]
 [ext_resource type="AudioStream" uid="uid://b5n3cdgoa1w8c" path="res://slay_the_wc/Assets/Sounds/Battle/Oulala.mp3" id="22_05lnr"]
 [ext_resource type="AudioStream" uid="uid://bhefjxj5hlh8" path="res://slay_the_wc/Assets/Sounds/Battle/ding.mp3" id="22_ybaud"]
+[ext_resource type="AudioStream" uid="uid://do81wntnff34u" path="res://slay_the_wc/Assets/Sounds/TauntsMobs/SuperIdee2.wav" id="23_q7uyp"]
 [ext_resource type="AudioStream" uid="uid://dl3gpb2w6shny" path="res://slay_the_wc/Assets/Sounds/Battle/OuchDegat.mp3" id="23_tvaeq"]
 [ext_resource type="AudioStream" uid="uid://57k8s5ujreri" path="res://slay_the_wc/Assets/Sounds/Battle/MaisAillheuDegatVoix.mp3" id="29_we3w5"]
 [ext_resource type="AudioStream" uid="uid://dd5tqi28w7bu8" path="res://slay_the_wc/Assets/Sounds/Battle/HaaaSoinVoix.mp3" id="30_67pud"]
@@ -47,6 +48,7 @@
 [ext_resource type="AudioStream" uid="uid://b8ieb3qxlq011" path="res://slay_the_wc/Assets/Sounds/Battle/tropFortVictoireVoix.mp3" id="38_vgi75"]
 [ext_resource type="AudioStream" uid="uid://dxv1s2vupgfma" path="res://slay_the_wc/Assets/Sounds/Battle/apprendAJouerDefaiteVoix.mp3" id="40_2cu6y"]
 [ext_resource type="AudioStream" uid="uid://drrue848ca6g8" path="res://slay_the_wc/Assets/Sounds/Battle/tropNulJaiPerdu.mp3" id="40_wxi0m"]
+[ext_resource type="AudioStream" uid="uid://cg3k1dr514m8c" path="res://slay_the_wc/Assets/Sounds/Theme 1 (Boss).mp3" id="48_wxi0m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqkqu"]
 bg_color = Color(0.87058824, 0, 0.18039216, 1)
@@ -373,6 +375,7 @@ stream = ExtResource("20_q7uyp")
 stream = ExtResource("21_2cu6y")
 
 [node name="TauntEnemy8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_q7uyp")
 
 [node name="TauntEnemy9" type="AudioStreamPlayer" parent="."]
 
@@ -459,6 +462,7 @@ stream = ExtResource("40_2cu6y")
 
 [node name="Defeat2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("40_wxi0m")
+parameters/looping = false
 
 [node name="AtkName" type="RichTextLabel" parent="."]
 offset_left = 512.0
@@ -468,6 +472,10 @@ offset_bottom = 55.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 scroll_active = false
+
+[node name="BossFinal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("48_wxi0m")
+volume_db = -21.79
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="EndBattle" to="." method="_on_end_battle_pressed"]

@@ -9,16 +9,20 @@ func _ready() -> void:
 	if mascot:
 		%MascotteImg.texture = mascot.mascotte_img
 		%MascotteImg.flip_h = mascot.flip_mascotte_img
-		if mascot.mascotte_img2:
-			var mascotteImg2 = %MascotteImg.duplicate()
-			mascotteImg2.texture = mascot.mascotte_img2
-			%MascotImgContainer.add_child(mascotteImg2)
+		#if mascot.mascotte_img2:
+		#	var mascotteImg2 = %MascotteImg.duplicate()
+		#	mascotteImg2.texture = mascot.mascotte_img2
+		#	%MascotImgContainer.add_child(mascotteImg2)
 		%MascotteName.text = mascot.mascotte_name
 		%DescriptionTitle.text = "Description du deck \"" + mascot.deck_name + "\":"
 		%Description.text = mascot.description
 	%DescriptionTitle.text = "[u]" + %DescriptionTitle.text + "[/u]"
 
 	if mascot:
+		
+		if mascot.default_cards.is_empty() and mascot.mascotte_name == RunManager.current_team:
+			mascot.default_cards = DeckManager.deck
+		
 		for data in mascot.default_cards:
 			var card_to_add = instantiateUiCard(data)
 			%DefaultCardsContainer.add_child(card_to_add)
