@@ -1,4 +1,5 @@
 extends Node2D
+class_name PlayerHand
 
 #const CARD_WIDTH = 120
 const HAND_Y_POSITION = 750
@@ -9,7 +10,7 @@ const MAX_HAND_SIZE = 10
 const SPACING_BETWEEN_CARD = 150.0
 signal hand_size_changed(size)
 
-var player_hand = []
+var player_hand: Array[Card2] = []
 var center_screen_x
 
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +20,7 @@ func _ready() -> void:
 	center_screen_x = get_viewport().size.x/2
 	
 
-func add_card_to_hand(card, speed):
+func add_card_to_hand(card: Card2, speed: float):
 	if not (card is Card2):
 		return
 	if player_hand.size() > MAX_HAND_SIZE:
@@ -63,12 +64,12 @@ func update_hand_position(speed):
 		#card.starting_position = pos
 		#animate_card_to_position(card, pos, speed, rot)
 		
-func animate_card_to_position(card, new_position, speed, rotation):
+func animate_card_to_position(card, new_position, speed, f_rotation):
 	var tween = get_tree().create_tween()
 	tween.tween_property(card, "position", new_position, speed)
 
-	if rotation != null:
-		tween.parallel().tween_property(card, "rotation", rotation, speed)
+	if f_rotation != null:
+		tween.parallel().tween_property(card, "rotation", f_rotation, speed)
 		
 func remove_card_from_hand(card):
 	if card in player_hand:

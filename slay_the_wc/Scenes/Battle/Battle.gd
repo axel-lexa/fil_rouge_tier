@@ -56,7 +56,7 @@ var energy_bar: HBoxContainer
 var energy_label: RichTextLabel
 
 var player_turn
-var player_hand_reference
+var player_hand_reference: PlayerHand
 var end_game
 var battle_desc: BattleDescription
 
@@ -69,7 +69,10 @@ var card_played: Array[Card2]
 var card_scene: PackedScene
 
 var textEnnemy: String = ""
-	
+
+# duplicate bin to get Card2 instead of CardData
+var card2Bin : Array[Card2] = []
+
 func _ready():
 	set_process_unhandled_input(true)
 	card_scene = preload("res://slay_the_wc/Cards/Scenes/Card.tscn")
@@ -214,15 +217,28 @@ func convert_scene_index_to_enemy(index: int) -> Enemy:
 	return null
 
 
-# Quand le joueur attaque	
+# Quand le joueur joue une carte
 func battle(card: Card2, ennemie_index: int, player_slot: bool):
-			
 	print("Battle="+ str(ennemie_index))
 	if not player_turn or end_game:
 		return
 	
 	process_card(card, player_slot, ennemie_index)
 	
+	# reset mana costs (uwu)
+	var all_cards_in_battle: Array[Card2] = player_hand_reference.player_hand.duplicate()
+	all_cards_in_battle.append_array(card2Bin)
+	for card_in_battle in all_cards_in_battle:
+		if card_in_battle.data.id == "as_des_licornes" && card_in_battle.data.mana_cost == 0:
+			card_in_battle.data.mana_cost = 1
+			card_in_battle.updateUi()
+		if card_in_battle.data.id == "escape" && card_in_battle.data.mana_cost == 2:
+			card_in_battle.data.mana_cost = 3
+			card_in_battle.updateUi()
+	# reset mult (uwu)
+	print("reset mult")
+	player.attack_multiplicator = 1
+
 	# Quand tout les ennemies sont KO :
 	if alive_enemies.size() == 0:
 		#RunManager.current_hp = RunManager.max_hp
@@ -240,7 +256,6 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 		DeckManager.reset_deck()
 		end_game = true
 		return
-	
 
 func process_card(card: Card2, player_slot: bool, ennemie_index: int):
 	if player.energy >= card.data.mana_cost:
@@ -291,6 +306,7 @@ func process_card_player_to_enemy(card: Card2, target: Enemy):
 		
 	if card.data.card_team_owner == CardData.OwnerTeamEnum.UWU:
 		process_card_uwu_enemy(card, target)	
+	player.cards_played_this_turn.append(card.data)
 
 
 func process_card_player(card: Card2):
@@ -317,6 +333,7 @@ func process_card_player(card: Card2):
 		
 	if card.data.card_team_owner == CardData.OwnerTeamEnum.UWU:
 		process_card_uwu_himself(card)	
+	player.cards_played_this_turn.append(card.data)
 	player.update_health_ui()
 
 func process_damage_player(enemy: Player, damage: int):
@@ -328,7 +345,8 @@ func process_damage_player(enemy: Player, damage: int):
 func process_damage_entity(enemy: Enemy, damage: int) -> int:
 	play_hit_flash(enemy)
 	# En cas de mort
-	if not enemy.apply_damage_and_check_lifestatus(damage):
+	var effective_damage = round(damage * player.attack_multiplicator)
+	if not enemy.apply_damage_and_check_lifestatus(effective_damage):
 		play_sound_battle_random(enemy_death_array)
 		enemy.turn_ui_off()
 		alive_enemies.erase(enemy)
@@ -386,6 +404,10 @@ func process_buff_strenght_entity(target: Entity, amout: int):
 
 func draw_cards(amount: int, is_init: bool = false):
 	var drawn = DeckManager.draw_cards(amount)
+	if DeckManager.deck.is_empty():
+		for card_in_bin in card2Bin:
+			$PlayerHand.remove_child(card_in_bin)
+		card2Bin.clear()
 	# instantiate card nodes and add them to the canvas
 	for  cardData in drawn:
 		if $PlayerHand.player_hand.size() < $PlayerHand.MAX_HAND_SIZE:
@@ -494,7 +516,14 @@ func process_card_penta_monstre_himself(card: Card2):
 	pass	
 	
 func process_card_uwu_himself(card: Card2):
-	pass		
+	if card.data.id == "escape":
+		player.escape = true
+	if card.data.id == "as_des_licornes":
+		draw_cards(1)
+		for card_in_hand in player_hand_reference.player_hand:
+			if card_in_hand.data.id == "escape":
+				card_in_hand.data.mana_cost = 2
+				card_in_hand.updateUi()
 	
 func process_card_12pandas_enemy(card: Card2, target: Enemy):
 	
@@ -611,8 +640,25 @@ func process_card_penta_monstre_enemy(card: Card2, target: Enemy):
 	pass	
 	
 func process_card_uwu_enemy(card: Card2, target: Enemy):
-	pass		
-	
+	if card.data.id == "le_p":
+		for enemy in alive_enemies:
+			process_damage_entity(enemy, 3)
+			# follow up
+			if player.cards_played_this_turn.size() && player.cards_played_this_turn.back().id == "too_fast":
+				await get_tree().create_timer(0.2).timeout
+				process_damage_entity(enemy, 3)
+	if card.data.id == "lets_brawl":
+		process_damage_entity(target, 3)
+	if card.data.id == "too_fast":
+		process_damage_entity(target, 3)
+		if player.cards_played_this_turn.size() == 0:
+			await get_tree().create_timer(0.2).timeout
+			process_damage_entity(target, 3)
+		for card_in_hand in player_hand_reference.player_hand:
+			if card_in_hand.data.id == "as_des_licornes":
+				card_in_hand.data.mana_cost = 0
+				card_in_hand.updateUi()
+		
 func process_pentamonstre_next_turn_actions():
 	process_count_mites("+", player.mites_to_add)
 	player.mites_to_add = 0
@@ -640,26 +686,45 @@ func launch_dice(count: int):
 		somme += randi_range(1, 6)	
 	return somme
 	
+func process_uwu_next_turn_actions():
+	for cardData in player.previously_played_cards:
+		if cardData.id == "chant_de_ralliement":
+			player.attack_multiplicator = 2
+	player.escape = false
+
 func process_end_of_turn_actions():
 	pass
 	
 func process_next_turn_actions():
 	process_pentamonstre_next_turn_actions()
+	process_uwu_next_turn_actions()
 	
 func move_card_to_bin(card: Card2):
 	
 	if end_game:
 		return
+	if card.data.id == "lets_brawl" && player.cards_played_this_turn.size() >= 2 && player.cards_played_this_turn[-2].id == "as_des_licornes":
+		# uwu follow up do not move to bin
+		player_hand_reference.add_card_to_hand(card, player_hand_reference.DEFAULT_CARD_MOVE_SPEED)
+		card.get_node("Area2D/CollisionShape2D").disabled = false
+		return
+
 	card.get_node("Area2D/CollisionShape2D").disabled = true
 	player_hand_reference.remove_card_from_hand(card)
 	player.discard_card(card.data)
+	card2Bin.append(card)
+	for card_in_bin in card2Bin:
+		card_in_bin.z_index = 1
+	card.z_index = 10
 
 	if get_tree():
 		var tween = get_tree().create_tween()
 		tween.tween_property(card, "position", $Bin.position, 0.2)
 		tween.parallel().tween_property(card, "scale", Vector2(1.1,1.1), 0.2)
 
-
+func process_uwu_end_of_turn_actions():
+	player.previously_played_cards = player.cards_played_this_turn.duplicate()
+	player.cards_played_this_turn.clear()
 
 # Boutton fin de tour appuyé
 func _on_button_pressed() -> void:
@@ -667,12 +732,13 @@ func _on_button_pressed() -> void:
 	player_turn = false
 	card_played = []
 	$Button.disabled = true
+	process_uwu_end_of_turn_actions()
 	var tmpList = player_hand_reference.player_hand.duplicate()
 	for card in tmpList:
 		move_card_to_bin(card)
 		
+	# Début tour ennemi
 	var enemies_to_kill = []
-
 	for enemy in alive_enemies:
 		if !enemy.compute_burn():
 			enemies_to_kill.append(enemy)
@@ -708,11 +774,9 @@ func _on_button_pressed() -> void:
 		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
 		return
 	else:
-		#Ajout CKC - Début tour joueur
+		# Début tour joueur
 		draw_cards(5)
-		
 		process_next_turn_actions()
-		#Fin ajout CKC
 		player_turn = true
 		player.energy = MAX_ENERGY
 		$BattleField/Characters/Player/EnergyPlayer.text = "Energie :"
@@ -814,3 +878,6 @@ func play_sound_battle(sound: AudioStreamPlayer, titleSound: String):
 			taunt_enemy_9.play()
 		elif titleSound == "enemy_10":
 			taunt_enemy_10.play()
+	
+static func filter_id(id: String) -> Callable:
+	return func (card: Card2): return card.data.id == id
