@@ -15,7 +15,6 @@ func _ready() -> void:
 	
 	
 	
-	video_player.finished.connect(_on_video_stream_player_finished)
 	
 	#const lines: Array[String] = ["La foret d'Arpos est un lieu ou les animaux vivent en communauté et en harmonie avec la nature.",
 	#"Chaque année lors des premières neiges la forêt est insuflée d'un pouvoir magique et mystérieux. Les animaux se regroupent à cette période pour fabriquer de belles constructions à l'éfigie de l'hiver."]
@@ -26,7 +25,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
