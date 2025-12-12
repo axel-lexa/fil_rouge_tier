@@ -241,7 +241,9 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 	print("reset mult")
 	player.attack_multiplicator = 1
 
-	# Quand tout les ennemies sont KO :
+	try_end_battle()
+
+func try_end_battle():
 	if alive_enemies.size() == 0:
 		#RunManager.current_hp = RunManager.max_hp
 		enemy_death_1.stop()
@@ -673,6 +675,7 @@ func process_pentamonstre_next_turn_actions():
 			if alive_enemies.find(target) >= 0:
 				process_damage_entity(target, 5)
 		parasitism_targeted_enemy.clear()
+		try_end_battle()
 	
 func add_mites(amount: int):
 	player.nb_mites += amount
