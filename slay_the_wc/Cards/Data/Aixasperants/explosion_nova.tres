@@ -7,8 +7,8 @@
 script = ExtResource("1_3d0nd")
 id = "flamme_eternelle"
 card_name = "Flamme eternellle"
-mana_cost = 4
-description = "Applique 10 brûlures, consomme l'ensemble des brûlures et inflige le double en dégât"
+mana_cost = 3
+description = "Applique 5 brûlures, consomme l'ensemble des brûlures et inflige le double en dégât"
 target_type = 1
 background = ExtResource("1_yh074")
 card_team_owner = 5

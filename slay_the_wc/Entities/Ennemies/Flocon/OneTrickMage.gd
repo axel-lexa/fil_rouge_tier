@@ -1,7 +1,7 @@
 extends Enemy
 class_name oneTrickMage
 
-var turn: int = 0
+var turn: int = 1
 
 func _init():
 	
@@ -17,8 +17,9 @@ func _init():
 	
 func compute_next_attack():
 	
-	if turn % 2 == 0:
+	if turn % 3 == 0:
 		next_atk = attacks[0]
 		update_intention_sprite(next_atk.atk_type)
 	else:
 		next_atk = null
+		turn += 1

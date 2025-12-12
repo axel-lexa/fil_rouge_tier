@@ -7,8 +7,7 @@
 script = ExtResource("2_86qls")
 id = "regard_solaire"
 card_name = "Regard Solaire"
-mana_cost = 1
-description = "Gagnez 1 de mana au prochain tour, choisissez une carte de votre main et placez là au dessus de votre pioche."
+description = "Gagnez 1 de mana au prochain tour."
 target_type = 1
 card_type = 1
 background = ExtResource("1_mfyr1")

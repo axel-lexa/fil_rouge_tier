@@ -1,12 +1,24 @@
-[gd_resource type="Resource" script_class="MascotData" load_steps=8 format=3 uid="uid://p6mtpue6roc"]
+[gd_resource type="Resource" script_class="MascotData" load_steps=20 format=3 uid="uid://p6mtpue6roc"]
 
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_e2pfh"]
 [ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_if3so"]
+[ext_resource type="Resource" uid="uid://dnpeitqik7k3n" path="res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres" id="2_u6it3"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="3_6x3ci"]
 [ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_d4ngu"]
+[ext_resource type="Resource" uid="uid://55v2xp5sdfw7" path="res://slay_the_wc/Cards/Data/Commun/Changement_bareme.tres" id="4_dcyu2"]
 [ext_resource type="Resource" uid="uid://36jb05sy7dhs" path="res://slay_the_wc/Cards/Data/Aixasperants/flamme_eternelle.tres" id="4_p74rg"]
 [ext_resource type="Resource" uid="uid://dmefxiuwuys46" path="res://slay_the_wc/Cards/Data/Aixasperants/resurrection_du_phenix.tres" id="5_8nxhd"]
+[ext_resource type="Resource" uid="uid://b8ugmsa7067vr" path="res://slay_the_wc/Cards/Data/Commun/Defense_offensive.tres" id="6_2kpjm"]
 [ext_resource type="Texture2D" uid="uid://pt8u5vg0s80g" path="res://slay_the_wc/Assets/Mascottes/Pyralis.webp" id="6_p74rg"]
+[ext_resource type="Resource" uid="uid://l1nk01lsyq7s" path="res://slay_the_wc/Cards/Data/Commun/Esquive_rapide.tres" id="7_yy1t3"]
+[ext_resource type="Resource" uid="uid://dvrsmea8ug1fq" path="res://slay_the_wc/Cards/Data/Commun/Melee_generale.tres" id="8_txjxt"]
+[ext_resource type="Resource" uid="uid://cg04ltsib4yp6" path="res://slay_the_wc/Cards/Data/Commun/Muraille.tres" id="9_aaa1a"]
+[ext_resource type="Resource" uid="uid://d1lk70arp16t0" path="res://slay_the_wc/Cards/Data/Commun/Soin_urgence.tres" id="10_xssic"]
+[ext_resource type="Resource" uid="uid://ncximi7nr7hn" path="res://slay_the_wc/Cards/Data/Aixasperants/brasier_solaire.tres" id="11_yp7vd"]
+[ext_resource type="Resource" uid="uid://cim72or5peldg" path="res://slay_the_wc/Cards/Data/Aixasperants/couve.tres" id="12_ggiab"]
+[ext_resource type="Resource" uid="uid://y2k4y8638e4g" path="res://slay_the_wc/Cards/Data/Aixasperants/explosion_nova.tres" id="13_y4ife"]
+[ext_resource type="Resource" uid="uid://b4bayi3v6hgwy" path="res://slay_the_wc/Cards/Data/Aixasperants/regard_solaire.tres" id="15_tvj4t"]
+[ext_resource type="Resource" uid="uid://c515cjdv2nhs" path="res://slay_the_wc/Cards/Data/Aixasperants/souffle_du_phenix.tres" id="17_cpo28"]
 
 [resource]
 script = ExtResource("3_6x3ci")
@@ -22,5 +34,5 @@ Il volait fièrement dans le ciel, aux yeux de toute la forêt pour montrer qu�
 
 Le deck de Pyralis se joue autour de la mécanique de brûlure. Les cartes du deck permettent d’ajouter des stacks de brûlure sur l’adversaire. Elles génèrent des dégâts de brûlure tous les tours, et en plus peuvent être consommées pour infliger encore plus de dégâts directs à la cible. 
 "
-default_cards = Array[ExtResource("1_e2pfh")]([ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("3_d4ngu"), ExtResource("4_p74rg"), ExtResource("5_8nxhd")])
+default_cards = Array[ExtResource("1_e2pfh")]([ExtResource("2_u6it3"), ExtResource("2_if3so"), ExtResource("2_if3so"), ExtResource("4_dcyu2"), ExtResource("3_d4ngu"), ExtResource("6_2kpjm"), ExtResource("7_yy1t3"), ExtResource("8_txjxt"), ExtResource("9_aaa1a"), ExtResource("10_xssic"), ExtResource("11_yp7vd"), ExtResource("12_ggiab"), ExtResource("13_y4ife"), ExtResource("4_p74rg"), ExtResource("4_p74rg"), ExtResource("4_p74rg"), ExtResource("15_tvj4t"), ExtResource("15_tvj4t"), ExtResource("5_8nxhd"), ExtResource("17_cpo28")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

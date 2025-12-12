@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhdna20qv4g34"]
 
 [ext_resource type="Script" uid="uid://7wpqmns7fq68" path="res://slay_the_wc/Scenes/Credits/credit.gd" id="1_jqs72"]
-[ext_resource type="VideoStream" uid="uid://dhn1hnb448c3i" path="res://slay_the_wc/Assets/Art/Main_Menu/credit_v2.ogv" id="2_jqs72"]
+[ext_resource type="VideoStream" uid="uid://rsf1yghd2sdk" path="res://slay_the_wc/Assets/Art/générique fin-final_final.ogv" id="2_jqs72"]
 
 [node name="Credit" type="Node2D"]
 script = ExtResource("1_jqs72")

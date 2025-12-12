@@ -1,12 +1,23 @@
-[gd_resource type="Resource" script_class="MascotData" load_steps=8 format=3 uid="uid://d08ms81l5qrkc"]
+[gd_resource type="Resource" script_class="MascotData" load_steps=19 format=3 uid="uid://d08ms81l5qrkc"]
 
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_rum2l"]
+[ext_resource type="Resource" uid="uid://dnpeitqik7k3n" path="res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres" id="2_5dvhl"]
 [ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="2_uhumm"]
 [ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="3_3j1bh"]
+[ext_resource type="Resource" uid="uid://55v2xp5sdfw7" path="res://slay_the_wc/Cards/Data/Commun/Changement_bareme.tres" id="4_dc5ho"]
 [ext_resource type="Resource" uid="uid://brkxqxesxrtf3" path="res://slay_the_wc/Cards/Data/BeurreSale/calories.tres" id="5_jarm6"]
+[ext_resource type="Resource" uid="uid://b8ugmsa7067vr" path="res://slay_the_wc/Cards/Data/Commun/Defense_offensive.tres" id="6_abatp"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="6_forfu"]
 [ext_resource type="Texture2D" uid="uid://bmjhomy2jm2k0" path="res://slay_the_wc/Assets/Mascottes/poulpy.png" id="6_jarm6"]
+[ext_resource type="Resource" uid="uid://l1nk01lsyq7s" path="res://slay_the_wc/Cards/Data/Commun/Esquive_rapide.tres" id="7_dp0kg"]
+[ext_resource type="Resource" uid="uid://dvrsmea8ug1fq" path="res://slay_the_wc/Cards/Data/Commun/Melee_generale.tres" id="8_4uhl7"]
+[ext_resource type="Resource" uid="uid://cg04ltsib4yp6" path="res://slay_the_wc/Cards/Data/Commun/Muraille.tres" id="9_6toox"]
+[ext_resource type="Resource" uid="uid://d1lk70arp16t0" path="res://slay_the_wc/Cards/Data/Commun/Soin_urgence.tres" id="10_hqnhd"]
+[ext_resource type="Resource" uid="uid://ceagi2sn0a5lf" path="res://slay_the_wc/Cards/Data/BeurreSale/bataille_de_beurre.tres" id="11_v0lnx"]
 [ext_resource type="Resource" uid="uid://beeovx8punhe5" path="res://slay_the_wc/Cards/Data/BeurreSale/tournee_generale.tres" id="12_xk60u"]
+[ext_resource type="Resource" uid="uid://beeovx8punhe5" path="res://slay_the_wc/Cards/Data/BeurreSale/main_glissante.tres" id="13_nbone"]
+[ext_resource type="Resource" uid="uid://dwmii3p5jcqga" path="res://slay_the_wc/Cards/Data/BeurreSale/crepe_beurre_sucre.tres" id="15_7t2w5"]
+[ext_resource type="Resource" uid="uid://bethx6d1sjii2" path="res://slay_the_wc/Cards/Data/BeurreSale/tartine_pain_beurre.tres" id="16_wkcb6"]
 
 [resource]
 script = ExtResource("6_forfu")
@@ -24,5 +35,5 @@ Depuis cette année, il est devenu jaune, car mangeait beaucoup trop de beurre, 
 
 Le deck de Poulpy se base sur la mécanique de “Cholestérol” qui fait office de poison. Comme il utilise des attaques autour d’un excès de beurre, les adversaires sont empoisonnés avec des stacks de “cholestérol”. Plus l’adversaire a de cholestérol, plus il risque de prendre de dégâts par le deck de Poulpy en plus des dégâts de poison.
 "
-default_cards = Array[ExtResource("1_rum2l")]([ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("3_3j1bh"), ExtResource("12_xk60u"), ExtResource("5_jarm6")])
+default_cards = Array[ExtResource("1_rum2l")]([ExtResource("2_5dvhl"), ExtResource("2_uhumm"), ExtResource("2_uhumm"), ExtResource("4_dc5ho"), ExtResource("3_3j1bh"), ExtResource("6_abatp"), ExtResource("7_dp0kg"), ExtResource("8_4uhl7"), ExtResource("9_6toox"), ExtResource("10_hqnhd"), ExtResource("11_v0lnx"), ExtResource("12_xk60u"), ExtResource("12_xk60u"), ExtResource("12_xk60u"), ExtResource("13_nbone"), ExtResource("5_jarm6"), ExtResource("15_7t2w5"), ExtResource("15_7t2w5"), ExtResource("16_wkcb6"), ExtResource("16_wkcb6")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

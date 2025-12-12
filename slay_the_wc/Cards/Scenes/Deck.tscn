@@ -23,11 +23,12 @@ shape = SubResource("RectangleShape2D_uxmdl")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 z_index = -2
-offset_left = -10.0
-offset_top = 61.0
-offset_right = 30.0
-offset_bottom = 101.0
-scale = Vector2(2, 2)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+offset_left = 25.0
+offset_top = -12.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 16
 text = "0"

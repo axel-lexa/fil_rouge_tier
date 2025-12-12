@@ -488,7 +488,7 @@ func process_card_bibi_himself(card: Card2):
 		for c in tmpList:
 			move_card_to_bin(c)
 		draw_cards(tmpList.size())
-	elif card.data.id == "en_avant_teno":
+	elif card.data.id == "en_avant_telo":
 		process_shield_entity(player, 12)
 	
 func process_card_5d6_himself(card: Card2):
