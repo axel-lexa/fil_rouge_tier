@@ -14,8 +14,10 @@ func update_battle_buttons():
 	print(next_battle)
 
 	for battle in $Battles.get_children():
-		battle.disabled = battle.name != next_battle
-
+		if battle.name == next_battle:
+			battle.mouse_default_cursor_shape = Input.CursorShape.CURSOR_POINTING_HAND
+		else:
+			battle.disabled	= true
 func update_roads():
 
 	for road in $Roads.get_children():
