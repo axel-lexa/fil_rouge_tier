@@ -7,6 +7,15 @@
 [ext_resource type="Resource" uid="uid://ccx2sgqo1hde" path="res://slay_the_wc/Cards/Data/UwU/too_fast.tres" id="5_fg51w"]
 [ext_resource type="Texture2D" uid="uid://bnysuqsbwx3ws" path="res://slay_the_wc/Assets/Mascottes/licorne_uwu.png" id="6_n7bci"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="6_ypr0r"]
+[ext_resource type="Resource" uid="uid://rc3qyra86jj4" path="res://slay_the_wc/Cards/Data/UwU/as_des_licornes.tres" id="7_sfui3"]
+[ext_resource type="Resource" uid="uid://dki4jjr1d4dtf" path="res://slay_the_wc/Cards/Data/UwU/escape.tres" id="8_sks2u"]
+[ext_resource type="Resource" uid="uid://kcj8yca6owss" path="res://slay_the_wc/Cards/Data/UwU/lets_brawl.tres" id="9_780p4"]
+[ext_resource type="Resource" uid="uid://b8ugmsa7067vr" path="res://slay_the_wc/Cards/Data/Commun/Defense_offensive.tres" id="9_sfui3"]
+[ext_resource type="Resource" uid="uid://blgsvewfss0qs" path="res://slay_the_wc/Cards/Data/UwU/le_p.tres" id="10_2nbwt"]
+[ext_resource type="Resource" uid="uid://l1nk01lsyq7s" path="res://slay_the_wc/Cards/Data/Commun/Esquive_rapide.tres" id="10_sks2u"]
+[ext_resource type="Resource" uid="uid://dnpeitqik7k3n" path="res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres" id="12_780p4"]
+[ext_resource type="Resource" uid="uid://cg04ltsib4yp6" path="res://slay_the_wc/Cards/Data/Commun/Muraille.tres" id="13_2nbwt"]
+[ext_resource type="Resource" uid="uid://d1lk70arp16t0" path="res://slay_the_wc/Cards/Data/Commun/Soin_urgence.tres" id="14_ul4lq"]
 
 [resource]
 script = ExtResource("6_ypr0r")
@@ -22,6 +31,6 @@ Elle était déjà belle et resplendissante avant, mais la forêt lui permet d�
 
 Le deck d’Aurore se joue autour d’une mécanique de combo “follow up”. Les cartes du deck paraissent un peu moins fortes si jouées seules, mais si elles sont jouées après certaines cartes spécifiques, elles activent un pouvoir de “follow up” en plus de leur pouvoir de base.
 "
-
 default_cards = Array[ExtResource("1_q3igl")]([ExtResource("7_sfui3"), ExtResource("7_sfui3"), ExtResource("7_sfui3"), ExtResource("5_fg51w"), ExtResource("5_fg51w"), ExtResource("5_fg51w"), ExtResource("9_780p4"), ExtResource("4_5s5o4"), ExtResource("8_sks2u"), ExtResource("10_2nbwt"), ExtResource("3_hsk8i"), ExtResource("9_sfui3"), ExtResource("10_sks2u"), ExtResource("2_n7bci"), ExtResource("2_n7bci"), ExtResource("12_780p4"), ExtResource("13_2nbwt"), ExtResource("14_ul4lq")])
+unlockable_cards = Array[ExtResource("1_q3igl")]([ExtResource("4_5s5o4"), ExtResource("5_fg51w"), ExtResource("7_sfui3"), ExtResource("7_sfui3"), ExtResource("8_sks2u"), ExtResource("8_sks2u"), ExtResource("9_780p4"), ExtResource("9_780p4"), ExtResource("10_2nbwt"), ExtResource("10_2nbwt")])
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"
