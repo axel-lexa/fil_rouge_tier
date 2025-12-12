@@ -106,7 +106,7 @@ justification_flags = 171
 
 [node name="FoldableContainer" type="FoldableContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-title = "Deck de départ:"
+title = "Deck de la mascotte:"
 
 [node name="DefaultCardsContainer" type="HFlowContainer" parent="ScrollContainer/MarginContainer/VBoxContainer/FoldableContainer"]
 unique_name_in_owner = true
@@ -114,6 +114,7 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
 [node name="FoldableContainer2" type="FoldableContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 title = "Cartes à débloquer"
 

@@ -30,16 +30,15 @@ func _ready() -> void:
 			var stylebox_pressed = stylebox.duplicate()
 			stylebox_pressed.bg_color *= 1.2
 			stylebox_pressed.set_border_width_all(5)
-			stylebox_pressed.border_color = stylebox.bg_color * 0.8
+			stylebox_pressed.border_color = Color(0.275, 0.541, 0.643, 1.0)
 			btns[i].add_theme_stylebox_override("pressed", stylebox_pressed)
+			btns[i].add_theme_stylebox_override("hover_pressed", stylebox_pressed)
 			
 			var stylebox_focus = stylebox_pressed.duplicate()
 			stylebox_focus.bg_color = %TabContainer.get_children()[i].mascot.theme_color * 1.2
-			btns[i].add_theme_stylebox_override("focus", stylebox_pressed)
+			stylebox_focus.border_color = stylebox.bg_color * 0.8
 			
 			var stylebox_hover = stylebox_focus.duplicate()
-			stylebox_hover.bg_color = %TabContainer.get_children()[i].mascot.theme_color * 1.2
-			stylebox_hover.set_border_width_all(5)
 			btns[i].add_theme_stylebox_override("hover", stylebox_hover)
 
 
