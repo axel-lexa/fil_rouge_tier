@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="3_6x3ci"]
 [ext_resource type="Resource" uid="uid://36jb05sy7dhs" path="res://slay_the_wc/Cards/Data/Aixasperants/flamme_eternelle.tres" id="4_p74rg"]
 [ext_resource type="Resource" uid="uid://dmefxiuwuys46" path="res://slay_the_wc/Cards/Data/Aixasperants/resurrection_du_phenix.tres" id="5_8nxhd"]
-[ext_resource type="Resource" uid="uid://b8ugmsa7067vr" path="res://slay_the_wc/Cards/Data/Commun/Defense_offensive.tres" id="6_2kpjm"]
 [ext_resource type="Texture2D" uid="uid://pt8u5vg0s80g" path="res://slay_the_wc/Assets/Mascottes/Pyralis.webp" id="6_p74rg"]
 [ext_resource type="Resource" uid="uid://ncximi7nr7hn" path="res://slay_the_wc/Cards/Data/Aixasperants/brasier_solaire.tres" id="7_qw22w"]
 [ext_resource type="Resource" uid="uid://cim72or5peldg" path="res://slay_the_wc/Cards/Data/Aixasperants/couve.tres" id="8_qeh0c"]
