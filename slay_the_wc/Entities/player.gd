@@ -16,6 +16,13 @@ var mites_to_add: int = 0
 # AixAsperant
 var brulure: int = 0
 
+# UwU
+var previously_played_cards: Array[CardData] = []
+var cards_played_this_turn: Array[CardData] = []
+var attack_multiplicator: float = 1
+# all damage taken is reduced to 1
+var escape: bool = false
+
 var battle_achieved: Dictionary[String, bool] = {}
 
 func add_card_to_deck(card: CardData):
@@ -53,4 +60,8 @@ func update_extra_info():
 	else:
 		components.extra_info.visible = false
 	
-	
+func add_card_played_this_turn(card: CardData):
+	cards_played_this_turn.append(card)
+
+func apply_damage_and_check_lifestatus(amount : int) -> bool:
+	return super.apply_damage_and_check_lifestatus(1 if escape else amount)

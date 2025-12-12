@@ -44,3 +44,6 @@ func hightlight_card(activate: bool):
 	else:
 		scale = BASE_SCALE
 		z_index = 1
+
+func updateUi():
+	$UiCard.loadCardData(data)

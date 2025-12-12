@@ -149,4 +149,3 @@ func get_card_with_hightest_z_index(cards):
 			hightest_z_card = current_card
 			hightest_z_index = current_card.z_index
 	return hightest_z_card
-	
