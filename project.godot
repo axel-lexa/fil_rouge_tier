@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="fil_rouge_tier"
+config/name="Les 7 esprits de l'hiver"
 run/main_scene="uid://cekc18dbmnves"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
@@ -31,6 +31,7 @@ SaveManager="*res://_Autoloads/SaveManager.gd"
 
 window/size/viewport_width=1400
 window/size/viewport_height=843
+window/size/resizable=false
 window/vsync/vsync_mode=0
 
 [editor]

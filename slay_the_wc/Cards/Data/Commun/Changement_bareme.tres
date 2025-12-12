@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_feo3h")
 id = "changement_bareme"
-card_name = "Changement de barème"
+card_name = "Barème revisité"
 mana_cost = 2
 description = "Mélange toutes les cartes (Pioche, défausse et main).
 Commence un nouveau tour"

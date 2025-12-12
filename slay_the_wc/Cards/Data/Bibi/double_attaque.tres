@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://btyp2c2old2na"]
+
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_0uoqw"]
+[ext_resource type="Texture2D" uid="uid://b2ib57mvjeshd" path="res://slay_the_wc/Assets/Cartes/Cartes Bibi/double_attaque.png" id="1_f0hs8"]
+
+[resource]
+script = ExtResource("1_0uoqw")
+id = "double_attaque"
+card_name = "Double Attaque"
+mana_cost = 2
+description = "Inflige 8 dégâts
+Gagne 8 blocages"
+target_type = 1
+background = ExtResource("1_f0hs8")
+metadata/_custom_type_script = "uid://cdedm7rlawgj6"

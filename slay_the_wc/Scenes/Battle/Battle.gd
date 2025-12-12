@@ -451,7 +451,16 @@ func process_card_12pandas_himself(card: Card2):
 	pass
 	
 func process_card_bibi_himself(card: Card2):
-	pass	
+	if card.data.id == "cul_sec_telo":
+		process_shield_entity(player, 8)
+	elif card.data.id == "jai_renverse":
+		var tmpList = player_hand_reference.player_hand.duplicate()
+		for c in tmpList:
+			move_card_to_bin(c)
+		draw_cards(tmpList.size())
+	elif card.data.id == "en_avant_teno":
+		process_shield_entity(player, 12)
+	
 func process_card_5d6_himself(card: Card2):
 	if card.data.id == "3d6":
 		process_shield_entity(player, launch_dice(3))
@@ -509,7 +518,16 @@ func panda_left_battle(count: int):
 		process_damage_entity(enemy_chosen, 3)
 
 func process_card_bibi_enemy(card: Card2, target: Enemy):
-	pass	
+	if card.data.id == "cul_sec_zeno":
+		process_damage_entity(target, 8)
+	elif card.data.id == "cest_ma_tournee":
+		process_damage_entity(target, 4)
+		process_shield_entity(player, 4)
+	elif card.cata.id == "en_avant_zeno":
+		process_damage_entity(target, 12)
+	elif card.data.id == "double_attaque":
+		process_damage_entity(target, 8)
+		process_shield_entity(player, 8)
 func process_card_5d6_enemy(card: Card2, target: Enemy):
 	
 	if card.data.id == "0d6":
