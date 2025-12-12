@@ -8,7 +8,7 @@ var index: Array[int]
 func _init():
 	var attack1 = Enemy_attack.new()
 	attack1.name = "Attaque flamboyante"
-	attack1.damage = 40
+	attack1.damage = 20
 	
 	var attack2 = Enemy_attack.new()
 	attack2.name = "Attaque brûlante"
