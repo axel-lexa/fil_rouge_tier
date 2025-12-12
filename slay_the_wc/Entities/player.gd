@@ -10,7 +10,7 @@ var nb_pandas: int = 0
 var nb_pandas_left_battle: int = 0
 
 # PentaMonstres
-var nb_mites: int = 1
+var nb_mites: int = 0
 var mites_to_add: int = 0
 
 # AixAsperant
