@@ -60,8 +60,9 @@ var player_hand_reference: PlayerHand
 var end_game
 var battle_desc: BattleDescription
 
-var parasitism_effect = Vector2(0, 0)
-var parasitism_targeted_enemy : Enemy
+var is_player_turn_start = false
+
+var parasitism_targeted_enemy : Array[Enemy]
 
 var card_played: Array[Card2]	
 
@@ -341,7 +342,7 @@ func process_damage_player(enemy: Player, damage: int):
 	else:
 		play_sound_battle_random(hit_taken_array)
 		
-func process_damage_entity(enemy: Enemy, damage: int):
+func process_damage_entity(enemy: Enemy, damage: int) -> int:
 	play_hit_flash(enemy)
 	# En cas de mort
 	var effective_damage = round(damage * player.attack_multiplicator)
@@ -349,8 +350,10 @@ func process_damage_entity(enemy: Enemy, damage: int):
 		play_sound_battle_random(enemy_death_array)
 		enemy.turn_ui_off()
 		alive_enemies.erase(enemy)
+		return false
 	else:
 		play_sound_battle_random(hit_taken_array)
+		return true
 
 func process_heal_entity(target: Entity, amout: int):
 	target.heal(amout)
@@ -387,8 +390,16 @@ func process_count_panda(operation: String, amount: int):
 	player.update_extra_info()
 	play_sound_battle(token_panda,"")
 
-func process_buff_strenght_entity(target: Entity, amount: int):
-	target.add_strenght(amount)
+func process_count_mites(operation: String, amount: int):
+	match operation:
+		"+":
+			player.nb_mites = clamp(player.nb_mites + amount, 0, 20)
+		"-":
+			player.nb_mites = clamp(player.nb_mites - amount, 0, 20)
+	player.update_extra_info()
+
+func process_buff_strenght_entity(target: Entity, amout: int):
+	target.add_strenght(amout)
 	play_sound_battle_random(buff_taken_array)
 
 func draw_cards(amount: int, is_init: bool = false):
@@ -490,9 +501,18 @@ func process_card_confrerie_himself(card: Card2):
 	pass	
 func process_card_aix_asperant_himself(card: Card2):
 	pass	
+
 func process_card_penta_monstre_himself(card: Card2):
 	if card.data.id == "ponte_protegee":
 		player.mites_to_add += 10
+	if card.data.id == "ponte_rapide":
+		process_damage_player(player, 3)
+		process_count_mites("+", 4)
+	if card.data.id == "sacrifice_mite":
+		if player.nb_mites >= 5:
+			process_count_mites("-", 5)
+			process_shield_entity(player, 5)
+			process_heal_entity(player, 5)
 	pass	
 	
 func process_card_uwu_himself(card: Card2):
@@ -598,12 +618,25 @@ func process_card_confrerie_enemy(card: Card2, target: Enemy):
 	pass	
 func process_card_aix_asperant_enemy(card: Card2, target: Enemy):
 	pass	
+
 func process_card_penta_monstre_enemy(card: Card2, target: Enemy):
 	if card.data.id == "parasitisme":
-		parasitism_effect.x += 5
-		parasitism_effect.y += 6
-		parasitism_targeted_enemy = target
-		# TODO finish this
+		target.add_strenght(-2)
+		parasitism_targeted_enemy.append(target)
+	if card.data.id == "pentamite":
+		if player.nb_mites >=5:
+			process_count_mites("-", 5)
+			for i in range (0, 5):
+				if (!process_damage_entity(target, 5)):
+					if (alive_enemies.size() < 1):
+						break
+					target = alive_enemies[0]
+	if card.data.id == "nuee":
+		var dmg = player.nb_mites
+		process_count_mites("-", 20)
+		var targets = alive_enemies.duplicate()
+		for enemy in targets:
+			process_damage_entity(enemy, dmg)
 	pass	
 	
 func process_card_uwu_enemy(card: Card2, target: Enemy):
@@ -627,13 +660,14 @@ func process_card_uwu_enemy(card: Card2, target: Enemy):
 				card_in_hand.updateUi()
 		
 func process_pentamonstre_next_turn_actions():
-	add_mites(player.mites_to_add)
+	process_count_mites("+", player.mites_to_add)
 	player.mites_to_add = 0
-	if parasitism_targeted_enemy != null:
-		add_mites(parasitism_effect.x)
-		process_damage_entity(parasitism_targeted_enemy, parasitism_effect.y)
-		parasitism_effect = Vector2(0,0)
-		parasitism_targeted_enemy = null
+	if parasitism_targeted_enemy.size() > 0:
+		for target in parasitism_targeted_enemy:
+			process_count_mites("+", 6)
+			if alive_enemies.find(target) >= 0:
+				process_damage_entity(target, 5)
+		parasitism_targeted_enemy.clear()
 	
 func add_mites(amount: int):
 	player.nb_mites += amount
