@@ -2,7 +2,6 @@ extends AspectRatioContainer
 class_name UiCard
 
 @export var data: CardData
-@export var is_tweened: bool = false
 
 func _ready() -> void:
 	#%NameScroll.get_v_scroll_bar().mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
@@ -19,13 +18,11 @@ func _process(_delta: float) -> void:
 
 
 func _on_resized() -> void:
-	if (is_tweened):
-		return
+	%CostLabel.pivot_offset = Vector2(0, %CostLabel.size.y)
 	resizeLabel(%CostLabel, 45)
 	resizeLabel(%Name, 35)
 	resizeLabel(%Description, 30)
 	# reposition cost pivot to the bottom
-	%CostLabel.pivot_offset = Vector2(0, %CostLabel.size.y)
 
 func resizeLabel(label: Label, base_font_size: int) -> void:
 	# scale label fonts

@@ -6,22 +6,36 @@
 [node name="CardZoom" type="CanvasLayer"]
 script = ExtResource("1_fuflj")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
+[node name="CenteringControl" type="HBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1132.0
-offset_bottom = -493.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(200, 0)
+mouse_filter = 2
+alignment = 1
 
-[node name="UiCard" parent="Control" instance=ExtResource("2_pm1on")]
+[node name="ResizeControl" type="Control" parent="CenteringControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="UiCard" parent="CenteringControl/ResizeControl" instance=ExtResource("2_pm1on")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-alignment_horizontal = 0
-is_tweened = true
+grow_vertical = 1
+size_flags_vertical = 0
+alignment_vertical = 0
 
-[connection signal="mouse_entered" from="Control" to="." method="_on_ui_card_mouse_entered"]
-[connection signal="mouse_exited" from="Control" to="." method="_on_ui_card_mouse_exited"]
+[node name="DebugTimer" type="Timer" parent="."]
+
+[connection signal="mouse_entered" from="CenteringControl/ResizeControl" to="." method="_on_ui_card_mouse_entered"]
+[connection signal="mouse_exited" from="CenteringControl/ResizeControl" to="." method="_on_ui_card_mouse_exited"]
+[connection signal="timeout" from="DebugTimer" to="." method="_on_timer_timeout"]
