@@ -71,7 +71,7 @@ func animate_card_to_position(card, new_position, speed, f_rotation):
 	if f_rotation != null:
 		tween.parallel().tween_property(card, "rotation", f_rotation, speed)
 		
-func remove_card_from_hand(card):
+func remove_card_from_hand(card: Card2):
 	if card in player_hand:
 		player_hand.erase(card)
 		update_hand_position(DEFAULT_CARD_MOVE_SPEED)

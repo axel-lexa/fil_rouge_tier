@@ -41,7 +41,7 @@ func draw_cards(count: int) -> Array[CardData]:
 	return DeckManager.draw_cards(count)
 
 # Défausse une carte de la main
-func discard_card(card: CardData):
+func discard_card(card: Card2):
 	DeckManager.discard_card(card)
 
 # Épuise une carte (retire du deck définitivement)

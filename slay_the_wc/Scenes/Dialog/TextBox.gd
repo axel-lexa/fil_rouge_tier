@@ -17,7 +17,7 @@ var is_skipping = false
 
 signal finished_displaying()
 
-signal skip_dialog
+#signal skip_dialog
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.pressed:

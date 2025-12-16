@@ -88,11 +88,11 @@ func reset_deck():
 	discard_pile.clear()
 
 # Défausse une carte de la main
-func discard_card(card: CardData):
-	if hand.has(card):
-		hand.erase(card)
-		if card.target_type != CardData.TargetTypeEnum.NONE:
-			discard_pile.append(card)
+func discard_card(card: Card2):
+	if hand.has(card.data):
+		hand.erase(card.data)
+		if card.data.target_type != CardData.TargetTypeEnum.NONE:
+			discard_pile.append(card.data)
 		player_hand_node.remove_card_from_hand(card)
 		
 

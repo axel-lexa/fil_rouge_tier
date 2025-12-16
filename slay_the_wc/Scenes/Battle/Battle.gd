@@ -503,7 +503,7 @@ func process_card_confrerie_himself(card: Card2):
 	if card.data.id == "main_glissante":
 		draw_cards(3)
 	pass	
-func process_card_aix_asperant_himself(card: Card2):
+func process_card_aix_asperant_himself(_card: Card2):
 	pass	
 
 func process_card_penta_monstre_himself(card: Card2):
@@ -624,7 +624,7 @@ func process_card_confrerie_enemy(card: Card2, target: Enemy):
 		if target.burn != 0:
 			process_damage_entity(target, 7)
 	pass	
-func process_card_aix_asperant_enemy(card: Card2, target: Enemy):
+func process_card_aix_asperant_enemy(__card: Card2, _target: Enemy):
 	pass	
 
 func process_card_penta_monstre_enemy(card: Card2, target: Enemy):
@@ -720,7 +720,7 @@ func move_card_to_bin(card: Card2):
 
 	card.get_node("Area2D/CollisionShape2D").disabled = true
 	player_hand_reference.remove_card_from_hand(card)
-	player.discard_card(card.data)
+	player.discard_card(card)
 	card2Bin.append(card)
 	for card_in_bin in card2Bin:
 		card_in_bin.z_index = 1
