@@ -9,9 +9,9 @@ id = "parasitisme"
 card_name = "Parasitisme"
 mana_cost = 1
 description = "Inflige debuff -2ATK
-Au tour suivant:
-Inflige 5 dégâts
-Gagne 6 mites"
+[u]Au tour suivant:[/u]
+[ul]Inflige 5 dégâts[/ul]
+[ul]Gagne 6 mites[/ul]"
 target_type = 1
 background = ExtResource("1_jmxya")
 card_team_owner = 6
