@@ -21,16 +21,18 @@ func _on_resized() -> void:
 	%CostLabel.pivot_offset = Vector2(0, %CostLabel.size.y)
 	resizeLabel(%CostLabel, 45)
 	resizeLabel(%Name, 35)
-	resizeLabel(%Description, 30)
+	resizeLabel(%Description, 25)
 	# reposition cost pivot to the bottom
 
-func resizeLabel(label: Label, base_font_size: int) -> void:
+func resizeLabel(label: RichTextLabel, base_font_size: int) -> void:
 	# scale label fonts
 	var new_scale = self.size.x / 500;
-	label.add_theme_font_size_override(
-		"font_size",
-		int(base_font_size*new_scale)
-	)
+	var new_font_size = int(base_font_size*new_scale)
+	label.add_theme_font_size_override("normal_font_size", new_font_size)
+	label.add_theme_font_size_override("bold_font_size", new_font_size)
+	label.add_theme_font_size_override("bold_italics_font_size", new_font_size)
+	label.add_theme_font_size_override("italics_font_size", new_font_size)
+	label.add_theme_font_size_override("mono_font_size", new_font_size)
 
 func loadCardData(new_data: CardData):
 	%Name.text = new_data.card_name

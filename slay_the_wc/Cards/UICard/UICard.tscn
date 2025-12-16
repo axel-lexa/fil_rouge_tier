@@ -89,7 +89,7 @@ texture = SubResource("CompressedTexture2D_ixlqc")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="CostLabel" type="Label" parent="CardBg/VBoxContainer/HBoxContainer/VBoxContainer/IllustrationControl"]
+[node name="CostLabel" type="RichTextLabel" parent="CardBg/VBoxContainer/HBoxContainer/VBoxContainer/IllustrationControl"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -100,8 +100,13 @@ offset_right = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 463)
+mouse_filter = 2
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/bold_font_size = 45
+theme_override_font_sizes/bold_italics_font_size = 45
+theme_override_font_sizes/italics_font_size = 45
+theme_override_font_sizes/mono_font_size = 45
 text = "COST"
 vertical_alignment = 2
 
@@ -140,14 +145,19 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.72
 horizontal_scroll_mode = 0
 
-[node name="Name" type="Label" parent="CardBg/VBoxContainer/HBoxContainer/VBoxContainer/Control/VBoxContainer2/Control/NameScroll"]
+[node name="Name" type="RichTextLabel" parent="CardBg/VBoxContainer/HBoxContainer/VBoxContainer/Control/VBoxContainer2/Control/NameScroll"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/normal_font_size = 35
+theme_override_font_sizes/bold_font_size = 35
+theme_override_font_sizes/bold_italics_font_size = 35
+theme_override_font_sizes/italics_font_size = 35
+theme_override_font_sizes/mono_font_size = 35
 text = "NAME OF THE CARD
 NAME OF THE CARD
 NAME OF THE CARD
@@ -171,15 +181,22 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.72
 horizontal_scroll_mode = 0
 
-[node name="Description" type="Label" parent="CardBg/VBoxContainer/HBoxContainer/VBoxContainer/Control/VBoxContainer2/Control2/DescriptionScroll"]
+[node name="Description" type="RichTextLabel" parent="CardBg/VBoxContainer/HBoxContainer/VBoxContainer/Control/VBoxContainer2/Control2/DescriptionScroll"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 21
-text = "DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet "
+mouse_filter = 2
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 21
+theme_override_font_sizes/bold_italics_font_size = 21
+theme_override_font_sizes/italics_font_size = 21
+theme_override_font_sizes/mono_font_size = 21
+bbcode_enabled = true
+text = "lorem [b]ipsum dolor sit[/b] amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor [i]sit amet DESCRIPTION[/i] lorem ipsum dolor sit amet DESCRIPTION
+[list][*]lorem ipsum dolor[*][b][i]lorem[/i][/b] ipsum dolor[/list] sit amet DESCRIPTION [u]lorem ipsum dolor[/u] sit [color=green]amet DESCRIPTION[/color] lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet "
 autowrap_mode = 2
 autowrap_trim_flags = 128
 
