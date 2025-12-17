@@ -505,6 +505,7 @@ func process_card_aix_asperant_himself(_card: Card2):
 
 func process_card_penta_monstre_himself(card: Card2):
 	if card.data.id == "ponte_protegee":
+		process_shield_entity(player, 5)
 		player.mites_to_add += 10
 	if card.data.id == "ponte_rapide":
 		process_damage_player(player, 3)

@@ -8,7 +8,8 @@ script = ExtResource("1_ibtr5")
 id = "ponte_protegee"
 card_name = "Ponte protégée"
 mana_cost = 2
-description = "[u]Au tour suivant:[/u]
+description = "Gagne 5 blocages
+[u]Au tour suivant:[/u]
 [ul]Gagne 10 mites[/ul]"
 target_type = 2
 card_type = 1
