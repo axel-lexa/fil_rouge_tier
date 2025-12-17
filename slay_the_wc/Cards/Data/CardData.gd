@@ -36,6 +36,7 @@ enum OwnerTeamEnum {
 @export var id: String = ""
 @export var card_name: String = ""
 @export var mana_cost: int = 0
+var mana_cost_reduction: int = 0
 @export_multiline var description: String = ""
 @export var target_type: TargetTypeEnum = TargetTypeEnum.NONE
 @export var rarity: RarityEnum = RarityEnum.COMMON

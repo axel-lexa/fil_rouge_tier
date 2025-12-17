@@ -8,6 +8,7 @@ signal hovered
 signal hovered_off
 
 var starting_position
+var ui_card_ref: UiCard
 
 @export var highlight_on_hover: bool = true
 @export var data: CardData
@@ -16,6 +17,7 @@ var starting_position
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$UiCard.loadCardData(data)
+	ui_card_ref = $UiCard
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,5 +47,4 @@ func hightlight_card(activate: bool):
 		scale = BASE_SCALE
 		z_index = 1
 
-func updateUi():
-	$UiCard.loadCardData(data)
+	

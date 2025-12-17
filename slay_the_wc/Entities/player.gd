@@ -17,7 +17,7 @@ var mites_to_add: int = 0
 var brulure: int = 0
 
 # UwU
-var previously_played_cards: Array[CardData] = []
+var cards_played_last_turn: Array[CardData] = []
 var cards_played_this_turn: Array[CardData] = []
 var attack_multiplicator: float = 1
 # all damage taken is reduced to 1

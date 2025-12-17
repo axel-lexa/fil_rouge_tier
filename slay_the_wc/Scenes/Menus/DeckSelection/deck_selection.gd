@@ -19,10 +19,6 @@ func _ready() -> void:
 		if %TabContainer.get_children().size() > i:
 			btns[i].text = %TabContainer.get_children()[i].mascot.mascotte_name
 			
-	
-		
-	
-
 			var stylebox = StyleBoxFlat.new()
 			stylebox.bg_color = %TabContainer.get_children()[i].mascot.theme_color
 			btns[i].add_theme_stylebox_override("normal", stylebox)

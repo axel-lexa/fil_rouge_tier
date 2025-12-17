@@ -3,6 +3,8 @@ class_name UiCard
 
 @export var data: CardData
 
+const LABEL_CHANGED_COLOR = Color(0.192, 0.51, 1.0)
+
 func _ready() -> void:
 	#%NameScroll.get_v_scroll_bar().mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
 	#%NameScroll.get_h_scroll_bar().mouse_filter = MouseFilter.MOUSE_FILTER_IGNORE
@@ -35,11 +37,24 @@ func resizeLabel(label: RichTextLabel, base_font_size: int) -> void:
 	label.add_theme_font_size_override("mono_font_size", new_font_size)
 
 func loadCardData(new_data: CardData):
-	%Name.text = new_data.card_name
-	%CostLabel.text = str(new_data.mana_cost)
-	%Description.text = new_data.description
-	%CardIllustration.texture = new_data.icon
-	%CardBg.texture = new_data.background
+	data = new_data
+	updateData()
+
+func updateData():
+	%Name.text = data.card_name
+	%Description.text = data.description
+	%CardIllustration.texture = data.icon
+	%CardBg.texture = data.background
+	update_mana_cost()
+
+func update_mana_cost():
+	%CostLabel.text = str(data.mana_cost - data.mana_cost_reduction)
+	var label_color = Color.WHITE if data.mana_cost_reduction == 0 else LABEL_CHANGED_COLOR
+	%CostLabel.add_theme_color_override("default_color", label_color)
+	
+func apply_mana_cost_reduction(reduction: int):
+	data.mana_cost_reduction = reduction
+	update_mana_cost()
 
 func _on_timer_timeout() -> void:
 	self.size += Vector2(10, 10)

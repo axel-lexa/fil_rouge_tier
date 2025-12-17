@@ -224,19 +224,7 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 		return
 	
 	process_card(card, player_slot, ennemie_index)
-	
-	# reset mana costs (uwu)
-	var all_cards_in_battle: Array[Card2] = player_hand_reference.player_hand.duplicate()
-	all_cards_in_battle.append_array(card2Bin)
-	for card_in_battle in all_cards_in_battle:
-		if card.data.id != "too_fast":
-			if card_in_battle.data.id == "as_des_licornes" && card_in_battle.data.mana_cost == 0:
-				card_in_battle.data.mana_cost = 1
-				card_in_battle.updateUi()
-		if card.data.id != "as_des_licornes":
-			if card_in_battle.data.id == "escape" && card_in_battle.data.mana_cost == 1:
-				card_in_battle.data.mana_cost = 2
-				card_in_battle.updateUi()
+
 	# reset mult (uwu)
 	print("reset mult")
 	player.attack_multiplicator = 1
@@ -262,13 +250,16 @@ func try_end_battle():
 		return
 
 func process_card(card: Card2, player_slot: bool, ennemie_index: int):
-	if player.energy >= card.data.mana_cost:
+	var effective_mana_cost = card.data.mana_cost - card.data.mana_cost_reduction
+	if player.energy >= effective_mana_cost:
 		if player_slot and card.data.target_type == CardData.TargetTypeEnum.SELF:
 			# Si la carte est pour le joueur
-			player.energy = player.energy-card.data.mana_cost
+			player.energy = player.energy - effective_mana_cost
 			card_played.append(card)
 			compute_energy()
 			process_card_player(card)
+			player.cards_played_this_turn.append(card.data)
+			process_mana_cost_resets()
 			move_card_to_bin(card)
 			return
 		#elif !player_slot and card.cata.target-type == CardData.TargetTypeEnum.ALL_ENEMIES:
@@ -276,16 +267,24 @@ func process_card(card: Card2, player_slot: bool, ennemie_index: int):
 		elif !player_slot and card.data.target_type != CardData.TargetTypeEnum.SELF:
 			var target = convert_scene_index_to_enemy(ennemie_index)
 			if target != null:
-				player.energy = player.energy-card.data.mana_cost
+				player.energy = player.energy - effective_mana_cost
 				card_played.append(card)
 				compute_energy()
 				process_card_player_to_enemy(card, target)
+				player.cards_played_this_turn.append(card.data)
+				process_mana_cost_resets()
 				move_card_to_bin(card)
 				return
 		
 	$PlayerHand.add_card_to_hand(card, $PlayerHand.DEFAULT_CARD_MOVE_SPEED)
 	card.get_node("Area2D/CollisionShape2D").disabled = false
 	
+func process_mana_cost_resets():
+	if (player.cards_played_this_turn.size() >= 1 && player.cards_played_this_turn.back().id != "too_fast"):
+		reset_mana_cost_reduction("as_des_licornes")
+	if (player.cards_played_this_turn.size() >= 1 && player.cards_played_this_turn.back().id != "as_des_licornes"):
+		reset_mana_cost_reduction("escape")
+
 func process_card_player_to_enemy(card: Card2, target: Enemy):
 	if card.data.card_team_owner == CardData.OwnerTeamEnum.COMMON:
 		process_card_commun_enemy(card, target)
@@ -309,8 +308,7 @@ func process_card_player_to_enemy(card: Card2, target: Enemy):
 		process_card_penta_monstre_enemy(card, target)
 		
 	if card.data.card_team_owner == CardData.OwnerTeamEnum.UWU:
-		process_card_uwu_enemy(card, target)	
-	player.cards_played_this_turn.append(card.data)
+		process_card_uwu_enemy(card, target)
 
 
 func process_card_player(card: Card2):
@@ -337,7 +335,6 @@ func process_card_player(card: Card2):
 		
 	if card.data.card_team_owner == CardData.OwnerTeamEnum.UWU:
 		process_card_uwu_himself(card)	
-	player.cards_played_this_turn.append(card.data)
 	player.update_health_ui()
 
 func process_damage_player(enemy: Player, damage: int):
@@ -519,18 +516,30 @@ func process_card_penta_monstre_himself(card: Card2):
 			process_heal_entity(player, 5)
 	pass	
 	
+func apply_mana_cost_reduction(card_id: String, reduction: int):
+	#change mana cost of card in hand
+	for card_in_hand in player_hand_reference.player_hand:
+		if card_in_hand.data.id == card_id:
+			card_in_hand.ui_card_ref.apply_mana_cost_reduction(reduction)
+	#change mana cost of card in bin
+	for card_in_bin in card2Bin:
+		if card_in_bin.data.id == card_id:
+			card_in_bin.ui_card_ref.apply_mana_cost_reduction(reduction)
+	#change mana cost of card in deck (in case player draws it)
+	for card_in_deck in DeckManager.deck:
+		if card_in_deck.id == card_id:
+			card_in_deck.mana_cost_reduction = reduction
+
+func reset_mana_cost_reduction(card_id: String):
+		apply_mana_cost_reduction(card_id, 0)
+
 func process_card_uwu_himself(card: Card2):
 	if card.data.id == "escape":
 		player.escape = true
 	if card.data.id == "as_des_licornes":
 		draw_cards(1)
-		for card_in_hand in player_hand_reference.player_hand:
-			if card_in_hand.data.id == "escape":
-				card_in_hand.data.mana_cost = 1
-				card_in_hand.updateUi()
-		for card_in_deck in DeckManager.deck:
-			if card_in_deck.id == "escape":
-				card_in_deck.mana_cost = 1
+		#change mana cost of card in hand
+		apply_mana_cost_reduction("escape", 1)
 	
 func process_card_12pandas_enemy(card: Card2, target: Enemy):
 	
@@ -653,19 +662,14 @@ func process_card_uwu_enemy(card: Card2, target: Enemy):
 			process_damage_entity(enemy, 8)
 			# follow up
 			if player.cards_played_this_turn.size() && player.cards_played_this_turn.back().id == "too_fast":
-				await get_tree().create_timer(0.2).timeout
 				process_damage_entity(enemy, 4)
 	if card.data.id == "lets_brawl":
 		process_damage_entity(target, 4)
 	if card.data.id == "too_fast":
 		process_damage_entity(target, 6)
 		if player.cards_played_this_turn.size() == 0:
-			await get_tree().create_timer(0.2).timeout
 			process_damage_entity(target, 4)
-		for card_in_hand in player_hand_reference.player_hand:
-			if card_in_hand.data.id == "as_des_licornes":
-				card_in_hand.data.mana_cost = 0
-				card_in_hand.updateUi()
+		apply_mana_cost_reduction("as_des_licornes", 1)
 		
 func process_pentamonstre_next_turn_actions():
 	process_count_mites("+", player.mites_to_add)
@@ -696,7 +700,7 @@ func launch_dice(count: int):
 	return somme
 	
 func process_uwu_next_turn_actions():
-	for cardData in player.previously_played_cards:
+	for cardData in player.cards_played_last_turn:
 		if cardData.id == "chant_de_ralliement":
 			player.attack_multiplicator = 2
 	player.escape = false
@@ -709,7 +713,6 @@ func process_next_turn_actions():
 	process_uwu_next_turn_actions()
 	
 func move_card_to_bin(card: Card2):
-	
 	if end_game:
 		return
 	if card.data.id == "lets_brawl" && player.cards_played_this_turn.size() >= 2 && player.cards_played_this_turn[-2].id == "as_des_licornes":
@@ -732,11 +735,13 @@ func move_card_to_bin(card: Card2):
 		tween.parallel().tween_property(card, "scale", Vector2(1.1,1.1), 0.2)
 
 func process_uwu_end_of_turn_actions():
-	player.previously_played_cards = player.cards_played_this_turn.duplicate()
+	player.cards_played_last_turn = player.cards_played_this_turn.duplicate()
 	player.cards_played_this_turn.clear()
 
 # Boutton fin de tour appuyé
 func _on_button_pressed() -> void:
+	reset_mana_cost_reduction("as_des_licornes")
+	reset_mana_cost_reduction("escape")
 	process_end_of_turn_actions()
 	player_turn = false
 	card_played = []
@@ -797,6 +802,8 @@ func _on_button_pressed() -> void:
 
 
 func _on_end_battle_pressed() -> void:
+	reset_mana_cost_reduction("escape")
+	reset_mana_cost_reduction("as_des_licornes")
 	if battle_enemies[0].name == "BruleSonge":
 		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/End/End.tscn")
 	else:
