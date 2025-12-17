@@ -15,7 +15,7 @@ func perform_action(player: Entity):
 	if next_atk.damage != 0:
 		attack(player, next_atk.damage)
 	if next_atk.strengh_buff != 0:
-		add_strenght(next_atk.strengh_buff)
+		add_strength(next_atk.strengh_buff)
 	if next_atk.useless_cards_to_add != 0:
 		for i in range(0,next_atk.useless_cards_to_add):
 			DeckManager.add_card_to_deck(load("res://slay_the_wc/Cards/Data/Commun/Unplayable.tres"))
@@ -41,7 +41,7 @@ func update_intention_sprite(atk_type: Enemy_attack.ATK_TYPE):
 			intention_sprite.texture = load("res://slay_the_wc/Assets/Art/down-arrow_icon.png")
 
 func attack(target: Entity, amount: int):
-	amount = clamp(amount + (strenght - weakness_debuff), 0, 999999)
+	amount = clamp(amount + (strength - weakness_debuff), 0, 999999)
 	target.apply_damage_and_check_lifestatus(amount)
 
 func turn_ui_off():

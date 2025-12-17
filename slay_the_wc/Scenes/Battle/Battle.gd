@@ -399,8 +399,8 @@ func process_count_mites(operation: String, amount: int):
 			player.nb_mites = clamp(player.nb_mites - amount, 0, 20)
 	player.update_extra_info()
 
-func process_buff_strenght_entity(target: Entity, amout: int):
-	target.add_strenght(amout)
+func process_buff_strength_entity(target: Entity, amount: int):
+	target.add_strength(amount)
 	play_sound_battle_random(buff_taken_array)
 
 func draw_cards(amount: int, is_init: bool = false):
@@ -451,7 +451,7 @@ func process_card_commun_himself(card: Card2):
 	elif card.data.id == "dopage":
 		process_damage_player(player, 3)
 		await get_tree().create_timer(0.2).timeout
-		process_buff_strenght_entity(player, 2)
+		process_buff_strength_entity(player, 2)
 	elif card.data.id == "soin_urgence":
 		process_heal_entity(player, 4)
 	elif card.data.id == "muraille":
@@ -639,7 +639,7 @@ func process_card_aix_asperant_enemy(__card: Card2, _target: Enemy):
 
 func process_card_penta_monstre_enemy(card: Card2, target: Enemy):
 	if card.data.id == "parasitisme":
-		target.add_strenght(-2)
+		target.add_strength(-2)
 		parasitism_targeted_enemy.append(target)
 	if card.data.id == "pentamite":
 		if player.nb_mites >=5:

@@ -5,7 +5,7 @@ class_name Entity
 @export var health: int
 @export var max_health: int
 @export var defense: int
-@export var strenght: int
+@export var strength: int
 @export var weakness_debuff: int
 @export var fragility_debuff: int
 @export var burn: int
@@ -62,8 +62,8 @@ func setup_ui():
 	components.turn_ui_on()
 	update_ui()
 
-func add_strenght(amount: int):
-	strenght += amount
+func add_strength(amount: int):
+	strength += amount
 
 func turn_ui_off():
 	components.turn_ui_off()
