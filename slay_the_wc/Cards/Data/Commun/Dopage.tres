@@ -9,7 +9,7 @@ id = "dopage"
 card_name = "Dopage"
 mana_cost = 1
 description = "Fait perdre 3 PV
-Tous vos dégâts sont augmentés de 1 pour ce tour."
+Tous vos dégâts sont augmentés de 3 pour ce tour."
 target_type = 2
 card_type = 1
 background = ExtResource("1_ktc8q")

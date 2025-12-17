@@ -345,9 +345,9 @@ func process_damage_player(enemy: Player, damage: int):
 		
 func process_damage_entity(enemy: Enemy, damage: int) -> int:
 	play_hit_flash(enemy)
-	# En cas de mort
-	var effective_damage = round(damage * player.attack_multiplicator)
+	var effective_damage = round(damage * player.attack_multiplicator) + player.strength
 	if not enemy.apply_damage_and_check_lifestatus(effective_damage):
+		# En cas de mort
 		play_sound_battle_random(enemy_death_array)
 		enemy.turn_ui_off()
 		alive_enemies.erase(enemy)
@@ -451,7 +451,7 @@ func process_card_commun_himself(card: Card2):
 	elif card.data.id == "dopage":
 		process_damage_player(player, 3)
 		await get_tree().create_timer(0.2).timeout
-		process_buff_strength_entity(player, 2)
+		process_buff_strength_entity(player, 3)
 	elif card.data.id == "soin_urgence":
 		process_heal_entity(player, 4)
 	elif card.data.id == "muraille":
@@ -705,9 +705,6 @@ func process_uwu_next_turn_actions():
 		if cardData.id == "chant_de_ralliement":
 			player.attack_multiplicator = 2
 	player.escape = false
-
-func process_end_of_turn_actions():
-	pass
 	
 func process_next_turn_actions():
 	process_pentamonstre_next_turn_actions()
@@ -735,19 +732,20 @@ func move_card_to_bin(card: Card2):
 		tween.tween_property(card, "position", $Bin.position, 0.2)
 		tween.parallel().tween_property(card, "scale", Vector2(1.1,1.1), 0.2)
 
-func process_uwu_end_of_turn_actions():
+func process_end_of_turn_actions():
 	player.cards_played_last_turn = player.cards_played_this_turn.duplicate()
 	player.cards_played_this_turn.clear()
+	reset_mana_cost_reduction("as_des_licornes")
+	reset_mana_cost_reduction("escape")
+	if player.strength != 0:
+		player.strength = 0
 
 # Boutton fin de tour appuyé
 func _on_button_pressed() -> void:
-	reset_mana_cost_reduction("as_des_licornes")
-	reset_mana_cost_reduction("escape")
 	process_end_of_turn_actions()
 	player_turn = false
 	card_played = []
 	$Button.disabled = true
-	process_uwu_end_of_turn_actions()
 	var tmpList = player_hand_reference.player_hand.duplicate()
 	for card in tmpList:
 		move_card_to_bin(card)
