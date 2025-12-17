@@ -8,7 +8,8 @@ script = ExtResource("2_hbewf")
 id = "muraille"
 card_name = "Muraille"
 mana_cost = 2
-description = "Double votre blocage actuel"
+description = "Double votre blocage actuel
+Monte votre blocage à 5 si inférieur"
 target_type = 2
 card_type = 1
 background = ExtResource("1_hbewf")

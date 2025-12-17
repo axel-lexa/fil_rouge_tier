@@ -456,6 +456,8 @@ func process_card_commun_himself(card: Card2):
 		process_heal_entity(player, 4)
 	elif card.data.id == "muraille":
 		process_shield_multiply_entity(player, 2)
+		if player.defense < 5:
+			process_shield_entity(player, 5 - player.defense)
 	elif card.data.id == "changement_bareme":
 		DeckManager.shuffle_deck()
 		player.energy = MAX_ENERGY
