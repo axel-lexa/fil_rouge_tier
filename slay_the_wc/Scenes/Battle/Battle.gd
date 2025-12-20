@@ -135,6 +135,7 @@ func _ready():
 	entity_component1.sprite = $BattleField/Characters/Ennemie1/EnnemieImage
 	entity_component1.defense_icon = $BattleField/Characters/Ennemie1/DefenseIcon
 	entity_component1.health_bar = $BattleField/Characters/Ennemie1/HealthBarEnnemie
+	entity_component1.extra_info = $BattleField/Characters/Ennemie1/SpecialPower
 	entity_component1.turn_ui_off()
 
 	var entity_component2 = Entity_components.new() 
@@ -144,6 +145,7 @@ func _ready():
 	entity_component2.sprite = $BattleField/Characters/Ennemie2/EnnemieImage
 	entity_component2.defense_icon = $BattleField/Characters/Ennemie2/DefenseIcon
 	entity_component2.health_bar = $BattleField/Characters/Ennemie2/HealthBarEnnemie
+	entity_component2.extra_info = $BattleField/Characters/Ennemie2/SpecialPower
 	entity_component2.turn_ui_off()
 
 	var entity_component3 = Entity_components.new() 
@@ -153,6 +155,7 @@ func _ready():
 	entity_component3.sprite = $BattleField/Characters/Ennemie3/EnnemieImage
 	entity_component3.defense_icon = $BattleField/Characters/Ennemie3/DefenseIcon
 	entity_component3.health_bar = $BattleField/Characters/Ennemie3/HealthBarEnnemie
+	entity_component3.extra_info = $BattleField/Characters/Ennemie3/SpecialPower
 	entity_component3.turn_ui_off()
 	
 	var index = 0
@@ -344,8 +347,10 @@ func process_damage_player(enemy: Player, damage: int):
 		play_sound_battle_random(hit_taken_array)
 		
 func process_damage_entity(enemy: Enemy, damage: int) -> int:
-	play_hit_flash(enemy)
 	var effective_damage = round(damage * player.attack_multiplicator) + player.strength
+	if effective_damage == 0:
+		return false
+	play_hit_flash(enemy)
 	if not enemy.apply_damage_and_check_lifestatus(effective_damage):
 		# En cas de mort
 		play_sound_battle_random(enemy_death_array)
@@ -398,6 +403,12 @@ func process_count_mites(operation: String, amount: int):
 		"-":
 			player.nb_mites = clamp(player.nb_mites - amount, 0, 20)
 	player.update_extra_info()
+	
+
+func process_burn_entity(target: Entity, amount: int):
+	target.add_burn(amount)
+	if target is Enemy:
+		target.update_extra_info()
 
 func process_buff_strength_entity(target: Entity, amount: int):
 	target.add_strength(amount)
@@ -502,8 +513,11 @@ func process_card_confrerie_himself(card: Card2):
 	if card.data.id == "main_glissante":
 		draw_cards(3)
 	pass	
-func process_card_aix_asperant_himself(_card: Card2):
-	pass	
+func process_card_aix_asperant_himself(card: Card2):
+	if card.data.id == "couve":
+		process_shield_entity(player, 6)
+		process_heal_entity(player, 6)
+		_on_button_pressed()
 
 func process_card_penta_monstre_himself(card: Card2):
 	if card.data.id == "ponte_protegee":
@@ -621,23 +635,30 @@ func process_card_confrerie_enemy(card: Card2, target: Enemy):
 	if card.data.id == "tournee_generale":
 		for i in range(0, 3):
 			var target2 = alive_enemies.get(randi_range(0, alive_enemies.size()-1))
-			target2.add_burn(3)
+			process_burn_entity(target2, 3)
 	elif card.data.id == "calories":
 		target.multiply_burn(2)
+		target.update_extra_info()
 	elif card.data.id == "bataille_de_beurre":
 		for enemy in alive_enemies:
 			process_damage_entity(enemy, 10)
-		move_card_to_bin(DeckManager.hand.get(randi_range(0, DeckManager.hand.size()-1)))
+		move_card_to_bin(player_hand_reference.player_hand.get(randi_range(0, player_hand_reference.player_hand.size()-1)))
 	elif card.data.id == "crepe_beurre_sucre":
 		process_damage_entity(target, 6)
-		target.add_burn(3)
+		process_burn_entity(target, 3)
 	elif card.data.id == "tartine_pain_beurre":
 		process_damage_entity(target, 7)
 		if target.burn != 0:
 			process_damage_entity(target, 7)
 	pass	
-func process_card_aix_asperant_enemy(__card: Card2, _target: Enemy):
-	pass	
+func process_card_aix_asperant_enemy(card: Card2, target: Enemy):
+	if card.data.id == "brasier_solaire":
+		var hand_size = player_hand_reference.player_hand
+		for card_in_hand in player_hand_reference.player_hand:
+			move_card_to_bin(card_in_hand)
+		process_burn_entity(target, hand_size * 4)
+	#if card.data.id == "ex"
+		
 
 func process_card_penta_monstre_enemy(card: Card2, target: Enemy):
 	if card.data.id == "parasitisme":
@@ -708,9 +729,15 @@ func process_uwu_next_turn_actions():
 			player.attack_multiplicator = 2
 	player.escape = false
 	
+func process_aixasperant_next_turn_actions():
+	for cardData in player.cards_played_last_turn:
+		if cardData.id == "couve":
+			player.energy += 3
+	
 func process_next_turn_actions():
 	process_pentamonstre_next_turn_actions()
 	process_uwu_next_turn_actions()
+	process_aixasperant_next_turn_actions()
 	
 func move_card_to_bin(card: Card2):
 	if end_game:
@@ -755,9 +782,12 @@ func _on_button_pressed() -> void:
 	# Début tour ennemi
 	var enemies_to_kill = []
 	for enemy in alive_enemies:
-		if !enemy.compute_burn():
+		var burn_damage = enemy.compute_burn()
+		if burn_damage > 0 && !process_damage_entity(enemy, burn_damage):
 			enemies_to_kill.append(enemy)
 			break
+		if burn_damage > 0:
+			enemy.update_extra_info()
 		enemy.perform_action(player)
 		if enemy.next_atk:
 			textEnnemy += enemy.name + " a utilisé l'attaque " + enemy.next_atk.name+"\n"
@@ -790,15 +820,18 @@ func _on_button_pressed() -> void:
 		get_tree().change_scene_to_file("res://slay_the_wc/Scenes/Map/Map.tscn")
 		return
 	else:
+		try_end_battle()
+		if end_game:
+			return
 		# Début tour joueur
 		draw_cards(5)
-		process_next_turn_actions()
 		player_turn = true
 		player.energy = MAX_ENERGY
+		player.defense = 0
+		process_next_turn_actions()
 		$BattleField/Characters/Player/EnergyPlayer.text = "Energie :"
 		compute_energy()
 		$BattleField/Characters/Player/DefensePlayer.text = "0"
-		player.defense = 0
 		$Button.disabled = false
 
 

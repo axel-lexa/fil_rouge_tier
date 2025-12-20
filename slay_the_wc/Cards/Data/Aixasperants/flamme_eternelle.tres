@@ -8,7 +8,7 @@ script = ExtResource("1_rygok")
 id = "flamme_eternelle"
 card_name = "Flamme eternellle"
 mana_cost = 1
-description = "Applique 5 brûlures"
+description = "Applique 5 [color=orange]brûlures[/color]"
 target_type = 1
 background = ExtResource("1_l5f7m")
 card_team_owner = 5

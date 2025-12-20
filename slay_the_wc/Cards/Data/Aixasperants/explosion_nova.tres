@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_3d0nd")
-id = "flamme_eternelle"
-card_name = "Flamme eternellle"
+id = "explosion_nova"
+card_name = "Explosion Nova"
 mana_cost = 3
-description = "Applique 5 brûlures, consomme l'ensemble des brûlures et inflige le double en dégât"
+description = "Applique 5 brûlures, consomme l'ensemble des [color=orange]brûlures[/color] et inflige le double en dégât"
 target_type = 1
 background = ExtResource("1_yh074")
 card_team_owner = 5

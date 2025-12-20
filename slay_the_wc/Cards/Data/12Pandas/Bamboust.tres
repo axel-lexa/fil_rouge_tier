@@ -8,7 +8,7 @@ script = ExtResource("2_4uixx")
 id = "bamboust"
 card_name = "Bamboust"
 mana_cost = 2
-description = "Double le nombre de pandas dans votre armée"
+description = "Double le nombre de [color=lightgreen]pandas[/color] dans votre armée"
 target_type = 2
 card_type = 1
 background = ExtResource("1_hk7kg")

@@ -9,7 +9,7 @@ id = "crepe_beurre_sucre"
 card_name = "Crêpe beurre-sucre"
 mana_cost = 1
 description = "Inflige 6 dégâts
-Applique 3 cholestérols"
+Applique 3 [color=yellow]cholestérols[/color]"
 target_type = 1
 background = ExtResource("1_ff2i7")
 card_team_owner = 4

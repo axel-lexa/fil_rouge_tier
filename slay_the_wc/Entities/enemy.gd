@@ -40,6 +40,17 @@ func update_intention_sprite(atk_type: Enemy_attack.ATK_TYPE):
 		elif atk_type == Enemy_attack.ATK_TYPE.DEBUFF:
 			intention_sprite.texture = load("res://slay_the_wc/Assets/Art/down-arrow_icon.png")
 
+
+func update_extra_info():
+	if health <= 0:
+		return
+	if DeckManager.mascotData.mascotte_name == "Poulpy" and burn > 0:
+		components.extra_info.visible = true
+		components.extra_info.text = "Cholestérol : " + str(burn)
+	elif burn > 0:
+		components.extra_info.visible = true
+		components.extra_info.text = "Brulure : " + str(burn)
+
 func attack(target: Entity, amount: int):
 	amount = clamp(amount + (strength - weakness_debuff), 0, 999999)
 	target.apply_damage_and_check_lifestatus(amount)

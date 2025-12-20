@@ -9,7 +9,7 @@ id = "tartine_pain_beurre"
 card_name = "Tartine pain-beurre"
 mana_cost = 1
 description = "Inflige 7 dégâts
-Si la cible a du cholestérol, inflige à nouveau 7 dégâts"
+Si la cible a du [color=yellow]cholestérol[/color], inflige à nouveau 7 dégâts"
 target_type = 1
 background = ExtResource("1_jjyx4")
 card_team_owner = 4

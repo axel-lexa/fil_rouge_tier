@@ -1,16 +1,16 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://beeovx8punhe5"]
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://d1kn70saf6e6i"]
 
-[ext_resource type="Texture2D" uid="uid://ce65gvguk5nfd" path="res://slay_the_wc/Assets/Cartes/Cartes CBS/main_glissante.png" id="1_sdess"]
-[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_8qbse"]
+[ext_resource type="Texture2D" uid="uid://ce65gvguk5nfd" path="res://slay_the_wc/Assets/Cartes/Cartes CBS/main_glissante.png" id="1_tutfj"]
+[ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="2_rmuun"]
 
 [resource]
-script = ExtResource("2_8qbse")
+script = ExtResource("2_rmuun")
 id = "main_glissante"
 card_name = "Main glissante"
 mana_cost = 1
 description = "Pioche 3 cartes"
 target_type = 2
 card_type = 1
-background = ExtResource("1_sdess")
+background = ExtResource("1_tutfj")
 card_team_owner = 4
 metadata/_custom_type_script = "uid://cdedm7rlawgj6"

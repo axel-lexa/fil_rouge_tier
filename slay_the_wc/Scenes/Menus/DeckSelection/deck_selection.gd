@@ -52,8 +52,7 @@ func _on_button_toggled(toggled_on: bool, index: int) -> void:
 			(btns[i] as Button).button_pressed = false;
 	%TabContainer.current_tab = index
 	
-	if $%TabContainer.get_current_tab_control().mascot.mascotte_name == "Pyralis" \
-	or $%TabContainer.get_current_tab_control().mascot.mascotte_name == "Poulpy":
+	if $%TabContainer.get_current_tab_control().mascot.mascotte_name == "Pyralis":
 		%ButtonNext.disabled = true
 	else:
 		%ButtonNext.disabled = false

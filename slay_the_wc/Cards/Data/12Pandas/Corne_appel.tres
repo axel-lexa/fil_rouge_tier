@@ -8,7 +8,7 @@ script = ExtResource("1_b3g8k")
 id = "corne_appel"
 card_name = "Corne d'appel"
 mana_cost = 1
-description = "3 Pandas rejoignent votre armée"
+description = "3 [color=lightgreen]pandas[/color] rejoignent votre armée"
 target_type = 2
 card_type = 1
 background = ExtResource("1_wg56j")

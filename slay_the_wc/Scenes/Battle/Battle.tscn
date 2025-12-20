@@ -161,6 +161,14 @@ position = Vector2(1344.0001, 372)
 scale = Vector2(0.44035003, 0.47187483)
 texture = ExtResource("10_qfjho")
 
+[node name="SpecialPower" type="RichTextLabel" parent="BattleField/Characters/Ennemie1"]
+offset_left = 1202.0
+offset_top = 305.0
+offset_right = 1390.0
+offset_bottom = 335.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+
 [node name="Ennemie2" type="Node2D" parent="BattleField/Characters"]
 position = Vector2(52, -2)
 
@@ -228,6 +236,14 @@ z_index = 30
 position = Vector2(1119, 394.00003)
 scale = Vector2(0.47456047, 0.46250033)
 texture = ExtResource("10_qfjho")
+
+[node name="SpecialPower" type="RichTextLabel" parent="BattleField/Characters/Ennemie2"]
+offset_left = 963.0
+offset_top = 323.0
+offset_right = 1151.0
+offset_bottom = 353.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
 
 [node name="Ennemie3" type="Node2D" parent="BattleField/Characters"]
 position = Vector2(911, 568)
@@ -299,6 +315,14 @@ z_index = 30
 position = Vector2(74, -156)
 scale = Vector2(0.47456047, 0.46250033)
 texture = ExtResource("10_qfjho")
+
+[node name="SpecialPower" type="RichTextLabel" parent="BattleField/Characters/Ennemie3"]
+offset_left = -79.0
+offset_top = -224.0
+offset_right = 109.0
+offset_bottom = -194.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
 
 [node name="CardSlot" parent="BattleField" instance=ExtResource("3_uxmdl")]
 light_mask = 2

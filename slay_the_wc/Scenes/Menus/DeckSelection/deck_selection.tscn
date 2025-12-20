@@ -119,12 +119,15 @@ stream = ExtResource("4_tjwaa")
 
 [node name="SonSelectPoulpy" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 stream = ExtResource("5_0ywl0")
+volume_db = -12.0
 
 [node name="SonSelectGrosseMite" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 stream = ExtResource("6_13qpa")
+volume_db = -5.0
 
 [node name="SonSelectLicorne" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 stream = ExtResource("7_db824")
+volume_db = 5.0
 
 [node name="SonSelectPhoenix" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer/VFlowContainer"]
 stream = ExtResource("8_2g5h8")

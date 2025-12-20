@@ -8,8 +8,8 @@ script = ExtResource("2_hop17")
 id = "calories"
 card_name = "Calories"
 mana_cost = 1
-description = "Double le cholestérol de la cible"
-target_type = 2
+description = "Double le [color=yellow]cholestérol[/color] de la cible"
+target_type = 1
 card_type = 1
 background = ExtResource("1_qidkp")
 card_team_owner = 4

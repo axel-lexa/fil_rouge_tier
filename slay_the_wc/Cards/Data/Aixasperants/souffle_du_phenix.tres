@@ -8,7 +8,7 @@ script = ExtResource("2_ss6b2")
 id = "souffle_du_phenix"
 card_name = "Souffle du phénix"
 mana_cost = 2
-description = "Double les brûlures de la cible."
+description = "Double les [color=orange]brûlures[/color] de la cible."
 target_type = 1
 card_type = 1
 background = ExtResource("1_he573")

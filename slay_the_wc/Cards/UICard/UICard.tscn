@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://dx30ejyxas2mb" path="res://slay_the_wc/Cards/UICard/UiCard.gd" id="1_u6gpl"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ixlqc"]
-load_path = "res://.godot/imported/3d6.png-7d39bce6bc6d66af067f1dab2489e9e5.ctex"
 
 [node name="UiCard" type="AspectRatioContainer"]
 anchors_preset = 15
@@ -190,11 +189,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/line_separation = -2
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 21
-theme_override_font_sizes/bold_italics_font_size = 21
-theme_override_font_sizes/italics_font_size = 21
-theme_override_font_sizes/mono_font_size = 21
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 1
 bbcode_enabled = true
 text = "lorem [b]ipsum dolor sit[/b] amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor [i]sit amet DESCRIPTION[/i] lorem ipsum dolor sit amet DESCRIPTION
 [list][*]lorem ipsum dolor[*][b][i]lorem[/i][/b] ipsum dolor[/list] sit amet DESCRIPTION [u]lorem ipsum dolor[/u] sit [color=green]amet DESCRIPTION[/color] lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet DESCRIPTION lorem ipsum dolor sit amet "

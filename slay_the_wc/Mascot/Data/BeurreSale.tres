@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="MascotData" load_steps=10 format=3 uid="uid://d08ms81l5qrkc"]
+[gd_resource type="Resource" script_class="MascotData" load_steps=17 format=3 uid="uid://d08ms81l5qrkc"]
 
 [ext_resource type="Script" uid="uid://cdedm7rlawgj6" path="res://slay_the_wc/Cards/Data/CardData.gd" id="1_rum2l"]
 [ext_resource type="Resource" uid="uid://brkxqxesxrtf3" path="res://slay_the_wc/Cards/Data/BeurreSale/calories.tres" id="5_jarm6"]
 [ext_resource type="Script" uid="uid://d1cm5xud4uywf" path="res://slay_the_wc/Mascot/MascotData.gd" id="6_forfu"]
 [ext_resource type="Texture2D" uid="uid://bmjhomy2jm2k0" path="res://slay_the_wc/Assets/Mascottes/poulpy.png" id="6_jarm6"]
 [ext_resource type="Resource" uid="uid://ceagi2sn0a5lf" path="res://slay_the_wc/Cards/Data/BeurreSale/bataille_de_beurre.tres" id="7_jarm6"]
-[ext_resource type="Resource" uid="uid://beeovx8punhe5" path="res://slay_the_wc/Cards/Data/BeurreSale/main_glissante.tres" id="7_jgv2r"]
+[ext_resource type="Resource" uid="uid://d1kn70saf6e6i" path="res://slay_the_wc/Cards/Data/BeurreSale/main_glissante.tres" id="7_jgv2r"]
+[ext_resource type="Resource" uid="uid://dnpeitqik7k3n" path="res://slay_the_wc/Cards/Data/Commun/Attaque_rapide.tres" id="8_nu66f"]
+[ext_resource type="Resource" uid="uid://l1nk01lsyq7s" path="res://slay_the_wc/Cards/Data/Commun/Esquive_rapide.tres" id="9_dxvos"]
+[ext_resource type="Resource" uid="uid://dft0npjf5dwe8" path="res://slay_the_wc/Cards/Data/Commun/Baston.tres" id="10_xk60u"]
+[ext_resource type="Resource" uid="uid://55v2xp5sdfw7" path="res://slay_the_wc/Cards/Data/Commun/Changement_bareme.tres" id="11_5dvhl"]
+[ext_resource type="Resource" uid="uid://c4ypjybsqdqj3" path="res://slay_the_wc/Cards/Data/Commun/Defense.tres" id="12_dc5ho"]
+[ext_resource type="Resource" uid="uid://d1lk70arp16t0" path="res://slay_the_wc/Cards/Data/Commun/Soin_urgence.tres" id="13_abatp"]
+[ext_resource type="Resource" uid="uid://cg04ltsib4yp6" path="res://slay_the_wc/Cards/Data/Commun/Muraille.tres" id="13_dxvos"]
 [ext_resource type="Resource" uid="uid://beeovx8punhe5" path="res://slay_the_wc/Cards/Data/BeurreSale/tournee_generale.tres" id="13_nbone"]
 [ext_resource type="Resource" uid="uid://dwmii3p5jcqga" path="res://slay_the_wc/Cards/Data/BeurreSale/crepe_beurre_sucre.tres" id="15_7t2w5"]
 [ext_resource type="Resource" uid="uid://bethx6d1sjii2" path="res://slay_the_wc/Cards/Data/BeurreSale/tartine_pain_beurre.tres" id="16_wkcb6"]
@@ -16,9 +23,7 @@ mascotte_img = ExtResource("6_jarm6")
 flip_mascotte_img = true
 mascotte_name = "Poulpy"
 deck_name = "Poulpy Beurré"
-description = "[b][color=red]PAS ENCORE IMPLEMENTÉ[/color][/b]
-
-[b]Histoire : [/b]
+description = "[b]Histoire : [/b]
 
 Poulpy a été recueilli dans la forêt il y a 4 ans. 
 En survolant le ciel une nuit, Pyralis l’a trouvé inconscient dans la neige, et l’a déposé dans la forêt d’Arpos, prêt des constructions de la fête de l’hiver. Poulpy est très gourmand, et ce jour-là, il était tombé dans les pommes car il faisait une crise d’hypoglycémie. Si il n’est pas avec ses amis, c’est qu’il est quelque part en train de manger. 
@@ -28,6 +33,6 @@ Depuis cette année, il est devenu jaune, car mangeait beaucoup trop de beurre, 
 
 Le deck de Poulpy se base sur la mécanique de “Cholestérol” qui fait office de poison. Comme il utilise des attaques autour d’un excès de beurre, les adversaires sont empoisonnés avec des stacks de “cholestérol”. Plus l’adversaire a de cholestérol, plus il risque de prendre de dégâts par le deck de Poulpy en plus des dégâts de poison.
 "
-default_cards = Array[ExtResource("1_rum2l")]([ExtResource("7_jarm6"), ExtResource("5_jarm6"), ExtResource("15_7t2w5"), ExtResource("16_wkcb6"), ExtResource("13_nbone"), ExtResource("7_jgv2r")])
+default_cards = Array[ExtResource("1_rum2l")]([ExtResource("5_jarm6"), ExtResource("15_7t2w5"), ExtResource("15_7t2w5"), ExtResource("16_wkcb6"), ExtResource("16_wkcb6"), ExtResource("7_jarm6"), ExtResource("7_jgv2r"), ExtResource("13_nbone"), ExtResource("13_nbone"), ExtResource("13_nbone"), ExtResource("8_nu66f"), ExtResource("10_xk60u"), ExtResource("10_xk60u"), ExtResource("11_5dvhl"), ExtResource("12_dc5ho"), ExtResource("12_dc5ho"), ExtResource("9_dxvos"), ExtResource("13_dxvos"), ExtResource("13_abatp"), ExtResource("13_abatp")])
 theme_color = Color(0.5764706, 0.76862746, 0.49019608, 1)
 metadata/_custom_type_script = "uid://d1cm5xud4uywf"

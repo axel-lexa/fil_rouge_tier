@@ -18,19 +18,16 @@ alignment = 1
 
 [node name="ResizeControl" type="Control" parent="CenteringControl"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 500)
+custom_minimum_size = Vector2(215, 300)
 layout_mode = 2
 size_flags_vertical = 0
 
 [node name="UiCard" parent="CenteringControl/ResizeControl" instance=ExtResource("2_pm1on")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 500)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 1
-anchors_preset = 10
-anchor_bottom = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-grow_vertical = 1
 size_flags_vertical = 0
 alignment_vertical = 0
 

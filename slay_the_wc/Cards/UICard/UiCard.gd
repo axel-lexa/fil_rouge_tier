@@ -23,7 +23,7 @@ func _on_resized() -> void:
 	%CostLabel.pivot_offset = Vector2(0, %CostLabel.size.y)
 	resizeLabel(%CostLabel, 45)
 	resizeLabel(%Name, 35)
-	resizeLabel(%Description, 25)
+	resizeLabel(%Description, 30)
 	# reposition cost pivot to the bottom
 
 func resizeLabel(label: RichTextLabel, base_font_size: int) -> void:

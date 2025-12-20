@@ -10,7 +10,7 @@ card_name = "Ponte protégée"
 mana_cost = 2
 description = "Gagne 5 blocages
 [u]Au tour suivant:[/u]
-[ul]Gagne 10 mites[/ul]"
+[ul]Gagne 10 [color=cyan]mites[/color][/ul]"
 target_type = 2
 card_type = 1
 background = ExtResource("1_6wxo1")

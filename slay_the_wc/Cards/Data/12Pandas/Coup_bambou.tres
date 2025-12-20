@@ -8,7 +8,7 @@ script = ExtResource("2_1mmth")
 id = "coup_bambou"
 card_name = "Coup de bambou"
 mana_cost = 1
-description = "Inflige 7 dégâts. 3 Pandas rejoignent votre armée"
+description = "Inflige 7 dégâts. 3 [color=lightgreen]pandas[/color] rejoignent votre armée"
 target_type = 1
 background = ExtResource("1_040lu")
 card_team_owner = 1
