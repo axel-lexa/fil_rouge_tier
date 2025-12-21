@@ -51,11 +51,7 @@ func _on_button_toggled(toggled_on: bool, index: int) -> void:
 		if i != index:
 			(btns[i] as Button).button_pressed = false;
 	%TabContainer.current_tab = index
-	
-	if $%TabContainer.get_current_tab_control().mascot.mascotte_name == "Pyralis":
-		%ButtonNext.disabled = true
-	else:
-		%ButtonNext.disabled = false
+	%ButtonNext.disabled = false
 
 func _on_button_next_pressed() -> void:
 	var mascotData: MascotData = %TabContainer.get_current_tab_control().mascot

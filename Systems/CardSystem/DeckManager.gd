@@ -54,6 +54,12 @@ func remove_card_from_deck(card: CardData):
 func shuffle_deck():
 	deck.shuffle()
 
+func put_discard_pile_in_deck():
+	for discarded in discard_pile:
+		deck.append(discarded)
+	discard_pile.clear()
+	shuffle_deck()
+
 # Pioche N cartes
 func draw_cards(count: int) -> Array[CardData]:
 	var drawn: Array[CardData] = []

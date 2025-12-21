@@ -77,8 +77,8 @@ func compute_burn() -> int:
 		burn -= 1
 	return burn_to_apply
 
-func add_burn(amout: int):
-	burn += amout
+func add_burn(amount: int):
+	burn += amount
 
 func multiply_burn(mult: int):
 	burn *= mult

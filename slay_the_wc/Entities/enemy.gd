@@ -50,6 +50,8 @@ func update_extra_info():
 	elif burn > 0:
 		components.extra_info.visible = true
 		components.extra_info.text = "Brulure : " + str(burn)
+	else:
+		components.extra_info.visible = false
 
 func attack(target: Entity, amount: int):
 	amount = clamp(amount + (strength - weakness_debuff), 0, 999999)

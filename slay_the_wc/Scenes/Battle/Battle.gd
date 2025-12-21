@@ -233,6 +233,8 @@ func battle(card: Card2, ennemie_index: int, player_slot: bool):
 	player.attack_multiplicator = 1
 
 	try_end_battle()
+	if !player_turn:
+		_on_button_pressed()
 
 func try_end_battle():
 	if alive_enemies.size() == 0:
@@ -413,12 +415,21 @@ func process_burn_entity(target: Entity, amount: int):
 func process_buff_strength_entity(target: Entity, amount: int):
 	target.add_strength(amount)
 	play_sound_battle_random(buff_taken_array)
+	
+# put all bin cards back into the deck pile
+func put_bin_in_deck():
+	DeckManager.put_discard_pile_in_deck()
+	for card_in_bin in card2Bin:
+		$PlayerHand.remove_child(card_in_bin)
+		card_in_bin.queue_free()
+	card2Bin.clear()
 
 func draw_cards(amount: int, is_init: bool = false):
 	var drawn = DeckManager.draw_cards(amount)
-	if DeckManager.deck.is_empty():
+	if DeckManager.discard_pile.is_empty():
 		for card_in_bin in card2Bin:
 			$PlayerHand.remove_child(card_in_bin)
+			card_in_bin.queue_free()
 		card2Bin.clear()
 	# instantiate card nodes and add them to the canvas
 	for  cardData in drawn:
@@ -517,7 +528,10 @@ func process_card_aix_asperant_himself(card: Card2):
 	if card.data.id == "couve":
 		process_shield_entity(player, 6)
 		process_heal_entity(player, 6)
-		_on_button_pressed()
+		player_turn = false
+	if card.data.id == "resurrection_du_phenix":
+		put_bin_in_deck()
+		draw_cards(1)
 
 func process_card_penta_monstre_himself(card: Card2):
 	if card.data.id == "ponte_protegee":
@@ -653,12 +667,18 @@ func process_card_confrerie_enemy(card: Card2, target: Enemy):
 	pass	
 func process_card_aix_asperant_enemy(card: Card2, target: Enemy):
 	if card.data.id == "brasier_solaire":
-		var hand_size = player_hand_reference.player_hand
-		for card_in_hand in player_hand_reference.player_hand:
+		var hand_size = player_hand_reference.player_hand.size()
+		for card_in_hand in player_hand_reference.player_hand.duplicate():
 			move_card_to_bin(card_in_hand)
 		process_burn_entity(target, hand_size * 4)
-	#if card.data.id == "ex"
-		
+	if card.data.id == "explosion_nova":
+		process_damage_entity(target, (target.burn+5) * 2)
+		process_burn_entity(target, -target.burn)
+	if card.data.id == "flamme_eternelle":
+		process_burn_entity(target, 5)
+	if card.data.id == "souffle_du_phenix":
+		process_burn_entity(target, target.burn * 2)
+	
 
 func process_card_penta_monstre_enemy(card: Card2, target: Enemy):
 	if card.data.id == "parasitisme":
@@ -733,6 +753,8 @@ func process_aixasperant_next_turn_actions():
 	for cardData in player.cards_played_last_turn:
 		if cardData.id == "couve":
 			player.energy += 3
+		if cardData.id == "regard_solaire":
+			player.energy += 1
 	
 func process_next_turn_actions():
 	process_pentamonstre_next_turn_actions()
